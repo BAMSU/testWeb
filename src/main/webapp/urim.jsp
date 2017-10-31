@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-蜡覆揪 规备
+蜡覆揪 规备!
 </body>
 </html>
