@@ -17,8 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import yong.member.model.MemberDAO;
 import yong.member.model.MemberDTO;
 
-
-
 @Controller
 public class MemberController {
 	

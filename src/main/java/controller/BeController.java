@@ -9,7 +9,6 @@ public class BeController {
 	
 	@RequestMapping(value="/beLogin.we",method=RequestMethod.GET)
 	public String beLoginForm() {
-		
 		return "be/beLogin";
 	}
 	
@@ -17,7 +16,6 @@ public class BeController {
 	
 	@RequestMapping(value="/beJoin.we",method=RequestMethod.GET)
 	public String  beJoinForm() {
-		
 		return "be/beJoin";
 	}
 	

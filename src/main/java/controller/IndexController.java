@@ -9,7 +9,6 @@ public class IndexController {
 	@RequestMapping("/index.we")
 	public String indexForm() {
 		return "index";
-		
 	}
 
 }
