@@ -1,90 +1,179 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript" src="js/httpRequest.js"></script>
-<script>
-function check() {
-	window.open('login.do', 'login', 'width=400px, height=200px');
-}
-function show() {
-	sendRequest('empAjaxList.do', null, showResult, 'GET');
-}
-function showResult() {
-	if(XHR.readyState==4){
-		if(XHR.status==200) {
-			var data = XHR.responseText;
-			var idTag=document.all.ajaxid;
-			idTag.innerHTML=data;
-		}
-	}
-}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
 
-function show2() {
-	sendRequest('empJsonList.do', null, showResult2, 'GET');
-}
-function showResult2() {
-	if(XHR.readyState==4) {
-		if(XHR.status==200) {
-			var data=eval('('+(XHR.responseText)+')');
-			
-			var msg='총사원수:'+data.emps.length+'명\n';
-			
-			for(var i=0;i<data.emps.length;i++) {
-				var emp=data.emps[i];
-				msg+='이름:'+emp.name+' 이메일:'+emp.email+' 부서명:'+emp.dept+'\n';
-			}
-			
-			window.alert(msg);
-		}
-	}
-}
-</script>
+	<!-- CSS includes -->
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/theme.css" rel="stylesheet">
+
+
 </head>
 <body>
-	<h2>index.jsp</h2>
-	<ul>
-		<li><a href="memberList.do">회원정보보기(yong)</a></li>
-		<li><a href="javascript:show()">ajax를 이용한 모든 사원 보기</a></li>
-		<li><div id="ajaxid"></div></li>
-		<li><a href="javascript:show2()">json을 이용한 모든 사원 보기</a></li>
-		<li><a href="bbsList.do">자유게시판</a></li>
-		<li><a href="emp.do">마지막 사원관리 프로그램</a></li>
-		<li><a href="fileDownList.do">파일 다운로드 테스트</a></li>
-		<li><a href="fileUploadForm.do">파일 업로드 테스트</a></li>
-		<li><a href="hello.do">Spring MVC Test</a></li>
-		<li><a href="memoWrite.do">메모작성하기</a></li>
-		<li><a href="order.do">매장물품 주문하기</a></li>
-		<li><a href="paramTest.do?str=spring&idx=3">파라미터 테스트</a></li>
-		<li><a href="cookieView.do">쿠키확인하기</a></li>
-		<li><a href="cookieMake.do">쿠키생성하기</a></li>
-		<li><a href="sessionView.do">세션확인하기</a></li>
-		<li><a href="sessionMake.do">세션저장하기</a></li>
-		<li><a href="viewTest.do">명시적 뷰 지정방법</a></li>
-		<li><a href="viewTest2.do">명시적 뷰 지정방법2</a></li>
-		<li><a href="view/viewOk.do">묵시적 뷰 지정방법</a></li>
-		<li><a href="viewTest4.do">또 다른 명령어 호출방법</a></li>
-		<li><a href="modelTest1.do">모델테스트1(Map)</a></li>
-		<li><a href="modelTest2.do">모델테스트2(Model)</a></li>
-		<li><a href="modelTest3.do">모델테스트3(ModelMap)</a></li>
-		<li><a href="model/modelOk.do">모델테스트4(map반환)</a></li>
-		<li><a href="model/modelOk.do">모델테스트5(model반환)</a></li>
-		<li><a href="aniFind1.do">애니메이션 검색</a></li>
-		<li><a href="join.do">회원가입</a></li>
-		<c:choose>
-			<c:when test="${empty sessionScope.name}">
-				<li><a href="javascript:check()">로그인</a></li>
-			</c:when>
-			<c:otherwise>
-				<li>${sessionScope.name}님로그인중.. | <a
-					href="javascript:location.href='logout.do'">로그아웃</a></li>
-			</c:otherwise>
-		</c:choose>
-		
-	</ul>
-</body>
-</html>
+
+  
+
+<!-- Navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="index.html" title="Wedding Cake Bootstrap Theme">
+                <img class="img" src="img/3.png" alt="Wedding Cake Bootstrap Theme" style="width:30%; height: 10%;"/>
+            </a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="index.html" class="smooth-scroll">HOME</a></li>
+				<li><a href="#">ABOUT</a></li>
+				<li><a href="#">SERVICES</a></li>
+				<li><a href="#">OFFERS</a></li>
+				<li><a href="#">GALLERY</a></li>
+				<li><a href="#">CONTACT</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<!-- Carousel -->	
+<div id="theme-carousel" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#theme-carousel" data-slide-to="0" class="active"></li>
+		<li data-target="#theme-carousel" data-slide-to="1"></li>
+		<li data-target="#theme-carousel" data-slide-to="2"></li>
+	</ol>
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<img src="img/wedding.jpg" alt="carousel2" style="width:100%; height:650px;;" />
+			<div class="carousel-caption">
+				<h2>"A special cake for a special day"</h2>
+				<p>Julia Child</p>
+			</div>
+		</div>
+		<div class="item">
+			<img src="img/wedding2.jpg" alt="carousel1" style=" width:100%; height:650px;" />
+			<div class="carousel-caption">
+				<h2>What does it come from?</h2>
+				<p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+			</div>
+		</div>
+		<div class="item">
+			<img src="img/wedding3.jpg" alt="carousel3" style="width:100%; height:650px;">
+			<div class="carousel-caption">
+				<h2>Why do we use it?</h2>
+				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+			</div>
+		</div>
+	</div>
+	<!-- Controls -->
+	<a class="left carousel-control" href="#theme-carousel" role="button" data-slide="prev">
+        <div class="carousel-control-arrow">&#8249;</div>
+	</a>
+	<a class="right carousel-control" href="#theme-carousel" role="button" data-slide="next">
+        <div class="carousel-control-arrow">&#8250;</div>
+	</a>
+</div>
+
+<div class="container-home">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1 class="text-danger">Welcome!</h1>
+				<h3>Why do we use it?</h3>
+				<p class="text-justify" >It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.</p>
+			</div>
+			<div class="col-md-4 text-center">
+				<img src="images/image1.jpg" class="img-responsive" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<img src="images/image2.jpg" class="img-responsive" />
+			</div>
+			<div class="col-md-8">
+				<h1 class="text-danger">About Us</h1>
+				<h3>What is Lorem Ipsum?</h3>
+				<p class="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			</div>
+		</div>
+    </div>
+</div>
+
+<footer id="subfooter" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p style="font-size:18px;"><span class="fa fa-birthday-cake text-danger"></span> CAKE OFFER</p>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+            </div>
+            <div class="col-md-3">
+                <p style="font-size:18px;"><span class="fa fa-clock-o text-danger"></span> OPEN HOURS</p>
+                <p>Mondays : Closed</p>
+				<p>Tue-Fri : 0am - 12am</p>
+                <p>Sat-Sun : 7am - 1am</p>
+            </div>
+			<div class="col-md-3">
+                <p style="font-size:18px;"><span class="fa fa-map-marker text-danger"></span> CONTACTS</p>
+                <p>54, North Road, PA 45086, USA</p>
+                <p>+1 888 455 6677</p>
+                <p><a href="mailto:mail@example.com">mail@example.com</a></p>
+            </div>
+            <div class="col-md-3">
+                <p style="font-size:18px;"><span class="fa fa-envelope-o text-danger"></span> NEWSLETTER</p>
+                <p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter your email..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </span>
+                    </div>
+                </p>
+                <p><br /></p>
+                <p>
+                    <a class="fa fa-twitter footer-socialicon" target="_blank" href="https://twitter.com/"></a>
+                    <a class="fa fa-facebook footer-socialicon" target="_blank" href="https://www.facebook.com/"></a>
+                    <a class="fa fa-google-plus footer-socialicon" target="_blank" href="https://plus.google.com/"></a>
+                    <a class="fa fa-linkedin footer-socialicon" target="_blank" href="https://plus.google.com/"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<footer id="footer" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                
+            </div>
+            <div class="col-md-4">
+                <p>Created by <a href="https://www.shieldui.com" title="Shield UI">Shield UI</a> and hosted by <a href="https://www.prepbootstrap.com" title="PrepBootstrap">PrepBootstrap</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+  
+
+</body> 
+</html> 
