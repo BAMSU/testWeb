@@ -175,7 +175,14 @@ ul#navlist li a:hover, ul#navlist li#active a:hover {
 					200명 이상</td>
 
 			</tr>
-
+			
+			
+			<tr>
+			<th>연습</th>
+			<td><input type="checkbox" name="now">
+			
+			</td>
+			</tr>
 
 			<tr>
 				<th>웨딩홀명</th>
