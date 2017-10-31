@@ -1,4 +1,4 @@
-package yong.controller;
+package controller;
 
 import java.util.List;
 
@@ -16,8 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import yong.member.model.MemberDAO;
 import yong.member.model.MemberDTO;
-
-
 
 @Controller
 public class MemberController {
@@ -103,7 +101,7 @@ public class MemberController {
 	
 	
 	
-	@RequestMapping(value="/login.we",method=RequestMethod.GET)
+	@RequestMapping(value="/login.do",method=RequestMethod.GET)
 	public ModelAndView loginform() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/login");

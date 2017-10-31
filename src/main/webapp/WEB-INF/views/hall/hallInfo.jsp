@@ -89,7 +89,7 @@
 			</table>
 		</div>
 		<div style="background-color: skyblue; width: 500px; height: 300px; float: left;">
-			<img src="GB05.jpg" alt="홀대표사진" style=" width: 500px; height: 250px;"/>
+			<img src="/finalproject/img/hall/GB05.jpg" alt="홀대표사진" style=" width: 500px; height: 250px;"/>
 			<p>
 				<input type="button" value="견적내기"/>
 				<input type="button" value="통계보기"/>
@@ -128,11 +128,11 @@
 			  
 				<div class="w3-content" style="max-width:800px;position:relative">
 				
-				<img class="mySlides" src="GB01.jpg" style="width:100%">
-				<img class="mySlides" src="GB02.jpg" style="width:100%;display: none;">
-				<img class="mySlides" src="GB03.jpg" style="width:100%;display: none;">
-				<img class="mySlides" src="GB04.jpg" style="width:100%;display: none;">
-				<img class="mySlides" src="GB05.jpg" style="width:100%;display: none;">
+				<img class="mySlides" src="/finalproject/img/hall/GB01.jpg" style="width:100%">
+				<img class="mySlides" src="/finalproject/img/hall/GB02.jpg" style="width:100%;display: none;">
+				<img class="mySlides" src="/finalproject/img/hall/GB03.jpg" style="width:100%;display: none;">
+				<img class="mySlides" src="/finalproject/img/hall/GB04.jpg" style="width:100%;display: none;">
+				<img class="mySlides" src="/finalproject/img/hall/GB05.jpg" style="width:100%;display: none;">
 				
 				<a class="w3-btn-floating" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
 				<a class="w3-btn-floating" style="position:absolute;top:45%;right:0;" onclick="plusDivs(1)">❯</a>
