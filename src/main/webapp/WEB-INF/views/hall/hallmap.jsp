@@ -15,7 +15,7 @@
 <li><a href="/hall/hallmap.jsp">지하철 검색</a></li>
 </ul>
 </div>
-
+ 
  
 <label>구별 지역설정</label>
 <div>
