@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 	
-	@RequestMapping("/index.do")
+	@RequestMapping("/index.we")
 	public String memberForm() {
 		return "index";
 		
