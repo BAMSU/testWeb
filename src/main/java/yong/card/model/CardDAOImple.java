@@ -22,7 +22,7 @@ private SqlSessionTemplate sqlMap;
 		return list;
 	}
 	public int getTotalCnt() {
-		int count = sqlMap.selectOne("totalCnt");
+		int count = sqlMap.selectOne("ttc");
 		return count;
 	}
 

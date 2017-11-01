@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import yong.bbs.model.BbsDTO;
 import yong.card.model.CardDAO;
 import yong.card.model.CardDTO;
 
@@ -17,20 +16,19 @@ public class CardController {
 	@Autowired
 	private CardDAO cardDao;
 	
-	@RequestMapping("/cardList.we")
+	@RequestMapping("/cardList.do")
 	public ModelAndView bbsList(@RequestParam(value="cp",
 	defaultValue="1")int cp){
 		int totalCnt = cardDao.getTotalCnt();
-		int listSize = 5;
+		int listSize = 8;
 		int pageSize = 5;
-		String pageStr = yong.page.PageModule.makePage("cardList.we", totalCnt, listSize, pageSize, cp);
-		
+		String pageStr = yong.page.PageModule.makePage("cardList.do", totalCnt, listSize, pageSize, cp);
 		
 		List<CardDTO> list=cardDao.cardList(cp,listSize);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.addObject("pageStr", pageStr);
-		mav.setViewName("card/cardList");
+		mav.setViewName("card/cardMain");
 		return mav;
 	}
 }

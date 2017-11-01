@@ -3,13 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="yong.card">
- <select id="cardlist" resultType="yong.card.model.CardDTO" parameterType="Map">
-	select * from
-	(select rownum as rnum,a.* from
-	(select * from card order by idx desc)a)b
-	where rnum<![CDATA[>=]]>#{startnum} and rnum<![CDATA[<=]]>#{endnum}
-</select>
-<select id="totalCnt" resultType="int">
-		select count(*) from card_info
-</select>
+	<select id="cardlist" resultType="yong.card.model.CardDTO" parameterType="Map">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from card_info order by card_date ascz)a)b
+		where rnum<![CDATA[>=]]>#{startnum} and rnum<![CDATA[<=]]>#{endnum}
+	</select>
+	
+	<select id="ttc" resultType="int">
+			select count(*) from card_info
+	</select>
  </mapper>
