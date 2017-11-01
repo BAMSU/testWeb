@@ -60,7 +60,6 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
-	<bean id="memoDao" class="yong.memo.model.MemoDAOImple"/>
 	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
