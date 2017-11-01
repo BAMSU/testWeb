@@ -46,7 +46,8 @@
 				<li><a href="#">OFFERS</a></li>
 				<li><a href="#">GALLERY</a></li>
 				<li><a href="#">CONTACT</a></li>
-				<li><a href="login.we">LOGIN</a></li>
+				<li><a href="memberLogin.we">LOGIN</a></li>
+				<li><a href="">SIGN UP</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
