@@ -7,7 +7,6 @@
 <style>
 li{
 	display:inline-block;
-	
 }
 </style>
 <title>Insert title here</title>
@@ -16,9 +15,9 @@ li{
 	<h1>웨딩홀</h1>
 	<div>
 		<ul>
-			<li><a href="../hall/hallsearch.jsp">웨딩홀 상세검색</a></li>
-			<li>구별 지역검색</li>
-			<li><a href="../hall/hallsubway.jsp">지하철 검색</a></li>
+			<li><a href="../halllook/hallsearch.jsp">웨딩홀 상세검색</a></li>
+			<li><a href="../halllook/hallmap.jsp">구별 지역검색</a></li>
+			<li><a href="../halllook/hallsubway.jsp">지하철 검색</a></li>
 		</ul>
 	</div>
 
