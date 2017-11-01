@@ -14,8 +14,8 @@ import honey.model.honeyDTO;
 @Controller
 public class honeyController {
 
-		@Autowired
-		honeyDAO honeyDao; 
+		/*@Autowired
+		honeyDAO honeyDao; */
 	 
 		@RequestMapping("/honeyIndex.we")
 		public String honeyIndex() {
