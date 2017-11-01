@@ -10,9 +10,9 @@
 	<h1>웨딩홀</h1>
 	<div>
 		<ul>
-			<li><a href="/hall/hallsearch.jsp">웨딩홀 상세검색</a></li>
+			<li><a href="../hall/hallsearch.jsp">웨딩홀 상세검색</a></li>
 			<li>구별 지역검색</li>
-			<li><a href="/hall/hallmap.jsp">지하철 검색</a></li>
+			<li><a href="../hall/hallsubway.jsp">지하철 검색</a></li>
 		</ul>
 	</div>
 
@@ -24,12 +24,9 @@
 		</ul>
 	</div>
 
-	<label>추천 웨딩홀</label>
+	
 
-	<table border="1">
-		<tr>
-			<th>
-			<img src="../img/search/wldur.jpg">
+			<img src="../img/hall/wldur.jpg">
 			<map id="imgmap2017111124439" name="imgmap2017111124439">
 					<area shape="rect" alt="" title="" coords="222,33,244,47" href=""
 						target="_self" />
@@ -82,11 +79,12 @@
 					<area shape="rect" alt="" title="" coords="22,95,52,111" href=""
 						target="_self" />
 					<!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
-				</map></th>
-			<td>홀 설명</td>
-		</tr>
-	</table>
+				</map>
+				<br>
+				<input type="submit" value="검색">
+				<br>
 
+	<label>추천 웨딩홀</label>
 	<label>검색 결과</label>
 	<table>
 		<tr>
