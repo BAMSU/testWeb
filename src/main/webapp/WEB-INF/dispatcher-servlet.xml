@@ -40,12 +40,7 @@
 	</bean>
 
 	<!-- controller
-	<bean id="helloController" class="yong.controller.HelloController" />
-	<bean id="memoController" class="yong.controller.MemoController" />
-	<bean id="orderController" class="yong.controller.OrderController" />
-	<bean id="ParamTestController" class="yong.controller.ParamTestController" />
-	<bean id="ViewTestController" class="yong.controller.ViewTestController" />
-	<bean id="modelTestController" class="yong.controller.ModelController" />
+
 	<bean id="anifindController" class="yong.controller.AniFindController" />
 	<bean id="memberController" class="yong.controller.MemberController" />
 	<bean id="indexController" class="yong.controller.IndexController" />
@@ -54,11 +49,13 @@
 	<bean id="bbsController" class="yong.controller.BbsController"/> -->
 	
 	<!-- service -->
-	<bean id="memberDao" class="yong.member.model.MemberDAOImple">
+	<bean id="memberDao" class="member.model.MemberDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	
+	
 	<bean id="memoDao" class="yong.memo.model.MemoDAOImple"/>
 	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
 		<constructor-arg>

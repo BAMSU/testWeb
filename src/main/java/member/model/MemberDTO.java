@@ -1,9 +1,7 @@
-package yong.member.model;
-
-import java.sql.Date;
+package member.model;
 
 public class MemberDTO {
-	
+
 	private int member_idx;
 	private String member_id;
 	private String member_name;
@@ -118,8 +116,4 @@ public class MemberDTO {
 	
 	
 	
-	
-
-	
-
 }
