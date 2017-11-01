@@ -4,6 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+div{
+	border:0;
+	word-break:break-all;
+	display:block;
+}
+.blo{
+	display:inline-block;
+	margin-right: 1px;
+	width: 150px;
+	height: 60px;
+	border: 10px solid red;
+	text-align: center;
+	padding:7px;
+	
+}
+</style>
 <title>Insert title here</title>
 <script>
 function slidshow(){
@@ -19,13 +36,11 @@ function slidshow(){
 </script>
 </head>
 <body>
-<div>
+<div class="blo">
 
-<ul>
-<li><a href="/hall/hallsearch.jsp">웨딩홀 상세검색</a></li>
-<li><a href="/hall/hallmap.jsp">구별 지역검색</a></li>
-<li>지하철 검색</li>
-</ul>
+<a href="../hall/hallsearch.jsp">웨딩홀 상세검색</a></div>
+<div class="blo"><a href="../hall/hallmap.jsp">구별 지역검색</a></div>
+<div class="blo">지하철 검색
 
 </div>
 
@@ -45,5 +60,6 @@ function slidshow(){
 	</tr>
 	</table>
 	
+
 </body>
 </html>

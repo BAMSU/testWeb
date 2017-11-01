@@ -4,6 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style>
+li{
+	display:inline-block;
+	
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body>

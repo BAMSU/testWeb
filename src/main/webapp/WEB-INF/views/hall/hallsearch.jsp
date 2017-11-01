@@ -4,29 +4,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script>
-var banner = new Array();
-var now = new Date();
-for(var i=0; i<banner.length;  i++){
-  banner[i]="banner"+(i+1)+".jpg";
-
-document.write('<img src=".../img/hall/'+banner[i]+'">');
+<style>
+div{
+	border:0;
+	word-break:break-all;
+	display:block;
 }
-</script> 
-	
+li{
+	display:inline-block;
+	margin-right: 5px;
+}
+</style>
+<title>Insert title here</title>
+
 </head>
 <body>
 
-  
-	<nav id="navcontainer">
+   
+
+	<div>
 		<ul id="navlist">
 			<li><p>웨딩홀 검색</p></li>
 			<li><p>홀 랭킹</p></li>
 			<li><p>홀vs홀</p></li>
 			<li><p>홀 견적내기</p></li>
 		</ul>
-	</nav>
+	</div>
 
 	<h2>웨딩홀</h2>
 	<img name="nemo">
@@ -34,15 +37,15 @@ document.write('<img src=".../img/hall/'+banner[i]+'">');
 	<div>
 	<ul>
 	<li>웨딩홀 상세검색</li>
-	<li><a href="/hall/hallmap.jsp">구별 검색</a></li>
-	<li><a href="/hall/hallsubway.jsp">지하철 검색</a></li>
+	<li><a href="../hall/hallmap.jsp">구별 검색</a></li>
+	<li><a href="../hall/hallsubway.jsp">지하철 검색</a></li>
 	</ul>
 	</div>
 	<form name="search" method="post" action="">
 		<table>
 
 			<tr>
-				<th>웨딩시설구분</th>
+				<th>홀 타입</th>
 				<td><input type="checkbox" name="hall_style" value="01">
 					일반형</td>
 				<td><input type="checkbox" name="hall_style" value="02">
@@ -61,7 +64,7 @@ document.write('<img src=".../img/hall/'+banner[i]+'">');
 
 
 			<tr>
-				<th>웨딩홀형태</th>
+				<th>예식형태</th>
 
 				<td><input type="checkbox" name="hall_type" value="01">
 					일반형</td>
