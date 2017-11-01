@@ -60,7 +60,7 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
-	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
+<!-- 	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
@@ -70,7 +70,7 @@
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
-	</bean>
+	</bean> -->
 	
 	<bean id="beDao" class="be.model.BeDAOImple"/>
      
