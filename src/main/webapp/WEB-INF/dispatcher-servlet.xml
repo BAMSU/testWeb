@@ -80,9 +80,6 @@
 	<bean id="roomDao" class="room.model.RoomDAOImple">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
-	<bean id="hallPhotoDao" class="hallPhoto.model.HallPhotoDAOImple">
-		<constructor-arg ref="sqlSessionTemplate"/>
-	</bean>
 
 	<!-- views -->
 	<bean id="yongdown" class="yong.view.DownloadView"/>
