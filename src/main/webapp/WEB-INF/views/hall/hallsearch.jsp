@@ -5,65 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-p {
-	margin: 0px;
-	padding: 0px;
-}
+<script>
+var banner = new Array();
+var now = new Date();
+for(var i=0; i<banner.length;  i++){
+  banner[i]="banner"+(i+1)+".jpg";
 
-#navcontainer {
-	background: #a2ce81; /*background: #f0e7d7; 모든 카테고리 후경색*/
-	width: 176px;
-	height: 280px;
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
-	font-family: georgia, serif;
-	font-size: 13px;
-	text-align: center;
-	text-transform: uppercase; /*대문자*/
+document.write('<img src=".../img/hall/'+banner[i]+'">');
 }
-
-ul#navlist {
-	text-align: center;
-	list-style: none;
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
-	width: 176px;
-}
-
-ul#navlist li {
-	display: block;
-	margin: 0;
-	padding: 0;
-}
-
-ul#navlist li a {
-	display: block;
-	width: 176px;
-	padding: 0.5em 0.5em 0.5em 2em;
-	border-width: 1px;
-	border-color: #ffe #aaab9c #ccc #fff;
-	border-style: solid;
-	color: #777;
-	/*color: #777;background: #f7f2ea; border-color: #ffe #aaab9c #ccc #fff;*/
-	text-decoration: none;
-	background: #dae2ca; /*후경색 */
-}
-
-#navcontainer>ul#navlist li a {
-	width: auto;
-}
-
-ul#navlist li a:hover, ul#navlist li#active a:hover {
-	color: #800000; /*마우스오버시 */
-	background: transparent;
-	border-color: #aaab9c #fff #fff #ccc;
-	/* color: #800000; border-color: #aaab9c #fff #fff #ccc;*/
-}
-</style>
+</script> 
+	
 </head>
 <body>
 
+  
 	<nav id="navcontainer">
 		<ul id="navlist">
 			<li><p>웨딩홀 검색</p></li>
@@ -74,6 +29,8 @@ ul#navlist li a:hover, ul#navlist li#active a:hover {
 	</nav>
 
 	<h2>웨딩홀</h2>
+	<img name="nemo">
+	
 	<div>
 	<ul>
 	<li>웨딩홀 상세검색</li>
@@ -81,7 +38,7 @@ ul#navlist li a:hover, ul#navlist li#active a:hover {
 	<li><a href="/hall/hallsubway.jsp">지하철 검색</a></li>
 	</ul>
 	</div>
-	<form name="search">
+	<form name="search" method="post" action="">
 		<table>
 
 			<tr>
@@ -175,26 +132,32 @@ ul#navlist li a:hover, ul#navlist li#active a:hover {
 					200명 이상</td>
 
 			</tr>
-			
-			
-			<tr>
-			<th>연습</th>
-			<td><input type="checkbox" name="now">
-			
-			</td>
-			</tr>
 
-			<tr>
+
+			<tr> 
 				<th>웨딩홀명</th>
 				<td><input type="text" name="hall_name"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="검색"></td>
+				<td rowspan="1"><input type="submit" value="검색"></td>
 			</tr>
 		</table>
 	</form>
 	
-
+	<label>추천 웨딩홀</label>
 	
+	<table border="1">
+	<tr>
+	<th>홀 이미지</th>
+	<td>홀 설명</td>
+	</tr>
+	</table>
+	
+	<label>검색 결과</label>
+	<table>
+	<tr>
+	<td>결과</td>
+	</tr>
+	</table>
 </body>
 </html>
