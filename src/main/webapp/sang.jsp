@@ -261,7 +261,7 @@ ul#navlist li a:hover, ul#navlist li#active a:hover {
 			</tr>
 
 
-			<tr>
+			<tr> 
 				<th>웨딩홀명</th>
 				<td><input type="text" name="hall_name"></td>
 			</tr>
