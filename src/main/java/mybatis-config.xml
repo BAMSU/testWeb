@@ -9,6 +9,7 @@
 		<mapper resource="sql/bbsSql.xml"/>
 		<mapper resource="sql/memberSql.xml"/>
 		<mapper resource="sql/honeySql.xml"/>
+		<mapper resource="sql/hallSql.xml"/>
 		<mapper resource="sql/beSql.xml"/>
 	</mappers>
 </configuration>
