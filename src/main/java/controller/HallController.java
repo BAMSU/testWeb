@@ -10,4 +10,6 @@ public class HallController {
 	public String hallInfoForm(){
 		return "hall/hallInfo";
 	}
+	
+	
 }

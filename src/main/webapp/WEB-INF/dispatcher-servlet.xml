@@ -55,7 +55,11 @@
 		</constructor-arg>
 	</bean>
 	
-	
+	<bean id="cardDao" class="yong.card.model.CardDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 	<bean id="memoDao" class="yong.memo.model.MemoDAOImple"/>
 	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
 		<constructor-arg>
@@ -69,7 +73,8 @@
 		</constructor-arg>
 	</bean>
 	
-
+	<bean id="beDao" class="be.model.BeDAOImple"/>
+     
 
 	<!-- views -->
 	<bean id="yongdown" class="yong.view.DownloadView"/>
