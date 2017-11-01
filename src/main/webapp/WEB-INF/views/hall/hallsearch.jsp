@@ -5,67 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<script type="text/javascript">
-var subway = ['','서울','인천','대전','광주','대구','부산'];
-var main_subway =[['']
-,['','1호선','2호선','3호선','4호선','5호선','6호선','7호선','8호선','9호선']
-,['','1호선']
-,['','1호선']
-,['','1호선']
-,['','1호선','2호선']
-,['','1호선','2호선','3호선','4호선','부산-김해 경전철']
-];
-
-for(var i=0;i<subway.length;i++){
- if(i == 0){
-  $("#subway").append("<option value='"+subway[i]+"' selected>선택하세요</option>");
- }else{
-  $("#subway").append("<option value='"+subway[i]+"'>"+subway[i]+"</option>"); 
- }
-}
-$("#main_subway").append("<option value='' selected>선택하세요</option>"); 
-$("#sub_subway").append("<option value='' selected>선택하세요</option>"); 
-
-$('#subway').change(function(){
- $("#main_subway").empty();
- $("#sub_subway").empty();
- $("#sub_subway").append("<option value='' selected>선택하세요</option>"); 
- var subway_index = $("#subway option").index($("#subway option:selected"));
- var main_subway_array = main_subway[subway_index];
- for(var i=0;i<main_subway_array.length;i++){
-  if(i==0){
-   $("#main_subway").append("<option value='"+main_subway_array[i]+"' selected>선택하세요</option>").attr("selected", true);
-  }else{
-   $("#main_subway").append("<option value='"+main_subway_array[i]+"'>"+main_subway_array[i]+"</option>");
-  }
- }
- $('select').selectmenu("refresh");
-});
-$('#main_subway').change(function(){
- $("#sub_subway").empty();
- var subway_index = $("#subway option").index($("#subway option:selected"));
- var main_subway_index = $("#main_subway option").index($("#main_subway option:selected"));
- var sub_subway_array = sub_subway[subway_index][main_subway_index];
- for(var i=0;i<sub_subway_array.length;i++){
-  if(i==0){
-   $("#sub_subway").append("<option value='"+sub_subway_array[i]+"' selected>선택하세요</option>").attr("selected", true);
-  }else{
-   $("#sub_subway").append("<option value='"+sub_subway_array[i]+"'>"+sub_subway_array[i]+"</option>");
-  }
- }
- $('select').selectmenu("refresh");
-});
-
-
-
-
-
-
-
-
-
-</script>
 <style type="text/css">
 p {
 	margin: 0px;
@@ -125,15 +64,6 @@ ul#navlist li a:hover, ul#navlist li#active a:hover {
 </head>
 <body>
 
-  <div data-role="fieldcontain">
-   <select name='subway' id='subway' data-theme='a'>
-   </select>
-   <select name='main_subway' id='main_subway' data-theme='a'>
-   </select>
-   <select name='sub_subway' id='sub_subway' data-theme='a'>
-   </select>
-  </div>    
-
 	<nav id="navcontainer">
 		<ul id="navlist">
 			<li><p>웨딩홀 검색</p></li>
@@ -151,7 +81,7 @@ ul#navlist li a:hover, ul#navlist li#active a:hover {
 	<li><a href="/hall/hallsubway.jsp">지하철 검색</a></li>
 	</ul>
 	</div>
-	<form name="search" method="post" action="">
+	<form name="search">
 		<table>
 
 			<tr>
@@ -245,32 +175,26 @@ ul#navlist li a:hover, ul#navlist li#active a:hover {
 					200명 이상</td>
 
 			</tr>
-
+			
+			
+			<tr>
+			<th>연습</th>
+			<td><input type="checkbox" name="now">
+			
+			</td>
+			</tr>
 
 			<tr>
 				<th>웨딩홀명</th>
 				<td><input type="text" name="hall_name"></td>
 			</tr>
 			<tr>
-				<td rowspan="1"><input type="submit" value="검색"></td>
+				<td><input type="submit" value="검색"></td>
 			</tr>
 		</table>
 	</form>
 	
-	<label>추천 웨딩홀</label>
+
 	
-	<table border="1">
-	<tr>
-	<th>홀 이미지</th>
-	<td>홀 설명</td>
-	</tr>
-	</table>
-	
-	<label>검색 결과</label>
-	<table>
-	<tr>
-	<td>결과</td>
-	</tr>
-	</table>
 </body>
 </html>

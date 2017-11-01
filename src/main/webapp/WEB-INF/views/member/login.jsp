@@ -10,7 +10,7 @@
 	<section>
 		<article>
 			<h2>로 그 인</h2>
-			<form name="login" action="login.do" method="post">
+			<form name="login" action="login.we" method="post">
 				<fieldset>
 					<table align="center">
 
@@ -18,7 +18,7 @@
 							<th>ID</th>
 							<td><input type="text" name="id"
 								value="${cookie.saveid.value}"></td>
-						</tr>
+						</tr>	
 						<tr>
 							<th>Password</th>
 							<td><input type="password" name="pwd"></td>
