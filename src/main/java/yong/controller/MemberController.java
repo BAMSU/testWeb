@@ -103,7 +103,7 @@ public class MemberController {
 	
 	
 	
-	@RequestMapping(value="/login.do",method=RequestMethod.GET)
+	@RequestMapping(value="/login.we",method=RequestMethod.GET)
 	public ModelAndView loginform() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/login");

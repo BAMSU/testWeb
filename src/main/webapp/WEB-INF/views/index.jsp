@@ -40,12 +40,13 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="index.html" class="smooth-scroll">HOME</a></li>
+				<li class="active"><a href="#" class="smooth-scroll">HOME</a></li>
 				<li><a href="#">ABOUT</a></li>
 				<li><a href="#">SERVICES</a></li>
 				<li><a href="#">OFFERS</a></li>
 				<li><a href="#">GALLERY</a></li>
 				<li><a href="#">CONTACT</a></li>
+				<li><a href="login.we">LOGIN</a></li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
