@@ -23,5 +23,23 @@
 <li>이미지</li>
 </ul>
 </div>
+
+<label>추천 웨딩홀</label>
+	
+	<table border="1">
+	<tr>
+	<th>홀 이미지</th>
+	<td>홀 설명</td>
+	</tr>
+	</table>
+	
+	<label>검색 결과</label>
+	<table>
+	<tr>
+	<td>결과</td>
+	</tr>
+	</table>
+	
+	
 </body>
 </html>
