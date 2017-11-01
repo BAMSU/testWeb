@@ -8,7 +8,7 @@ public interface MemberDAO {
 	
 	public boolean idCheck(String id);
 	
-	public int login(String id, String pwd);
+	public int member_login(String id, String pwd);
 	
 	public String getUserInfo(String id);
 	

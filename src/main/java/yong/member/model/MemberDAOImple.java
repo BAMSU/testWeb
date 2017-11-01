@@ -85,13 +85,13 @@ public class MemberDAOImple implements MemberDAO {
 	}
 	
 	/** 로그인 관련 메서드 */
-	public int login(String id, String pwd) {
+	public int member_login(String member_id, String member_pwd) {
 		try {
 			conn = yong.db.YongDb.getConn();
 
 			String sql = "select * from jsp_member where id=?";
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, id);
+			ps.setString(1, member_id);
 
 			int count = ps.executeUpdate();
 

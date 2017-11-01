@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<section>
 		<article>
 			<h2>로 그 인</h2>
-			<form name="login" action="login.we" method="post">
+			<form name="login" action="login.we" >
 				<fieldset>
 					<table align="center">
 
