@@ -2,8 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="yong.member">
-	<select id="memberList" resultType="yong.member.model.MemberDTO" >
-		select * from jsp_member order by idx desc
+<mapper namespace="member">
+	<select id="memberLogin" resultType="member.model.MemberDTO" >
+		select * member where  member_id=?
+	</select>
+	
+	<select id="memberLogin2" resultType="member.model.MemberDTO" >
+		select member_id from member where member_pwd=?
 	</select>
 </mapper>

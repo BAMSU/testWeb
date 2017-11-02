@@ -18,4 +18,8 @@ public class MemberDAOImple implements MemberDAO {
 		super();
 		this.sqlMap = sqlMap;
 	}
+	
+	public int Member_Login(String member_id,String member_pwd){
+		int count = 
+	}
 }
