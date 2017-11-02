@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="beHeader.jsp" %>
 <h2>업체 등록신청</h2>
 <br>
 <!-- be_idx, be_sort, be_name, be_license, be_rep_tell, incharge_name, incharge_email, incharge_tell
@@ -31,47 +32,47 @@
 	
 	<tr>
 		<td>업체명</td> 
-		<td><input type="text" name="be_name"></td> 
+		<td><input type="text" name="be_name" required></td> 
 		<td>사업자 등록번호</td> 
-		<td><input type="text" name="be_license"></td>
+		<td><input type="text" name="be_license" required></td>
 	</tr>
 	
 	<tr>
 		<td>소재지</td> 
-		<td><input type="text" name="be_loc"></td> 
+		<td><input type="text" name="be_loc" required></td> 
 		<td>매장규모</td> 
-		<td><input type="text" name="be_size"></td>
+		<td><input type="text" name="be_size" required></td>
 	</tr>
 	
 	<tr>
 		<td>대표번호</td> 
-		<td><input type="text" name="be_rep_tell"></td> 
+		<td><input type="text" name="be_rep_tell" required></td> 
 	</tr>
 	
 	<tr>
 		<td>담당자명</td> 
-		<td><input type="text" name="incharge_name"></td> 
+		<td><input type="text" name="incharge_name" required></td> 
 		<td>담당자 이메일</td> 
-		<td><input type="text" name="incharge_email"></td>
+		<td><input type="text" name="incharge_email" required></td>
 	</tr>
 	
 	<tr>
 		<td>담당자 연락처</td> 
-		<td><input type="text" name="incharge_tell"></td> 
+		<td><input type="text" name="incharge_tell" required></td> 
 	</tr>
 	
 	<tr>
 		<td>주차시설</td> 
-		<td><input type="text" name="be_park"></td> 
+		<td><input type="text" name="be_park" required></td> 
 		<td>임직원 수</td> 
-		<td><input type="text" name="be_empnum"></td>
+		<td><input type="text" name="be_empnum" required></td>
 	</tr>
 	
 	<tr>
 		<td>업체 아이디</td> 
-		<td><input type="text" name="be_id"> <input type="button" value="아이디 중복체크"></td> 
+		<td><input type="text" name="be_id" required> <input type="button" value="아이디 중복체크"></td> 
 		<td>업체 비밀번호</td> 
-		<td><input type="password" name="be_pwd"></td>
+		<td><input type="password" name="be_pwd" required></td>
 	</tr>
 	
 	<tr>

@@ -31,6 +31,19 @@ public class BeController {
 		return "be/beLogin";
 	}
 	
+	@RequestMapping(value="/logout.we")
+	public ModelAndView beLogout(HttpServletRequest req, HttpServletResponse resp){
+		
+		HttpSession session = req.getSession();
+		session.invalidate();
+		
+		ModelAndView mav = new ModelAndView();
+		String msg = "로그아웃되었습니다.";
+		mav.addObject("msg",msg);
+		mav.setViewName("be/beLogin");
+		
+		return mav;
+	}
 	@RequestMapping(value="/beLogin.we",method=RequestMethod.POST)
 	public ModelAndView beLoginSubmit(BeDTO dto, HttpServletRequest req, HttpServletResponse resp){
 		
@@ -52,7 +65,8 @@ public class BeController {
 			HttpSession session = req.getSession();
 			session.setAttribute("besid", dto.getBe_id());
 			session.setAttribute("besname", dto2.getBe_name());
-			
+			session.setAttribute("besort", dto2.getBe_sort());
+			System.out.println(dto2.getBe_sort()+"123");
 			msg = dto2.getBe_name()+"업체 로그인 되었습니다.";
 			href = "beIndex.we";
 			
@@ -99,7 +113,11 @@ public class BeController {
 	public String regItemForm() {
 		return "be/regItem";
 	}
-	
+
+	@RequestMapping(value="/regSDMY.we")
+	public String regSDMY() {
+		return "be/register/regSDMY";
+	}
 }
 
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,12 @@ function beJoin(){
 </script>
 </head>
 <body>
-
+<%@include file="beHeader.jsp" %>
+<c:if test="${!empty sessionScope.besid }">
+	<script type="text/javascript">
+		location.href="beIndex.we";
+	</script>
+</c:if>
 <br>
 <fieldset>
 <form action="beLogin.we" method="post">
