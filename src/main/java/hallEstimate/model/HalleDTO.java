@@ -2,7 +2,7 @@ package hallEstimate.model;
 
 import java.util.*;
 
-public class halleDTO {
+public class HalleDTO {
 
 	private int idx;
 	private String hall;
@@ -10,13 +10,13 @@ public class halleDTO {
 	private String gestalt;
 	
 	
-	private hallcDTO hallcdto;
+	private HallcDTO hallcdto;
 	
-	public halleDTO(){
+	public HalleDTO(){
 		super();
 	}
 
-	public halleDTO(int idx, String hall, String hall_name, String gestalt) {
+	public HalleDTO(int idx, String hall, String hall_name, String gestalt) {
 		super();
 		this.idx = idx;
 		this.hall = hall;

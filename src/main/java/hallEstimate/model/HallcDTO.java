@@ -1,6 +1,6 @@
 package hallEstimate.model;
 
-public class hallcDTO {
+public class HallcDTO {
 
 	private int idx;
 	private String choice_name;
@@ -8,10 +8,10 @@ public class hallcDTO {
 	private String guest;
 	private String interval;
 	
-	public hallcDTO() {
+	public HallcDTO() {
 		super();
 	}
-	public hallcDTO(int idx, String choice_name, String gestalt, String guest, String interval) {
+	public HallcDTO(int idx, String choice_name, String gestalt, String guest, String interval) {
 		super();
 		this.idx = idx;
 		this.choice_name = choice_name;

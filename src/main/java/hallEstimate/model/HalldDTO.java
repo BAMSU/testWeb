@@ -1,15 +1,15 @@
 package hallEstimate.model;
 
-public class halldDTO {
+public class HalldDTO {
 	
 	private int idx;
 	private String drink_type;
 	private String price;
 	private String hall_idx;
-	public halldDTO() {
+	public HalldDTO() {
 		super();
 	}
-	public halldDTO(int idx, String drink_type, String price, String hall_idx) {
+	public HalldDTO(int idx, String drink_type, String price, String hall_idx) {
 		super();
 		this.idx = idx;
 		this.drink_type = drink_type;

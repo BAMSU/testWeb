@@ -1,68 +1,53 @@
 package hallEstimate.model;
 
-public class hallmDTO {
+public class HallfDTO {
 	
 	private int idx;
-	private String meal;
+	private String product;
 	private String price;
+	private String note;
 	private String content;
-	private int hall_idx;
-	
-	
-	
-	public hallmDTO() {
+	public HallfDTO() {
 		super();
 	}
-
-	public hallmDTO(int idx, String meal, String price, String content, int hall_idx) {
+	public HallfDTO(int idx, String product, String price, String note, String content) {
 		super();
 		this.idx = idx;
-		this.meal = meal;
+		this.product = product;
 		this.price = price;
+		this.note = note;
 		this.content = content;
-		this.hall_idx = hall_idx;
 	}
-
 	public int getIdx() {
 		return idx;
 	}
-
 	public void setIdx(int idx) {
 		this.idx = idx;
 	}
-
-	public String getMeal() {
-		return meal;
+	public String getProduct() {
+		return product;
 	}
-
-	public void setMeal(String meal) {
-		this.meal = meal;
+	public void setProduct(String product) {
+		this.product = product;
 	}
-
 	public String getPrice() {
 		return price;
 	}
-
 	public void setPrice(String price) {
 		this.price = price;
 	}
-
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
+	}
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
-	public int getHall_idx() {
-		return hall_idx;
-	}
-
-	public void setHall_idx(int hall_idx) {
-		this.hall_idx = hall_idx;
-	}
 	
 	
-
 }
