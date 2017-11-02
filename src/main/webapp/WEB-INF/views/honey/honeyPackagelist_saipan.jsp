@@ -34,7 +34,7 @@ section {
 <body>
 	<table>
 		<tr>
-			<td><img src="selectmodive.jpg" usemap="#worldmap"
+			<td><img src="selectedsaipan.jpg" usemap="#worldmap"
 				width="800px;"> <map id="worldmap" name="worldmap">
 					<area shape="rect" alt="유럽" coords="42,122,90,183"
 						href="honeyPackagelist_eu.jsp" target="_self" />
@@ -56,56 +56,44 @@ section {
 		</tr>
 	</table>
 
-	<h2>몰디브</h2>
+	<h2>사이판</h2>
 	<hr>
 	<table id="plist">
 		<tr>
 			<td><div>
-					<a href="honeyContent/honeyContent_mol1.jsp"> <img
-						src="imgmodiv/moldiv1.JPG">
+					<a href="honeyContent/honeyContent_saipan4.jsp"> <img
+						src="imgsaipan/saipan4.jpg">
 					</a>
 				</div>
 				<div
-					onclick="javascript:location.href='honeyContent/honeyContent_mol1.jsp'"
+					onclick="javascript:location.href='honeyContent/honeyContent_saipan4.jsp'"
 					style="cursor: pointer; padding-left: 10px; padding-top: 5px; padding-bottom: 5px;">
-					<font size="2">콘스탄스 무푸시 / 몰디브 <br> 4박 5일 by 트레비아
+					<font size="2"> 마나가하 / 사이판<br> 4박 5일 by 타웨이 항공
 					</font><br>
 				</div></td>
 			<td><div>
-					<a href="honeyContent/honeyContent_mol2.jsp"> <img
-						src="imgmodiv/moldiv2.JPG">
+					<a href="honeyContent/honeyContent_saipan3.jsp"> <img
+						src="imgsaipan/saipan3.jpg">
 					</a>
 				</div>
 				<div
-					onclick="javascript:location.href='honeyContent/honeyContent_mol2.jsp'"
+					onclick="javascript:location.href='honeyContent/honeyContent_saipan3.jsp'"
 					style="cursor: pointer; padding-left: 10px; padding-top: 5px; padding-bottom: 5px;">
-					<font size="2">더 레지던스 풀빌라/ 몰디브 <br> 4박 6일 by 롯데
+					<font size="2">마이크로 비치 / 사이판 <br> 4박 5일 by 하나투어
 					</font><br>
 				</div></td>
 			<td><div>
-					<a href="honeyContent/honeyContent_mol3.jsp"> <img
-						src="imgmodiv/moldiv3.jpg">
+					<a href="honeyContent/honeyContent_saipan2.jsp"> <img
+						src="imgsaipan/saipan4.jpg">
 					</a>
 				</div>
 				<div
-					onclick="javascript:location.href='honeyContent/honeyContent_mol3.jsp'"
+					onclick="javascript:location.href='honeyContent/honeyContent_saipan2.jsp'"
 					style="cursor: pointer; padding-left: 10px; padding-top: 5px; padding-bottom: 5px;">
-					<font size="2">앙사나 벨라바루 / 몰디브 <br> 4박 5일 by 트레비아
-					</font><br>
-				</div></td>
-			<td><div>
-					<a href="honeyContent/honeyContent_mol4.jsp"> <img
-						src="imgmodiv/moldiv4.jpg">
-					</a>
-				</div>
-				<div
-					onclick="javascript:location.href='honeyContent/honeyContent_mol4.jsp'"
-					style="cursor: pointer; padding-left: 10px; padding-top: 5px; padding-bottom: 5px;">
-					<font size="2">파크하얏타 하다하 / 몰디브 <br> 4박 6일 by 트레비아
+					<font size="2">하얏트 리젠시 / 사이판 <br> 4박 5일 by 제우스
 					</font><br>
 				</div></td>
 		</tr>
-
 	</table>
 </body>
 </html>
