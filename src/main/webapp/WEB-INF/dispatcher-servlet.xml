@@ -60,22 +60,7 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
-<<<<<<< HEAD
 
-=======
-<!-- 	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	
-	<bean id="bbsDao" class="yong.bbs.model.BbsDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean> -->
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
-	
 	<bean id="beDao" class="be.model.BeDAOImple"/>
      
     <bean id="hallDao" class="hall.model.HallDAOImple">
