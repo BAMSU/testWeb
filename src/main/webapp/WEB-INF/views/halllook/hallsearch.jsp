@@ -23,7 +23,7 @@ li{
    
 
 	<div>
-		<ul id="navlist">
+		<ul>
 			<li><p>웨딩홀 검색</p></li>
 			<li><p>홀 랭킹</p></li>
 			<li><p>홀vs홀</p></li>
@@ -36,12 +36,12 @@ li{
 	
 	<div>
 	<ul>
-	<li>웨딩홀 상세검색</li>
-	<li><a href="../hall/hallmap.jsp">구별 검색</a></li>
-	<li><a href="../hall/hallsubway.jsp">지하철 검색</a></li>
+	<li><a href="../halllook/hallsearch.jsp">웨딩홀 상세검색</a></li>
+	<li><a href="../halllook/hallmap.jsp">구별 검색</a></li>
+	<li><a href="../halllook/hallsubway.jsp">지하철 검색</a></li>
 	</ul>
 	</div>
-	<form name="search" method="post" action="">
+	<form name="search" method="post" action="hallsearch.we">
 		<table>
 
 			<tr>

@@ -5,7 +5,12 @@
 
 <configuration>
 	<mappers>
+<<<<<<< HEAD
 		<mapper resource="sql/memberSql.xml"/>
+=======
+		<mapper resource="sql/empSql.xml"/>
+		<mapper resource="sql/bbsSql.xml"/>
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
 		<mapper resource="sql/honeySql.xml"/>
 		<mapper resource="sql/hallSql.xml"/>
 		<mapper resource="sql/beSql.xml"/>

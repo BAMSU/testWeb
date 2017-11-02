@@ -11,4 +11,6 @@ public class HallsearchController {
 	public String hallsearchForm(){
 		return "hall/hallsearch";
 	}
+	
+	
 }

@@ -9,7 +9,4 @@
 	<select id="roomInfoSQL" parameterType="int" resultType="room.model.RoomDTO">
 		select * from room where hallIdx=#{idx}
 	</select>
-	<select id="hallPhotoSQL" parameterType="int" resultType="hallPhoto.model.HallPhotoDTO">
-		select * from hallPhoto where hallIdx=#{idx}
-	</select>
 </mapper>
