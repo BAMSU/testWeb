@@ -11,6 +11,7 @@ import room.model.RoomDAO;
 
 @Controller
 public class HallController {
+	
 	@Autowired
 	private HallDAO hallDao;
 	@Autowired

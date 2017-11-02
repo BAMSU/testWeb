@@ -39,14 +39,6 @@
 	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
 	</bean>
 
-	<!-- controller
-
-	<bean id="anifindController" class="yong.controller.AniFindController" />
-	<bean id="memberController" class="yong.controller.MemberController" />
-	<bean id="indexController" class="yong.controller.IndexController" />
-	<bean id="fileManagerController" class="yong.controller.FileManagerController"/>
-	<bean id="empController" class="yong.controller.EmpController"/>
-	<bean id="bbsController" class="yong.controller.BbsController"/> -->
 	
 	<!-- service -->
 	<bean id="memberDao" class="member.model.MemberDAOImple">
@@ -68,6 +60,7 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	
 	<bean id="roomDao" class="room.model.RoomDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
