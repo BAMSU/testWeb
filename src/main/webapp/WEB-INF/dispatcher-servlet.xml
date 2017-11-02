@@ -60,17 +60,7 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
-	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	
-	<bean id="bbsDao" class="yong.bbs.model.BbsDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
+
 	
 	<bean id="beDao" class="be.model.BeDAOImple"/>
      
@@ -85,7 +75,6 @@
 	</bean>
 
 	<!-- views -->
-	<bean id="yongdown" class="yong.view.DownloadView"/>
 	<bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
 	
 	<bean id="viewResolver"
