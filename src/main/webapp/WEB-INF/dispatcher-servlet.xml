@@ -64,10 +64,14 @@
 	<bean id="beDao" class="be.model.BeDAOImple"/>
      
     <bean id="hallDao" class="hall.model.HallDAOImple">
-		<constructor-arg ref="sqlSessionTemplate"/>
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
 	</bean>
 	<bean id="roomDao" class="room.model.RoomDAOImple">
-		<constructor-arg ref="sqlSessionTemplate"/>
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
 	</bean>
 
 	<!-- views -->
