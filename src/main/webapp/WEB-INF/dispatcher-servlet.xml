@@ -39,14 +39,6 @@
 	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
 	</bean>
 
-	<!-- controller
-
-	<bean id="anifindController" class="yong.controller.AniFindController" />
-	<bean id="memberController" class="yong.controller.MemberController" />
-	<bean id="indexController" class="yong.controller.IndexController" />
-	<bean id="fileManagerController" class="yong.controller.FileManagerController"/>
-	<bean id="empController" class="yong.controller.EmpController"/>
-	<bean id="bbsController" class="yong.controller.BbsController"/> -->
 	
 	<!-- service -->
 	<bean id="memberDao" class="member.model.MemberDAOImple">
@@ -60,29 +52,21 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
-<!-- 	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	
-	<bean id="bbsDao" class="yong.bbs.model.BbsDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean> -->
-	
-	<bean id="beDao" class="be.model.BeDAOImple"/>
+
+	<!-- <bean id="beDao" class="be.model.BeDAOImple"/> -->
      
     <bean id="hallDao" class="hall.model.HallDAOImple">
-		<constructor-arg ref="sqlSessionTemplate"/>
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
 	</bean>
 	<bean id="roomDao" class="room.model.RoomDAOImple">
-		<constructor-arg ref="sqlSessionTemplate"/>
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
 	</bean>
 
 	<!-- views -->
-	<bean id="yongdown" class="yong.view.DownloadView"/>
 	<bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
 	
 	<bean id="viewResolver"

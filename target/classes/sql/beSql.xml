@@ -3,3 +3,34 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
+<mapper namespace="be">
+	<insert id="beJoin" parameterType="be.model.BeDTO">
+	insert into 
+	be_join
+	values(be_idx.nextval,
+		#{be_sort},
+		#{be_name},
+		#{be_license},
+		#{be_rep_tell},
+		#{incharge_name},
+		#{incharge_email},
+		#{incharge_tell},
+		#{be_loc},
+		#{be_size},
+		#{be_park},
+		#{be_empnum},
+		0,
+		'n',
+		#{be_id},
+		#{be_pwd})
+	</insert>
+	
+	<select id="beLogin" parameterType="be.model.BeDTO" resultType="be.model.BeDTO">
+		select * from be_join where be_id=#{be_id}
+	</select>
+	<select id="loginfo" parameterType="String" resultType="be.model.BeDTO">
+		select * from be_join where be_id=#{be_id}
+	</select>
+	
+</mapper>
+
