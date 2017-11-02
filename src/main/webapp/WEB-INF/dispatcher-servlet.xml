@@ -41,6 +41,11 @@
 
 	
 	<!-- service -->
+	<bean id="beDao" class="be.model.BeDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 	<bean id="memberDao" class="member.model.MemberDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
