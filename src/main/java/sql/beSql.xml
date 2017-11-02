@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="yong.be">
+<mapper namespace="be">
 	<insert id="beJoin" parameterType="be.model.BeDTO">
 	insert into 
 	be_join
