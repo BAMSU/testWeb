@@ -2,6 +2,7 @@ package controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,11 @@ public class BeController {
 	@Autowired
 	private BeDAO beDao;
 	
+	@RequestMapping(value="/beHeader.we",method=RequestMethod.GET)
+	public String beHeader() {
+		return "be/beHeader";
+	}
+	
 	@RequestMapping(value="/beLogin.we",method=RequestMethod.GET)
 	public String beLoginForm() {
 		return "be/beLogin";
@@ -34,19 +40,20 @@ public class BeController {
 		String msg="";
 		String href="";
 		
-		if(result==0) { //¾ÆÀÌµð ¶Ç´Â ºñ¹Ð¹øÈ£°¡ ¸ÂÁö¾ÊÀ½
+		if(result==0) { //ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ë§žì§€ì•ŠìŒ
 			
-			msg = "¾ÆÀÌµð ¶Ç´Â ºñ¹Ð¹øÈ£°¡ Æ²·È½À´Ï´Ù.";
+			msg = "ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.";
 			href= "beLogin.we";
 			
-		}else if(result==1){	//¾ÆÀÌµð ºñ¹Ð¹øÈ£ ¸ðµÎ ¸ÂÀ½
+		}else if(result==1){	//ì•„ì´ë”” ë¹„ë°€ë²ˆí˜¸ ëª¨ë‘ ë§žìŒ
 			
 			BeDTO dto2 = beDao.loginInfo(dto.getBe_id());
 			
-			req.setAttribute("besid", dto.getBe_id());
-			req.setAttribute("besname", dto2.getBe_name());
+			HttpSession session = req.getSession();
+			session.setAttribute("besid", dto.getBe_id());
+			session.setAttribute("besname", dto2.getBe_name());
 			
-			msg = dto2.getBe_name()+"¾÷Ã¼ ·Î±×ÀÎ µÇ¾ú½À´Ï´Ù.";
+			msg = dto2.getBe_name()+"ì—…ì²´ ë¡œê·¸ì¸ ë˜ì—ˆìŠµë‹ˆë‹¤.";
 			href = "beIndex.we";
 			
 		}
@@ -71,8 +78,8 @@ public class BeController {
 		int result = beDao.BeJoin(dto);
 		String name = dto.getBe_name();
 		String msg = result>0?
-				name+"¾÷Ã¼ µî·Ï ½ÅÃ» ¿Ï·á! °ü¸®ÀÚÀÇ ½ÂÀÎÀ» ±â´Ù·ÁÁÖ¼¼¿ä."
-				:"¾÷Ã¼µî·Ï ½ÅÃ» ½ÇÆÐ! ´Ù½Ã ½ÃµµÇØÁÖ¼¼¿ä.";
+				name+"ì—…ì²´ ë“±ë¡ ì‹ ì²­ ì™„ë£Œ! ê´€ë¦¬ìžì˜ ìŠ¹ì¸ì„ ê¸°ë‹¤ë ¤ì£¼ì„¸ìš”."
+				:"ì—…ì²´ë“±ë¡ ì‹ ì²­ ì‹¤íŒ¨! ë‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”.";
 		String href= result>0?"beLogin.we":"beJoin.we";
 		
 		System.out.println(msg);
@@ -87,6 +94,10 @@ public class BeController {
 	@RequestMapping(value="/beIndex.we")
 	public String  beIndex() {
 		return "be/beIndex";
+	}
+	@RequestMapping(value="/beReg.we",method=RequestMethod.GET)
+	public String regItemForm() {
+		return "be/regItem";
 	}
 	
 }
