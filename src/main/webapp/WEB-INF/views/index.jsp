@@ -154,6 +154,7 @@
                     <a class="fa fa-facebook footer-socialicon" target="_blank" href="https://www.facebook.com/"></a>
                     <a class="fa fa-google-plus footer-socialicon" target="_blank" href="https://plus.google.com/"></a>
                     <a class="fa fa-linkedin footer-socialicon" target="_blank" href="https://plus.google.com/"></a>
+                    <a class="fa fa-btn-flickr footer-socialicon" target="_blank" href="chatting.we"></a>
                 </p>
             </div>
         </div>
