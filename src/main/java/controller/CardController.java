@@ -13,7 +13,7 @@ import yong.card.model.CardDTO;
 
 @Controller
 public class CardController {
-	@Autowired
+	/*@Autowired
 	private CardDAO cardDao;
 	
 	@RequestMapping("/cardList.do")
@@ -30,5 +30,5 @@ public class CardController {
 		mav.addObject("pageStr", pageStr);
 		mav.setViewName("card/cardMain");
 		return mav;
-	}
+	}*/
 }

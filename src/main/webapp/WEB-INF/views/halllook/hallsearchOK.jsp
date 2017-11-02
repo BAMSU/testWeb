@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>관리자 전용 페이지</h2>
-<h3>웨딩홀관리/기타관리/랭킹보기/문의게시판</h3>  
+<h2>확인</h2>
 </body>
 </html>

@@ -1,6 +1,6 @@
 package controller;
 
-import java.util.List;	
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,8 +14,8 @@ import honey.model.honeyDTO;
 @Controller
 public class honeyController {
 
-		@Autowired
-		honeyDAO honeyDao; 
+		/*@Autowired
+		honeyDAO honeyDao; */
 	 
 		@RequestMapping("/honeyIndex.we")
 		public String honeyIndex() {
