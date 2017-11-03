@@ -24,33 +24,36 @@ public class BeDAOImple implements BeDAO {
 		
 		BeDTO dto2 = sqlMap.selectOne("beLogin", dto);
 		
-		// dbid dbpwd db¿¡¼­ °¡Á®¿Â Á¤º¸
-		// inid inpwd ÀÔ·ÂµÈ Á¤º¸
+		// dbid dbpwd dbì—ì„œ ê°€ì ¸ì˜¨ ì •ë³´
+		// inid inpwd ì…ë ¥ëœ ì •ë³´
 		
 		String dbid = dto2.getBe_id();
 		String dbpwd = dto2.getBe_pwd();
 		String inid = dto.getBe_id();
 		String inpwd = dto.getBe_pwd();
 		
-		//¾ÆÀÌµğ°¡ ¸ÂÀ¸¸é
+		//ì•„ì´ë””ê°€ ë§ìœ¼ë©´
 		if(dbid.equals(inid)) {
-			//¾ÆÀÌµğ ºñ¹ø ¸ğµÎ ¸ÂÀ¸¸é
+			//ì•„ì´ë”” ë¹„ë²ˆ ëª¨ë‘ ë§ìœ¼ë©´
 			if(dbpwd.equals(inpwd)) {
 				return 1;
 			}else {
-				//ºñ¹Ğ¹øÈ£ Æ²¸®¸é
+				//ë¹„ë°€ë²ˆí˜¸ í‹€ë¦¬ë©´
 				return 0;
 			}
 		}
 		return 0;
 	}
-	
 	public BeDTO loginInfo(String be_id) {
 	
 		BeDTO logdto = sqlMap.selectOne("loginfo", be_id);
 		
 		return logdto;
 	}
+	
+	
+	
+	
 }
 
 
