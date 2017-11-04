@@ -70,6 +70,11 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	<bean id="consult" class="consult.model.ConsultDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 
 	<!-- views -->
 	<bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
