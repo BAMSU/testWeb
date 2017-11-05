@@ -1,5 +1,10 @@
 package hall.model;
 
+import java.util.List;
+
 public interface HallDAO {
-	public HallDTO HallInfo(int idx);
+	public HallDTO getHallInfo(int idx);
+	public List getHallList();
+	public List getHallListByGu(String gu);
+	public List getHallListByName(String name);
 }
