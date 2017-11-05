@@ -7,12 +7,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <c:set var="h" value="${hallInfo}"/>
 <style>
 #map {
  height: 400px;
  width: 100%;
+}
+a {
+	cursor: pointer;
 }
 </style>
 <script>
@@ -39,19 +43,18 @@
 	var e = 7;
 	showDivs(slideIndex);
 	
-	function plusDivs(n) {
+	function plusDivs(n){
 	  showDivs(slideIndex += n);
 	}
 	
 	function showDivs(n) {
-	  var i;
 	  var x = document.getElementsByClassName("mySlides");
 	  if (n > e) {slideIndex = s;}   
 	  if (n < s) {slideIndex = e;}
-	  for (i = s; i <= e; i++) {
-	     x[i].style.display = "none";  
+	  for (var i = s; i <= e; i++) {
+		  x[i].style.display = "none";
 	  }
-	  x[slideIndex].style.display = "block";  
+	  x[slideIndex].style.display = "block";   
 	}
 </script>
 <script>
@@ -72,11 +75,9 @@
 		}else{
 			$('#grade').text('☆☆☆☆☆');
 		}
-		$('.w3-content').css('width','1000px');
-		$('.w3-content').css('position','relative');
-		
-		$('.w3-content .mySlides').css('width','100%');
-		$('.w3-content .mySlides').css('height','400px');
+		$('.mySlides').css('width','100%');
+		$('.mySlides').css('height','400px');
+	});
 	function setSlide(i){
 		if(i==1){
 			$('.w3-content:eq(0)').hide();
@@ -106,7 +107,7 @@
 			$('.w3-content:eq(3)').hide();
 			$('.w3-content:eq(4)').show();
 			s=15;e=15;
-		}else {
+		}else{
 			$('.w3-content:eq(0)').show();
 			$('.w3-content:eq(1)').hide();
 			$('.w3-content:eq(2)').hide();
@@ -203,7 +204,7 @@
 				  			<td>${r.weekDay}</td>
 				  			<td>${r.type}</td>
 				  			<td>${r.guest}</td>
-				  			<td>${r.interval}</td>
+				  			<td>${r.interval}분</td>
 				  			<td>${r.menu}</td>
 				  			<td>${r.menuPrice}</td>
 				  		</tr>
@@ -223,17 +224,17 @@
 			
 			<div id="photo">
 				<p>
-				<a href="javascript:setSlide(0)">전체</a>
+				<a onclick="setSlide(0)">전체</a>
 				<c:set var="sc" value="1"/>
 			  	<c:forEach var="r" items="${roomInfo}">
-			  		<a href="javascript:setSlide(${sc})">${r.name}</a>
+			  		<a onclick="setSlide(${sc})">${r.name}</a>
 			  		<c:set var="sc" value="2"/>
 			  	</c:forEach>
-			  	<a href="javascript:setSlide(3)">신부대기실</a>
-			  	<a href="javascript:setSlide(4)">폐백실</a>
+			  	<a onclick="setSlide(3)">신부대기실</a>
+			  	<a onclick="setSlide(4)">폐백실</a>
 			  	</p>
-				<div class="w3-content">
-					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r1.jpg" >
+				<div class="w3-content w3-display-container" style="width:1000px;">
+					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r1.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r2.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r3.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r4.jpg" style="display: none;">
@@ -242,36 +243,36 @@
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/w1.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/p1.jpg" style="display: none;">
 					
-					<a class="w3-btn-floating" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
-					<a class="w3-btn-floating" style="position:absolute;top:45%;right:0;" onclick="plusDivs(1)">❯</a>
+					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
+					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content" style="display: none;">
+				<div class="w3-content w3-display-container" style="width:1000px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r1.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r2.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r3.jpg" style="display: none;">
 					
-					<a class="w3-btn-floating" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
-					<a class="w3-btn-floating" style="position:absolute;top:45%;right:0;" onclick="plusDivs(1)">❯</a>
+					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
+					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content" style="display: none;">
+				<div class="w3-content w3-display-container" style="width:1000px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r4.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r5.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r6.jpg" style="display: none;">
 					
-					<a class="w3-btn-floating" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
-					<a class="w3-btn-floating" style="position:absolute;top:45%;right:0;" onclick="plusDivs(1)">❯</a>
+					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
+					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content" style="display: none;">
+				<div class="w3-content w3-display-container" style="width:1000px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/w1.jpg">
 					
-					<a class="w3-btn-floating" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
-					<a class="w3-btn-floating" style="position:absolute;top:45%;right:0;" onclick="plusDivs(1)">❯</a>
+					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
+					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content" style="display: none;">
+				<div class="w3-content w3-display-container" style="width:1000px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/p1.jpg">
 					
-					<a class="w3-btn-floating" style="position:absolute;top:45%;left:0;" onclick="plusDivs(-1)">❮</a>
-					<a class="w3-btn-floating" style="position:absolute;top:45%;right:0;" onclick="plusDivs(1)">❯</a>
+					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
+					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
 			</div>
 			
