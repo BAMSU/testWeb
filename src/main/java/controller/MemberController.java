@@ -89,7 +89,7 @@ public class MemberController {
 		}
 		
 		
-		mav.setViewName("member/memberMsg");
+		mav.setViewName("member/memberMsg"); 
 		return mav;
 	}
 	
