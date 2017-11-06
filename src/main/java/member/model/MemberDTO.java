@@ -4,13 +4,13 @@ public class MemberDTO {
 
 	private int member_idx;
 	private String member_id;
-	private String member_name;
 	private String member_pwd;
+	private String member_name;	
 	private String member_email;
 	private String member_phone;
 	private String member_addrnum;
 	private String member_addrbasic;
-	private String member_detail;
+	private String member_addrdetail;
 	private String member_gender;
 	
 	public MemberDTO() {
@@ -18,7 +18,7 @@ public class MemberDTO {
 	}
 
 	public MemberDTO(int member_idx, String member_id, String member_name, String member_pwd, String member_email,
-			String member_phone, String member_addrnum, String member_addrbasic, String member_detail,
+			String member_phone, String member_addrnum, String member_addrbasic, String member_addrdetail,
 			String member_gender) {
 		super();
 		this.member_idx = member_idx;
@@ -29,7 +29,7 @@ public class MemberDTO {
 		this.member_phone = member_phone;
 		this.member_addrnum = member_addrnum;
 		this.member_addrbasic = member_addrbasic;
-		this.member_detail = member_detail;
+		this.member_addrdetail = member_addrdetail;
 		this.member_gender = member_gender;
 	}
 
@@ -97,12 +97,12 @@ public class MemberDTO {
 		this.member_addrbasic = member_addrbasic;
 	}
 
-	public String getMember_detail() {
-		return member_detail;
+	public String getMember_addrdetail() {
+		return member_addrdetail;
 	}
 
-	public void setMember_detail(String member_detail) {
-		this.member_detail = member_detail;
+	public void setMember_addrdetail(String member_addrdetail) {
+		this.member_addrdetail = member_addrdetail;
 	}
 
 	public String getMember_gender() {
@@ -112,6 +112,8 @@ public class MemberDTO {
 	public void setMember_gender(String member_gender) {
 		this.member_gender = member_gender;
 	}
+
+	
 	
 	
 	
