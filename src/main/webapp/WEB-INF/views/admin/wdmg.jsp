@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>관리자 전용 페이지</h2>
-<h3><a href="wdmg.we">웨딩홀관리</a>/<a href="ecmg.we">기타관리</a>/<a href="rkmg.we">랭킹보기</a>/<a href="fqmg.we">문의게시판</a></h3>  
+<input type="text" name="name">
+<input type="text" name="hallType">
+<input type="text" name="mealCost">
+
 </body>
 </html>
