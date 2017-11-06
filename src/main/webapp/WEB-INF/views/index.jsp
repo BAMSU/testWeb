@@ -187,6 +187,50 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
+<<<<<<< HEAD
+=======
+<footer id="subfooter" class="clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p style="font-size:18px;"><span class="fa fa-birthday-cake text-danger"></span> CAKE OFFER</p>
+                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+            </div>
+            <div class="col-md-3">
+                <p style="font-size:18px;"><span class="fa fa-clock-o text-danger"></span> OPEN HOURS</p>
+                <p>Mondays : Closed</p>
+				<p>Tue-Fri : 0am - 12am</p>
+                <p>Sat-Sun : 7am - 1am</p>
+            </div>
+			<div class="col-md-3">
+                <p style="font-size:18px;"><span class="fa fa-map-marker text-danger"></span> CONTACTS</p>
+                <p>54, North Road, PA 45086, USA</p>
+                <p>+1 888 455 6677</p>
+                <p><a href="mailto:mail@example.com">mail@example.com</a></p>
+            </div>
+            <div class="col-md-3">
+                <p style="font-size:18px;"><span class="fa fa-envelope-o text-danger"></span> NEWSLETTER</p>
+                <p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Enter your email..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </span>
+                    </div>
+                </p>
+                <p><br /></p>
+                <p>
+                    <a class="fa fa-twitter footer-socialicon" target="_blank" href="https://twitter.com/"></a>
+                    <a class="fa fa-facebook footer-socialicon" target="_blank" href="https://www.facebook.com/"></a>
+                    <a class="fa fa-google-plus footer-socialicon" target="_blank" href="https://plus.google.com/"></a>
+                    <a class="fa fa-linkedin footer-socialicon" target="_blank" href="https://plus.google.com/"></a>
+                    <a class="fa fa-btn-flickr footer-socialicon" target="_blank" href="chatting.we"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
 
 </body>
 </html>
