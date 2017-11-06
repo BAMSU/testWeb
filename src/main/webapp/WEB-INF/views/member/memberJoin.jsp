@@ -75,39 +75,59 @@
 	}
 </script>
 
+<script>
+	function show() {
+		var userid = document.join.id.value;
+		var params = 'userid=' + userid;
+		sendRequest('idCheck.we', params, showResult, 'GET');
+	}
+
+	function showResult() {
+		if (XHR.readyState == 4) {
+			if (XHR.status == 200) {
+				var data = XHR.responseText;
+
+				var spanTag = document.all.idCheckMsg;
+				spanTag.innerHTML = data;
+
+			}
+		}
+	}
+</script>
+
 
 </head>
 <body>
 
 	<h2>회원가입</h2>
-	<form action="memberJoin.we" name="join">
+	<form action="memberJoin.we" name="join" method="POST">
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="id"> <input type="button"
+				<td><input type="text" name="id" required=required> <input type="button"
 					value="중복검사" onclick="show()"> <span id="idCheckMsg"></span>
 				</td>
 			</tr>
 
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password" name="pwd"></td>
+				<td><input type="password" name="pwd" required=required></td>
 			</tr>
 
 			<tr>
 				<th>비밀번호 확인</th>
-				<td><input type="password" name="pwdCheck"></td>
+				<td><input type="password" name="pwdCheck" required=required></td>
 			</tr>
 
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="name"></td>
+				<td><input type="text" name="name" required=required></td>
 			</tr>
 
 			<tr>
 				<th>이메일</th>
-				<td><input type="text" name="member_email">@<input
-					type="text" name="emailde"> <select>
+				<td><input type="text" name="member_email" required=required>@<input
+					type="text" name="emailde" required=required> <select>
 						<option value="0">직접입력</option>
 						<option value="naver.com">naver.com</option>
 						<option value="daum.net">daum.net</option>
@@ -126,26 +146,27 @@
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="017">010</option>
-				</select>-<input type="text" name="member_phone2">-<input type="text"
-					name="member_phone3"></td>
+				</select>-<input type="text" name="member_phone2" required=required>-<input type="text"
+					name="member_phone3" required=required></td>
 			</tr>
 
 
 			<tr>
-				<td><input type="text" id="sample4_postcode" placeholder="우편번호"></td>
+				<td><input type="text" id="sample4_postcode" placeholder="우편번호" required=required></td>
 				<td><input type="button" onclick="sample4_execDaumPostcode()"
 					value="우편번호 찾기"></td>
 				<br>
 				<td><input type="text" id="sample4_roadAddress"
-					placeholder="도로명주소"></td>
+					placeholder="도로명주소" required=required></td>
 				<td><input type="text" id="sample4_jibunAddress"
-					placeholder="지번주소"></td>
+					placeholder="지번주소" required=required></td>
 				<td><span id="guide" style="color: #999"></span></td>
 			</tr>
 
 			<tr>
 				<th>자동 가입방지</th>
-				<div class="g-recaptcha" data-sitekey="6LfaSTcUAAAAAEJRszvg9YzQ8HYAg22mny4DONka"></div>
+				<div class="g-recaptcha"
+					data-sitekey="6LfaSTcUAAAAAEJRszvg9YzQ8HYAg22mny4DONka"></div>
 
 			</tr>
 

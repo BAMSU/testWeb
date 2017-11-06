@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,17 +26,14 @@ public class MemberController {
 
 	@Autowired
 	private MemberDAO memberDao;
+	private MemberDTO memberDto;
 	
 	@RequestMapping("memberLogin.we")
 	public String loginForm(){
 		
 		return "member/memberLogin";
 	}
-	
-	@RequestMapping("memberJoin.we")
-	public String joinForm(){
-		return "member/memberJoin";
-	}
+
 	
 	@RequestMapping("memberidFind.we")
 	public String idFind(){
@@ -93,6 +92,14 @@ public class MemberController {
 		return mav;
 	}
 	
+	
+	@RequestMapping("idCheck.we")
+	public ModelAndView member_IdCheck(@RequestParam("userid")String userid){
+		System.out.println(userid);
+		
+		return null;
+	}
+	
 	@RequestMapping("memberLogout.we")
 	public ModelAndView member_logout(HttpServletRequest req){
 		
@@ -105,6 +112,26 @@ public class MemberController {
 		
 		
 		mav.setViewName("index");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value="/memberJoin.we", method=RequestMethod.GET)
+	public String joinForm(){
+		return "member/memberJoin";
+	}
+	@RequestMapping(value="/memberJoin.we", method=RequestMethod.POST)
+	public ModelAndView joinSubmit(MemberDTO dto){
+		
+		ModelAndView mav = new ModelAndView();
+		System.out.println(dto.getMember_id());
+		int result = memberDao.MemberJoin(dto);
+		String msg = result>0?"회원가입 축하 ":"회원가입 실패";
+	
+		mav.addObject("msg" , msg);
+		
+		mav.setViewName("index");
+		
 		
 		return mav;
 	}
