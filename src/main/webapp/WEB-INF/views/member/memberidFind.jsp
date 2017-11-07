@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>아이디 찾기</h2>
-	<form name="fm" action="">
+	<form name="fm" action="idFindSubmit.we">
 		<fieldset>
 			<legend>아이디 찾기</legend>
 			<table>
@@ -21,10 +21,11 @@
 					<th>이메일</th>
 					<td><input type="text" name="email"></td>
 				</tr>
-				
+
 				<tr>
-				<td><input type="button" value="아이디찾기"></td>
+					<td><input type="submit" value="아이디찾기"></td>
 				</tr>
+				
 			</table>
 		</fieldset>
 	</form>
