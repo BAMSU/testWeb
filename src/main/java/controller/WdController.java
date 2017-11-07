@@ -32,7 +32,6 @@ public class WdController {
 	public ModelAndView wdContent(String name) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", dao.getHallListByName(name));
-		HallDTO dto = dao.getHallListByName(name);
 		mav.setViewName("wd/updateWd");
 		return mav;
 	}
