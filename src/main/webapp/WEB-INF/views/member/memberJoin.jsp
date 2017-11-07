@@ -94,24 +94,7 @@
 		}
 	}
 </script>
-<script>
-function aa(){
-	var a = document.join.member_pwd.value;
-	var b = document.join.member_pwd2.value;
-	
-	var tel1 = document.join.tel1.value;
-	var tel2 = document.join.tel2.value;
-	var tel3 = document.join.tel3.value;
-	
-	if(a==b){
-		document.join.tel.value = tel1+tel2+tel3;
-		join.submit();
-	}else{
-		window.alert('비밀번호와 비밀번호 확인 값이 다릅니다.')
-	}
-}
 
-</script>
 
 </head>
 <body>
@@ -169,13 +152,13 @@ function aa(){
 
 
 			<tr>
-				<td><input type="text" id="sample4_postcode" placeholder="우편번호" required=required></td>
+				<td><input type="text" id="sample4_postcode" name = "member_addrnum" placeholder="우편번호" required=required  ></td>
 				<td><input type="button" onclick="sample4_execDaumPostcode()"
 					value="우편번호 찾기"></td>
 				<br>
-				<td><input type="text" id="sample4_roadAddress" name=""
+				<td><input type="text" id="sample4_roadAddress" name = "member_addrbasic"
 					placeholder="도로명주소" required=required></td>
-				<td><input type="text" id="sample4_jibunAddress"
+				<td><input type="text" id="sample4_jibunAddress" name = "member_addrdetail"
 					placeholder="지번주소" required=required></td>
 				<td><span id="guide" style="color: #999"></span></td>
 			</tr>
