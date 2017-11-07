@@ -104,24 +104,24 @@
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="id" required=required> <input type="button"
+				<td><input type="text" name="member_id" required=required> <input type="button"
 					value="중복검사" onclick="show()"> <span id="idCheckMsg"></span>
 				</td>
 			</tr>
 
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password" name="pwd" required=required></td>
+				<td><input type="password" name="member_pwd" required=required placeholder="영문 ·숫자 (8~12) 조합"></td>
 			</tr>
 
 			<tr>
 				<th>비밀번호 확인</th>
-				<td><input type="password" name="pwdCheck" required=required></td>
+				<td><input type="password" name="member_pwd2" required=required></td>
 			</tr>
 
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="name" required=required></td>
+				<td><input type="text" name="member_name" required=required></td>
 			</tr>
 
 			<tr>
@@ -146,19 +146,19 @@
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="017">010</option>
-				</select>-<input type="text" name="member_phone2" required=required>-<input type="text"
-					name="member_phone3" required=required></td>
+				</select>-<input type="text" name="member_phone2" required=required maxlength="4" size="4">-<input type="text"
+					name="member_phone3" required=required maxlength="4" size="4"></td>
 			</tr>
 
 
 			<tr>
-				<td><input type="text" id="sample4_postcode" placeholder="우편번호" required=required></td>
+				<td><input type="text" id="sample4_postcode" name = "member_addrnum" placeholder="우편번호" required=required  ></td>
 				<td><input type="button" onclick="sample4_execDaumPostcode()"
 					value="우편번호 찾기"></td>
 				<br>
-				<td><input type="text" id="sample4_roadAddress"
+				<td><input type="text" id="sample4_roadAddress" name = "member_addrbasic"
 					placeholder="도로명주소" required=required></td>
-				<td><input type="text" id="sample4_jibunAddress"
+				<td><input type="text" id="sample4_jibunAddress" name = "member_addrdetail"
 					placeholder="지번주소" required=required></td>
 				<td><span id="guide" style="color: #999"></span></td>
 			</tr>
@@ -171,7 +171,7 @@
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center"><input type="submit"
+				<td colspan="2" align="center"><input type="submit" onclick="javascript:aa()"
 					value="회원가입"></td>
 			</tr>
 

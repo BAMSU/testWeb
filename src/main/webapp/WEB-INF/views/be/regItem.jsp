@@ -10,7 +10,7 @@
 </head>
 <body onload="msg()">
 <%@include file="beHeader.jsp" %>
-<h2>업체상품등록페이지</h2>
+<h2>업체상품등록페이지</h2>		<!-- 상품등록은 업로드 / 리스트 출력은 프로젝트 내에 이미지 파일 경로 -->
 <br><br>
 
 업체종류 : ${sessionScope.besort } 
@@ -19,33 +19,39 @@
 <c:choose>
 	<c:when test="${sessionScope.besort == '스튜디오'}"> 
 		<br> 스튜디오업체입니당 <br>
-		<c:import url="register/regSDMY.jsp"></c:import>
+		<%@include file="register/regSDMY.jsp" %>
 	</c:when>
 	
 	<c:when test="${sessionScope.besort == '드레스' }"> 
 		드레스 업체입력폼 불러오기
-		<c:import url="register/regSDMY.jsp"></c:import>	
+		<%@include file="register/regSDMY.jsp" %>
 	</c:when>
 	
 	<c:when test="${sessionScope.besort == '메이크업' }"> 
 		업체입력폼 불러오기
-		<c:import url="register/regSDMY.jsp"></c:import>
+		<%@include file="register/regSDMY.jsp" %>
 	</c:when>
 	
 	<c:when test="${sessionScope.besort == '예복' }"> 
 		업체입력폼 불러오기
-		<c:import url="register/regSDMY.jsp"></c:import>	
+		<%@include file="register/regSDMY.jsp" %>
 	</c:when>
 	
-	<c:when test="${sessionScope.besort == '웨딩카' }"> 업체입력폼 불러오기</c:when>
+	<c:when test="${sessionScope.besort == '웨딩카' }"> 
+		<%@include file="register/regCar.jsp" %>
+	</c:when>
 	
-	<c:when test="${sessionScope.besort == '웨딩슈즈' }"> 업체입력폼 불러오기</c:when>
+	<c:when test="${sessionScope.besort == '웨딩슈즈' }"> 
+		<%@include file="register/regShoes.jsp" %>
+	</c:when>
 	
-	<c:when test="${sessionScope.besort == '부케' }"> 업체입력폼 불러오기</c:when>
-
+	<c:when test="${sessionScope.besort == '부케' }"> 
+		<%@include file="register/regBouq.jsp" %>
+	</c:when>
 </c:choose>
 
 <br>
+
 
 </body>
 </html>

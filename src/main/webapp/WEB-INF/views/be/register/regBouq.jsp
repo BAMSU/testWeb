@@ -5,16 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 </head>
 <body>
-	<!--스.드.메.예 입력폼  -->
+<!--부케 입력폼  -->
 	<h2>${sessionScope.besort } 상품 등록 신청</h2>
-<form action="regSDMY.we" name="sdmyIn" method="post" enctype="multipart/form-data">
+<form action="regBouq.we" name="bouqIn" method="post" enctype="multipart/form-data">
 <table>
 
 	<tr>
 		<td>업체명</td> <td><input type="text" name="sdmy_be" value="${sessionScope.besname}" readonly style="border-style: none;" required></td>
+	</tr>
+	
+	<tr>
+		<td>상품이름</td> 
+		<td><input type="text" name="bouq_name" value="${sessionScope.besname}" readonly style="border-style: none;" required></td>
 	</tr>
 
 	<tr>
@@ -43,6 +47,8 @@
 		</td>
 	</tr>
 	
+	<tr>
+	</tr>
 	<tr>
 		<td>
 			<input type="hidden" name="be_sort" value="${sessionScope.besort }">

@@ -124,8 +124,9 @@ public class MemberController {
 	public ModelAndView joinSubmit(MemberDTO dto){
 		
 		ModelAndView mav = new ModelAndView();
-		System.out.println(dto.getMember_id());
+		
 		int result = memberDao.MemberJoin(dto);
+		
 		String msg = result>0?"회원가입 축하 ":"회원가입 실패";
 	
 		mav.addObject("msg" , msg);
