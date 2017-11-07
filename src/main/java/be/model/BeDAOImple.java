@@ -1,6 +1,8 @@
 package be.model;
 
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
 public class BeDAOImple implements BeDAO {
@@ -24,21 +26,21 @@ public class BeDAOImple implements BeDAO {
 		
 		BeDTO dto2 = sqlMap.selectOne("beLogin", dto);
 		
-		// dbid dbpwd dbì—ì„œ ê°€ì ¸ì˜¨ ì •ë³´
-		// inid inpwd ì…ë ¥ëœ ì •ë³´
+		// dbid dbpwd db¿¡¼­ °¡Á®¿Â Á¤º¸
+		// inid inpwd ÀÔ·ÂµÈ Á¤º¸
 		
 		String dbid = dto2.getBe_id();
 		String dbpwd = dto2.getBe_pwd();
 		String inid = dto.getBe_id();
 		String inpwd = dto.getBe_pwd();
 		
-		//ì•„ì´ë””ê°€ ë§ìœ¼ë©´
+		//¾ÆÀÌµğ°¡ ¸ÂÀ¸¸é
 		if(dbid.equals(inid)) {
-			//ì•„ì´ë”” ë¹„ë²ˆ ëª¨ë‘ ë§ìœ¼ë©´
+			//¾ÆÀÌµğ ºñ¹ø ¸ğµÎ ¸ÂÀ¸¸é
 			if(dbpwd.equals(inpwd)) {
 				return 1;
 			}else {
-				//ë¹„ë°€ë²ˆí˜¸ í‹€ë¦¬ë©´
+				//ºñ¹Ğ¹øÈ£ Æ²¸®¸é
 				return 0;
 			}
 		}
@@ -51,7 +53,41 @@ public class BeDAOImple implements BeDAO {
 		return logdto;
 	}
 	
+	public int regSDMY(SDMYDTO dto) {
+		
+		int result = sqlMap.insert("regSDMY", dto);
+				
+		return result;
+	}
+	public int regCar(CarDTO dto) {
+		
+		int result = sqlMap.insert("regCar", dto);
+		
+		return result;
+	}
+	public int regShoes(ShoesDTO dto) {
+		
+		int result = sqlMap.insert("regShoes",dto);
+		
+		return result;
+	}
 	
+	public List<SDMYDTO> beItemListSDMY(String besname) {
+		
+		SDMYDTO dto2 = new SDMYDTO();
+		dto2.setSdmy_be(besname);
+		
+		List<SDMYDTO> list = sqlMap.selectList("beListSDMY",dto2);
+		
+		return list;
+	}
+	public SDMYDTO itemDetailSDMY(String be_name) {
+		
+		SDMYDTO dto = (SDMYDTO)sqlMap.selectOne("itemDetailSDMY", be_name);
+		
+		return dto;
+		
+	}
 	
 	
 }

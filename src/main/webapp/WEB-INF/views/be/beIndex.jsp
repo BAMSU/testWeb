@@ -34,7 +34,8 @@ border-style: solid;
 <div>
 	<a href="beReg.we"><input type="button" value="상품등록" class="be_index_button"></a> 
 	<a href="#"><input type="button" value="신청현황" class="be_index_button"></a>
-	<a href="#"><input type="button" value="상품리스트" class="be_index_button"></a>
+	<a href="itemListBe.we"><input type="button" value="상품리스트" class="be_index_button"></a>
+	<a href="#"><input type="button" value="상품수정" class="be_index_button"></a>
 </div>
 
 </body>
