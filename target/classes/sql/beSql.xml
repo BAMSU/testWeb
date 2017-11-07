@@ -32,5 +32,69 @@
 		select * from be_join where be_id=#{be_id}
 	</select>
 	
+	<insert id="regSDMY" parameterType="be.model.SDMYDTO">
+		insert into
+			be_sdmy values(
+				sdmy_idx.nextval,
+				#{sdmy_category},
+				#{sdmy_be},
+				#{sdmy_thumbnail},
+				#{sdmy_avg},
+				#{sdmy_img1},
+				#{sdmy_img2},
+				#{sdmy_img3},
+				#{sdmy_img4},
+				#{sdmy_img5},
+				#{sdmy_img6},
+				#{sdmy_img7},
+				#{sdmy_img8},
+				0,
+				0,
+				'n'
+			) 
+	</insert>
+	
+	<select id="beListSDMY" parameterType="be.model.SDMYDTO" resultType="be.model.SDMYDTO">
+		select * from be_sdmy where sdmy_be = #{sdmy_be} order by sdmy_idx desc	
+	</select>
+	
+	<insert id="regCar" parameterType="be.model.CarDTO">
+		insert into be_car values(
+			car_idx.nextval,
+			#{car_name},
+			#{car_be},
+			#{car_price},
+			#{car_img},
+			#{car_detail},
+			0,
+			0,
+			'n'
+		)
+	</insert>
+	
+	<insert id="regShoes" parameterType="be.model.ShoesDTO">
+		insert into be_car values(
+			shoes_idx.nextval,
+			#{shoes_name},
+			#{shoes_be},
+			#{shoes_thumbnail},
+			#{shoes_size},
+			#{shoes_heel},
+			#{shoes_material},
+			#{shoes_img},
+			#{shoes_detail},
+			0,
+			0,
+			'n'
+		)
+	</insert>
+	
+	<select id="itemDetailSDMY" parameterType="String" resultType="be.model.SDMYDTO">
+		select * from 
+					be_sdmy
+					where
+					sdmy_be = #{sdmy_be}
+	</select>
+	
 </mapper>
 
