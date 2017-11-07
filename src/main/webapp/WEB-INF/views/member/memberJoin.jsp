@@ -94,7 +94,24 @@
 		}
 	}
 </script>
+<script>
+function aa(){
+	var a = document.join.member_pwd.value;
+	var b = document.join.member_pwd2.value;
+	
+	var tel1 = document.join.tel1.value;
+	var tel2 = document.join.tel2.value;
+	var tel3 = document.join.tel3.value;
+	
+	if(a==b){
+		document.join.tel.value = tel1+tel2+tel3;
+		join.submit();
+	}else{
+		window.alert('비밀번호와 비밀번호 확인 값이 다릅니다.')
+	}
+}
 
+</script>
 
 </head>
 <body>
@@ -104,24 +121,24 @@
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="id" required=required> <input type="button"
+				<td><input type="text" name="member_id" required=required> <input type="button"
 					value="중복검사" onclick="show()"> <span id="idCheckMsg"></span>
 				</td>
 			</tr>
 
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password" name="pwd" required=required></td>
+				<td><input type="password" name="member_pwd" required=required placeholder="영문 ·숫자 (8~12) 조합"></td>
 			</tr>
 
 			<tr>
 				<th>비밀번호 확인</th>
-				<td><input type="password" name="pwdCheck" required=required></td>
+				<td><input type="password" name="member_pwd2" required=required></td>
 			</tr>
 
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="name" required=required></td>
+				<td><input type="text" name="member_name" required=required></td>
 			</tr>
 
 			<tr>
@@ -146,8 +163,8 @@
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="017">010</option>
-				</select>-<input type="text" name="member_phone2" required=required>-<input type="text"
-					name="member_phone3" required=required></td>
+				</select>-<input type="text" name="member_phone2" required=required maxlength="4" size="4">-<input type="text"
+					name="member_phone3" required=required maxlength="4" size="4"></td>
 			</tr>
 
 
@@ -156,7 +173,7 @@
 				<td><input type="button" onclick="sample4_execDaumPostcode()"
 					value="우편번호 찾기"></td>
 				<br>
-				<td><input type="text" id="sample4_roadAddress"
+				<td><input type="text" id="sample4_roadAddress" name=""
 					placeholder="도로명주소" required=required></td>
 				<td><input type="text" id="sample4_jibunAddress"
 					placeholder="지번주소" required=required></td>
@@ -171,7 +188,7 @@
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center"><input type="submit"
+				<td colspan="2" align="center"><input type="submit" onclick="javascript:aa()"
 					value="회원가입"></td>
 			</tr>
 
