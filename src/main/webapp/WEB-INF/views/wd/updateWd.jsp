@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
+
+
+
 	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 	function sample4_execDaumPostcode() {
 		new daum.Postcode(
@@ -63,15 +66,20 @@
 					}
 				}).open();
 	}
+	
 </script>
 </head>
 <body>
-홀 이름 : <input type="text" name="name">${list.name}<br>
-홀 타입 : <input type="text" name="hallType"><br>
-식사 가격 : <input type="text" name="mealCost"><br>
-식사 타입 : <input type="text" name="menuType"><br>
-손님 : <input type="text" name="menuType"><br>
-한줄 성명 : <textarea name = "ckPoint"></textarea><br>
+<form name = "fm">
+<c:forEach var="dto" items="${list}">
+		
+
+홀 이름 : <input type="text" name="name" value="${dto.name}"><br>
+홀 타입 : <input type="text" name="hallType" value="${dto.hallType}"><br>
+식사 가격 : <input type="text" name="mealCost" value="${dto.hallType}"><br>
+식사 타입 : <input type="text" name="menuType" value="${dto.hallType}"><br>
+손님 : <input type="text" name="menuType" value="${dto.hallType}"><br>
+한줄 성명 : <textarea name = "ckPoint" >ddd</textarea><br>
 오시는 길 : <input type="text" name="traffic"><br>
 호선 : <input type="text" name="line"><br>
 역 이름 : <input type="text" name="station"><br>
@@ -82,5 +90,7 @@
 				<input type="text" id="sample4_roadAddress" placeholder="도로명주소">
 				<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
 				<span id="guide" style="color: #999"></span>
+				</c:forEach>
+				</form>
 </body>
 </html>
