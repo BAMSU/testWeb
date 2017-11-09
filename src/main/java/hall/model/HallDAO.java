@@ -7,6 +7,4 @@ public interface HallDAO {
 	public List getHallList();
 	public List getHallListByGu(String gu);
 	public List getHallListByName(String name);
-	public int insertWd(HallDTO dto);
-	public int updateWd(HallDTO dto);
 }

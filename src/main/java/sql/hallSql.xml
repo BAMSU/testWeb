@@ -16,52 +16,6 @@
 	<select id="hallAddSearchByNameSQL" parameterType="String" resultType="hall.model.HallDTO">
 		select * from hall where name = #{name}
 	</select>
-	<insert id="inserthall" parameterType="hall.model.HallDTO">
-		insert into 
-	hall
-	values(hall_idx.nextval,
-		#{name},
-		0.0,
-		0,
-		#{si},
-		#{gu},
-		#{dong},
-		#{addr},
-		#{roadAddr},
-		#{hallType},
-		#{mealCost},
-		#{menuType},
-		#{guest},
-		#{ckPoint},
-		#{locationX},
-		#{locationY},
-		#{traffic},
-		#{line},
-		#{station})
-	</insert>
-	<update id="updatehall" parameterType="hall.model.HallDTO">
-		update hall
-		set
-		name = #{name},
-		grade = #{grade},
-		accrue = #{accrue},
-		si = #{si},
-		gu = #{gu},
-		dong = #{dong},
-		addr = #{addr},
-		roadAddr = #{roadAddr},
-		hallType = #{hallType},
-		mealCost = #{mealCost},
-		menuType = #{menuType},
-		guest = #{guest},
-		ckPoint = #{ckPoint},
-		locationX = #{locationX},
-		locationY = #{locationY},
-		traffic = #{traffic},
-		line = #{line},
-		station = #{station}
-		where idx=#{idx}
-	</update>
 	<!-- room -->
 	<select id="roomInfoSQL" parameterType="int" resultType="room.model.RoomDTO">
 		select * from room where hallIdx = #{hallIdx}
