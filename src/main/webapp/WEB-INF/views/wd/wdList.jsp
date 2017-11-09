@@ -20,8 +20,8 @@ function aa() {
 		<h3>등록된 웨딩홀이 없습니다.</h3>
 	</c:if>
 	<c:forEach var="dto" items="${list}">
-		<c:url var="contentUrl" value="updateWd.we"><c:param name="name">${dto.name}</c:param></c:url>
-		<a href="${contentUrl}">${dto.name}</a>
+		<c:url var="contentUrl" value="updateWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		${dto.idx}<a href="${contentUrl}">${dto.name}</a>
 	</c:forEach>
 </body>
 </html>
