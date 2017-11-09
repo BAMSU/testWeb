@@ -2,4 +2,4 @@
 	pageEncoding="UTF-8"%>
 
 
-<jsp:forward page="index.do"></jsp:forward>
+<jsp:forward page="index.we"></jsp:forward>

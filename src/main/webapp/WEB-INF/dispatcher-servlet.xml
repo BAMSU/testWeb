@@ -8,8 +8,7 @@
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<!-- configs -->
-	
-	<context:component-scan base-package="yong" use-default-filters="false">
+	<context:component-scan base-package="controller" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
@@ -22,9 +21,9 @@
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-	<property name="username" value="scott"/>
-	<property name="password" value="1234"/>
+	<property name="url" value="jdbc:oracle:thin:@yongstudy.iptime.org:9000:orcl"/>
+	<property name="username" value="project03_01"/>
+	<property name="password" value="project03_01"/>
 	</bean>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -40,44 +39,46 @@
 	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
 	</bean>
 
-	<!-- controller
-	<bean id="helloController" class="yong.controller.HelloController" />
-	<bean id="memoController" class="yong.controller.MemoController" />
-	<bean id="orderController" class="yong.controller.OrderController" />
-	<bean id="ParamTestController" class="yong.controller.ParamTestController" />
-	<bean id="ViewTestController" class="yong.controller.ViewTestController" />
-	<bean id="modelTestController" class="yong.controller.ModelController" />
-	<bean id="anifindController" class="yong.controller.AniFindController" />
-	<bean id="memberController" class="yong.controller.MemberController" />
-	<bean id="indexController" class="yong.controller.IndexController" />
-	<bean id="fileManagerController" class="yong.controller.FileManagerController"/>
-	<bean id="empController" class="yong.controller.EmpController"/>
-	<bean id="bbsController" class="yong.controller.BbsController"/> -->
 	
 	<!-- service -->
-	<bean id="memberDao" class="yong.member.model.MemberDAOImple">
+	<bean id="beDao" class="be.model.BeDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
-	<bean id="memoDao" class="yong.memo.model.MemoDAOImple"/>
-	<bean id="empDao" class="yong.emp.model.EmpDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	
-	<bean id="bbsDao" class="yong.bbs.model.BbsDAOImple">
+	<bean id="memberDao" class="member.model.MemberDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
 	
+	<bean id="cardDao" class="yong.card.model.CardDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 
+	<!-- <bean id="beDao" class="be.model.BeDAOImple"/> -->
+     
+    <bean id="hallDao" class="hall.model.HallDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
+	<bean id="roomDao" class="room.model.RoomDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
+	<bean id="consult" class="consult.model.ConsultDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 
 	<!-- views -->
-	<bean id="yongdown" class="yong.view.DownloadView"/>
 	<bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
 	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -2,8 +2,44 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="yong.member">
-	<select id="memberList" resultType="yong.member.model.MemberDTO" >
-		select * from jsp_member order by idx desc
+<mapper namespace="member">
+	<select id="memberLogin" resultType="int">
+		select count(*) from member
+		where member_id=#{member_id}
 	</select>
+
+	<select id="memberLogin2" resultType="String">
+		select member_pwd
+		from
+		member where member_id=#{id}
+	</select>
+
+	<select id="memberList" resultType="member.model.MemberDTO">
+		select * from jsp_member
+		order by idx desc
+	</select>
+
+	<select id="memberIdcheck" resultType="String">
+		select id from member
+		where member_id=#{id}
+	</select>
+
+
+	<insert id="memberJoin" parameterType="member.model.MemberDTO">
+
+		insert into
+		member
+		values(member_idx.nextval,
+		#{member_id},
+		#{member_pwd},
+		#{member_name},
+		#{member_email},
+		#{member_phone},
+		#{member_addrnum},
+		#{member_addrbasic},
+		#{member_addrdetail},
+		#{member_gender})
+	</insert>
+
+
 </mapper>
