@@ -22,13 +22,13 @@ function beJoin(){
 <br>
 <fieldset>
 <form action="beLogin.we" method="post">
-	로그인 <input type="text" name="be_id" placeholder="id"><br>
-	비밀번호 <input type="password" name="be_pwd"> <br>
-	<input type="submit" value="Login"><br>
+	로그인 <input type="text" name="be_id" placeholder="id" required><br>
+	비밀번호 <input type="password" name="be_pwd" required> <br>
+	<input type="submit" value="Login"><br><input type="button" value="업체등록신청" onclick="beJoin()">
 </form>
 </fieldset>
 
-<input type="button" value="업체등록신청" onclick="beJoin()">
+
 
 </body>
 </html>

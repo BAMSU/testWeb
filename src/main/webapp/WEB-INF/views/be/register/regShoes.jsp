@@ -8,55 +8,57 @@
 </head>
 <body>
 <!--웨딩슈즈 입력폼  -->
-	<h2>${sessionScope.besort } 상품 등록 신청</h2>
-<form action="regShoes.we" name="shoesIn" method="post" enctype="multipart/form-data">
+<form action="regShoes.we" method="post" enctype="multipart/form-data">
 <table>
-
 	<tr>
-		<td>업체명</td> 
-		<td><input type="text" name="shoes_be" value="${sessionScope.besname}" readonly style="border-style: none;"></td>
-	</tr>
-
-	<tr>
-		<td>상품이름</td>
-		<td><input type="text" name="shoes_name" ></td>
+		<td>업체명</td>
+		<td><input type="text" name="shoes_be" value="${sessionScope.besname}"></td>
 	</tr>
 	
 	<tr>
-		<td>주문 가능 사이즈</td> 
+		<td>상품이름</td>
+		<td><input type="text" name="shoes_name"></td>
+	</tr>
+	
+	<tr>
+		<td>주문가능사이즈</td>
 		<td><input type="text" name="shoes_size"></td>
 	</tr>
 	
 	<tr>
-		<td>굽높이 조절</td> 
+		<td>굽높이 조절</td>
 		<td><input type="text" name="shoes_heel"></td>
 	</tr>
 	
 	<tr>
-		<td>신발 소재</td> 
+		<td>신발소재</td>
 		<td><input type="text" name="shoes_material"></td>
 	</tr>
 	
-	
 	<tr>
-		<td>상품 썸네일</td> 
-		<td><input type="file" name="shoes_img"></td>
-	</tr>
-	
-	
-	<tr>
-		<td style="vertical-align: top;">상품 세부 이미지</td>
+		<td>상품 썸네일</td>
 		<td>
-			<input type="file" name="shoes_img">
+			<input type="file"  name="shoes_imgs">
 		</td>
 	</tr>
 	
 	<tr>
+		<td>세부사진</td>
+		<td>
+			<input type="file" name="shoes_imgs">
+		</td>
 	</tr>
+	
+	<tr>
+		<td>
+			<textarea rows="20" cols="20" name="shoes_detail"></textarea>
+		</td>
+	</tr>
+	
 	<tr>
 		<td>
 			<input type="hidden" name="be_sort" value="${sessionScope.besort }">
-			<input type="submit" value="등록 신청하기">
+			<input type="submit" value="상품등록신청">
 		</td>
 	</tr>
 </table>

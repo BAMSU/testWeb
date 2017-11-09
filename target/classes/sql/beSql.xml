@@ -57,6 +57,15 @@
 	<select id="beListSDMY" parameterType="be.model.SDMYDTO" resultType="be.model.SDMYDTO">
 		select * from be_sdmy where sdmy_be = #{sdmy_be} order by sdmy_idx desc	
 	</select>
+	<select id="beListCar" parameterType="be.model.CarDTO" resultType="be.model.CarDTO">
+		select * from be_car where car_be = #{car_be} order by car_idx desc	
+	</select>
+	<select id="beListShoes" parameterType="be.model.ShoesDTO" resultType="be.model.ShoesDTO">
+		select * from be_shoes where shoes_be = #{shoes_be} order by shoes_idx desc	
+	</select>
+	<select id="beListBouq" parameterType="be.model.BouqDTO" resultType="be.model.BouqDTO">
+		select * from be_bouquet where bouq_be = #{bouq_be} order by bouq_idx desc	
+	</select>
 	
 	<insert id="regCar" parameterType="be.model.CarDTO">
 		insert into be_car values(
@@ -73,7 +82,7 @@
 	</insert>
 	
 	<insert id="regShoes" parameterType="be.model.ShoesDTO">
-		insert into be_car values(
+		insert into be_shoes values(
 			shoes_idx.nextval,
 			#{shoes_name},
 			#{shoes_be},
@@ -89,6 +98,21 @@
 		)
 	</insert>
 	
+	<insert id="regBouq" parameterType="be.model.BouqDTO">
+		insert into be_bouquet values(
+			bouq_idx.nextval,
+			#{bouq_name},
+			#{bouq_be},
+			#{bouq_thumbnail},
+			#{bouq_simple},
+			#{bouq_price},
+			#{bouq_detail},
+			0,
+			0,
+			'n'
+		)
+	</insert>
+	
 	<select id="itemDetailSDMY" parameterType="String" resultType="be.model.SDMYDTO">
 		select * from 
 					be_sdmy
@@ -96,5 +120,63 @@
 					sdmy_be = #{sdmy_be}
 	</select>
 	
+	<select id="itemDetailCar" parameterType="String" resultType="be.model.CarDTO">
+		select * from 
+					be_car
+					where
+					car_idx = #{car_idx}
+	</select>
+	
+	<select id="itemDetailShoes" parameterType="String" resultType="be.model.ShoesDTO">
+		select * from 
+					be_shoes
+					where
+					shoes_idx = #{shoes_idx}
+	</select>
+	
+	<select id="itemDetailBouq" parameterType="String" resultType="be.model.BouqDTO">
+		select * from 
+					be_bouquet
+					where
+					bouq_idx = #{bouq_idx}
+	</select>
+	
+	<delete id="delCar" parameterType="String">
+		delete from be_car where car_idx = #{idx}
+	</delete>
+	<delete id="delShoes" parameterType="String">
+		delete from be_shoes where shoes_idx = #{idx}
+	</delete>
+	<delete id="delBouq" parameterType="String">
+		delete from be_bouqet where bouq_idx = #{idx}
+	</delete>
+	<delete id="delSDMY" parameterType="String">
+		delete from be_sdmy where sdmy_idx = #{idx}
+	</delete>
+	
+	<select id="nCar" parameterType="String" resultType="be.model.CarDTO">
+		select * from be_car where car_be = #{be_name} and admin_permission = 'n'
+	</select>
+	<select id="nShoes" parameterType="String" resultType="be.model.ShoesDTO">
+		select * from be_shoes where shoes_be = #{be_name} and admin_permission = 'n'
+	</select>
+	<select id="nBouq" parameterType="String" resultType="be.model.BouqDTO">
+		select * from be_bouquet where bouq_be = #{be_name} and admin_permission = 'n'
+	</select>
+	<select id="nSDMY" parameterType="String" resultType="be.model.SDMYDTO">
+		select * from be_sdmy where sdmy_be = #{be_name} and admin_permission = 'n'
+	</select>
+	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
 

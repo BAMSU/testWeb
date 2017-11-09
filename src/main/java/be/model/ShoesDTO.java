@@ -12,8 +12,8 @@ public class ShoesDTO {
 	private String shoes_material;
 	private String shoes_img;
 	private String shoes_detail;
-	private int shoes_readnum;
-	private int shoes_consult;
+	private int readnum;
+	private int consult;
 	private String admin_permission;
 	
 	public ShoesDTO() {
@@ -21,8 +21,8 @@ public class ShoesDTO {
 	}
 
 	public ShoesDTO(int shoes_idx, String shoes_name, String shoes_be, String shoes_thumbnail, String shoes_size,
-			String shoes_heel, String shoes_material, String shoes_img, String shoes_detail, int shoes_readnum,
-			int shoes_consult, String admin_permission) {
+			String shoes_heel, String shoes_material, String shoes_img, String shoes_detail, int readnum, int consult,
+			String admin_permission) {
 		super();
 		this.shoes_idx = shoes_idx;
 		this.shoes_name = shoes_name;
@@ -33,8 +33,8 @@ public class ShoesDTO {
 		this.shoes_material = shoes_material;
 		this.shoes_img = shoes_img;
 		this.shoes_detail = shoes_detail;
-		this.shoes_readnum = shoes_readnum;
-		this.shoes_consult = shoes_consult;
+		this.readnum = readnum;
+		this.consult = consult;
 		this.admin_permission = admin_permission;
 	}
 
@@ -110,20 +110,20 @@ public class ShoesDTO {
 		this.shoes_detail = shoes_detail;
 	}
 
-	public int getShoes_readnum() {
-		return shoes_readnum;
+	public int getReadnum() {
+		return readnum;
 	}
 
-	public void setShoes_readnum(int shoes_readnum) {
-		this.shoes_readnum = shoes_readnum;
+	public void setReadnum(int readnum) {
+		this.readnum = readnum;
 	}
 
-	public int getShoes_consult() {
-		return shoes_consult;
+	public int getConsult() {
+		return consult;
 	}
 
-	public void setShoes_consult(int shoes_consult) {
-		this.shoes_consult = shoes_consult;
+	public void setConsult(int consult) {
+		this.consult = consult;
 	}
 
 	public String getAdmin_permission() {
@@ -133,6 +133,7 @@ public class ShoesDTO {
 	public void setAdmin_permission(String admin_permission) {
 		this.admin_permission = admin_permission;
 	}
+
 	
 	
 	

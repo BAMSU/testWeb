@@ -17,8 +17,8 @@ public class SDMYDTO {
 	private String sdmy_img7;
 	private String sdmy_img8;
 	private String sdmy_img9;
-	private int sdmy_readnum;
-	private int sdmy_consult;
+	private int readnum;
+	private int consult;
 	private String admin_permission;
 	
 	
@@ -29,8 +29,7 @@ public class SDMYDTO {
 
 	public SDMYDTO(int sdmy_idx, String sdmy_category, String sdmy_be, String sdmy_thumbnail, int sdmy_avg,
 			String sdmy_img1, String sdmy_img2, String sdmy_img3, String sdmy_img4, String sdmy_img5, String sdmy_img6,
-			String sdmy_img7, String sdmy_img8, String sdmy_img9, int sdmy_readnum, int sdmy_consult,
-			String admin_permission) {
+			String sdmy_img7, String sdmy_img8, String sdmy_img9, int readnum, int consult, String admin_permission) {
 		super();
 		this.sdmy_idx = sdmy_idx;
 		this.sdmy_category = sdmy_category;
@@ -46,8 +45,8 @@ public class SDMYDTO {
 		this.sdmy_img7 = sdmy_img7;
 		this.sdmy_img8 = sdmy_img8;
 		this.sdmy_img9 = sdmy_img9;
-		this.sdmy_readnum = sdmy_readnum;
-		this.sdmy_consult = sdmy_consult;
+		this.readnum = readnum;
+		this.consult = consult;
 		this.admin_permission = admin_permission;
 	}
 
@@ -192,23 +191,23 @@ public class SDMYDTO {
 	}
 
 
-	public int getSdmy_readnum() {
-		return sdmy_readnum;
+	public int getReadnum() {
+		return readnum;
 	}
 
 
-	public void setSdmy_readnum(int sdmy_readnum) {
-		this.sdmy_readnum = sdmy_readnum;
+	public void setReadnum(int readnum) {
+		this.readnum = readnum;
 	}
 
 
-	public int getSdmy_consult() {
-		return sdmy_consult;
+	public int getConsult() {
+		return consult;
 	}
 
 
-	public void setSdmy_consult(int sdmy_consult) {
-		this.sdmy_consult = sdmy_consult;
+	public void setConsult(int consult) {
+		this.consult = consult;
 	}
 
 
@@ -220,7 +219,7 @@ public class SDMYDTO {
 	public void setAdmin_permission(String admin_permission) {
 		this.admin_permission = admin_permission;
 	}
-	
+
 	
 	
 	

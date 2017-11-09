@@ -35,7 +35,7 @@
 	<tr>
 		<td>상품사진</td> 
 		<td>
-			<input type="file" name="car_img" required>
+			<input type="file" name="car_imgs" required>
 		</td>
 	</tr>
 	
@@ -48,7 +48,7 @@
 	
 	<tr>
 		<td>
-		<input type="hidden" name="be_sort" value="${sessionScope.besort} ">
+		<input type="hidden" name="be_sort" value="${sessionScope.besort}">
 		<input type="submit" value="등록신청하기">
 		</td>
 	</tr>
