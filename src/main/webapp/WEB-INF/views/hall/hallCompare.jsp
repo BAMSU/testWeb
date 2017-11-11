@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>홀vs홀</title>
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -122,20 +122,23 @@
 						getListResult(idxArr[i],i);
 					}
 				}
+				clearList();
+				$('#before').hide();
+				$('#after').show();
+				for(var i=0;i<3;i++){
+					delHall(i);
+				}
 			}
-			$('#before').hide();
-			$('#after').show();
-			delHall(0);
-			delHall(1);
-			delHall(2);
 		});
 
 		$('#beforeBtn').click(function(){
+			clearList();
 			$('#before').show();
 			$('#after').hide();
 		});
 		
 		$('.cpBtn:eq(0)').click(function(){
+			clearList();
 			for(var i=0;i<3;i++){
 				getListResult($('.cpIdx:eq('+i+')').val(),i);
 				$('#before').hide();
@@ -143,6 +146,7 @@
 			}
 		});
 		$('.cpBtn:eq(1)').click(function(){
+			clearList();
 			for(var i=3;i<6;i++){
 				getListResult($('.cpIdx:eq('+i+')').val(),i);
 				$('#before').hide();
@@ -150,17 +154,21 @@
 			}
 		});
 		$('.cpBtn:eq(2)').click(function(){
+			clearList();
 			for(var i=6;i<9;i++){
 				getListResult($('.cpIdx:eq('+i+')').val(),i);
 				$('#before').hide();
 				$('#after').show();
 			}
 		});
+		init();
 	});
 	
 	function addHall(n){
 		wrapWindowByMask();
 		ci=n;
+		$('#hallGu option:eq(0)').prop('selected', true);
+		getList('hallAddSearchByGu.we',{gu:'all'});
 	}
 	
 	function getList(url,param){
@@ -213,9 +221,33 @@
 			$('.hcost:eq('+ii+')').html(hlbi.mealCost);
 			$('.hguest:eq('+ii+')').html(hlbi.guest);
 			$('.hgrade:eq('+ii+')').html(hlbi.grade);
+			$('.rvBtn:eq('+ii+')').html('<input type="button" value="리뷰보기"/>');
 		});
 	}
-
+	
+	function clearList(){
+		for(var ii=0;ii<3;ii++){
+			$('.hname:eq('+ii+')').html('');
+			$('.hlocation:eq('+ii+')').html('');
+			$('.hstation:eq('+ii+')').html('');
+			$('.htype:eq('+ii+')').html('');
+			$('.hmenu:eq('+ii+')').html('');
+			$('.hcost:eq('+ii+')').html('');
+			$('.hguest:eq('+ii+')').html('');
+			$('.hgrade:eq('+ii+')').html('');
+			$('.rvBtn:eq('+ii+')').html('');
+		}
+	}
+	
+	function init(){
+		var hix = ${hallIdx};
+		if(hix!=0){
+			$('.hImg:eq(0)').attr('src','/finalproject/img/hall/'+hix+'/r1.jpg');
+			idxArr[0]=hix;
+			$('#om'+ci).val('x삭제');
+			$('#om'+ci).attr('onclick','delHall(0)');
+		}
+	}
 </script>
 </head>
 <body>
@@ -226,8 +258,8 @@
 			지역으로 검색<br>
 			<select id="hallGu">
 				<option value="all">구</option>
-				<c:forEach var="hg" items="${hallList}">
-					<option value="${hg.gu}">${hg.gu}</option>
+				<c:forEach var="hg" items="${hallGu}">
+					<option value="${hg}">${hg}</option>
 				</c:forEach>
 			</select>
 			<br>
@@ -331,19 +363,7 @@
 				<td class="htype"></td>
 				<td class="htype"></td>
 				<td class="htype"></td>
-			</tr><!-- 
-			<tr>
-				<td>예식형태</td>
-				<td>지하철역</td>
-				<td>지하철역</td>
-				<td>지하철역</td>
 			</tr>
-			<tr>
-				<td>예식간격</td>
-				<td>지하철역</td>
-				<td>지하철역</td>
-				<td>지하철역</td>
-			</tr> -->
 			<tr>
 				<th colspan="4">메뉴,연회정보</th>
 			</tr>
@@ -376,9 +396,9 @@
 			</tr>
 			<tr>
 				<td>리뷰</td>
-				<td><input type="button" value="리뷰보기"/></td>
-				<td><input type="button" value="리뷰보기"/></td>
-				<td><input type="button" value="리뷰보기"/></td>
+				<td class="rvBtn"></td>
+				<td class="rvBtn"></td>
+				<td class="rvBtn"></td>
 			</tr>
 		</table>
 		<input type="button" value="목록보기" id="beforeBtn"/>
