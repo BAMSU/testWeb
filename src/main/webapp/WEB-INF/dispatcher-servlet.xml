@@ -65,12 +65,20 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	 <bean id="ahallDao" class="ahall.model.aHallDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 	<bean id="roomDao" class="room.model.RoomDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
 	<bean id="hallStatsDao" class="hallStats.model.HallStatsDAOImple">
+		<constructor-arg ref="sqlSessionTemplate"/>
+	</bean>
+	<bean id="ahallStatsDao" class="ahall.model.aHallDAOImple">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
 	<bean id="consult" class="consult.model.ConsultDAOImple">
