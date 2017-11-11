@@ -70,6 +70,9 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	<bean id="hallStatsDao" class="hallStats.model.HallStatsDAOImple">
+		<constructor-arg ref="sqlSessionTemplate"/>
+	</bean>
 	<bean id="consult" class="consult.model.ConsultDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
@@ -90,5 +93,6 @@
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="0"/>
 	</bean>
-
+	
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
 </beans>

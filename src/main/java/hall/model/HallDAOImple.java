@@ -25,7 +25,11 @@ public class HallDAOImple implements HallDAO {
 	public List getHallGu() {
 		return sst.selectList("hallGuSQL");
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
 	public List getHallListByGu(String gu) {
 		return sst.selectList("hallAddSearchByGuSQL",gu);
 	}
@@ -33,6 +37,7 @@ public class HallDAOImple implements HallDAO {
 	public List getHallListByName(String name) {
 		return sst.selectList("hallAddSearchByNameSQL",name);
 	}
+<<<<<<< HEAD
 	
 	public int insertWd(HallDTO dto) {
 		return sst.insert("inserthall", dto);
@@ -47,3 +52,6 @@ public class HallDAOImple implements HallDAO {
 	}
 
 }
+=======
+}
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git

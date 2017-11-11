@@ -19,6 +19,7 @@
 	<select id="hallAddSearchByNameSQL" parameterType="String" resultType="hall.model.HallDTO">
 		select * from hall where name = #{name}
 	</select>
+<<<<<<< HEAD
 	<insert id="inserthall" parameterType="hall.model.HallDTO">
 		insert into 
 	hall
@@ -68,6 +69,8 @@
 	<delete id="deletehall" parameterType="hall.model.HallDTO">
 		delete from hall where idx=#{idx}
 	</delete>
+=======
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
 	<!-- room -->
 	<select id="roomInfoSQL" parameterType="int" resultType="room.model.RoomDTO">
 		select * from room where hallIdx = #{hallIdx}
@@ -88,4 +91,8 @@
 	<select id="hallCountSQL" resultType="int">
 		select count(distinct hallIdx) from hallStats
 	</select>
+<<<<<<< HEAD
 </mapper>
+=======
+</mapper>
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git

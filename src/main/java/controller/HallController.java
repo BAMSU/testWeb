@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 import hall.model.HallDAO;
 import hall.model.HallDTO;
 import hall.model.HallListModule;
+import hallStats.model.HallStatsDAO;
+import hallStats.model.HallStatsDTO;
 import room.model.RoomDAO;
 
 @Controller
@@ -21,6 +23,8 @@ public class HallController {
 	private HallDAO hallDao;
 	@Autowired
 	private RoomDAO roomDao;
+	@Autowired
+	private HallStatsDAO hallStatsDao;
 	
 	@RequestMapping("/hallInfo.we")
 	public ModelAndView hallInfoForm(@RequestParam(value="idx",defaultValue="1")int idx){
@@ -31,8 +35,12 @@ public class HallController {
 	}
 	
 	@RequestMapping(value="/hallCompare.we", method=RequestMethod.GET)
-	public ModelAndView hallCompareForm(){
-		return new ModelAndView("hall/hallCompare","hallList",hallDao.getHallList());
+	public ModelAndView hallCompareForm(@RequestParam(value="idx",defaultValue="0")int idx){
+		ModelAndView mav = new ModelAndView("hall/hallCompare");
+		mav.addObject("hallGu",hallDao.getHallGu());
+		mav.addObject("hallList",hallDao.getHallList());
+		mav.addObject("hallIdx",idx);
+		return mav;
 	}
 	
 	
@@ -64,5 +72,32 @@ public class HallController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/hallStats.we",method=RequestMethod.GET)
+	public ModelAndView hallStatsForm(@RequestParam(value="idx",defaultValue="1")int idx,
+			@RequestParam(value="name",defaultValue="호텔프리마")String name){
+		ModelAndView mav = new ModelAndView("hall/hallStats");
+		mav.addObject("hallIdx",idx);
+		mav.addObject("hallName",name);
+		mav.addObject("hallRank1",hallStatsDao.getHallStatsRank(idx, "상담신청"));
+		mav.addObject("hallRank2",hallStatsDao.getHallStatsRank(idx, "홀 견적내기"));
+		mav.addObject("hallRank3",hallStatsDao.getHallStatsRank(idx, "고객평가"));
+		mav.addObject("hallRank4",hallStatsDao.getHallStatsRank(idx, "홀vs홀"));
+		mav.addObject("hallCount",hallStatsDao.getHallCount());
+		return mav;
+	}
 	
+	@RequestMapping(value="/hallStats.we",method=RequestMethod.POST)
+	public ModelAndView hallStatsInfo(@RequestParam(value="idx",defaultValue="1")int idx){
+		ModelAndView mav = new ModelAndView("jsonView");
+		mav.addObject("hallStats1",hallStatsDao.getHallStatsList(idx,"상담신청"));
+		mav.addObject("hallStats2",hallStatsDao.getHallStatsList(idx,"홀 견적내기"));
+		mav.addObject("hallStats3",hallStatsDao.getHallStatsList(idx,"홀vs홀"));
+		mav.addObject("hallStats4",hallStatsDao.getHallStatsList(idx,"고객평가"));
+		return mav;
+	}
+	
+	@RequestMapping("/hallLocation.we")
+	public ModelAndView hallLocationForm(){
+		return new ModelAndView("hall/hallLocation");
+	}
 }
