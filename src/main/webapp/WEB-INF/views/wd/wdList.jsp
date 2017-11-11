@@ -22,6 +22,9 @@ function aa() {
 	<c:forEach var="dto" items="${list}">
 		<c:url var="contentUrl" value="updateWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
 		${dto.idx}<a href="${contentUrl}">${dto.name}</a>
+		
+		<c:url var="contentUrl2" value="deleteWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl2}">삭제</a>
 	</c:forEach>
 </body>
 </html>

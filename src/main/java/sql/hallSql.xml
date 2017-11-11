@@ -10,6 +10,9 @@
 	<select id="hallCompareFormSQL" resultType="hall.model.HallDTO">
 		select * from hall
 	</select>
+	<select id="hallGuSQL" resultType="String">
+		select distinct gu from hall
+	</select>
 	<select id="hallAddSearchByGuSQL" parameterType="String" resultType="hall.model.HallDTO">
 		select * from hall where gu = #{gu}
 	</select>
@@ -62,8 +65,27 @@
 		station = #{station}
 		where idx=#{idx}
 	</update>
+	<delete id="deletehall" parameterType="hall.model.HallDTO">
+		delete from hall where idx=#{idx}
+	</delete>
 	<!-- room -->
 	<select id="roomInfoSQL" parameterType="int" resultType="room.model.RoomDTO">
 		select * from room where hallIdx = #{hallIdx}
+	</select>
+	<!-- hallStats -->
+	<select id="hallStatsSQL" parameterType="map"  resultType="hallStats.model.HallStatsDTO">
+		select * from hallStats where hallIdx = #{hallIdx} and type = #{type}
+	</select>
+	<select id="hallStatsRankSQL" parameterType="map" resultType="int">
+		select rnum 
+		from(select rownum rnum,hallIdx 
+		from(select sum(typeNum),hallIdx from hallStats 
+		where month in (#{m1},#{m2},#{m3}) 
+		group by type,hallIdx having type=#{type} 
+		order by sum(typeNum) desc)a)b
+		where b.hallIdx=#{hallIdx}
+	</select>
+	<select id="hallCountSQL" resultType="int">
+		select count(distinct hallIdx) from hallStats
 	</select>
 </mapper>

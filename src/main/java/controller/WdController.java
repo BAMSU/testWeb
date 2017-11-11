@@ -74,6 +74,23 @@ public class WdController {
 		return mav;
 	}
 	
+	@RequestMapping("/deleteWd.we")
+	public ModelAndView deleteWd(int idx) {
+		ModelAndView mav = new ModelAndView();
+		int result = dao.deleteWd(idx);
+		
+		if(result>0) {
+			mav.addObject("msg", "삭제 성공!");
+			mav.addObject("gourl", "wdList.we");
+			
+		} else {
+			mav.addObject("msg", "삭제 실패!");
+			mav.addObject("gourl", "wdList.we");
+		}
+		mav.setViewName("wd/wdMsg");
+		return mav;
+	}
+	
 	
 	
 	
