@@ -6,22 +6,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat"
+
+<title>Insert title here</title>
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<link rel="shortcut icon" href="favicon.ico">
+
+<link href="https://fonts.googleapis.com/css?family=Montez"
 	rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300'
+	rel='stylesheet' type='text/css'>
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="css/icomoon.css">
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="css/bootstrap.css">
+<!-- Superfish -->
+<link rel="stylesheet" href="css/superfish.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<link rel="stylesheet" href="css/style.css">
 
 
-<!-- CSS includes -->
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="fonts/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet">
-<link href="css/theme.css" rel="stylesheet">
-
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
 </head>
 <body>
@@ -42,195 +58,179 @@
 	<!-- 마우스 위에 하트 내려지는 효과  -->
 
 
+	<div id="fh5co-wrapper">
+		<div id="fh5co-page">
 
-
-	<!-- Navbar -->
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-					aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a href="index.html" title="Wedding Cake Bootstrap Theme"> <img
-					class="img" src="img/3.png" alt="Wedding Cake Bootstrap Theme"
-					style="width: 30%; height: 10%;" />
-				</a>
+			<div class="fh5co-hero" data-section="home">
+				
+				<div class="fh5co-cover text-center"
+					data-stellar-background-ratio="0.5"
+					style="background-image: url(images/tt.png);">
+					<div class="display-t">
+						<div class="display-tc">
+							<div class="container">
+								<div class="col-md-10 col-md-offset-1">
+									<div class="animate-box">
+										<img alt="zz" src="images/p.png" width="250" height="200">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="index.we" class="smooth-scroll">HOME</a></li>
-					<li><a href="#">ABOUT</a></li>
-					<li><a href="#">SERVICES</a></li>
-					<li><a href="#">OFFERS</a></li>
-					<li><a href="#">GALLERY</a></li>
-					<li><a href="#">CONTACT</a></li>
+
+			<header id="fh5co-header-section" class="sticky-banner">
+				<div class="container">
+					<div class="nav-header">
+						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+						<h1 id="fh5co-logo">
+							<a href="index.html">Nuptial</a>
+						</h1>
+						<!-- START #fh5co-menu-wrap -->
+						<nav id="fh5co-menu-wrap" role="navigation">
+							<ul class="sf-menu" id="fh5co-primary-menu">
+								<li class="active"><a href="index.html">Home</a></li>
+								<!-- <li><a href="groom-bride.html" class="fh5co-sub-ddown">Groom
+										&amp; Bride</a>
+									<ul class="fh5co-sub-menu">
+										<li><a
+											href="https://freehtml5.co/wedding-free-html5-bootstrap-template-for-wedding-websites/">Wedding
+												Template</a></li>
+										<li><a
+											href="https://freehtml5.co/marble-free-html5-bootstrap-template-for-portfolio-or-multi-purpose-websites/">Marble
+												Template</a></li>
+										<li><a
+											href="https://freehtml5.co/tasty-free-bootstrap-html5-template-for-restaurant-websites/">Tasty
+												Template</a></li>
+										<li><a
+											href="https://freehtml5.co/education-free-html5-bootstrap-template-elearning-school-websites/">Education
+												Template</a></li>
+										<li><a
+											href="https://freehtml5.co/words-free-html5-bootstrap-template-multi-purpose/">Words
+												Template</a></li>
+									</ul></li> -->
+									
+								<li><a href="#">웨딩홀</a></li>
+								<li><a href="#">청첩장</a></li>
+								<li><a href="#">패키지</a></li>
+								<li><a href="#">기타업체 </a></li>
+								<li><a href="#">상담하기</a></li>
+								<c:if test="${empty sessionScope.sid}">
+									<li><a href="memberLogin.we">LOGIN</a></li>
+								</c:if>
 
 
-					<c:if test="${empty sessionScope.sid}">
-						<li><a href="memberLogin.we">LOGIN</a></li>
-					</c:if>
+								<c:if test="${!empty sessionScope.sid}">
+									<li><a href="#">MYPAGE</a></li>
+									<li><a href="memberLogout.we">LOGOUT</a></li>
+								</c:if>
+								<li><a href="memberJoin.we">SIGN UP</a></li>
 
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>
 
-					<c:if test="${!empty sessionScope.sid}">
-						<li><a href="#">MYPAGE</a></li>
-					<li><a href="memberLogout.we">LOGOUT</a></li>
-					</c:if>
-					
+			<!-- end:header-top -->
 
-					<li><a href="memberJoin.we">SIGN UP</a></li>
-				</ul>
+			<div id="fh5co-couple" class="fh5co-section-gray">
+				<div class="container">
+					<div class="row row-bottom-padded-md animate-box">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<div class="col-md-5 col-sm-5 col-xs-5 nopadding">
+								<img src="images/groom.jpg" class="img-responsive"
+									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+								<h3>Jack Wood</h3>
+							</div>
+							<div class="col-md-2 col-sm-2 col-xs-2 nopadding">
+								<h2 class="amp-center">
+									<i class="icon-heart"></i>
+								</h2>
+							</div>
+							<div class="col-md-5 col-sm-5 col-xs-5 nopadding">
+								<img src="images/bride.jpg" class="img-responsive"
+									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+								<h3>Rose Thomas</h3>
+							</div>
+						</div>
+					</div>
+					<div class="row animate-box">
+						<div class="col-md-8 col-md-offset-2">
+							<div class="col-md-12 text-center heading-section">
+								<h2>Are Getting Married</h2>
+								<p>
+									<strong>on Dec 28, 2017 &mdash; Boracay, Philippines</strong>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<!-- /.navbar-collapse -->
+			<div id="fh5co-countdown">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center animate-box">
+						<p class="countdown">
+							<span id="days"></span> <span id="hours"></span> <span
+								id="minutes"></span> <span id="seconds"></span>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="fh5co-started"
+				style="background-image: url(images/cover_bg_2.jpg);"
+				data-stellar-background-ratio="0.5">
+				<div class="overlay"></div>
+				<div class="container">
+					<div class="row animate-box">
+						<div class="col-md-8 col-md-offset-2 text-center heading-section">
+							<h2>Are You Attending?</h2>
+							<p>Please Fill-up the form to notify you that you're
+								attending. Thanks.
+						</div>
+					</div>
+					<div class="row animate-box">
+						<div class="col-md-10 col-md-offset-1">
+							<form class="form-inline">
+								<div class="col-md-4 col-sm-4">
+									<div class="form-group">
+										<label for="name" class="sr-only">Name</label> <input
+											type="name" class="form-control" id="name" placeholder="Name">
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-4">
+									<div class="form-group">
+										<label for="email" class="sr-only">Email</label> <input
+											type="email" class="form-control" id="email"
+											placeholder="Email">
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-4">
+									<button type="submit" class="btn btn-primary btn-block">I
+										am Attending</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<%@include file="/footer.jsp"%>
+
+
+
 		</div>
-		<!-- /.container-fluid -->
-	</nav>
+		<!-- END fh5co-page -->
 
-	<!-- Carousel -->
-	<div id="theme-carousel" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#theme-carousel" data-slide-to="0" class="active"></li>
-			<li data-target="#theme-carousel" data-slide-to="1"></li>
-			<li data-target="#theme-carousel" data-slide-to="2"></li>
-		</ol>
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<img src="img/wedding.jpg" alt="carousel2"
-					style="width: 100%; height: 650px;" />
-				<div class="carousel-caption">
-					<h2>"A special cake for a special day"</h2>
-					<p>Julia Child</p>
-				</div>
-			</div>
-			<div class="item">
-				<img src="img/wedding2.jpg" alt="carousel1"
-					style="width: 100%; height: 650px;" />
-				<div class="carousel-caption">
-					<h2>What does it come from?</h2>
-					<p>Contrary to popular belief, Lorem Ipsum is not simply random
-						text.</p>
-				</div>
-			</div>
-			<div class="item">
-				<img src="img/wedding3.jpg" alt="carousel3"
-					style="width: 100%; height: 650px;">
-				<div class="carousel-caption">
-					<h2>Why do we use it?</h2>
-					<p>It is a long established fact that a reader will be
-						distracted by the readable content of a page when looking at its
-						layout.</p>
-				</div>
-			</div>
-		</div>
-		<!-- Controls -->
-		<a class="left carousel-control" href="#theme-carousel" role="button"
-			data-slide="prev">
-			<div class="carousel-control-arrow">&#8249;</div>
-		</a> <a class="right carousel-control" href="#theme-carousel"
-			role="button" data-slide="next">
-			<div class="carousel-control-arrow">&#8250;</div>
-		</a>
 	</div>
+	<!-- END fh5co-wrapper -->
 
-	<div class="container-home">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8">
-					<h1 class="text-danger">Welcome!</h1>
-					<h3>Why do we use it?</h3>
-					<p class="text-justify">It is a long established fact that a
-						reader will be distracted by the readable content of a page when
-						looking at its layout. The point of using Lorem Ipsum is that it
-						has a more-or-less normal distribution of letters, as opposed to
-						using 'Content here, content here', making it look like readable
-						English. Many desktop publishing packages and web page editors now
-						use Lorem Ipsum as their default model text, and a search for
-						'lorem ipsum' will uncover many web sites still in their infancy.
-						Various versions have evolved over the years, sometimes by
-						accident, sometimes on purpose.</p>
-				</div>
-				<div class="col-md-4 text-center">
-					<img src="images/image1.jpg" class="img-responsive" />
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<img src="images/image2.jpg" class="img-responsive" />
-				</div>
-				<div class="col-md-8">
-					<h1 class="text-danger">About Us</h1>
-					<h3>What is Lorem Ipsum?</h3>
-					<p class="text-justify">Lorem Ipsum is simply dummy text of the
-						printing and typesetting industry. Lorem Ipsum has been the
-						industry's standard dummy text ever since the 1500s, when an
-						unknown printer took a galley of type and scrambled it to make a
-						type specimen book. It has survived not only five centuries, but
-						also the leap into electronic typesetting, remaining essentially
-						unchanged. It was popularised in the 1960s with the release of
-						Letraset sheets containing Lorem Ipsum passages, and more recently
-						with desktop publishing software like Aldus PageMaker including
-						versions of Lorem Ipsum.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<%@include file="/footer.jsp" %>
-	<script src="js/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-
-<<<<<<< HEAD
-=======
-<footer id="subfooter" class="clearfix">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <p style="font-size:18px;"><span class="fa fa-birthday-cake text-danger"></span> CAKE OFFER</p>
-                <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
-            </div>
-            <div class="col-md-3">
-                <p style="font-size:18px;"><span class="fa fa-clock-o text-danger"></span> OPEN HOURS</p>
-                <p>Mondays : Closed</p>
-				<p>Tue-Fri : 0am - 12am</p>
-                <p>Sat-Sun : 7am - 1am</p>
-            </div>
-			<div class="col-md-3">
-                <p style="font-size:18px;"><span class="fa fa-map-marker text-danger"></span> CONTACTS</p>
-                <p>54, North Road, PA 45086, USA</p>
-                <p>+1 888 455 6677</p>
-                <p><a href="mailto:mail@example.com">mail@example.com</a></p>
-            </div>
-            <div class="col-md-3">
-                <p style="font-size:18px;"><span class="fa fa-envelope-o text-danger"></span> NEWSLETTER</p>
-                <p>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Enter your email..." />
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
-                        </span>
-                    </div>
-                </p>
-                <p><br /></p>
-                <p>
-                    <a class="fa fa-twitter footer-socialicon" target="_blank" href="https://twitter.com/"></a>
-                    <a class="fa fa-facebook footer-socialicon" target="_blank" href="https://www.facebook.com/"></a>
-                    <a class="fa fa-google-plus footer-socialicon" target="_blank" href="https://plus.google.com/"></a>
-                    <a class="fa fa-linkedin footer-socialicon" target="_blank" href="https://plus.google.com/"></a>
-                    <a class="fa fa-btn-flickr footer-socialicon" target="_blank" href="chatting.we"></a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
-
+	<!-- Google Map -->
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+	<!-- jQuery -->
+	<script src="dist/scripts.min.js"></script>
 </body>
 </html>

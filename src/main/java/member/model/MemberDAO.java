@@ -7,4 +7,6 @@ public interface MemberDAO {
 	public int MemberJoin(MemberDTO dto);
 	
 	
+	public String MemberidFind(MemberDTO dto);
+	
 }
