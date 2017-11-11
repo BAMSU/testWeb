@@ -93,8 +93,57 @@
 			}
 		}
 	}
-</script>
+	
+function aa(){
+		
+		var a = document.join.member_pwd.value;
+		var b = document.join.member_pwd2.value;
+		
+		var tel1 = document.join.member_phone.value;
+		var tel2 = document.join.member_phone2.value;
+		var tel3 = document.join.member_phone3.value;
+		
+		var member_email1= document.join.member_email1.value;
+		var member_email2 = document.join.member_email2.value;
+		
+		
 
+		
+		for(i=0;i<document.join.member_gender.length;i++){
+			window.alert(document.join.member_gender[i].value);
+		}
+		
+		
+		if(a == b){
+			/* document.join.memphone.value=tel1+tel2+tel3; */
+			 document.join.member_email.value=member_email1 + '@' + member_email2; 
+			 
+			window.alert('aaaa');
+			join.submit();
+		}else{
+			window.alert("비밀번호와 비밀번호 확인 값이 다릅니다.");
+
+			
+		}
+		
+		
+		}
+		
+function selectEmail() {
+	if(document.join.member_email3.value!="0") {
+		document.join.member_email2.value = document.join.member_email3.value;
+		document.join.member_email2.readOnly = true;
+	} else {
+		document.join.member_email2.value = "";
+		document.join.member_email2.readOnly = false;
+	}
+	
+	
+	
+}
+
+
+</script>
 
 </head>
 <body>
@@ -126,18 +175,21 @@
 
 			<tr>
 				<th>이메일</th>
-				<td><input type="text" name="member_email" required=required>@<input
-					type="text" name="emailde" required=required> <select>
+				<td><input type="text" name="member_email1" required=required> @
+				<input type="text" name="member_email2" required=required> </td>
+				<td><select name="member_email3" onchange="selectEmail()">
 						<option value="0">직접입력</option>
 						<option value="naver.com">naver.com</option>
 						<option value="daum.net">daum.net</option>
-				</select></td>
+						<option value="gmail.com">gmail.com</option>
+				</select><input type="hidden" name="member_email"></td>
+
 			</tr>
 
 			<tr>
 				<th>성별</th>
-				<td><input type="radio" name="member_gender">남자 <input
-					type="radio" name="member_gender">여자</td>
+				<td><input type="radio" name="member_gender" value="남자">남자 <input
+					type="radio" name="member_gender" value="여자">여자</td>
 			</tr>
 
 			<tr>
@@ -147,31 +199,33 @@
 						<option value="011">011</option>
 						<option value="017">010</option>
 				</select>-<input type="text" name="member_phone2" required=required maxlength="4" size="4">-<input type="text"
-					name="member_phone3" required=required maxlength="4" size="4"></td>
+					name="member_phone3" required=required maxlength="4" size="4">
+					<input type="hidden" name="memphone"></td>
 			</tr>
 
 
 			<tr>
-				<td><input type="text" id="sample4_postcode" name = "member_addrnum" placeholder="우편번호" required=required  ></td>
+				<td><input type="text" id="sample4_postcode" name = "member_addrnum" placeholder="우편번호" required=required  readonly="readonly"></td>
 				<td><input type="button" onclick="sample4_execDaumPostcode()"
 					value="우편번호 찾기"></td>
 				<br>
 				<td><input type="text" id="sample4_roadAddress" name = "member_addrbasic"
-					placeholder="도로명주소" required=required></td>
-				<td><input type="text" id="sample4_jibunAddress" name = "member_addrdetail"
-					placeholder="지번주소" required=required></td>
+					placeholder="도로명주소" required=required readonly="readonly"></td>
+				<td><input type="text" id="sample4_jibunAddress" name = "member_addrdetail1"
+					placeholder="지번주소" required=required readonly="readonly"></td>
 				<td><span id="guide" style="color: #999"></span></td>
+				<td><input type="text" name="member_addrdetail2" placeholder="상세주소"></td>
 			</tr>
 
 			<tr>
 				<th>자동 가입방지</th>
-				<div class="g-recaptcha"
-					data-sitekey="6LfaSTcUAAAAAEJRszvg9YzQ8HYAg22mny4DONka"></div>
+				<td class="g-recaptcha"
+					data-sitekey="6LfaSTcUAAAAAEJRszvg9YzQ8HYAg22mny4DONka"></td>
 
 			</tr>
 
 			<tr>
-				<td colspan="2" align="center"><input type="submit" onclick="javascript:aa()"
+				<td colspan="2" align="center"><input type="button" onclick="aa()"
 					value="회원가입"></td>
 			</tr>
 

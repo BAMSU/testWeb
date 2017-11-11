@@ -40,6 +40,27 @@ public class MemberController {
 		return "member/memberidFind";
 	}
 	
+	@RequestMapping("idFindSubmit.we")
+	public ModelAndView IdFind(String member_name,String member_email,MemberDTO dto){
+		
+		
+		String result=memberDao.MemberidFind(dto);
+		
+		ModelAndView mav = new ModelAndView();
+		
+		if(result==null){
+			
+			mav.addObject("msg","아이디 또는 이메일이 맞지않습니다.");
+			mav.setViewName("member/memberidFind");
+		}else{
+			mav.addObject("result",result);
+			mav.setViewName("member/memberidFind_ok");
+		}
+		
+		
+		return mav;
+	}
+	
 	
 	@RequestMapping("memberpwdFind.we")
 	public String pwdFind(){

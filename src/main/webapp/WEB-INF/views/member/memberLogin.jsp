@@ -6,9 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+
 </head>
 <body>
-	<%@include file="/header.jsp" %>
+
 	<h2>로 그 인</h2>
 	<form name="fm" action="loginForm.we">
 		<fieldset>
@@ -23,6 +24,7 @@
 					<th>Password</th>
 					<td><input type="password" name="pwd"></td>
 				</tr>
+				
 				<tr>
 					<td colspan="2" align="center"><input type="checkbox"
 						name="saveid" value="on" ${empty cookie.saveid.value?'':'checked'}>ID

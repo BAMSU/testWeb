@@ -37,9 +37,14 @@
 		#{member_phone},
 		#{member_addrnum},
 		#{member_addrbasic},
-		#{member_addrdetail},
+		#{member_addrdetail1},
+		#{member_addrdetail2},
 		#{member_gender})
 	</insert>
-
+	
+	<select id="memberidFind" resultType="String" parameterType="member.model.MemberDTO">
+	select member_id from member where member_name= #{member_name} and member_email= #{member_email} 
+	
+	</select>
 
 </mapper>
