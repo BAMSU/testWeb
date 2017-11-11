@@ -10,33 +10,44 @@
 <body>
 	<!--스.드.메.예 입력폼  -->
 	<h2>${sessionScope.besort } 상품 등록 신청</h2>
-<form action="" name="sdmyIn">
+<form action="regSDMY.we" name="sdmyIn" method="post" enctype="multipart/form-data">
 <table>
 
 	<tr>
-		<td>업체명</td> <td><input type="text" name="be_name" value="${sessionScope.besname}" readonly style="border-style: none;"></td>
+		<td>업체명</td> <td><input type="text" name="sdmy_be" value="${sessionScope.besname}" readonly style="border-style: none;" required></td>
 	</tr>
 
 	<tr>
-		<td>상품이름</td>
-		<td><input type="text" name="be_name"></td>
+		<td>평균 이용금액</td>
+		<td><input type="text" name="sdmy_avg" required>만원</td>
 	</tr>
 	
 	
 	<tr>
-		<td></td>
+		<td>업체 썸네일</td> 
+		<td><input type="file" name="sdmy_img" required></td>
 	</tr>
 	
 	<tr>
-		<td></td>
+		<td style="vertical-align: top;">업체 관련 이미지</td>
+		<td>
+			<input type="file" name="sdmy_img" required><br> 
+			<input type="file" name="sdmy_img" required><br> 
+			<input type="file" name="sdmy_img" required><br> 
+			<input type="file" name="sdmy_img" required><br> 
+			<input type="file" name="sdmy_img" required><br> 
+			<input type="file" name="sdmy_img" required><br> 
+			<input type="file" name="sdmy_img" required><br> 
+			<input type="file" name="sdmy_img" required><br> 
+			<input type="file" name="sdmy_img" required><br> 
+		</td>
 	</tr>
 	
 	<tr>
-		<td></td>
-	</tr>
-	
-	<tr>
-		<td><input type="hidden" name="be_sort" value="${sessionScope.besort }"></td>
+		<td>
+			<input type="hidden" name="be_sort" value="${sessionScope.besort }">
+			<input type="submit" value="등록 신청하기">
+		</td>
 	</tr>
 </table>
 </form>

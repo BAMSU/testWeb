@@ -21,13 +21,27 @@ public class HallDAOImple implements HallDAO {
 	public List getHallList() {
 		return sst.selectList("hallCompareFormSQL");
 	}
-
+	
+	public List getHallGu() {
+		return sst.selectList("hallGuSQL");
+	}
 	public List getHallListByGu(String gu) {
 		return sst.selectList("hallAddSearchByGuSQL",gu);
 	}
 
 	public List getHallListByName(String name) {
 		return sst.selectList("hallAddSearchByNameSQL",name);
+	}
+	public int insertWd(HallDTO dto) {
+		return sst.insert("inserthall", dto);
+	}
+	
+	public int updateWd(HallDTO dto) {
+		return sst.update("updatehall", dto);
+	}
+	
+	public int deleteWd(int idx) {
+		return sst.delete("deletehall", idx);
 	}
 
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>홀 상세정보</title>
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -162,7 +162,7 @@ a {
 			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 500px; height: 250px;"/>
 			<p>
 				<input type="button" value="견적내기"/>
-				<input type="button" value="통계보기"/>
+				<input type="button" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}'"/>
 				<input type="button" value="상담신청"/>
 			</p>
 		</div>
