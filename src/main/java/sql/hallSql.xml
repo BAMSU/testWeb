@@ -65,7 +65,7 @@
 		station = #{station}
 		where idx=#{idx}
 	</update>
-	<delete id="deletehall" parameterType="hall.model.HallDTO">
+	<delete id="deletehall" parameterType="int">
 		delete from hall where idx=#{idx}
 	</delete>
 	<!-- room -->
