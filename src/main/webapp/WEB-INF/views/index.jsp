@@ -122,7 +122,7 @@
 
 
 								<c:if test="${!empty sessionScope.sid}">
-									<li><a href="#">MYPAGE</a></li>
+									<li><a href="">MYPAGE</a></li>
 									<li><a href="memberLogout.we">LOGOUT</a></li>
 								</c:if>
 								<li><a href="memberJoin.we">SIGN UP</a></li>
