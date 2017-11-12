@@ -78,7 +78,7 @@
 	<bean id="hallStatsDao" class="hallStats.model.HallStatsDAOImple">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
-	<bean id="ahallStatsDao" class="ahall.model.aHallDAOImple">
+	<bean id="ahallStatsDao" class="ahall.model.aHallStatsDAOImple">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
 	<bean id="consult" class="consult.model.ConsultDAOImple">

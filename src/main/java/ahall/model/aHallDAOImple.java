@@ -33,7 +33,21 @@ public class aHallDAOImple implements aHallDAO {
 		return sst.selectList("hallAddSearchByNameSQL",name);
 	}
 	public int insertWd(aHallDTO dto) {
-		return sst.insert("inserthall", dto);
+		
+		int result = sst.insert("inserthall", dto);
+		
+		int max = sst.selectOne("max");
+		
+		Map m = new HashMap();
+		m.put("hallIdx", max);
+		for(int i = 1; i <= 12; i++) {
+			m.put("month", i);
+			sst.insert("insertStats1", m);
+			sst.insert("insertStats2", m);
+			sst.insert("insertStats3", m);
+			sst.insert("insertStats4", m);
+		}
+		return result;
 	}
 	
 	public int updateWd(aHallDTO dto) {

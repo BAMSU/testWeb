@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="aHallstats">
+	
+	<insert id="insertStats1" parameterType="map">
+		insert into hallStats values(
+	hallStats_idx.nextval,
+	'상담신청',
+	#{month},
+	0,
+	#{hallIdx}
+	)
+	</insert>
+	
+	<insert id="insertStats2" parameterType="map">
+		insert into hallStats values(
+	hallStats_idx.nextval,
+	'홀vs홀',
+	#{month},
+	0,
+	#{hallIdx}
+	)
+	</insert>
+	
+	<insert id="insertStats3" parameterType="map">
+		insert into hallStats values(
+	hallStats_idx.nextval,
+	'홀 견적내기',
+	#{month},
+	0,
+	#{hallIdx}
+	)
+	</insert>
+	
+	<insert id="insertStats4" parameterType="map">
+		insert into hallStats values(
+	hallStats_idx.nextval,
+	'고객평가',
+	#{month},
+	0,
+	#{hallIdx}
+	)
+	</insert>
+	
+	<select id="max" resultType="int">
+		select max(idx) from hall
+	</select>
+	
+	
+</mapper>
+

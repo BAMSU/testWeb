@@ -8,15 +8,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sun.xml.internal.ws.config.management.policy.ManagementPolicyValidator;
 
-import hall.model.HallDAO;
-import hall.model.HallDTO;
+import ahall.model.aHallDAO;
+import ahall.model.aHallDTO;
 
 
 @Controller
 public class WdController {
 	
 	@Autowired
-	private HallDAO dao;
+	private aHallDAO dao;
 	
 	@RequestMapping("/insertWd.we")
 	public String adminForm() {
@@ -24,7 +24,7 @@ public class WdController {
 	}
 	
 	@RequestMapping("/insertWd2.we")
-	public ModelAndView adminAction(HallDTO dto) {
+	public ModelAndView adminAction(aHallDTO dto) {
 		ModelAndView mav = new ModelAndView();
 		int result = dao.insertWd(dto);
 		
@@ -57,7 +57,7 @@ public class WdController {
 	}
 	
 	@RequestMapping("/update2.we")
-	public ModelAndView updateWd(HallDTO dto) {
+	public ModelAndView updateWd(aHallDTO dto) {
 		
 		ModelAndView mav = new ModelAndView();
 		int result = dao.updateWd(dto);
