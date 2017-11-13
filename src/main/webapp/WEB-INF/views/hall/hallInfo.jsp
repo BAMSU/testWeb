@@ -16,6 +16,7 @@
  height: 400px;
  width: 100%;
 }
+
 a {
 	cursor: pointer;
 }
