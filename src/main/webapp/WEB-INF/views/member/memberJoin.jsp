@@ -67,7 +67,7 @@
 <script type="text/javascript">
 	function FormSubmit() {
 		if (grecaptcha.getResponse() == "") {
-			alert("리캡챠를 체크해야 합니다.");
+			window.alert("리캡챠를 체크해야 합니다.");
 			return false;
 		} else {
 			return true;
@@ -99,7 +99,7 @@ function aa(){
 		var a = document.join.member_pwd.value;
 		var b = document.join.member_pwd2.value;
 		
-		var tel1 = document.join.member_phone.value;
+		var tel1 = document.join.member_phone1.value;
 		var tel2 = document.join.member_phone2.value;
 		var tel3 = document.join.member_phone3.value;
 		
@@ -117,7 +117,7 @@ function aa(){
 		if(a == b){
 			/* document.join.memphone.value=tel1+tel2+tel3; */
 			 document.join.member_email.value=member_email1 + '@' + member_email2; 
-			 
+			 document.join.member_phone.value=tel1 + tel2 + tel3;
 			window.alert('aaaa');
 			join.submit();
 		}else{
@@ -194,13 +194,13 @@ function selectEmail() {
 
 			<tr>
 				<th>휴대폰</th>
-				<td><select name="member_phone">
+				<td><select name="member_phone1">
 						<option value="010">010</option>
 						<option value="011">011</option>
 						<option value="017">010</option>
 				</select>-<input type="text" name="member_phone2" required=required maxlength="4" size="4">-<input type="text"
 					name="member_phone3" required=required maxlength="4" size="4">
-					<input type="hidden" name="memphone"></td>
+					<input type="hidden" name="member_phone"></td>
 			</tr>
 
 

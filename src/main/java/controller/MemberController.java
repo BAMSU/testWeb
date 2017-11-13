@@ -113,12 +113,12 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping("idCheck.we")
+/*	@RequestMapping("idCheck.we")
 	public ModelAndView member_IdCheck(@RequestParam("userid")String userid){
 		System.out.println(userid);
 		
 		return null;
-	}
+	}*/
 	
 	@RequestMapping("memberLogout.we")
 	public ModelAndView member_logout(HttpServletRequest req){
@@ -129,9 +129,9 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("msg" , "로그아웃 되었습니다.");
+		mav.addObject("gourl","index.we");
 		
-		
-		mav.setViewName("index");
+		mav.setViewName("member/memberlogoutMsg");
 		
 		return mav;
 	}

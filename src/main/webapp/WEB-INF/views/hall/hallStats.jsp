@@ -95,7 +95,7 @@ var mon=new Array(12);
     chart2.draw(data2, options);
     
     var data3 = google.visualization.arrayToDataTable([
-        ["월", "고객평가", {role:"style"},{role:"annotation"}],
+        ["월", "홀vs홀", {role:"style"},{role:"annotation"}],
         [mon[0]+"월", cm[6], "red", cm[6]],
         [mon[1]+"월", cm[7], "blue", cm[7]],
         [mon[2]+"월", cm[8], "green", cm[8]]
@@ -104,7 +104,7 @@ var mon=new Array(12);
     chart3.draw(data3, options);
     
     var data4 = google.visualization.arrayToDataTable([
-        ["월", "홀vs홀", {role:"style"},{role:"annotation"}],
+        ["월", "고객평가", {role:"style"},{role:"annotation"}],
         [mon[0]+"월", cm[9], "red", cm[9]],
         [mon[1]+"월", cm[10], "blue", cm[10]],
         [mon[2]+"월", cm[11], "green", cm[11]]
@@ -147,19 +147,19 @@ var mon=new Array(12);
 				</td>
 			</tr>
 			<tr>
-				<th>고객평가</th>
 				<th>홀vs홀</th>
+				<th>고객평가</th>
 			</tr>
 			<tr>
 				<td>
 					<div id="chart3" style="width: 400px; height: 300px;"></div>
 					<a class="ct"></a><br>
-					<input type="button" value="평가보기"/>
+					<input type="button" value="비교하기" onclick="location.href='hallCompare.we?idx=${hallIdx}'"/>
 				</td>
 				<td>
 					<div id="chart4" style="width: 400px; height: 300px;"></div>
 					<a class="ct"></a><br>
-					<input type="button" value="비교하기" onclick="location.href='hallCompare.we?idx=${hallIdx}'"/>
+					<input type="button" value="평가보기"/>
 				</td>
 			</tr>
 		</table>
