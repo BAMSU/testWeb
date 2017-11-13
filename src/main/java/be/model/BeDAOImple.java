@@ -28,8 +28,8 @@ public class BeDAOImple implements BeDAO {
 		
 		BeDTO dto2 = sqlMap.selectOne("beLogin", dto);
 		
-		// dbid dbpwd dbì—ì„œ ê°€ì ¸ì˜¨ ì •ë³´
-		// inid inpwd ì…ë ¥ëœ ì •ë³´
+		// dbid dbpwd db¿¡¼­ °¡Á®¿Â Á¤º¸
+		// inid inpwd ÀÔ·ÂµÈ Á¤º¸
 		
 		String dbid = dto2.getBe_id() != null? dto2.getBe_id():"0";
 		String dbpwd = dto2.getBe_pwd() != null? dto2.getBe_pwd():"0";
@@ -38,13 +38,13 @@ public class BeDAOImple implements BeDAO {
 		String inid = dto.getBe_id();
 		String inpwd = dto.getBe_pwd();
 		
-		//ì•„ì´ë””ê°€ ë§ìœ¼ë©´
+		//¾ÆÀÌµğ°¡ ¸ÂÀ¸¸é
 		if(dbid.equals(inid)) {
-			//ì•„ì´ë”” ë¹„ë²ˆ ëª¨ë‘ ë§ìœ¼ë©´
+			//¾ÆÀÌµğ ºñ¹ø ¸ğµÎ ¸ÂÀ¸¸é
 			if(dbpwd.equals(inpwd)) {
 				return 1;
 			}else {
-				//ë¹„ë°€ë²ˆí˜¸ í‹€ë¦¬ë©´
+				//ºñ¹Ğ¹øÈ£ Æ²¸®¸é
 				return 0;
 			}
 		}
@@ -150,7 +150,7 @@ public class BeDAOImple implements BeDAO {
 		return result;
 	}
 	
-	///////////////////////		ê´€ë¦¬ììŠ¹ì¸ëŒ€ê¸° ê´€ë ¨ ë©”ì„œë“œ		///////////////////////	
+	///////////////////////		°ü¸®ÀÚ½ÂÀÎ´ë±â °ü·Ã ¸Ş¼­µå		///////////////////////	
 	
 	public List<SDMYDTO> nItemListSDMY(String be_name) {
 		
@@ -177,8 +177,22 @@ public class BeDAOImple implements BeDAO {
 		return list;
 	}
 	
-	
-	
+	public int updateSDMY(SDMYDTO dto) {
+		int result = sqlMap.update("updateSDMY", dto);
+		return result;
+	}
+	public int updateCar(CarDTO dto) {
+		int result = sqlMap.update("updateCar", dto);
+		return result;
+	}
+	public int updateShoes(ShoesDTO dto) {
+		int result = sqlMap.update("updateShoes", dto);
+		return result;
+	}
+	public int updateBouq(BouqDTO dto) {
+		int result = sqlMap.update("updateBouq", dto);
+		return result;
+	}
 	
 	
 }
@@ -192,3 +206,4 @@ public class BeDAOImple implements BeDAO {
 
 
 
+ 

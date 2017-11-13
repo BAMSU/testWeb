@@ -52,7 +52,7 @@ public class BeController {
 		session.invalidate();
 		
 		ModelAndView mav = new ModelAndView();
-		String msg = "ë¡œê·¸ì•„ì›ƒë˜ì—ˆìŠµë‹ˆë‹¤.";
+		String msg = "·Î±×¾Æ¿ôµÇ¾ú½À´Ï´Ù.";
 		mav.addObject("msg",msg);
 		mav.setViewName("be/beLogin");
 		
@@ -73,12 +73,12 @@ public class BeController {
 		String msg="";
 		String href="";
 		
-		if(result==0) { //ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ë§ì§€ì•ŠìŒ
+		if(result==0) { //¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ ¸ÂÁö¾ÊÀ½
 			
-			msg = "ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.";
+			msg = "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.";
 			href= "beLogin.we";
 			
-		}else if(result==1){	//ì•„ì´ë”” ë¹„ë°€ë²ˆí˜¸ ëª¨ë‘ ë§ìŒ
+		}else if(result==1){	//¾ÆÀÌµğ ºñ¹Ğ¹øÈ£ ¸ğµÎ ¸ÂÀ½
 			
 			BeDTO dto2 = beDao.loginInfo(dto.getBe_id());
 			
@@ -87,11 +87,11 @@ public class BeController {
 			session.setAttribute("besname", dto2.getBe_name());
 			session.setAttribute("besort", dto2.getBe_sort());
 			System.out.println(dto2.getBe_sort()+"123");
-			msg = dto2.getBe_name()+"ì—…ì²´ ë¡œê·¸ì¸ ë˜ì—ˆìŠµë‹ˆë‹¤.";
+			msg = dto2.getBe_name()+"¾÷Ã¼ ·Î±×ÀÎ µÇ¾ú½À´Ï´Ù.";
 			href = "beIndex.we";
 			
 		}else {
-			msg = "ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.";
+			msg = "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.";
 			href= "beLogin.we";
 		}
 		
@@ -115,8 +115,8 @@ public class BeController {
 		int result = beDao.BeJoin(dto);
 		String name = dto.getBe_name();
 		String msg = result>0?
-				name+"ì—…ì²´ ë“±ë¡ ì‹ ì²­ ì™„ë£Œ! ê´€ë¦¬ìì˜ ìŠ¹ì¸ì„ ê¸°ë‹¤ë ¤ì£¼ì„¸ìš”."
-				:"ì—…ì²´ë“±ë¡ ì‹ ì²­ ì‹¤íŒ¨! ë‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”.";
+				name+"¾÷Ã¼ µî·Ï ½ÅÃ» ¿Ï·á! °ü¸®ÀÚÀÇ ½ÂÀÎÀ» ±â´Ù·ÁÁÖ¼¼¿ä."
+				:"¾÷Ã¼µî·Ï ½ÅÃ» ½ÇÆĞ! ´Ù½Ã ½ÃµµÇØÁÖ¼¼¿ä.";
 		String href= result>0?"beLogin.we":"beJoin.we";
 		
 		System.out.println(msg);
@@ -154,13 +154,13 @@ public class BeController {
 		File f2 = new File(fileroot+"/"+be_sort+"/"+writer);
 
 		if(!f.exists()) {
-			f.mkdir();	//ì—…ì²´ì¹´í…Œê³ ë¦¬ë³„ ë””ë ‰í† ë¦¬ ìƒì„±
+			f.mkdir();	//¾÷Ã¼Ä«Å×°í¸®º° µğ·ºÅä¸® »ı¼º
 		}
 		if(!f2.exists()) {	
-			f2.mkdir(); //ì—…ì²´ë³„ ë””ë ‰í† ë¦¬ ìƒì„±
+			f2.mkdir(); //¾÷Ã¼º° µğ·ºÅä¸® »ı¼º
 		}
 		
-		writer = fileroot+"/"+be_sort+"/"+writer;	//ì—¬ê¸°ì„œ writer ê°’ì„ ë””ë ‰í† ë¦¬ ê²½ë¡œëª…ìœ¼ë¡œ ë³€ê²½í•´ì¤Œ
+		writer = fileroot+"/"+be_sort+"/"+writer;	//¿©±â¼­ writer °ªÀ» µğ·ºÅä¸® °æ·Î¸íÀ¸·Î º¯°æÇØÁÜ
 		
 		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////");
 		System.out.println("fileeroot	:"+fileroot);
@@ -178,7 +178,7 @@ public class BeController {
 			int tempNum = filename.indexOf("upload");
 			arr.add(filename.substring(tempNum));
 		}
-		//////////////////////////////////////////////////////////////ì´ë¯¸ì§€ ì²˜ë¦¬ë°©ì‹ ì—…ë¡œë“œëœ íŒŒì¼ê³¼ ë‹¤ë¥´ê²Œ ì²˜ë¦¬
+		//////////////////////////////////////////////////////////////ÀÌ¹ÌÁö Ã³¸®¹æ½Ä ¾÷·ÎµåµÈ ÆÄÀÏ°ú ´Ù¸£°Ô Ã³¸®
 		dto.setSdmy_thumbnail(arr.get(0));
 		dto.setSdmy_img1(arr.get(1));
 		dto.setSdmy_img2(arr.get(2));
@@ -192,7 +192,7 @@ public class BeController {
 		//////////////////////////////////////////////////////////////
 		
 		int result = beDao.regSDMY(dto);
-		String msg = result>0?"ë“±ë¡ì‹ ì²­ ì™„ë£Œ":"ë“±ë¡ì‹ ì²­ ì‹¤íŒ¨";
+		String msg = result>0?"µî·Ï½ÅÃ» ¿Ï·á":"µî·Ï½ÅÃ» ½ÇÆĞ";
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("be/beMsg");
@@ -203,20 +203,20 @@ public class BeController {
 		return mav;
 	}
 	
-	/**ì—…ë¡œë“œíŒŒì¼ ë³µì‚¬ê´€ë ¨ë©”ì„œë“œ*/
+	/**¾÷·ÎµåÆÄÀÏ º¹»ç°ü·Ã¸Ş¼­µå*/
 	public void copyInto(String writer, MultipartFile upload) {
 		
 		String filename = upload.getOriginalFilename();
-		System.out.println("ê²½ë¡œ : "+writer+"\n íŒŒì¼ëª… : "+filename);
+		System.out.println("°æ·Î : "+writer+"\n ÆÄÀÏ¸í : "+filename);
 		
 		try {
 		
 			byte bytes[]=upload.getBytes();
 			
-			//File newfile=new File("E:/ë¬¸ìƒí›ˆ/upload/"+filename);
+			//File newfile=new File("E:/¹®»óÈÆ/upload/"+filename);
 
 			File newfile=new File(writer+"/"+filename);
-			FileOutputStream fos = new FileOutputStream(newfile);	//ë‚´ê°€ ì§€ì •í•œê³³ì— ì‘ì„±
+			FileOutputStream fos = new FileOutputStream(newfile);	//³»°¡ ÁöÁ¤ÇÑ°÷¿¡ ÀÛ¼º
 			
 			fos.write(bytes);
 			fos.close();
@@ -238,13 +238,13 @@ public class BeController {
 		File f2 = new File(fileroot+"/"+be_sort+"/"+writer);
 		
 		if(!f.exists()) {
-			f.mkdir();	//ì—…ì²´ì¹´í…Œê³ ë¦¬ë³„ ë””ë ‰í† ë¦¬ ìƒì„±
+			f.mkdir();	//¾÷Ã¼Ä«Å×°í¸®º° µğ·ºÅä¸® »ı¼º
 		}
 		if(!f2.exists()) {	
-			f2.mkdir(); //ì—…ì²´ë³„ ë””ë ‰í† ë¦¬ ìƒì„±
+			f2.mkdir(); //¾÷Ã¼º° µğ·ºÅä¸® »ı¼º
 		}
 		
-		writer = fileroot+"/"+be_sort+"/"+writer;	//ì—¬ê¸°ì„œ writer ê°’ì„ ë””ë ‰í† ë¦¬ ê²½ë¡œëª…ìœ¼ë¡œ ë³€ê²½í•´ì¤Œ
+		writer = fileroot+"/"+be_sort+"/"+writer;	//¿©±â¼­ writer °ªÀ» µğ·ºÅä¸® °æ·Î¸íÀ¸·Î º¯°æÇØÁÜ
 		
 		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////");
 		System.out.println("fileeroot	:"+fileroot);
@@ -263,12 +263,12 @@ public class BeController {
 			
 			arr.add(filename.substring(tempNum));
 		}
-		//////////////////////////////////////////////////////////////ì´ë¯¸ì§€ ì²˜ë¦¬ë°©ì‹ ì—…ë¡œë“œëœ íŒŒì¼ê³¼ ë‹¤ë¥´ê²Œ ì²˜ë¦¬
+		//////////////////////////////////////////////////////////////ÀÌ¹ÌÁö Ã³¸®¹æ½Ä ¾÷·ÎµåµÈ ÆÄÀÏ°ú ´Ù¸£°Ô Ã³¸®
 		dto.setCar_img(arr.get(0));
 		//////////////////////////////////////////////////////////////
 		
 		int result = beDao.regCar(dto);
-		String msg = result>0?"ë“±ë¡ì‹ ì²­ ì™„ë£Œ":"ë“±ë¡ì‹ ì²­ ì‹¤íŒ¨";
+		String msg = result>0?"µî·Ï½ÅÃ» ¿Ï·á":"µî·Ï½ÅÃ» ½ÇÆĞ";
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("be/beMsg");
@@ -289,13 +289,13 @@ public class BeController {
 		File f2 = new File(fileroot+"/"+be_sort+"/"+writer);
 		
 		if(!f.exists()) {
-			f.mkdir();	//ì—…ì²´ì¹´í…Œê³ ë¦¬ë³„ ë””ë ‰í† ë¦¬ ìƒì„±
+			f.mkdir();	//¾÷Ã¼Ä«Å×°í¸®º° µğ·ºÅä¸® »ı¼º
 		}
 		if(!f2.exists()) {	
-			f2.mkdir(); //ì—…ì²´ë³„ ë””ë ‰í† ë¦¬ ìƒì„±
+			f2.mkdir(); //¾÷Ã¼º° µğ·ºÅä¸® »ı¼º
 		}
 		
-		writer = fileroot+"/"+be_sort+"/"+writer;	//ì—¬ê¸°ì„œ writer ê°’ì„ ë””ë ‰í† ë¦¬ ê²½ë¡œëª…ìœ¼ë¡œ ë³€ê²½í•´ì¤Œ
+		writer = fileroot+"/"+be_sort+"/"+writer;	//¿©±â¼­ writer °ªÀ» µğ·ºÅä¸® °æ·Î¸íÀ¸·Î º¯°æÇØÁÜ
 		
 		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////");
 		System.out.println("fileeroot	:"+fileroot);
@@ -314,14 +314,14 @@ public class BeController {
 			
 			arr.add(filename.substring(tempNum));
 		}
-		//////////////////////////////////////////////////////////////ì´ë¯¸ì§€ ì²˜ë¦¬ë°©ì‹ ì—…ë¡œë“œëœ íŒŒì¼ê³¼ ë‹¤ë¥´ê²Œ ì²˜ë¦¬
+		//////////////////////////////////////////////////////////////ÀÌ¹ÌÁö Ã³¸®¹æ½Ä ¾÷·ÎµåµÈ ÆÄÀÏ°ú ´Ù¸£°Ô Ã³¸®
 		dto.setShoes_thumbnail(arr.get(0));
 		dto.setShoes_img(arr.get(1));
 		//////////////////////////////////////////////////////////////
 		
 		int result = beDao.regShoes(dto);
 		
-		String msg = result>0?"ë“±ë¡ì‹ ì²­ ì™„ë£Œ":"ë“±ë¡ì‹ ì²­ ì‹¤íŒ¨";
+		String msg = result>0?"µî·Ï½ÅÃ» ¿Ï·á":"µî·Ï½ÅÃ» ½ÇÆĞ";
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("be/beMsg");
@@ -342,13 +342,13 @@ public class BeController {
 		File f2 = new File(fileroot+"/"+be_sort+"/"+writer);
 		
 		if(!f.exists()) {
-			f.mkdir();	//ì—…ì²´ì¹´í…Œê³ ë¦¬ë³„ ë””ë ‰í† ë¦¬ ìƒì„±
+			f.mkdir();	//¾÷Ã¼Ä«Å×°í¸®º° µğ·ºÅä¸® »ı¼º
 		}
 		if(!f2.exists()) {	
-			f2.mkdir(); //ì—…ì²´ë³„ ë””ë ‰í† ë¦¬ ìƒì„±
+			f2.mkdir(); //¾÷Ã¼º° µğ·ºÅä¸® »ı¼º
 		}
 		
-		writer = fileroot+"/"+be_sort+"/"+writer;	//ì—¬ê¸°ì„œ writer ê°’ì„ ë””ë ‰í† ë¦¬ ê²½ë¡œëª…ìœ¼ë¡œ ë³€ê²½í•´ì¤Œ
+		writer = fileroot+"/"+be_sort+"/"+writer;	//¿©±â¼­ writer °ªÀ» µğ·ºÅä¸® °æ·Î¸íÀ¸·Î º¯°æÇØÁÜ
 		
 		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////");
 		System.out.println("fileeroot	:"+fileroot);
@@ -367,12 +367,12 @@ public class BeController {
 			
 			arr.add(filename.substring(tempNum));
 		}
-		//////////////////////////////////////////////////////////////ì´ë¯¸ì§€ ì²˜ë¦¬ë°©ì‹ ì—…ë¡œë“œëœ íŒŒì¼ê³¼ ë‹¤ë¥´ê²Œ ì²˜ë¦¬
+		//////////////////////////////////////////////////////////////ÀÌ¹ÌÁö Ã³¸®¹æ½Ä ¾÷·ÎµåµÈ ÆÄÀÏ°ú ´Ù¸£°Ô Ã³¸®
 		dto.setBouq_thumbnail(arr.get(0));
 		//////////////////////////////////////////////////////////////
 		
 		int result = beDao.regBouq(dto);
-		String msg = result>0?"ë“±ë¡ì‹ ì²­ ì™„ë£Œ":"ë“±ë¡ì‹ ì²­ ì‹¤íŒ¨";
+		String msg = result>0?"µî·Ï½ÅÃ» ¿Ï·á":"µî·Ï½ÅÃ» ½ÇÆĞ";
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("be/beMsg");
@@ -382,7 +382,7 @@ public class BeController {
 		return mav;
 	}
 
-	/** ìƒí’ˆë¦¬ìŠ¤íŠ¸ ê´€ë ¨ ë©”ì„œë“œ*/
+	/** »óÇ°¸®½ºÆ® °ü·Ã ¸Ş¼­µå*/
 	@RequestMapping(value="/itemListBe.we")
 	public ModelAndView itemListBe(HttpServletRequest req, HttpServletResponse resp
 			) {
@@ -392,22 +392,22 @@ public class BeController {
 		String besort = (String)session.getAttribute("besort");
 		String besname = (String)session.getAttribute("besname");
 		
-		if(besort.equals("ìŠ¤íŠœë””ì˜¤")||besort.equals("ë“œë ˆìŠ¤")||besort.equals("ë©”ì´í¬ì—…")||besort.equals("ì˜ˆë³µ")) {
+		if(besort.equals("½ºÆ©µğ¿À")||besort.equals("µå·¹½º")||besort.equals("¸ŞÀÌÅ©¾÷")||besort.equals("¿¹º¹")) {
 			
 			List<SDMYDTO> list = beDao.beItemListSDMY(besname);
 			mav.addObject("list", list);
 			
-		}else if(besort.equals("ì›¨ë”©ì¹´")) {
+		}else if(besort.equals("¿şµùÄ«")) {
 			
 			List<CarDTO> list = beDao.beItemListCar(besname);
 			mav.addObject("list",list);
 			
-		}else if(besort.equals("ì›¨ë”©ìŠˆì¦ˆ")) {
+		}else if(besort.equals("¿şµù½´Áî")) {
 			
 			List<ShoesDTO> list = beDao.beItemListShoes(besname);
 			mav.addObject("list",list);
 			
-		}else if(besort.equals("ë¶€ì¼€")) {
+		}else if(besort.equals("ºÎÄÉ")) {
 			
 			List<BouqDTO> list = beDao.beItemListBouq(besname);
 			mav.addObject("list",list);
@@ -480,22 +480,22 @@ public class BeController {
 		String tableName="";
 		String columName="";
 		
-		if(besort.equals("ìŠ¤íŠœë””ì˜¤")||besort.equals("ë“œë ˆìŠ¤")||besort.equals("ë©”ì´í¬ì—…")||besort.equals("ì˜ˆë³µ")) {
+		if(besort.equals("½ºÆ©µğ¿À")||besort.equals("µå·¹½º")||besort.equals("¸ŞÀÌÅ©¾÷")||besort.equals("¿¹º¹")) {
 			tableName = "be_sdmy";
 			columName = "sdmy_idx";
-		}else if(besort.equals("ì›¨ë”©ì¹´")) {
+		}else if(besort.equals("¿şµùÄ«")) {
 			tableName = "be_car";
 			columName = "car_idx";
-		}else if(besort.equals("ì›¨ë”©ìŠˆì¦ˆ")) {
+		}else if(besort.equals("¿şµù½´Áî")) {
 			tableName = "be_shoes";
 			columName = "shoes_idx";
-		}else if(besort.equals("ë¶€ì¼€")) {
+		}else if(besort.equals("ºÎÄÉ")) {
 			tableName = "be_bouquet";
 			columName = "bouq_idx";
 		}
 		
 		int result = beDao.delItem(columName, idx, tableName);
-		String msg=result>0?"ì‚­ì œì™„ë£Œ":"ì‚­ì œì‹¤íŒ¨!";
+		String msg=result>0?"»èÁ¦¿Ï·á":"»èÁ¦½ÇÆĞ!";
 		
 		mav.addObject("href","itemListBe.we");
 		mav.addObject("msg",msg);
@@ -601,12 +601,39 @@ public class BeController {
 		mav.setViewName("be/itemUpdateBouq");
 		return mav;
 	}
+	// METHOD ABOUT UPDATE
 	
-	// ì¸ì»´ ì†”ë£¨ì…˜  - ì••ë°•ë³´ë‹¤ëŠ” ì§ˆë¬¸ì— ë˜ ì§ˆë¬¸í•˜ëŠ” í˜•ì‹ , ìì‹ ê°ìˆê²Œ ì†Œì‹ ìˆê²Œ. ì·¨ì•½ë¶€ë¶„, ëª¨ë¥´ëŠ” ë¶€ë¶„ì— ëŒ€í•œ ë¶„ëª…í•œ íƒœë„?, ìƒí™©ì— ë§ëŠ” ë‹µë³€ ì¤€ë¹„
-	// ê¿ˆ?
-	
-	
-	
+	@RequestMapping(value="/itemUpdateSDMY.we", method=RequestMethod.POST)
+	public ModelAndView itemUpdateSDMYSubmit(
+			@RequestParam(value="sdmy_be")String sdmy_be,
+			SDMYDTO dto
+			) {
+		
+		ModelAndView mav = new ModelAndView();
+		int result = beDao.updateSDMY(dto);
+		String msg = result>0?"¼öÁ¤ ¼º°ø!":"¼öÁ¤ ½ÇÆĞ";
+		String href = result>0?"beIndex.we":"beIndex.we";
+		
+		mav.addObject("msg", msg);
+		mav.addObject("href", href);
+		mav.setViewName("be/beMsg");
+		return mav;
+	}
+	@RequestMapping(value="/itemUpdateCar.we", method=RequestMethod.POST)
+	public ModelAndView itemUpdateCarSubmit(
+			CarDTO dto
+			) {
+		
+		ModelAndView mav = new ModelAndView();
+		int result = beDao.updateCar(dto);
+		String msg = result>0?"¼öÁ¤ ¼º°ø!":"¼öÁ¤ ½ÇÆĞ";
+		String href = result>0?"beIndex.we":"beIndex.we";
+		
+		mav.addObject("msg", msg);
+		mav.addObject("href", href);
+		mav.setViewName("be/beMsg");
+		return mav;
+	}
 	
 	
 	
