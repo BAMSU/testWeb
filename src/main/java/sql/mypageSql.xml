@@ -9,5 +9,13 @@
 	select * from hall_estimate
 	
 	</select>
+	
+	<select id="mypage_like">
+	
+	</select>
+	
+	<select id="mypage_ask">
+	
+	</select>
 
 </mapper>

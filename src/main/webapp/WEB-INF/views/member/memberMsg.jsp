@@ -4,5 +4,6 @@
     
 <script>
 	window.alert('${msg}');
-	location.href='${gourl}';
+	opener.location.reload();
+	window.self.close();
 </script>

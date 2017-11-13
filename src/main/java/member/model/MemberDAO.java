@@ -8,5 +8,6 @@ public interface MemberDAO {
 	
 	
 	public String MemberidFind(MemberDTO dto);
+	public String getName(String id);
 	
 }

@@ -51,4 +51,9 @@ public class MemberDAOImple implements MemberDAO {
 		String result  = sqlMap.selectOne("memberidFind",dto);
 		return result;
 	}
+	
+	public String getName(String id) {
+		return sqlMap.selectOne("getname", id);
+		
+	}
 }
