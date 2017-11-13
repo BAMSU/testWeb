@@ -40,7 +40,7 @@
 	<![endif]-->
 <script>
 function openLogin(){
-	window.open('login.we','login','width=500px, height=500px');
+	window.open('memberLogin.we','login','width=500px, height=500px');
 }
 </script>
 </head>
