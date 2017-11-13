@@ -7,6 +7,14 @@
 <meta charset=EUC-KR">
 <title>Insert title here</title>
 <style>
+	#page{
+		width:100%;
+		text-align: center;
+		text-decoration: none;
+	}
+	#align{
+		
+	}
 	body{
 		margin-left: 100px;
 		margin-right: 100px;
@@ -146,24 +154,31 @@
         .gallery_content {
             width: 100%;
         }
-        
         }
 </style>
+<script>
+	function test(){
+		 window.open('test.we','ordertest',"width=300,height=800");
+	}
+</script>
 </head>
 <body>
-
+<div id="align">
+<a href="cardMain.we">인기순</a> / <a href="">최신순</a>
+</div>
+<br>
+<hr>
 
   <c:forEach var="i" items="${list}" >
-		<div class="gallery_content">
-
-            <img src="card_img/${i.card_img}">
+		 <a href="cardMake.we?idx=${i.card_idx }"><div class="gallery_content">
+           <img src="card_img/${i.card_img}">
             <div class="content">
                 <h1>${i.card_name }</h1>
                 <p>${i.card_price }원</p>
             </div>
             <div class="overlay darkBlue"></div>
-        </div>
+        </div></a>
   </c:forEach>
-${pageStr}
+<div id="page">${pageStr}</div>
 </body>
 </html>
