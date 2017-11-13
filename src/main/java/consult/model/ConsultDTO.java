@@ -23,10 +23,6 @@ public class ConsultDTO {
 	}
 	
 	
-
-	
-
-	
 	
 	public ConsultDTO(int consult_idx, String name, String gender, String tel1, String tel2, String tel3, String email,
 			String email2, String reservation, String context, String available,String tel) {
@@ -189,6 +185,11 @@ public class ConsultDTO {
 	public void setAvailable(String available) {
 		this.available = available;
 	}
+
+
+
+
+
 
 
 
