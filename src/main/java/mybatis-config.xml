@@ -10,6 +10,7 @@
 		<mapper resource="sql/admin.xml"/>
 		<mapper resource="sql/beSql.xml"/>
 		<mapper resource="sql/aHallstats.xml"/>
+		<mapper resource="sql/mealSql.xml"/>
 		<!-- <mapper resource="sql/honeySql.xml"/>
 		<mapper resource="sql/beSql.xml"/>
 		<mapper resource="sql/cardSQL.xml"/>

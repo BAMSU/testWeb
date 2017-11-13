@@ -8,16 +8,16 @@
 <title>Insert title here</title>
 <script>
 function aa() {
-	location.href="/finalproject/insertWd.we";
+	location.href="/finalproject/insertMeal.we";
 }
 </script>
 </head>
 <body>
-<input type="button" name="insertWd" value="웨딩홀등록" onclick="aa()">
+<input type="button" name="insertMeal" value="식사등록" onclick="aa()">
 <h3>웨딩홀 리스트</h3>
 
 	<c:if test="${empty list}">
-		<h3>등록된 웨딩홀이 없습니다.</h3>
+		<h3>등록된 음식이 없습니다.</h3>
 	</c:if>
 	<c:forEach var="dto" items="${list}">
 		<c:url var="contentUrl" value="updateWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
