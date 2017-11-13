@@ -167,6 +167,35 @@
 		select * from be_sdmy where sdmy_be = #{be_name} and admin_permission = 'n'
 	</select>
 	
+	<update id="updateCar" parameterType="be.model.CarDTO">
+		update be_car set 
+			car_name = #{car_name},
+			car_price = #{car_price},
+			car_detail = #{car_detail} 
+		where car_idx = #{car_idx}
+	</update>
+	<update id="updateShoes" parameterType="be.model.ShoesDTO">
+		update be_shoes set
+			shoes_name = #{shoes_name},
+			shoes_size = #{shoes_size},
+			shoes_heel = #{shoes_material},
+			shoes_detail = #{shoes_detail}
+		where shoes_idx = #{shoes_idx}
+	</update>
+	<update id="updateBouq" parameterType="be.model.BouqDTO">
+		update be_bouquet set
+			bouq_name = #{bouq_name},
+			bouq_simple = #{bouq_simple},
+			bqou_price = #{bouq_price},
+			bouq_detail = #{bouq_detail}
+		where bouq_idx = #{bouq_idx}
+	</update>
+	<update id="updateSDMY" parameterType="be.model.SDMYDTO">
+		update be_sdmy set
+			sdmy_avg = #{sdmy_avg}
+		where sdmy_idx = #{sdmy_idx}
+	</update>
+	
 </mapper>
 
 

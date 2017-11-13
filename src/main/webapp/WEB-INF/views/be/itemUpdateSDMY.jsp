@@ -12,11 +12,26 @@
 
 <h2>itemUpdateSDMY.jsp 입니당</h2>
 
-업체명 : ${dto.sdmy_be }<br>
-업체종류 : ${dto.sdmy_category}<br>
-평균이용가격 : ${dto.sdmy_avg}<br>
-조회수 : ${dto.readnum}<br>
-상담수 : ${dto.consult}<br>
+<form action="itemUpdateSDMY.we" method="post">
+<table>
+	<tr>
+		<td>업체명</td><td>${dto.sdmy_be }</td>
+	</tr>
+	<tr>
+		<td>업체종류</td><td>${dto.sdmy_category}</td>
+	</tr>
+	<tr>
+		<td>평균이용가격</td><td><input type="text" name="sdmy_avg" value="${dto.sdmy_avg}"></td>
+	</tr>
+	
+	<tr>
+		<td>
+		<input type="hidden" name = "sdmy_be" value="${dto.sdmy_be}">
+		<input type="hidden" name="sdmy_idx" value="${dto.sdmy_idx }">
+		<input type="submit" value="수정하기">
+		</td>
+	</tr>
+</table>
 <img alt="thumbnail" src="${dto.sdmy_thumbnail}" width="20%"><br>
  
 <img alt="img" src="${dto.sdmy_img1}" width="20%"><br>
@@ -27,5 +42,7 @@
 <img alt="img" src="${dto.sdmy_img6}" width="20%"><br>
 <img alt="img" src="${dto.sdmy_img7}" width="20%"><br>
 <img alt="img" src="${dto.sdmy_img8}" width="20%"><br>
+
+</form>
 </body>
 </html>
