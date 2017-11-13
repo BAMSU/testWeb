@@ -1,105 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans.xsd
-	http://www.springframework.org/schema/context 
-	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<!-- configs -->
-	<context:component-scan base-package="controller" use-default-filters="false">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-	</context:component-scan>
-	
-	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize">
-			<value>104857600</value>
-		</property>
-	</bean>
-	
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-	<property name="url" value="jdbc:oracle:thin:@yongstudy.iptime.org:9000:orcl"/>
-	<property name="username" value="project03_01"/>
-	<property name="password" value="project03_01"/>
-	</bean>
-	
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-	<property name="dataSource" ref="dataSource"></property>
-	</bean>
-	
-	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
-	<property name="dataSource" ref="dataSource"></property>
-	<property name="configLocation" value="classpath:/mybatis-config.xml"></property>	
-	</bean>
-	
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
-	</bean>
+   <!-- configs -->
+   <context:component-scan base-package="controller" use-default-filters="false">
+      <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+   </context:component-scan>
+   
+   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <property name="maxUploadSize">
+         <value>104857600</value>
+      </property>
+   </bean>
+   
+   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+   <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+   <property name="url" value="jdbc:oracle:thin:@yongstudy.iptime.org:9000:orcl"/>
+   <property name="username" value="project03_01"/>
+   <property name="password" value="project03_01"/>
+   </bean>
+   
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   <property name="dataSource" ref="dataSource"></property>
+   </bean>
+   
+   <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+   <property name="dataSource" ref="dataSource"></property>
+   <property name="configLocation" value="classpath:/mybatis-config.xml"></property>   
+   </bean>
+   
+   <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+   <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
+   </bean>
 
-	
-	<!-- service -->
-	<bean id="beDao" class="be.model.BeDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	<bean id="memberDao" class="member.model.MemberDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	
-	<bean id="cardDao" class="yong.card.model.CardDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
+   
+   <!-- service -->
+   <bean id="beDao" class="be.model.BeDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   <bean id="memberDao" class="member.model.MemberDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   
+   <bean id="cardDao" class="yong.card.model.CardDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
 
-	<!-- <bean id="beDao" class="be.model.BeDAOImple"/> -->
+   <!-- <bean id="beDao" class="be.model.BeDAOImple"/> -->
      
     <bean id="hallDao" class="hall.model.HallDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	 <bean id="ahallDao" class="ahall.model.aHallDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	<bean id="roomDao" class="room.model.RoomDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
-	<bean id="hallStatsDao" class="hallStats.model.HallStatsDAOImple">
-		<constructor-arg ref="sqlSessionTemplate"/>
-	</bean>
-	<bean id="ahallStatsDao" class="ahall.model.aHallStatsDAOImple">
-		<constructor-arg ref="sqlSessionTemplate"/>
-	</bean>
-	<bean id="consult" class="consult.model.ConsultDAOImple">
-		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
-		</constructor-arg>
-	</bean>
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   
+    <bean id="halleDao" class="hallEstimate.model.HalleDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+    <bean id="ahallDao" class="ahall.model.aHallDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   <bean id="roomDao" class="room.model.RoomDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   <bean id="hallStatsDao" class="hallStats.model.HallStatsDAOImple">
+      <constructor-arg ref="sqlSessionTemplate"/>
+   </bean>
+   <bean id="ahallStatsDao" class="ahall.model.aHallStatsDAOImple">
+      <constructor-arg ref="sqlSessionTemplate"/>
+   </bean>
+   
+   <bean id="mealDao" class="meal.model.mealDAOImple">
+      <constructor-arg ref="sqlSessionTemplate"/>
+   </bean>
+   
+   
+   <bean id="consult" class="consult.model.ConsultDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   
+   <bean id="mypageReviewDao" class="mypageReview.model.MypageReviewDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   
+   <bean id="mypageLikeDao" class="mypageLike.model.MypageLikeDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   
+   <bean id="mypageAskDao" class="mypageAsk.model.MypageAskDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
 
-	<!-- views -->
-	<bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
-	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
-	
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/"></property>
-		<property name="suffix" value=".jsp"></property>
-		<property name="order" value="1"/>
-	</bean>
-	
-	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
-		<property name="order" value="0"/>
-	</bean>
+   <!-- views -->
+   <bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+   <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+   
+   <bean id="viewResolver"
+      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix" value="/WEB-INF/views/"></property>
+      <property name="suffix" value=".jsp"></property>
+      <property name="order" value="1"/>
+   </bean>
+   
+   <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+      <property name="order" value="0"/>
+   </bean>
 
 </beans>

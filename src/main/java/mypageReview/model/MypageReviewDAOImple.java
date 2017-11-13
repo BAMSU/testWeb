@@ -1,4 +1,4 @@
-package mypage.model;
+package mypageReview.model;
 
 import java.sql.*;
 import java.util.*;
@@ -8,11 +8,11 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-public class MypageDAOImple implements MypageDAO {
+public class MypageReviewDAOImple implements MypageReviewDAO {
 
 	private SqlSessionTemplate sqlMap;
 	
-	public MypageDAOImple(SqlSessionTemplate sqlMap) {
+	public MypageReviewDAOImple(SqlSessionTemplate sqlMap) {
 		super();
 		this.sqlMap = sqlMap;
 	}
