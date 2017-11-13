@@ -41,7 +41,7 @@ public class ConsultDAOImple implements ConsultDAO {
 	
 	}
 	
-	public List<ConsultDTO> consultList(int cp,int ls){
+	public List<ConsultDTO> consultList(int cp,int ls,String name){
 	
 		Map data = new HashMap();
 		int startnum = (cp-1)*ls+1;
@@ -50,6 +50,7 @@ public class ConsultDAOImple implements ConsultDAO {
 	
 		data.put("startnum", startnum);
 		data.put("endnum", endnum);
+		data.put("name", name);
 		
 		List<ConsultDTO> list =sqlMap.selectList("ConsultList",data);
 		return list;

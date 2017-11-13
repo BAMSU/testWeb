@@ -35,7 +35,7 @@
  
     
     function onMessage(event) {
-        textarea.value += "상대 : " + event.data + "\n";  
+        textarea.value +=${sname} + event.data + "\n";  
         test();
     }
     function onOpen(event) {
@@ -45,7 +45,7 @@
       alert(event.data);
     }
     function send() {
-        textarea.value += "나 : " + inputMessage.value + "\n";
+        textarea.value += ${sname} + inputMessage.value + "\n";
         webSocket.send(inputMessage.value);
         inputMessage.value = "";
         test();

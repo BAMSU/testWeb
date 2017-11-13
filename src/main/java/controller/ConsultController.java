@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import consult.model.*;
 
+
 @Controller
 public class ConsultController {
 	
@@ -20,19 +21,22 @@ public class ConsultController {
 	private ConsultDAO consultDao;
 	
 	@RequestMapping(value="/consult.we",method=RequestMethod.GET)
-	public String bbsWriteForm(){		
-		return "consult/consultMain";
+	public String consultWriteForm(){		
+	
+			return "consult/consultMain";
+		
 	}
 	
 	@RequestMapping(value="/consult.we",method=RequestMethod.POST)
 	public ModelAndView bbsWriteSubmit(ConsultDTO dto){
 		
 		int result =consultDao.consultWrite(dto);
-		String msg = result>0?"ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½Ï·ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.":"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.";
+		String msg = result>0?"¹®ÀÇ°¡ ¿Ï·á µÇ¾ú½À´Ï´Ù.":"¹®ÀÇ °¡ ½ÇÆÐ ÇÏ¿´½À´Ï´Ù.";
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg", msg);
 		mav.setViewName("consult/consultMsg");
 		return mav;
+		
 	}
 	
 	
@@ -40,13 +44,15 @@ public class ConsultController {
 	@RequestMapping("/consultList.we")
 	public ModelAndView consultList(@RequestParam(value="cp",defaultValue="1")int cp,HttpSession session){
 		
+		
+		String name =(String)session.getAttribute("sname");
 		int totalCnt = consultDao.getTotelCont();
 		int listSize = 10;
 		int pageSize = 5;
 		String pageStr = yong.page.PageModule.makePage("consultList.we", totalCnt, listSize, pageSize, cp);
 		
 		
-		List<ConsultDTO> list=consultDao.consultList(cp,listSize);
+		List<ConsultDTO> list=consultDao.consultList(cp,listSize,name);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.addObject("pageStr", pageStr);
@@ -58,7 +64,7 @@ public class ConsultController {
 	public ModelAndView consultDel(@RequestParam("idx")int idx){
 		
 		int result = consultDao.consultDel(idx);
-		String msg = result>0?"ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.":"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.";
+		String msg = result>0?"»èÁ¦ ¿Ï·á µÇ¾ú½À´Ï´Ù.":"»èÁ¦ ½ÇÆÐ ÇÏ¿´½À´Ï´Ù.";
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg", msg);
 		mav.setViewName("consult/consultMsg");
@@ -97,7 +103,7 @@ public class ConsultController {
 	public ModelAndView consultUpdate(ConsultDTO dto,@RequestParam("idx")int idx){
 		
 		int result =consultDao.consultUpdate(dto,idx);
-		String msg = result>0?"ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.":"ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.";
+		String msg = result>0?"¼öÁ¤ ¿Ï·á µÇ¾ú½À´Ï´Ù.":"¼öÁ¤ ½ÇÆÐ ÇÏ¿´½À´Ï´Ù.";
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg", msg);
 		mav.setViewName("consult/consultMsg");
