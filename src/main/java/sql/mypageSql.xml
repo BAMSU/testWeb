@@ -5,7 +5,7 @@
 <mapper namespace="mypage">
 	
 	
-	<select id="mypage_review" resultType="mypage.model.MypageDTO">
+	<select id="mypage_review" >
 	select * from hall_estimate
 	
 	</select>
