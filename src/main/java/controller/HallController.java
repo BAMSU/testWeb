@@ -16,6 +16,8 @@ import hall.model.HallListModule;
 import hallStats.model.HallStatsDAO;
 import hallStats.model.HallStatsDTO;
 import room.model.RoomDAO;
+import scrap.model.ScrapDAO;
+import scrap.model.ScrapDTO;
 
 @Controller
 public class HallController {
@@ -25,12 +27,20 @@ public class HallController {
 	private RoomDAO roomDao;
 	@Autowired
 	private HallStatsDAO hallStatsDao;
+	@Autowired
+	private ScrapDAO scrapDao;
 	
 	@RequestMapping("/hallInfo.we")
-	public ModelAndView hallInfoForm(@RequestParam(value="idx",defaultValue="1")int idx){
+	public ModelAndView hallInfoForm(@RequestParam(value="idx",defaultValue="1")int idx,
+			@RequestParam(value="name",defaultValue="한재우")String name){
 		ModelAndView mav = new ModelAndView("hall/hallInfo");
 		mav.addObject("hallInfo",hallDao.getHallInfo(idx));
 		mav.addObject("roomInfo",roomDao.roomInfo(idx));
+		if(scrapDao.getScrap(name, idx)!=null){
+			mav.addObject("srp",true);
+		}else{
+			mav.addObject("srp",false);
+		}
 		return mav;
 	}
 	
@@ -46,6 +56,7 @@ public class HallController {
 	
 	@RequestMapping(value="/hallCompare.we", method=RequestMethod.POST)
 	public ModelAndView hallCompareSubmit(@RequestParam("idx")int idx){
+		hallStatsDao.upHallStats(idx, "홀vs홀");
 		return new ModelAndView("jsonView","hallListByIdx",hallDao.getHallInfo(idx));
 	}
 
@@ -96,8 +107,14 @@ public class HallController {
 		return mav;
 	}
 	
-	@RequestMapping("/hallLocation.we")
-	public ModelAndView hallLocationForm(){
-		return new ModelAndView("hall/hallLocation");
+	@ResponseBody
+	@RequestMapping("/scrap.we")
+	public String insertScrap(@RequestParam(value="idx",defaultValue="1")int idx,
+			@RequestParam(value="name",defaultValue="한재우")String name){
+		boolean srp = false;
+		if(scrapDao.insertScrap(name, idx)>0){
+			srp=true;
+		}
+		return String.valueOf(srp);
 	}
 }

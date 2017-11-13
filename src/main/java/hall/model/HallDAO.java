@@ -8,7 +8,4 @@ public interface HallDAO {
 	public List getHallGu();
 	public List getHallListByGu(String gu);
 	public List getHallListByName(String name);
-	public int insertWd(HallDTO dto);
-	public int updateWd(HallDTO dto);
-	public int deleteWd(int idx);
 }
