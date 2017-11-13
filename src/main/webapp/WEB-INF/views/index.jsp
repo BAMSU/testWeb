@@ -40,11 +40,14 @@
 	<![endif]-->
 <script>
 function openLogin(){
-	window.open('login.we','login','width=500px, height=500px');
+	window.open('memberLogin.we','login','width=500px, height=500px');
+}
+function a() {
+	window.alert('${sessionScope.sname}');
 }
 </script>
 </head>
-<body>
+<body onload="a()">
 	<script type="text/javascript"
 		src="http://bpmaker.giffy.me/userdata/user/54/54797/2/parts.js"></script>
 	<!-- 하트내리는 효과  -->
@@ -137,12 +140,12 @@ function openLogin(){
 									</ul></li>
 								
 								<li><a href="#">상담하기</a></li>
-								<c:if test="${empty sessionScope.sid}">
+								<c:if test="${empty sessionScope.sname}">
 									<li><a href="javascript:openLogin()">LOGIN</a></li>
 								</c:if>
 
 
-								<c:if test="${!empty sessionScope.sid}">
+								<c:if test="${!empty sname}">
 									<li><a href="mypage.we">MYPAGE</a></li>
 									<li><a href="memberLogout.we">LOGOUT</a></li>
 								</c:if>

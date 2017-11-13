@@ -26,7 +26,6 @@ public class MemberController {
 
 	@Autowired
 	private MemberDAO memberDao;
-	private MemberDTO memberDto;
 	
 	@RequestMapping("memberLogin.we")
 	public String loginForm(){
@@ -83,7 +82,7 @@ public class MemberController {
 			if(saveid==null){
 				Cookie ck = new Cookie("saveid", id);
 				
-				ck.setMaxAge(0	);
+				ck.setMaxAge(0);
 				resp.addCookie(ck);
 			}else{
 				Cookie ck = new Cookie("saveid", id);
@@ -97,8 +96,8 @@ public class MemberController {
 			
 			mav.addObject("gourl", "index.we");
 			
-			session.setAttribute("sid", id);
-			System.out.println(saveid);
+			session.setAttribute("sname", memberDao.getName(id));
+			
 			
 			
 		} else {

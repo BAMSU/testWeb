@@ -7,6 +7,10 @@
 		select count(*) from member
 		where member_id=#{member_id}
 	</select>
+	
+	<select id="getname" resultType="String" parameterType="String">
+		select member_name from member where member_id=#{member_id}
+	</select>
 
 	<select id="memberLogin2" resultType="String">
 		select member_pwd
