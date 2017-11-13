@@ -65,6 +65,12 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	
+	 <bean id="halleDao" class="hallEstimate.model.HalleDAOImple">
+		<constructor-arg>
+			<ref bean="sqlSessionTemplate"/>
+		</constructor-arg>
+	</bean>
 	 <bean id="ahallDao" class="ahall.model.aHallDAOImple">
 		<constructor-arg>
 			<ref bean="sqlSessionTemplate"/>
@@ -85,7 +91,6 @@
 	<bean id="mealDao" class="meal.model.mealDAOImple">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
-	
 	
 	
 	<bean id="consult" class="consult.model.ConsultDAOImple">
