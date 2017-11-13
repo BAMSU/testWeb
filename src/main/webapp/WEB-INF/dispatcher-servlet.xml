@@ -98,6 +98,24 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	
+	<bean id="mypageReviewDao" class="mypageReview.model.MypageReviewDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   
+   <bean id="mypageLikeDao" class="mypageLike.model.MypageLikeDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   
+   <bean id="mypageAskDao" class="mypageAsk.model.MypageAskDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
 
 	<!-- views -->
 	<bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>

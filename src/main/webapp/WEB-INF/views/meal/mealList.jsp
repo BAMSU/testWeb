@@ -13,10 +13,12 @@ function aa() {
 </script>
 </head>
 <body>
-<input type="button" name="insertMeal" value="식사등록" onclick="aa()">
-<h3>웨딩홀 리스트</h3>
+
+<h3>웨딩홀 상세정보</h3>
+<input type="hidden" name="idx" value="${idx}">
 
 	<c:if test="${empty list}">
+		<input type="button" name="insertMeal" value="식사등록" onclick="aa()">
 		<h3>등록된 음식이 없습니다.</h3>
 	</c:if>
 	<c:forEach var="dto" items="${list}">
