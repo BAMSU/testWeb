@@ -222,6 +222,9 @@
 			$('.hguest:eq('+ii+')').html(hlbi.guest);
 			$('.hgrade:eq('+ii+')').html(hlbi.grade);
 			$('.rvBtn:eq('+ii+')').html('<input type="button" value="리뷰보기"/>');
+			$('.ifBtn:eq('+ii+')').html('<input type="button" value="상세보기"'
+					+'onclick="goIf('+iidx+')"/>');
+			$('.emBtn:eq('+ii+')').html('<input type="button" value="견적내기"/>');
 		});
 	}
 	
@@ -247,6 +250,10 @@
 			$('#om'+ci).val('x삭제');
 			$('#om'+ci).attr('onclick','delHall(0)');
 		}
+	}
+	
+	function goIf(i){
+		location.href='hallInfo.we?idx='+i;
 	}
 </script>
 </head>
@@ -399,6 +406,21 @@
 				<td class="rvBtn"></td>
 				<td class="rvBtn"></td>
 				<td class="rvBtn"></td>
+			</tr>
+			<tr>
+				<th colspan="4">상세보기,견적내기</th>
+			</tr>
+			<tr>
+				<td>상세보기</td>
+				<td class="ifBtn"></td>
+				<td class="ifBtn"></td>
+				<td class="ifBtn"></td>
+			</tr>
+			<tr>
+				<td>견적내기</td>
+				<td class="emBtn"></td>
+				<td class="emBtn"></td>
+				<td class="emBtn"></td>
 			</tr>
 		</table>
 		<input type="button" value="목록보기" id="beforeBtn"/>

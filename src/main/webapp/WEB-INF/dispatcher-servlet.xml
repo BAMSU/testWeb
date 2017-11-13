@@ -121,6 +121,10 @@
          <ref bean="sqlSessionTemplate"/>
       </constructor-arg>
    </bean>
+   
+   <bean id="scrapDao" class="scrap.model.ScrapDAOImple">
+		<constructor-arg ref="sqlSessionTemplate"/>
+	</bean>
 
    <!-- views -->
    <bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>

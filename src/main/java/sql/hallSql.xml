@@ -88,4 +88,8 @@
 	<select id="hallCountSQL" resultType="int">
 		select count(distinct hallIdx) from hallStats
 	</select>
+	<update id="hallStatsUpSQL" parameterType="map">
+		update hallStats set typeNum=typeNum+1 
+		where hallIdx=#{hallIdx} and type=#{type} and month=#{month}
+	</update>
 </mapper>

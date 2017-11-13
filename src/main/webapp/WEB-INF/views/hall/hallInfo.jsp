@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>홀 상세정보</title>
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -17,6 +18,15 @@
 }
 a {
 	cursor: pointer;
+}
+
+#scrap{
+	color: pink;
+	font-size: 20px;
+}
+
+table td{
+	padding: 3px;
 }
 </style>
 <script>
@@ -58,8 +68,10 @@ a {
 	}
 </script>
 <script>
+	var srp = ${srp};
 	$(document).ready(function(){
-		$('#grade').css('color','yellow');
+		cgSrp();
+		$('#grade').css('color','red');
 		var gg = ${h.grade};
 		var g = parseInt(gg);
 		if(g==1){
@@ -75,9 +87,11 @@ a {
 		}else{
 			$('#grade').text('☆☆☆☆☆');
 		}
+		
 		$('.mySlides').css('width','100%');
 		$('.mySlides').css('height','400px');
 	});
+	
 	function setSlide(i){
 		if(i==1){
 			$('.w3-content:eq(0)').hide();
@@ -116,6 +130,27 @@ a {
 			s=0;e=7;
 		}
 	}
+	
+	function cgSrp(){
+		if(srp=='true' || srp){
+			$('#scrap').text('♥').css('font-size','20px');
+		}else{
+			$('#scrap').hover(function(){
+				$(this).text('♥').css('font-size','30px');
+			}).mouseout(function(){
+				$(this).text('♡').css('font-size','20px');
+			}).click(function(){
+				var iii=${h.idx};
+				//var sname=${sname};
+				var sname='한재우';
+				$.get('scrap.we',{idx:iii,name:sname},function(data){
+					if(data=='true' || data){
+						location.reload();
+					}
+				});
+			});
+		}
+	}
 </script>
 </head>
 <body>
@@ -127,10 +162,13 @@ a {
 		<div style="background-color: yellow; width: 100px; height: 700px;"></div>
 	</article>
 	<article style="float: left;">
-		<h3>홀 정보</h3>
-		<div style="background-color: green; width: 500px; height: 300px; float: left;">
+		<h4 style="padding-top: 10px;padding-bottom: 10px;">홀 정보</h4>
+		<div style="border-top: 3px solid black;">
+		<div style="width: 500px; height: 270px; float: left; margin: 30px 30px;">
 			<h2>${h.name}</h2>
-			<p><a id="grade">☆☆☆☆☆</a>${h.grade}점<input type="button" value="별점보기"/> <input type="button" value="찜하기"/></p>
+			<p style="margin: 20px 0px; border-top: 1px solid gray; border-bottom: 1px solid gray;">
+				<a id="grade">☆☆☆☆☆</a><font color="red">${h.grade}점</font> <a id="scrap">♡</a>
+			</p>
 			<table>
 				<tr>
 					<th>주소</th>
@@ -158,11 +196,12 @@ a {
 				</tr>
 			</table>
 		</div>
-		<div style="background-color: skyblue; width: 500px; height: 300px; float: left;">
-			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 500px; height: 250px;"/>
+		<div style="width: 400px; height: 270px; float: left; margin: 30px 30px;">
+			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 400px; height: 250px;"/>
 			<p>
+				<span><img src="" alt="" /></span>
 				<input type="button" value="견적내기"/>
-				<input type="button" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}'"/>
+				<input type="button" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'"/>
 				<input type="button" value="상담신청"/>
 			</p>
 		</div>
@@ -173,14 +212,22 @@ a {
 		<div style="background-color: gray; width: 1000px; height: 500px; clear: both;">
 		
 			<p id="infoTab" style="height: 10px;"></p>
-			
-			<ul class="w3-navbar w3-black">
-			  <li><a href="#infoTab">홀 설명</a></li>
-			  <li><a href="#photoTab">홀 사진</a></li>
-			  <li><a href="#reviewTab">홀 리뷰</a></li>
-			  <li><a href="#loctionTab">홀 위치</a></li>
+					
+			<ul class="nav nav-tabs">
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="tab" href="#infoTab">홀 설명</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#photoTab">홀 사진</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#reviewTab">홀 리뷰</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#loctionTab">홀 위치</a>
+			  </li>
 			</ul>
-
+			
 			<div id="info">
 			  <div>
 			  	<font color="red">아래 정보는 웨딩홀에서 제공한 정보를 기준으로 하며, 웨딩홀의 사정에 따라 메뉴, 가격 등이 변경될 수 있습니다.</font><br>
@@ -215,11 +262,19 @@ a {
 			
 			<p id="photoTab" style="height: 10px;"></p>
 			
-			<ul class="w3-navbar w3-black">
-			  <li><a href="#infoTab">홀 설명</a></li>
-			  <li><a href="#photoTab">홀 사진</a></li>
-			  <li><a href="#reviewTab">홀 리뷰</a></li>
-			  <li><a href="#loctionTab">홀 위치</a></li>
+			<ul class="nav nav-tabs">
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#infoTab">홀 설명</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="tab" href="#photoTab">홀 사진</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#reviewTab">홀 리뷰</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#loctionTab">홀 위치</a>
+			  </li>
 			</ul>
 			
 			<div id="photo">
@@ -278,11 +333,19 @@ a {
 			
 			<p id="reviewTab" style="height: 10px;"></p>
 			
-			<ul class="w3-navbar w3-black">
-			  <li><a href="#infoTab">홀 설명</a></li>
-			  <li><a href="#photoTab">홀 사진</a></li>
-			  <li><a href="#reviewTab">홀 리뷰</a></li>
-			  <li><a href="#loctionTab">홀 위치</a></li>
+			<ul class="nav nav-tabs">
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#infoTab">홀 설명</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#photoTab">홀 사진</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="tab" href="#reviewTab">홀 리뷰</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#loctionTab">홀 위치</a>
+			  </li>
 			</ul>
 			
 			<div id="review">
@@ -291,16 +354,25 @@ a {
 			
 			<p id="locationTab" style="height: 10px;"></p>
 			
-			<ul class="w3-navbar w3-black">
-			  <li><a href="#infoTab">홀 설명</a></li>
-			  <li><a href="#photoTab">홀 사진</a></li>
-			  <li><a href="#reviewTab">홀 리뷰</a></li>
-			  <li><a href="#loctionTab">홀 위치</a></li>
+			<ul class="nav nav-tabs">
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#infoTab">홀 설명</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#photoTab">홀 사진</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" data-toggle="tab" href="#reviewTab">홀 리뷰</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link active" data-toggle="tab" href="#loctionTab">홀 위치</a>
+			  </li>
 			</ul>
 			
 			<div id="location">
 			  <div id="map"></div>
 			</div>
+		</div>
 		</div>
 	</article>
 	<article style="float: right;">
