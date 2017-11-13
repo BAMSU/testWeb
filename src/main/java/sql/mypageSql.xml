@@ -5,17 +5,13 @@
 <mapper namespace="mypage">
 	
 	
-	<select id="mypage_review" >
-	select * from hall_estimate
 	
+	
+	<select id="mypage_like" parameterType="String" resultType="ahall.model.aHallDTO">
+	select distinct hall.* from scrap, hall where scrap.hallidx = 
+	hall.idx and scrap.membername=#{name} order by hall.idx
 	</select>
 	
-	<select id="mypage_like">
-	
-	</select>
-	
-	<select id="mypage_ask">
-	
-	</select>
+
 
 </mapper>

@@ -16,4 +16,8 @@ public class MypageLikeDAOImple implements MypageLikeDAO {
 		super();
 		this.sqlMap = sqlMap;
 	}
+	
+	public List mypage_Like(String name){
+		return sqlMap.selectList("mypage_like", name);
+	}
 }

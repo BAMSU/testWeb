@@ -141,8 +141,7 @@ table td{
 				$(this).text('♡').css('font-size','20px');
 			}).click(function(){
 				var iii=${h.idx};
-				//var sname=${sname};
-				var sname='한재우';
+				var sname='${sname}';
 				$.get('scrap.we',{idx:iii,name:sname},function(data){
 					if(data=='true' || data){
 						location.reload();
