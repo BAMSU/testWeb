@@ -1,13 +1,13 @@
 package hallEstimate.model;
+
 import java.util.*;
 
 public interface HalleDAO {
+
 	
-	public int hallEst(HalldDTO ddto);
-	public int hallEst(HallmDTO mdto);
-	public int hallEst(HallfDTO fdto);
-	public int hallEst(HallcDTO cdto);
-	
-	public List<HalleDTO> hallestmateAllList();
+	public List<HalleDTO> hallestlist(HalleDTO edto);
+	public List<HalleDTO> hallUpdate(HalleDTO edto);
+	public List<HalleDTO> estfind(String hall_type,String guest,String interval);
+	public int hallestAdd(HalleDTO edto);
 	
 }
