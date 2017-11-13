@@ -15,7 +15,7 @@ public class mealDAOImple implements mealDAO {
 		this.sst = sst;
 	}
 
-	public List getMealList() {
+	public List getMealList(int idx) {
 		// TODO Auto-generated method stub
 		return null;
 	}
