@@ -72,7 +72,7 @@ function a() {
 				
 				<div class="fh5co-cover text-center"
 					data-stellar-background-ratio="0.5"
-					style="background-image: url(images/tt.png);">
+					style="background-image: url(https://freehtml5.co/demos/nuptial/images/cover_bg_1.jpg);">
 					<div class="display-t">
 						<div class="display-tc">
 							<div class="container">

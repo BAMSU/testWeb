@@ -51,6 +51,7 @@
 
 
 			</table>
+			</form>
 			<div id="naver_id_login"><a href="${url}"><img width="223" src="naver.login.png" style="width: 240px;"/></a></div>
 <!-- login btn -->
 
@@ -155,7 +156,7 @@ getUserData();
 <br>
 			
 		</fieldset>
-	</form>
+	
 
 </body>
 </html>
