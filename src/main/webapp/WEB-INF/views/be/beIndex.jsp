@@ -21,21 +21,29 @@ border-style: solid;
 </head>
 
 
-<body>
+<body class="homepage">
 <%@include file="beHeader.jsp" %>
 <article class="panel">
+<div id="page-wrapper">
+
+
+
 <c:if test="${sessionScope.besid eq null }">
 	<script type="text/javascript">
 		window.alert('로그인 해주세요.');
 		location.href='beLogin.we';
 	</script>
 </c:if>
+<br><br>
+<div id="">
 
-<h2>beIndex.jsp</h2>
+<div id="header-wrapper">
+					<div id="header" class="container">
 
-<br><br><br><br>
-
-<div>
+	<h1 id="logo">사랑이 머물다</h1><br>
+	<h4>with</h4><br>
+	<h1>${sessionScope.besname}</h1><br><br>
+	
 	<a href="beReg.we"><input type="button" value="상품등록" class=""></a> 
 	<a href="itemListBe.we"><input type="button" value="상품리스트" class=""></a>
 	
@@ -88,9 +96,12 @@ border-style: solid;
 	<a href="${nSDMYUrl}"><input type="button" value="신청현황" class=""></a>
 	</c:if>
 	
-	
+	</div>
 </div>
-</article>
+
+</div>
+</div></article>
+
 </body>
 </html>
 

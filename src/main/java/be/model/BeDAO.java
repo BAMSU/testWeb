@@ -32,6 +32,10 @@ public interface BeDAO {
 	public List<ShoesDTO> nItemListShoes(String be_name);
 	public List<BouqDTO> nItemListBouq(String be_name);
 	
+	public int updateSDMY(SDMYDTO dto);
+	public int updateCar(CarDTO dto);
+	public int updateShoes(ShoesDTO dto);
+	public int updateBouq(BouqDTO dto);
 	
 }
 

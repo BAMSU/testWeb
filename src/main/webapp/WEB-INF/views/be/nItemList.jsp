@@ -32,7 +32,7 @@ align-items: center;
 		 <c:forEach var="dto" items="${list}">
 		 	<tr>
 		 		<td align="center">
-		 			<img alt="썸네일" src="${dto.car_img}" width="250px" height="250px">
+		 			<img alt="썸네일" src="${dto.car_img}" width="200px" height="200px">
 		 		</td>
 		 		<td>${dto.car_be}</td>
 		 		<td>${dto.car_name}</td>
@@ -51,7 +51,7 @@ align-items: center;
 		 <c:forEach var="dto" items="${list}">
 		 	<tr>
 		 		<td align="center">
-		 			<img alt="썸네일" src="${dto.shoes_thumbnail}" width="250px" height="250px">
+		 			<img alt="썸네일" src="${dto.shoes_thumbnail}" width="200px" height="200px">
 		 		</td>
 		 		<td>${dto.shoes_be}</td>
 		 		<td>${dto.shoes_name}</td>
@@ -72,7 +72,7 @@ align-items: center;
 		 <c:forEach var="dto" items="${list}">
 		 	<tr>
 		 		<td align="center">
-		 			<img alt="썸네일" src="${dto.bouq_thumbnail}" width="250px" height="250px">
+		 			<img alt="썸네일" src="${dto.bouq_thumbnail}" width="200px" height="200px">
 		 		</td>
 		 		<td>${dto.bouq_be}</td>
 		 		<td>${dto.bouq_name}</td>
@@ -92,7 +92,7 @@ align-items: center;
 		 <c:forEach var="dto" items="${list}">
 		 	<tr>
 		 		<td align="center">
-		 			<img alt="썸네일" src="${dto.sdmy_thumbnail}" width="250px" height="250px">
+		 			<img alt="썸네일" src="${dto.sdmy_thumbnail}" width="200px" height="200px">
 		 		</td>
 		 		<td>${dto.sdmy_category}</td>
 		 		<td>${dto.sdmy_be}</td>
@@ -111,7 +111,7 @@ align-items: center;
 		 <c:forEach var="dto" items="${list}">
 		 	<tr>
 		 		<td align="center">
-		 			<img alt="썸네일" src="${dto.sdmy_thumbnail}" width="250px" height="250px">
+		 			<img alt="썸네일" src="${dto.sdmy_thumbnail}" width="200px" height="200px">
 		 		</td>
 		 		<td>${dto.sdmy_category}</td>
 		 		<td>${dto.sdmy_be}</td>
@@ -130,7 +130,7 @@ align-items: center;
 		 <c:forEach var="dto" items="${list}">
 		 	<tr>
 		 		<td align="center">
-		 			<img alt="썸네일" src="${dto.sdmy_thumbnail}" width="250px" height="250px">
+		 			<img alt="썸네일" src="${dto.sdmy_thumbnail}" width="200px" height="200px">
 		 		</td>
 		 		<td>${dto.sdmy_category}</td>
 		 		<td>${dto.sdmy_be}</td>
@@ -149,7 +149,7 @@ align-items: center;
 		 <c:forEach var="dto" items="${list}">
 		 	<tr>
 		 		<td align="center">
-		 			<img alt="썸네일" src="${dto.sdmy_thumbnail}" width="250px" height="250px">
+		 			<img alt="썸네일" src="${dto.sdmy_thumbnail}" width="200px" height="200px">
 		 		</td>
 		 		<td>${dto.sdmy_category}</td>
 		 		<td>${dto.sdmy_be}</td>
