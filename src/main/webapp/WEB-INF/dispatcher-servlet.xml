@@ -38,6 +38,11 @@
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
 	</bean>
+	
+	<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
+	<bean id="naverLoginBO" class="com.sns.login.NaverLoginBO"/>
+	<bean id="naveLoginController" class="com.sns.login.LoginController"/>
+	
 
 	
 	<!-- service -->
@@ -93,6 +98,9 @@
 			<ref bean="sqlSessionTemplate"/>
 		</constructor-arg>
 	</bean>
+	
+	
+	
 
 	<!-- views -->
 	<bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
