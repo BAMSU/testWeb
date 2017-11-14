@@ -1,37 +1,35 @@
 package controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
-import honey.model.honeyDAO;
-import honey.model.honeyDTO;
 
 @Controller
 public class honeyController {
 
-		/*@Autowired
-		honeyDAO honeyDao; */
-	 
-		@RequestMapping("/honeyIndex.we")
-		public String honeyIndex() {
-			return "honey";
-		}
-		
-		
-		
-		@RequestMapping("/honeyContent.we")
-		public ModelAndView packageList(@RequestParam(value="p_idx") int p_idx) {
-			//String p_name = honeyDao.honeyGO(p_idx);
-			ModelAndView mav = new ModelAndView();
-		//	mav.addObject("p_name", p_name);
-			
-			mav.setViewName("honey/honeyList");
-			
-			return mav;
-		}
+	@RequestMapping(method= RequestMethod.GET, value="/honey.we")
+	   public String honeyForm() {
+	      return "honey/honeyMoon";
+	      
+	   }
+	
+	@RequestMapping(method=RequestMethod.GET, value="/honeyPackage.we")
+	public String honeyPackage(@RequestParam("nation")String nation) {
+		return "honey/honeyPackagelist_"+nation;
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/honeyContent.we")
+	public String honeyContent(@RequestParam("nation")String nation,
+			@RequestParam("idx")String idx) {
+		return "honey/honeyContent/honeyContent_"+nation+idx;
+	}
+	
+	
+	@RequestMapping(method=RequestMethod.GET, value="/countryContent.we")
+	public String nationContent(@RequestParam("country") String country) {
+		return "honey/honeyContent/nation/"+country+"info";
+	}
+	
+	
 }

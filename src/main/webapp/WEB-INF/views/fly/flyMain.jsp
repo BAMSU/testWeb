@@ -8,6 +8,7 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -93,8 +94,13 @@ var infant=0;
 			});
 		});
 		$('#tab_domestic').click(function(){
+			$("#international-start").hide();
 				$("#domestic-end").show();
 				$("#international-end").hide();
+				$("#international-end1").hide();
+				$("#international-end2").hide();
+				$("#international-end3").hide();
+							
 				$("#datepicker").val('가는날');
 				$("#datepicker2").val('오는날');
 			
@@ -102,8 +108,15 @@ var infant=0;
 							
 		});
 		$('#tab_international').click(function(){
+			$("#domestic-start").hide();
 				$("#domestic-end").hide();
-				$("#international-end").show();
+				$("#domestic-end1").hide();
+				$("#domestic-end2").hide();
+				$("#domestic-end3").hide();
+				$("#domestic-end4").hide();
+				$("#domestic-end5").hide();
+				$("#international-start").show();
+				$("#international-end1").show();
 				$("#datepicker").val('출국일');
 				$("#datepicker2").val('귀국일');
 				
@@ -113,13 +126,74 @@ var infant=0;
 			
 		});
 		$('#domestic-start').change(function(){
+			
 			s_city=$(this).val();
+			
+			if(s_city=='GMP'){
+				$("#domestic-end").hide();
+				$("#domestic-end2").hide();
+				$("#domestic-end3").hide();
+				$("#domestic-end4").hide();
+				$("#domestic-end5").hide();
+				$("#domestic-end1").show();
+				
+			}else if(s_city=='PUS'){
+				$("#domestic-end").hide();
+				$("#domestic-end1").hide();
+				$("#domestic-end3").hide();
+				$("#domestic-end4").hide();
+				$("#domestic-end5").hide();
+				$("#domestic-end2").show();
+			}else if(s_city=='CJU'){
+				$("#domestic-end").hide();
+				$("#domestic-end1").hide();
+				$("#domestic-end2").hide();
+				$("#domestic-end4").hide();
+				$("#domestic-end5").hide();
+				$("#domestic-end3").show();
+			}else if(s_city=='RSU'){
+				$("#domestic-end").hide();
+				$("#domestic-end1").hide();
+				$("#domestic-end3").hide();
+				$("#domestic-end2").hide();
+				$("#domestic-end5").hide();
+				$("#domestic-end4").show();
+			}else if(s_city=='KPO'){
+				$("#domestic-end").hide();
+				$("#domestic-end1").hide();
+				$("#domestic-end3").hide();
+				$("#domestic-end4").hide();
+				$("#domestic-end2").hide();
+				$("#domestic-end5").show();
+			}
 			
 			
 		});
 		$('#domestic-end').change(function(){
 			a_city=$(this).val();
 			
+		});
+		
+		$('#international-start').change(function(){
+			s_city=$(this).val();
+			
+			if(s_city=='GMP'){
+				$("#international-end").hide();
+				$("#international-end2").hide();
+				$("#international-end3").hide();
+				$("#international-end1").show();
+				
+			}else if(s_city=='PUS'){
+				$("#international-end").hide();
+				$("#international-end1").hide();
+				$("#international-end3").hide();
+				$("#international-end2").show();
+			}else if(s_city=='CJU'){
+				$("#international-end").hide();
+				$("#international-end1").hide();
+				$("#international-end2").hide();
+				$("#international-end3").show();
+			}	
 		});
 		$('#international-end').change(function(){
 			a_city=$(this).val();
@@ -216,7 +290,15 @@ function viewList(){
 						<option value="CJU">제주		</option>
 						<option value="RSU">여수		</option>
 						<option value="KPO">포항		</option>
-				</select> <select id="domestic-end" name="domestic_start" title="도착지"
+				</select>
+					<select id="international-start" name="domestic_start"
+					title="출발지" style="display: none;">
+					<option value="">출발 공항</option>
+						<option value="GMP">서울/김포		</option>
+						<option value="PUS">부산/김해		</option>
+						<option value="CJU">제주		</option>
+					</select>
+					 <select id="domestic-end" name="domestic_start" title="도착지"
 					style="display: '';">
 						<option value="">도착 공항</option>
 						<option value="GMP">서울/김포		</option>
@@ -224,7 +306,56 @@ function viewList(){
 						<option value="CJU">제주		</option>
 						<option value="RSU">여수		</option>
 						<option value="KPO">포항		</option>
-				</select> <select id="international-end" name="domestic_end" title="목적지"
+				</select> 
+				 <select id="domestic-end1" name="domestic_start" title="도착지"
+					style="display: none;">
+						<option value="">도착 공항</option>
+						<option value="PUS">부산/김해		</option>
+						<option value="CJU">제주		</option>
+						<option value="RSU">여수		</option>
+						<option value="KPO">포항		</option>
+				</select> 
+				<select id="domestic-end2" name="domestic_start" title="도착지"
+					style="display: none;">
+						<option value="">도착 공항</option>
+						<option value="GMP">서울/김포		</option>
+						<option value="CJU">제주		</option>
+					
+				</select>
+				<select id="domestic-end3" name="domestic_start" title="도착지"
+					style="display: none;">
+						<option value="">도착 공항</option>
+						<option value="GMP">서울/김포		</option>
+						<option value="PUS">부산/김해		</option>
+						<option value="RSU">여수		</option>
+				</select>
+				<select id="domestic-end4" name="domestic_start" title="도착지"
+					style="display: none;">
+						<option value="">도착 공항</option>
+						<option value="GMP">서울/김포		</option>
+						<option value="CJU">제주		</option>
+				</select>
+				<select id="domestic-end5" name="domestic_start" title="도착지"
+					style="display: none;">
+						<option value="">도착 공항</option>
+						<option value="GMP">서울/김포		</option>
+				</select>
+				
+				<select id="international-end" name="domestic_end" title="목적지"
+					style="display: none;">
+						<option value="">도착 공항</option>
+						
+				</select>
+				<select id="international-end1" name="domestic_end" title="목적지"
+					style="display: none;">
+						<option value="">도착 공항</option>
+						<option value="HND">도쿄/하네다		</option>
+						<option value="PEK">베이징/서우두	</option>
+						<option value="CJU">상하이		</option>
+						<option value="RSU">오사카		</option>
+					
+				</select>
+				<select id="international-end2" name="domestic_end" title="목적지"
 					style="display: none;">
 						<option value="">도착 공항</option>
 						<option value="HND">도쿄/하네다		</option>
@@ -237,7 +368,17 @@ function viewList(){
 						<option value="CEB">세부			</option>
 						<option value="NRT">나리타		</option>
 						<option value="SHA">상해			</option>
-				</select></td>
+				</select>
+				<select id="international-end3" name="domestic_end" title="목적지"
+					style="display: none;">
+						<option value="">도착 공항</option>
+							<option value="PEK">베이징/서우두	</option>
+						<option value="CJU">상하이		</option>
+						<option value="RSU">오사카		</option>
+						<option value="NRT">나리타		</option>
+						
+				</select>
+				</td>
 			</tr>
 			<tr>
 				<td><input type="text" id="datepicker" value="가는날" readonly="readonly">
