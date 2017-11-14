@@ -6,6 +6,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  
+  function qnaSubmit(ymd){
+	  var year = ymd.subString(6,9);
+	  var mt = ymd.subString(0,1);
+	  var day = ymd.subString(3,4);
+	  //ymd=00/00/0000 01/(2)34/(5)6789
+	  var wedding = document.getElementById("datepicker");
+	  var year2 = wedding.subString(6,9);
+	  var mt2 = ymd.subString(0,1);
+	  var day2= ymd.subString(3,4);
+	  if(year>year2){
+		  window.alert('잘못된 날짜선택입니다.');
+	  }else if(year<year2&&mt>mt2){
+		  window.alert('잘못된 날짜선택입니다.');
+	  }else if(year<year2&&mt<mt2&&day>day2){
+		  window.alert('잘못된 날짜선택입니다.');
+	  }else{
+		  window.alert('문의가 성공적으로 완료 되었습니다.\n 빠른 시일 내로 최적의 답변을 드리겠습니다.');
+		  document.honeyQna.submit();
+	  }
+  };
+  </script>
+
 <style type="text/css">
 section {
 	width: 1000px;
@@ -25,7 +58,7 @@ table {
 		<table border="1">
 			<tr>
 				<th colspan="4"><img style="width: 100%;"
-					src="../imgeu/benetia2.jpg"></th>
+					src="honeyimg/imgeu/benetia2.jpg"></th>
 			</tr>
 			<tr>
 				<td colspan="3" align="center"><font
@@ -68,7 +101,7 @@ table {
 					정보</th>
 			</tr>
 			<tr>
-				<td><img src="../imgeu/italy_benetia.jpg" style="width: 100%;"
+				<td><img src="honeyimg/imgeu/italy_benetia.jpg" style="width: 100%;"
 					height="200"></td>
 				<td>
 					<TABLE id="box"
@@ -358,12 +391,12 @@ table {
 		</table>
 		<table border="1">
 			<tr>
-				<td width="235"><a href="honeyContent/nation/italytrip.jsp">
-						<img src="../imgeu/benetia2.jpg" width="235" height="100" />
+				<td width="235"><a href="countryContent.we?country=italy">
+						<img src="honeyimg/imgeu/benetia2.jpg" width="235" height="100" />
 				</a></td>
 				<td width="170">
 					<div
-						onclick="javascript:location.href='honeyContent/nation/italyinfo.jsp'"
+						onclick="javascript:location.href='countryContent.we?country=italy'"
 						style="cursor: pointer;">
 						<font size="5" color="#F29661">이탈리아<br></font>
 						<font size="4"> 지역정보<br> 보러가기</font> <em> <img
@@ -372,14 +405,14 @@ table {
 						
 					</div>
 				</td>
-				<td width="235"><a href="../honeyPackagelist_eu.jsp">
+				<td width="235"><a href="honeyPackage.we?nation=eu">
 						<img
 						src="http://ifamily.co.kr/center/website/travel/1408691829_2.jpg"
 						width="235" height="100" />
 				</a></td>
 				<td width="170">
 					<div
-						onclick="javascript:location.href='../honeyPackagelist_eu.jsp'"
+						onclick="javascript:location.href='honeyPackage.we?nation=eu'"
 						style="cursor: pointer;">
 						<font size="5" color="#F29661">유럽
 						<br></font><font size="4">패키지<br>보러가기
@@ -418,55 +451,7 @@ table {
 		</tr>
 		<tr>
 			<td>*결혼 예정일</td>
-			<td>
-				<%
-					int year, month, day, max;
-
-					Calendar cal = Calendar.getInstance();
-
-					int y = cal.get(Calendar.YEAR);
-					int m = cal.get(Calendar.MONTH) + 1;
-					int d = cal.get(Calendar.DAY_OF_MONTH);
-
-					max = cal.getMaximum(Calendar.DAY_OF_MONTH); //현재달의 최대 일수를 구한다.
-
-					out.println("<select name='year'>");
-
-					for (year = y - 3; year <= y + 4; year++) {
-						out.println("<option value='");
-						out.println(year);
-						if (year == y) {
-							out.println("' selected>");
-						} else {
-							out.println("'>");
-						}
-						out.println(year);
-						out.println("</option>");
-					}
-					out.println("</select>년");
-
-					out.println("<select name='month'>");
-					for (month = 1; month <= 12; month++) {
-						if (month == m) {
-							out.println("<option value='" + month + "' selected>" + month + "</option>");
-						} else {
-							out.println("<option value='" + month + "'>" + month + "</option>");
-						}
-					}
-					out.println("</select>월");
-
-					out.println("<select name='day'>");
-
-					for (day = 1; day <= max; day++) {
-						if (day == d) {
-							out.println("<option value='" + day + "' selected>" + day + "</option>");
-						} else {
-							out.println("<option value='" + day + "'>" + day + "</option>");
-						}
-					}
-					out.println("</select>일");
-				%>
-			</td>
+				<td><input type="text" id="datepicker"></td>
 		</tr>
 		<tr>
 			<td rowspan="2" valign="top">*문의 내용</td>

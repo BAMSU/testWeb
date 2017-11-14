@@ -130,8 +130,7 @@
 	<bean id="flyController" class="controller.FlyController"/>
 	<bean id="honeyController" class="controller.honeyController"/>
 	<!-- service -->
-	<bean id="flydao" class="flymodel.FlyDAOImple">
-
+	<bean id="flydao" class="fly.model.FlyDAOImple">
 	</bean>
 
    <!-- views -->

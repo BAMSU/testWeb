@@ -16,6 +16,7 @@
  height: 400px;
  width: 100%;
 }
+
 a {
 	cursor: pointer;
 }
@@ -23,6 +24,11 @@ a {
 #scrap{
 	color: pink;
 	font-size: 20px;
+}
+
+table th{
+	padding: 3px;
+	color: gray;
 }
 
 table td{
@@ -88,11 +94,15 @@ table td{
 			$('#grade').text('☆☆☆☆☆');
 		}
 		
+		$('.isa:eq(0)').css('color','blue');
+		
 		$('.mySlides').css('width','100%');
 		$('.mySlides').css('height','400px');
 	});
 	
 	function setSlide(i){
+		$('.isa').css('color','black');
+		$('.isa:eq('+i+')').css('color','blue');
 		if(i==1){
 			$('.w3-content:eq(0)').hide();
 			$('.w3-content:eq(1)').show();
@@ -136,7 +146,7 @@ table td{
 			$('#scrap').text('♥').css('font-size','20px');
 		}else{
 			$('#scrap').hover(function(){
-				$(this).text('♥').css('font-size','30px');
+				$(this).text('♥').css('font-size','25px');
 			}).mouseout(function(){
 				$(this).text('♡').css('font-size','20px');
 			}).click(function(){
@@ -159,16 +169,14 @@ table td{
 </header>
 <section>
 	<article style="float: left;">
-		<div style="background-color: yellow; width: 100px; height: 700px;"></div>
+		<div style="background-color: yellow; width: 200px; height: 500px;"></div>
 	</article>
 	<article style="float: left;">
-		<h4 style="padding-top: 10px;padding-bottom: 10px;">홀 정보</h4>
+		<h4 style="padding: 10px;">홀 정보</h4>
 		<div style="border-top: 3px solid black;">
-		<div style="width: 500px; height: 270px; float: left; margin: 30px 30px;">
+		<div style="width: 500px; height: 400px; float: left; margin: 30px 30px; margin-bottom: 0px;">
 			<h2>${h.name}</h2>
-			<p style="margin: 20px 0px; border-top: 1px solid gray; border-bottom: 1px solid gray;">
-				<a id="grade">☆☆☆☆☆</a><font color="red">${h.grade}점</font> <a id="scrap">♡</a>
-			</p>
+			<p style="border-bottom: 1px solid gray; border-top: 1px solid gray; margin: 20px 0px;"><a id="grade">☆☆☆☆☆</a><font color="red">${h.grade}점</font> <a id="scrap">♡</a></p>
 			<table>
 				<tr>
 					<th>주소</th>
@@ -195,21 +203,19 @@ table td{
 					<td>${h.guest}</td>
 				</tr>
 			</table>
+			<hr style="color: gray;">
+			<h5 style="color: gray;"><font color="red">※</font>체크포인트</h5>
+			<p style="font-size: 13px;">${h.ckPoint}</p>
 		</div>
-		<div style="width: 400px; height: 270px; float: left; margin: 30px 30px;">
-			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 400px; height: 250px;"/>
-			<p>
-				<span><img src="" alt="" /></span>
-				<input type="button" value="견적내기"/>
-				<input type="button" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'"/>
-				<input type="button" value="상담신청"/>
+		<div style="width: 400px; height: 350px; float: left; margin: 30px 30px;">
+			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 400px; height: 270px;"/>
+			<p style="text-align: center; margin-top: 10px; border: 3px solid gray; border-radius: 3px; padding: 5px; background-color: #EAEAEA;">
+				<button type="button" class="btn btn-secondary">견적내기</button>
+				<button type="button" class="btn btn-secondary" style="margin: 0px 35px;" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'">통계보기</button>
+				<button type="button" class="btn btn-primary">상담신청</button>
 			</p>
 		</div>
-		<div style="background-color: pink; width: 1000px; height: 100px; clear: both;">
-			<h5>체크포인트</h5>
-			<p style="width: 500px;">${h.ckPoint}</p>
-		</div>
-		<div style="background-color: gray; width: 1000px; height: 500px; clear: both;">
+		<div style="width: 1000px; height: 500px; clear: both; margin: 0px 30px;">
 		
 			<p id="infoTab" style="height: 10px;"></p>
 					
@@ -228,21 +234,26 @@ table td{
 			  </li>
 			</ul>
 			
-			<div id="info">
+			<div id="info" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 20px;">
 			  <div>
+			    <br>
 			  	<font color="red">아래 정보는 웨딩홀에서 제공한 정보를 기준으로 하며, 웨딩홀의 사정에 따라 메뉴, 가격 등이 변경될 수 있습니다.</font><br>
-			  	교통: ${h.traffic}
+			  	<font>교통: ${h.traffic}</font>
 			  </div>
+			  <br>
 			  <div>
-			  	<table style="background-color: yellow;">
-			  		<tr>
-				  		<th>요일</th>
-				  		<th>형태<th>
-				  		<th>인원</th>
-				  		<th>간격</th>
-				  		<th>메뉴</th>
-				  		<th>식대</th>
-			  		</tr>
+			  	<table class="table table-striped table-hover table-bordered">
+			  		<thead>
+				  		<tr class="thead-dark">
+					  		<th>요일</th>
+					  		<th>형태</th>
+					  		<th>인원</th>
+					  		<th>간격</th>
+					  		<th>메뉴</th>
+					  		<th>식대</th>
+				  		</tr>
+			  		</thead>
+			  		<tbody>
 			  		<c:forEach var="r" items="${roomInfo}">
 				  		<tr>
 				  			<td colspan="6">${r.name}</td>
@@ -256,6 +267,7 @@ table td{
 				  			<td>${r.menuPrice}</td>
 				  		</tr>
 			  		</c:forEach>
+			  		</tbody>
 			  	</table>
 			  </div>
 			</div>
@@ -277,18 +289,21 @@ table td{
 			  </li>
 			</ul>
 			
-			<div id="photo">
-				<p>
-				<a onclick="setSlide(0)">전체</a>
+			<div id="photo" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 20px;">
+				<div style="background: #EAEAEA; margin: 0px auto; width: 950px;">
+				<div style="margin-left: 50px; padding-top: 20px;">
+				<h5 style="color: #4C4C4C;">Gallery Category</h5>
+				<a class="isa" onclick="setSlide(0)">전체</a> |
 				<c:set var="sc" value="1"/>
 			  	<c:forEach var="r" items="${roomInfo}">
-			  		<a onclick="setSlide(${sc})">${r.name}</a>
+			  		<a class="isa" onclick="setSlide(${sc})">${r.name}</a> |
 			  		<c:set var="sc" value="2"/>
 			  	</c:forEach>
-			  	<a onclick="setSlide(3)">신부대기실</a>
-			  	<a onclick="setSlide(4)">폐백실</a>
-			  	</p>
-				<div class="w3-content w3-display-container" style="width:1000px;">
+			  	<a class="isa" onclick="setSlide(3)">신부대기실</a> |
+			  	<a class="isa" onclick="setSlide(4)">폐백실</a>
+			  	</div>
+			  	<br>
+				<div class="w3-content w3-display-container" style="width:850px;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r1.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r2.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r3.jpg" style="display: none;">
@@ -301,7 +316,7 @@ table td{
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content w3-display-container" style="width:1000px;display:none;">
+				<div class="w3-content w3-display-container" style="width:850px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r1.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r2.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r3.jpg" style="display: none;">
@@ -309,7 +324,7 @@ table td{
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content w3-display-container" style="width:1000px;display:none;">
+				<div class="w3-content w3-display-container" style="width:850px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r4.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r5.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r6.jpg" style="display: none;">
@@ -317,17 +332,19 @@ table td{
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content w3-display-container" style="width:1000px;display:none;">
+				<div class="w3-content w3-display-container" style="width:850px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/w1.jpg">
 					
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content w3-display-container" style="width:1000px;display:none;">
+				<div class="w3-content w3-display-container" style="width:850px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/p1.jpg">
 					
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
+				</div>
+				<br>
 				</div>
 			</div>
 			
@@ -348,8 +365,30 @@ table td{
 			  </li>
 			</ul>
 			
-			<div id="review">
-			  <p>홀 리뷰입니다.</p>
+			<div id="review" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 20px;">
+			  <table class="table table-striped table-hover table-bordered">
+			  	<thead class="thead-dark">
+			  		<tr>
+			  			<th></th>
+			  			<th></th>
+			  			<th></th>
+			  			<th></th>
+			  		</tr>
+			  	</thead>
+			  	<tfoot>
+			  		<tr>
+			  			<td colspan="4"></td>
+			  		</tr>
+			  	</tfoot>
+			  	<tbody>
+			  		<tr>
+			  			<td></td>
+			  			<td></td>
+			  			<td></td>
+			  			<td></td>
+			  		</tr>
+			  	</tbody>
+			  </table>
 			</div>
 			
 			<p id="locationTab" style="height: 10px;"></p>
@@ -369,18 +408,19 @@ table td{
 			  </li>
 			</ul>
 			
-			<div id="location">
+			<div id="location" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 10px;">
 			  <div id="map"></div>
 			</div>
+			
+			<p style="height: 50px;"></p>
 		</div>
 		</div>
 	</article>
 	<article style="float: right;">
-		<div style="background-color: yellow; width: 100px; height: 700px;"></div>
+		<div style="background-color: yellow; width: 100px; height: 500px;"></div>
 	</article>
 </section>
 <footer style="clear: both;">
-<div style="background-color: blue; height: 300px;"></div>
 </footer>
 </body>
 </html>

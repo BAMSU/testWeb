@@ -194,6 +194,36 @@ public class BeDAOImple implements BeDAO {
 		return result;
 	}
 	
+	public List<SDMYDTO> ItemListStudio(String category) {
+		List<SDMYDTO> list = sqlMap.selectList("ListStudio", category);
+		return list;
+	}
+	public List<SDMYDTO> ItemListDress(String category) {
+		List<SDMYDTO> list = sqlMap.selectList("ListDress", category);
+		return list;
+	}
+	public List<SDMYDTO> ItemListMakeup(String category) {
+		List<SDMYDTO> list = sqlMap.selectList("ListMakeup", category);
+		return list;
+	}
+	public List<SDMYDTO> ItemListSuit(String category) {
+		List<SDMYDTO> list = sqlMap.selectList("ListSuit", category);
+		return list;
+	}
+	public List<CarDTO> ItemListCar() {
+		List<CarDTO> list = sqlMap.selectList("ListCar");
+		return list;
+	}
+	public List<ShoesDTO> ItemListShoes() {
+		List<ShoesDTO> list = sqlMap.selectList("ListShoes");
+		return list;
+	}
+	public List<BouqDTO> ItemListBouq() {
+		List<BouqDTO> list = sqlMap.selectList("ListBouq");
+		return list;
+	}
+	
+	
 	
 }
 
@@ -206,4 +236,3 @@ public class BeDAOImple implements BeDAO {
 
 
 
- 

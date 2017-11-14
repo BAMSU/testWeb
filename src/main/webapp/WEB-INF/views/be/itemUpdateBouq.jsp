@@ -13,13 +13,35 @@
 
 <c:set value="${dto}" var="dto"></c:set>
 
-
-업체 : ${dto.bouq_be}
-상품명 : ${dto.bouq_name}
-상품가격 : ${dto.bouq_price}
+<form action="itemUpdateBouq.we" method="post">
+<table>
+	<tr>
+		<td>업체</td><td>${dto.bouq_be}</td>
+	</tr>
+	<tr>
+		<td>상품명</td><td><input type="text" name="bouq_name" value="${dto.bouq_name}"> </td>
+	</tr>
+	<tr>
+		<td>상품가격</td><td><input type="text" name="bouq_price" value="${dto.bouq_price}"></td>
+	</tr>
+	<tr>
+		<td>상세정보</td><td><input type="text" name="bouq_detail" value="${dto.bouq_detail}"></td>
+	</tr>
+	<tr>
+		<td>간단설명</td><td><input type="text" name="bouq_simple" value="${dto.bouq_simple}"></td>
+	</tr>
+	<tr>
+		<td></td><td></td>
+	</tr>
+	<tr>
+		<td>
+		<input type="hidden" name="bouq_idx" value="${dto.bouq_idx}">
+		<input type="submit" value="수정"></td><td></td>
+	</tr>
+	
+</table>
 상품 이미지 <img alt="상품이미지" src="${dto.bouq_thumbnail}" width="20%">
-조회수 : ${dto.readnum}<br>
-상담수 : ${dto.consult}<br>
-상세정보 : ${dto.bouq_detail}
+
+</form>
 </body>
 </html>
