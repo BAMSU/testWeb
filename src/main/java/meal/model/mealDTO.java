@@ -5,17 +5,15 @@ public class mealDTO {
 	private String meal;
 	private String price;
 	private String content;
-	private int hall_idx;
 	public mealDTO() {
 		super();
 	}
-	public mealDTO(int idx, String meal, String price, String content, int hall_idx) {
+	public mealDTO(int idx, String meal, String price, String content) {
 		super();
 		this.idx = idx;
 		this.meal = meal;
 		this.price = price;
 		this.content = content;
-		this.hall_idx = hall_idx;
 	}
 	public int getIdx() {
 		return idx;
@@ -40,12 +38,6 @@ public class mealDTO {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public int getHall_idx() {
-		return hall_idx;
-	}
-	public void setHall_idx(int hall_idx) {
-		this.hall_idx = hall_idx;
 	}
 	
 	

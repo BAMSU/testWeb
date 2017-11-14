@@ -31,9 +31,7 @@
 </table>
 업체 : ${dto.car_be}
 상품 이미지 <img alt="상품이미지" src="${dto.car_img }" width="20%">
-조회수 : ${dto.readnum}<br>
-상담수 : ${dto.consult}<br>
- : 
+
 </form>
 </body>
 </html>
