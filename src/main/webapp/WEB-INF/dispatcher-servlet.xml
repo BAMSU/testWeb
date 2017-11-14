@@ -125,6 +125,14 @@
    <bean id="scrapDao" class="scrap.model.ScrapDAOImple">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
+	
+	<!-- controller  -->
+	<bean id="flyController" class="controller.FlyController"/>
+	<bean id="honeyController" class="controller.honeyController"/>
+	<!-- service -->
+	<bean id="flydao" class="flymodel.FlyDAOImple">
+
+	</bean>
 
    <!-- views -->
    <bean id="yongjson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>

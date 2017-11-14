@@ -16,23 +16,23 @@ public class mealDAOImple implements mealDAO {
 	}
 
 	public List getMealList(int idx) {
-		// TODO Auto-generated method stub
-		return null;
+		return sst.selectList("mList", idx);
+	}
+	
+	public List getMealList2(int idx) {
+		return sst.selectList("mList2", idx);
 	}
 
 	public int insertM(mealDTO dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sst.insert("mInsert", dto);
 	}
 
 	public int updateM(mealDTO dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sst.update("mUpdate", dto);
 	}
 
 	public int deleteM(int idx) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sst.delete("mDelete", idx);
 	}
 
 }

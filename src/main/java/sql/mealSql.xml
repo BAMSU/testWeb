@@ -6,9 +6,25 @@
 <mapper namespace="meal">
 	
 	<select id="mList" resultType="meal.model.mealDTO" parameterType="int">
-		select * from hall_meal where hall_idx=#{idx} order by idx
+		select * from hall_meal where idx=#{idx} order by idx
 	</select>
 	
-	
+	<select id="mList2" resultType="meal.model.mealDTO" parameterType="int">
+		select * from hall_meal where idx=#{idx} order by idx
+	</select>
+	<insert id="mInsert" parameterType="meal.model.mealDTO">
+		insert into hall_meal values(#{idx}, #{meal}, #{price}, #{content})
+	</insert>
+	<update id="mUpdate" parameterType="meal.model.mealDTO">
+		update hall_meal
+		set
+		meal = #{meal},
+		price = #{price},
+		content = #{content}
+		where idx=#{idx}
+	</update>
+	<delete id="mDelete">
+		delete from hall_meal where idx=#{idx}
+	</delete>
 </mapper>
 
