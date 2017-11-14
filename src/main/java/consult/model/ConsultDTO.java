@@ -15,17 +15,19 @@ public class ConsultDTO {
 	private String context;
 	private String available;
 	private String tel;
+	private int gubun;
+	private int gubun2;
 	
 	
 	
 	public ConsultDTO() {
 		super();
 	}
-	
-	
-	
+
+
+
 	public ConsultDTO(int consult_idx, String name, String gender, String tel1, String tel2, String tel3, String email,
-			String email2, String reservation, String context, String available,String tel) {
+			String email2, String reservation, String context, String available, String tel, int gubun, int gubun2) {
 		super();
 		this.consult_idx = consult_idx;
 		this.name = name;
@@ -39,23 +41,9 @@ public class ConsultDTO {
 		this.context = context;
 		this.available = available;
 		this.tel = tel;
+		this.gubun = gubun;
+		this.gubun2 = gubun2;
 	}
-
-
-
-	public String getTel() {
-		return tel;
-	}
-
-
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-
-
-
 
 
 
@@ -65,10 +53,10 @@ public class ConsultDTO {
 
 
 
-
 	public void setConsult_idx(int consult_idx) {
 		this.consult_idx = consult_idx;
 	}
+
 
 
 	public String getName() {
@@ -88,10 +76,10 @@ public class ConsultDTO {
 	}
 
 
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
 
 
 
@@ -101,11 +89,9 @@ public class ConsultDTO {
 
 
 
-
 	public void setTel1(String tel1) {
 		this.tel1 = tel1;
 	}
-
 
 
 
@@ -119,9 +105,12 @@ public class ConsultDTO {
 		this.tel2 = tel2;
 	}
 
+
+
 	public String getTel3() {
 		return tel3;
 	}
+
 
 
 	public void setTel3(String tel3) {
@@ -133,7 +122,6 @@ public class ConsultDTO {
 	public String getEmail() {
 		return email;
 	}
-
 
 
 
@@ -160,6 +148,7 @@ public class ConsultDTO {
 	}
 
 
+
 	public void setReservation(String reservation) {
 		this.reservation = reservation;
 	}
@@ -169,6 +158,8 @@ public class ConsultDTO {
 	public String getContext() {
 		return context;
 	}
+
+
 
 	public void setContext(String context) {
 		this.context = context;
@@ -188,8 +179,41 @@ public class ConsultDTO {
 
 
 
+	public String getTel() {
+		return tel;
+	}
 
 
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+
+
+	public int getGubun() {
+		return gubun;
+	}
+
+
+
+	public void setGubun(int gubun) {
+		this.gubun = gubun;
+	}
+
+
+
+	public int getGubun2() {
+		return gubun2;
+	}
+
+
+
+	public void setGubun2(int gubun2) {
+		this.gubun2 = gubun2;
+	}
+	
+	
 
 
 

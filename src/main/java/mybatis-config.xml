@@ -16,6 +16,7 @@
       <!-- <mapper resource="sql/honeySql.xml"/>
       <mapper resource="sql/beSql.xml"/>
       <mapper resource="sql/cardSQL.xml"/>
-      <mapper resource="sql/consultSQL.xml"/> -->
+      <mapper resource="sql/consultSQL.xml"/> 
+      <mapper resource="sql/reviewSql.xml"/>-->
    </mappers>
 </configuration>
