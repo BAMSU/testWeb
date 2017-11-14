@@ -9,22 +9,20 @@
 </head>
 <body>
 	<c:forEach var="list" items="${s_fly}">
-	${list.airLineKorean }
-	${list.startcity }
-	${list.arrivalcity }
-	${list.domesticStartTime }
-	${list.domesticArrivalTime }
-	${list.city }
+	<p>항공사 ${list.airLineKorean }</p>
+	출발 공항 ${list.airport}<br>
+	도착 공항 ${list.city }<br>
+	출발 시간 ${list.internationalTime }<br>
 	</c:forEach>
 	
 	<hr>
 	
 	<c:forEach var="a_list" items="${a_fly}">
-	${a_list.airLineKorean }
-	${a_list.startcity }
-	${a_list.arrivalcity }
-	${a_list.domesticStartTime }
-	${a_list.domesticArrivalTime }
+	<p>항공사 ${a_list.airLineKorean }</p>
+	출발 공항 ${a_list.airport}<br>
+	도착 공항 ${a_list.city }<br>
+	출발 시간 ${a_list.internationalTime }<br>
+
 	</c:forEach>
 	
 </body>
