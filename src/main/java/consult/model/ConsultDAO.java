@@ -13,5 +13,6 @@ public interface ConsultDAO {
 	public int consultDel(int idx);
 	public ConsultDTO consultContent(int idx);
 	public int consultUpdate(ConsultDTO dto,int idx);
-
+	public List<ConsultDTO> AllConsultList(int cp, int ls);
+	
 }

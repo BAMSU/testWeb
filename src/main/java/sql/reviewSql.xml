@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="review">
+
+ 
+  <insert id="review_Write" parameterType="review.model.ReviewDTO">
+ 		insert into 
+ 			hallreview values(review_idx.nextval,
+ 				#{room_idx},
+ 				#{subject},
+ 				#{average},
+ 				#{content},
+ 				#{writer},
+ 				sysdate,
+ 				'이미지',
+ 				0,
+ 				#{sum},
+ 				#{name},
+ 				#{avg1},#{avg2},#{avg3},#{avg4},#{avg5})
+ 
+ 	</insert>
+ 	
+ 		<select id="ReviewList" parameterType="Map" resultType="review.model.ReviewDTO">
+
+ 		select * from
+		(select rownum as rnum,a.* from
+		(select * from hallreview order by review_idx desc)a)b
+		where rnum<![CDATA[>=]]>#{startnum}
+		and rnum<![CDATA[<=]]>#{endnum}
+		
+ 	</select>
+ 	
+ 	
+ 		<select id="reviewTotelCnt" resultType="int">
+ 		select count(*) from hallreview
+ 	</select>
+ 	
+ 		<select id="NameReviewList" parameterType="Map" resultType="review.model.ReviewDTO">
+
+ 	select * from
+		(select rownum as rnum,a.* from
+		(select * from hallreview order by review_idx desc)a)b
+		where rnum<![CDATA[>=]]>#{startnum}
+		and rnum<![CDATA[<=]]>#{endnum} and writer=#{name}
+		
+ 	</select>
+ 	<delete id="reviewDelete" parameterType="review.model.ReviewDTO"> 
+				delete from 
+				hallreview where
+					 review_idx= #{idx}	
+	
+	</delete>
+ 	
+ 	
+ 
+ </mapper>

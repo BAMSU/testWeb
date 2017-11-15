@@ -37,6 +37,14 @@ public interface BeDAO {
 	public int updateShoes(ShoesDTO dto);
 	public int updateBouq(BouqDTO dto);
 	
+	public List<SDMYDTO> ItemListStudio(String category);
+	public List<SDMYDTO> ItemListDress(String category);
+	public List<SDMYDTO> ItemListMakeup(String category);
+	public List<SDMYDTO> ItemListSuit(String category);
+	public List<CarDTO> ItemListCar();
+	public List<ShoesDTO> ItemListShoes();
+	public List<BouqDTO> ItemListBouq();
+	
 }
 
 

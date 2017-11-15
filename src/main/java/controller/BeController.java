@@ -634,10 +634,74 @@ public class BeController {
 		mav.setViewName("be/beMsg");
 		return mav;
 	}
-	
-	
-	
-	
+	@RequestMapping(value="/itemUpdateShoes.we", method=RequestMethod.POST)
+	public ModelAndView itemUpdateShoesSubmit(
+			ShoesDTO dto
+			) {
+		
+		ModelAndView mav = new ModelAndView();
+		int result = beDao.updateShoes(dto);
+		String msg = result>0?"수정 성공!":"수정 실패";
+		String href = result>0?"beIndex.we":"beIndex.we";
+		
+		mav.addObject("msg", msg);
+		mav.addObject("href", href);
+		mav.setViewName("be/beMsg");
+		return mav;
+	}
+	@RequestMapping(value="/itemUpdateBouq.we", method=RequestMethod.POST)
+	public ModelAndView itemUpdateBouqSubmit(
+			BouqDTO dto
+			) {
+		
+		ModelAndView mav = new ModelAndView();
+		int result = beDao.updateBouq(dto);
+		String msg = result>0?"수정 성공!":"수정 실패";
+		String href = result>0?"beIndex.we":"beIndex.we";
+		
+		mav.addObject("msg", msg);
+		mav.addObject("href", href);
+		mav.setViewName("be/beMsg");
+		return mav;
+	}
+	@RequestMapping(value="itemList.we")
+	public ModelAndView itemList(
+			@RequestParam(value="category",defaultValue="car")String category
+			) {
+		ModelAndView mav = new ModelAndView();
+		
+		if(category.equals("studio")) {
+			category="스튜디오";
+			List<SDMYDTO> list = beDao.ItemListStudio(category);
+			mav.addObject("sdmyList",list);
+		}else if(category.equals("dress")) {
+			category="드레스";
+			List<SDMYDTO> list = beDao.ItemListDress(category);
+			mav.addObject("sdmyList",list);
+		}else if(category.equals("makeup")) {
+			category="메이크업";
+			List<SDMYDTO> list = beDao.ItemListMakeup(category);
+			mav.addObject("sdmyList",list);
+		}else if(category.equals("suit")) {
+			category="예복";
+			List<SDMYDTO> list = beDao.ItemListSuit(category);
+			mav.addObject("sdmyList",list);
+		}else if(category.equals("car")) {
+			List<CarDTO> list = beDao.ItemListCar();
+			mav.addObject("list",list);
+		}else if(category.equals("shoes")) {
+			List<ShoesDTO> list = beDao.ItemListShoes();
+			mav.addObject("list",list);
+		}else if(category.equals("bouq")) {
+			List<BouqDTO> list = beDao.ItemListBouq();
+			mav.addObject("list",list);
+		}
+		
+		mav.addObject("category",category);
+		mav.setViewName("be/itemList");
+		
+		return mav;
+	}
 	
 	
 	

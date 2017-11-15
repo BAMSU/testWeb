@@ -12,7 +12,8 @@
  				#{email},
  				#{reservation},
  				#{context},
- 				'여백')
+ 				'여백',
+ 				#{gubun},#{gubun2})
  
  	</insert>
  	
@@ -49,4 +50,16 @@
 		reservation=#{reservation}, context=#{context}, gender=#{gender}
 		where consult_idx=#{idx}
 	</update>
+	
+	<select id="AllConsultList" parameterType="Map" resultType="consult.model.ConsultDTO">
+
+ 		select * from
+		(select rownum as rnum,a.* from
+		(select * from consult order by consult_idx desc)a)b
+		where rnum<![CDATA[>=]]>#{startnum}
+		and rnum<![CDATA[<=]]>#{endnum}
+		
+ 	</select>
+ 	
+	
  </mapper>

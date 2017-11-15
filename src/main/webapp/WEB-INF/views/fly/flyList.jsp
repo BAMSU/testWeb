@@ -14,6 +14,7 @@
 	${list.arrivalcity }
 	${list.domesticStartTime }
 	${list.domesticArrivalTime }
+	${list.city }
 	</c:forEach>
 	
 	<hr>

@@ -18,14 +18,12 @@
 		<h3>등록된 음식이 없습니다.</h3>
 	</c:if>
 	<c:forEach var="dto" items="${list}">
-		<c:url var="contentUrl" value="updateWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		${dto.idx}<a href="${contentUrl}">${dto.name}</a>
-		
-		<c:url var="contentUrl3" value="insertMeal.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		${dto.idx}<a href="${contentUrl3}">식사관리</a>
-		
-		<c:url var="contentUrl2" value="deleteWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		<a href="${contentUrl2}">삭제</a>
+	음식 종류 : <input type="text" name="meal" value="${dto.meal}" readOnly> <br>
+	음식 가격 : <input type="text" name="price" value="${dto.price}" readOnly> <br>
+	음식 설명 : <input type="text" name="content" value="${dto.content}" readOnly> <br>
+	<c:url var="contentUrl" value="updateMeal.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<input type="button" onclick="javascript:location.href='${contentUrl}'" value="음식수정하기">
+		<input type="button" onclick="javascript:location.href='wdList.we'" value="웨딩홀 목록으로">
 	</c:forEach>
 </body>
 

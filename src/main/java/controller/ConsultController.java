@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import consult.model.*;
+import review.model.ReviewDTO;
 
 
 @Controller
@@ -21,9 +22,13 @@ public class ConsultController {
 	private ConsultDAO consultDao;
 	
 	@RequestMapping(value="/consult.we",method=RequestMethod.GET)
-	public String consultWriteForm(){		
-	
-			return "consult/consultMain";
+	public ModelAndView consultWriteForm(@RequestParam("gubun")int gubun,@RequestParam("idx")int idx ){		
+			
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("gubun", gubun);
+			mav.addObject("idx", idx);
+			mav.setViewName("consult/consultMain");
+			return mav;
 		
 	}
 	
@@ -50,7 +55,6 @@ public class ConsultController {
 		int listSize = 10;
 		int pageSize = 5;
 		String pageStr = yong.page.PageModule.makePage("consultList.we", totalCnt, listSize, pageSize, cp);
-		
 		
 		List<ConsultDTO> list=consultDao.consultList(cp,listSize,name);
 		ModelAndView mav = new ModelAndView();
@@ -109,6 +113,26 @@ public class ConsultController {
 		mav.setViewName("consult/consultMsg");
 		return mav;
 		
+	}
+	
+	@RequestMapping("/AllConsultList.we")
+	public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp){
+	
+		int totalCnt = consultDao.getTotelCont();
+		int listSize = 5;
+		int pageSize = 2;
+		String pageStr = yong.page.PageModule.makePage("AllConsultList.we", totalCnt, listSize, pageSize, cp);
+		
+		
+		List<ConsultDTO> list=consultDao.AllConsultList(cp,listSize);
+		
+		
+		ModelAndView mav = new ModelAndView();
+	
+		mav.addObject("list", list);
+		mav.addObject("pageStr", pageStr);
+		mav.setViewName("consult/AllConsultList");
+		return mav;
 	}
 
 }

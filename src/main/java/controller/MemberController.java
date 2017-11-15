@@ -151,7 +151,7 @@ public class MemberController {
 	
 		mav.addObject("msg" , msg);
 		
-		mav.setViewName("index");
+		mav.setViewName("member/memberlogoutMsg");
 		
 		
 		return mav;
