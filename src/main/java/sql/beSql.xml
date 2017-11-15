@@ -201,28 +201,121 @@
 		where sdmy_idx = #{sdmy_idx}
 	</update>
 	
-	<select id="ListStudio" parameterType="String" resultType="be.model.SDMYDTO">
-		select * from be_sdmy where sdmy_category = #{category} order by sdmy_idx desc	
+	<!-- pagination -->
+	<select id="StudioTotalCnt" resultType="int">
+		select count(*) from be_sdmy where sdmy_category='스튜디오'
 	</select>
-	<select id="ListDress" parameterType="String" resultType="be.model.SDMYDTO">
-		select * from be_sdmy where sdmy_category = #{category} order by sdmy_idx desc	
+	<select id="DressTotalCnt" resultType="int">
+		select count(*) from be_sdmy where sdmy_category='드레스'
 	</select>
-	<select id="ListMakeup" parameterType="String" resultType="be.model.SDMYDTO">
-		select * from be_sdmy where sdmy_category = #{category} order by sdmy_idx desc	
+	<select id="MakeupTotalCnt" resultType="int">
+		select count(*) from be_sdmy where sdmy_category='메이크업'
 	</select>
-	<select id="ListSuit" parameterType="String" resultType="be.model.SDMYDTO">
-		select * from be_sdmy where sdmy_category = #{category} order by sdmy_idx desc	
+	<select id="SuitTotalCnt" resultType="int">
+		select count(*) from be_sdmy where sdmy_category='예복'
+	</select>
+	<select id="CarTotalCnt" resultType="int">
+		select count(*) from be_car
+	</select>
+	<select id="ShoesTotalCnt" resultType="int">
+		select count(*) from be_shoes
+	</select>
+	<select id="BouqTotalCnt" resultType="int">
+		select count(*) from be_bouquet
 	</select>
 	
-	<select id="ListCar" resultType="be.model.CarDTO">
-		select * from be_car order by car_idx desc	
+	<select id="ListStudio" parameterType="Map" resultType="be.model.SDMYDTO">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from be_sdmy where sdmy_category = #{category} order by sdmy_idx desc)a)b
+		where rnum <![CDATA[>=]]> #{startnum}
+		and rnum <![CDATA[<=]]> #{endnum}
+		
 	</select>
-	<select id="ListShoes" resultType="be.model.ShoesDTO">
-		select * from be_shoes order by shoes_idx desc	
+	<select id="ListDress" parameterType="Map" resultType="be.model.SDMYDTO">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from be_sdmy where sdmy_category = #{category} order by sdmy_idx desc)a)b
+		where rnum <![CDATA[>=]]> #{startnum}
+		and rnum <![CDATA[<=]]> #{endnum}
 	</select>
-	<select id="ListBouq" resultType="be.model.BouqDTO">
-		select * from be_bouquet order by bouq_idx desc	
+	<select id="ListMakeup" parameterType="Map" resultType="be.model.SDMYDTO">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from be_sdmy where sdmy_category = #{category} order by sdmy_idx desc)a)b
+		where rnum <![CDATA[>=]]> #{startnum}
+		and rnum <![CDATA[<=]]> #{endnum}	
 	</select>
+	<select id="ListSuit" parameterType="Map" resultType="be.model.SDMYDTO">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from be_sdmy where sdmy_category = #{category} order by sdmy_idx desc)a)b
+		where rnum <![CDATA[>=]]> #{startnum}
+		and rnum <![CDATA[<=]]> #{endnum}	
+	</select>
+	<select id="ListCar" parameterType="Map" resultType="be.model.CarDTO">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from be_car order by car_idx desc)a)b
+		where rnum <![CDATA[>=]]> #{startnum}
+		and rnum <![CDATA[<=]]> #{endnum}
+	</select>
+	<select id="ListShoes" parameterType="Map" resultType="be.model.ShoesDTO">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from be_shoes order by shoes_idx desc)a)b
+		where rnum <![CDATA[>=]]> #{startnum}
+		and rnum <![CDATA[<=]]> #{endnum}
+	</select>
+	<select id="ListBouq" parameterType="Map" resultType="be.model.BouqDTO">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from be_bouquet order by bouq_idx desc)a)b
+		where rnum <![CDATA[>=]]> #{startnum}
+		and rnum <![CDATA[<=]]> #{endnum}
+	</select>
+	
+	<update id="sdmyReadNum" parameterType="String">
+		update be_sdmy set 
+		readnum = readnum+1
+		where sdmy_be = #{sdmy_be}
+	</update>
+	<update id="carReadNum" parameterType="String">
+		update be_car set 
+		readnum = readnum+1
+		where car_idx = #{car_idx}
+	</update>
+	<update id="shoesReadNum" parameterType="String">
+		update be_shoes set 
+		readnum = readnum+1
+		where shoes_idx = #{shoes_idx}
+	</update>
+	<update id="bouqReadNum" parameterType="String">
+		update be_bouquet set 
+		readnum = readnum+1
+		where bouq_idx = #{bouq_idx}
+	</update>
+	
+	<update id="sdmyConsult" parameterType="String">
+		update be_sdmy set 
+		consult = consult+1
+		where sdmy_be = #{sdmy_be}
+	</update>
+	<update id="carConsult" parameterType="String">
+		update be_car set 
+		consult = consult+1
+		where car_idx = #{car_idx}
+	</update>
+	<update id="shoesConsult" parameterType="String">
+		update be_shoes set 
+		consult = consult+1
+		where shoes_idx = #{shoes_idx}
+	</update>
+	<update id="bouqConsult" parameterType="String">
+		update be_bouquet set 
+		consult = consult+1
+		where bouq_idx = #{bouq_idx}
+	</update>
 </mapper>
 
 

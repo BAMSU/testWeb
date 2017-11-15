@@ -12,13 +12,14 @@ public class CarDTO {
 	private int readnum;
 	private int consult;
 	private String admin_permission;
+	private int gubun;
 	
 	public CarDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public CarDTO(int car_idx, String car_name, String car_be, String car_price, String car_img, String car_detail,
-			int readnum, int consult, String admin_permission) {
+			int readnum, int consult, String admin_permission, int gubun) {
 		super();
 		this.car_idx = car_idx;
 		this.car_name = car_name;
@@ -29,6 +30,7 @@ public class CarDTO {
 		this.readnum = readnum;
 		this.consult = consult;
 		this.admin_permission = admin_permission;
+		this.gubun = gubun;
 	}
 
 	public int getCar_idx() {
@@ -103,5 +105,13 @@ public class CarDTO {
 		this.admin_permission = admin_permission;
 	}
 
+	public int getGubun() {
+		return gubun;
+	}
+
+	public void setGubun(int gubun) {
+		this.gubun = gubun;
+	}
+	
 	
 }

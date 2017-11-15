@@ -13,15 +13,7 @@
       <mapper resource="sql/mealSql.xml"/>
       <mapper resource="sql/mypageSql.xml"/>
       <mapper resource="sql/scrapSql.xml"/>
-<<<<<<< HEAD
       <mapper resource="sql/ahallSql.xml"/>
       <mapper resource="sql/roomSql.xml"/>
-=======
-      <!-- <mapper resource="sql/honeySql.xml"/>
-      <mapper resource="sql/beSql.xml"/>
-      <mapper resource="sql/cardSQL.xml"/>
-      <mapper resource="sql/consultSQL.xml"/> 
-      <mapper resource="sql/reviewSql.xml"/>-->
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
    </mappers>
 </configuration>

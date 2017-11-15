@@ -5,31 +5,66 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <title>Insert title here</title>
+<style type="text/css">
+.img_div{
+	width: 150px;
+	height:170px;
+	background-color: gray;
+}
+#table{
+	border: 10px;
+	border-color: black;
+	margin:auto;
+	padding-left: 30%;
+}
+#td_sdmy{
+	border: 1px;
+	cellspacing:0px;
+	border-color: black;
+}
+#td_csb{
+	border: 1px;
+	cellspacing:0px;
+	border-color: red;
+}
+</style>
+
 </head>
 <body>
 <h2>itemList.jsp</h2>
 <p>${category}</p>
-<table>
+
+<table id="table">
 <!-- sdmyList 출력 -->
 <c:choose >
 	<c:when test="${category == 'car'}">
 	<c:forEach var="dto" items="${list}">
 		<tr>
-			<td>
-			<a href="#"><img alt="car" src="${dto.car_img }" width="150px"> 
-			<p>${dto.car_name}</p>
+			<td id="td_csb">
+			<c:url var="detailCarURL" value="showItemCar.we">
+				<c:param name="car_idx" value="${dto.car_idx}"></c:param>
+			</c:url>
+			<div class="img_div">
+			<a href="${detailCarURL}">
+				<img alt="car" src="${dto.car_img }" width="150px" style="padding-top: auto;"> 
 			</a>
+			</div>
+			<p>${dto.car_name}</p>
+			
 			</td>
 		</tr>
 	</c:forEach>
 	</c:when>
-	
 	<c:when test="${category == 'shoes'}">
 	<c:forEach var="dto" items="${list}">
 		<tr>
-			<td>
-			<a href="#"><img alt="shoes" src="${dto.shoes_thumbnail }" width="150px"> 
+			<td id="td_csb">
+			<c:url var="detailShoesURL" value="showItemShoes.we">
+				<c:param name="shoes_idx" value="${dto.shoes_idx}"></c:param>
+			</c:url>
+			<a href="${detailShoesURL}"><img alt="shoes" src="${dto.shoes_thumbnail }" width="150px"> 
 			<p>${dto.shoes_name}</p>
 			</a>
 			</td>
@@ -40,8 +75,11 @@
 	<c:when test="${category == 'bouq'}">
 	<c:forEach var="dto" items="${list}">
 		<tr>
-			<td>
-			<a href="#"><img alt="bouquet" src="${dto.bouq_thumbnail }" width="150px"> 
+			<td id="td_csb">
+			<c:url var="detailBouqURL" value="showItemBouq.we">
+				<c:param name="bouq_idx" value="${dto.bouq_idx}"></c:param>
+			</c:url>
+			<a href="${detailBouqURL}"><img alt="bouquet" src="${dto.bouq_thumbnail }" width="150px"> 
 			<p>${dto.bouq_name}</p>
 			</a>
 			</td>
@@ -52,8 +90,11 @@
 	<c:otherwise>
 		<c:forEach var="dto" items="${sdmyList}">
 		<tr>
-			<td>
-			<a href="#"><img alt="img" src="${dto.sdmy_thumbnail}" width="150px"><br>
+			<td id="td_sdmy">
+			<c:url var="detailSDMYURL" value="showItemSDMY.we">
+				<c:param name="sdmy_be" value="${dto.sdmy_be}"></c:param>
+			</c:url>
+			<a href="${detailSDMYURL}"><img alt="img" src="${dto.sdmy_thumbnail}" width="150px"><br>
 			${dto.sdmy_be}
 			</a>
 			</td>
@@ -62,9 +103,9 @@
 	</c:otherwise>
 </c:choose>
 
-
-
 </table>
+
+${pageStr}
 </body>
 </html>
 
