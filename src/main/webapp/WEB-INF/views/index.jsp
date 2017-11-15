@@ -38,7 +38,12 @@
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+<script>
+function openLogin(){
+	window.open('memberLogin.we','login','width=500px, height=500px');
+}
 
+</script>
 </head>
 <body>
 	<script type="text/javascript"
@@ -65,7 +70,7 @@
 				
 				<div class="fh5co-cover text-center"
 					data-stellar-background-ratio="0.5"
-					style="background-image: url(images/tt.png);">
+					style="background-image: url(https://freehtml5.co/demos/nuptial/images/cover_bg_1.jpg);">
 					<div class="display-t">
 						<div class="display-tc">
 							<div class="container">
@@ -112,17 +117,34 @@
 									</ul></li> -->
 									
 								<li><a href="#">웨딩홀</a></li>
+								<li><a href="#">드레스</a></li>
 								<li><a href="#">청첩장</a></li>
 								<li><a href="#">패키지</a></li>
-								<li><a href="#">기타업체 </a></li>
+								<li class="fh5co-sub-ddown"><a href="#">웨딩 컬렉션 </a>
+								<ul class="fh5co-sub-menu">
+										<li><a
+											href="#">스튜디오</a></li>
+										
+										<li><a
+											href="#">메이크업</a></li>
+										<li><a
+											href="#">예복</a></li>
+										<li><a
+											href="#">웨딩카</a></li>
+											<li><a
+											href="#">웨딩슈즈</a></li>
+											<li><a
+											href="#">부케</a></li>
+									</ul></li>
+								
 								<li><a href="#">상담하기</a></li>
-								<c:if test="${empty sessionScope.sid}">
-									<li><a href="memberLogin.we">LOGIN</a></li>
+								<c:if test="${empty sessionScope.sname}">
+									<li><a href="javascript:openLogin()">LOGIN</a></li>
 								</c:if>
 
 
-								<c:if test="${!empty sessionScope.sid}">
-									<li><a href="">MYPAGE</a></li>
+								<c:if test="${!empty sname}">
+									<li><a href="mypage.we">MYPAGE</a></li>
 									<li><a href="memberLogout.we">LOGOUT</a></li>
 								</c:if>
 								<li><a href="memberJoin.we">SIGN UP</a></li>

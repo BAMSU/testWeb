@@ -25,5 +25,9 @@ private SqlSessionTemplate sqlMap;
 		int count = sqlMap.selectOne("ttc");
 		return count;
 	}
+	public CardDTO cardSer(int idx) {
+		CardDTO list = sqlMap.selectOne("CardSerList",idx);
+		return list;
+	}
 
 }

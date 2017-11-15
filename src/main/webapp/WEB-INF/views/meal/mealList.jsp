@@ -6,17 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-function aa() {
-	location.href="/finalproject/insertMeal.we";
-}
-</script>
 </head>
 <body>
-<input type="button" name="insertMeal" value="식사등록" onclick="aa()">
-<h3>웨딩홀 리스트</h3>
+<h3>웨딩홀 상세정보</h3>
+
 
 	<c:if test="${empty list}">
+	<input type="hidden" name="idx" value="${idx}">
+		<c:url var="contentUrl4" value="insertMeal.we"><c:param name="idx">${idx}</c:param></c:url>
+		<a href="${contentUrl4}">음식 추가하기.</a>
 		<h3>등록된 음식이 없습니다.</h3>
 	</c:if>
 	<c:forEach var="dto" items="${list}">
@@ -30,4 +28,5 @@ function aa() {
 		<a href="${contentUrl2}">삭제</a>
 	</c:forEach>
 </body>
+
 </html>

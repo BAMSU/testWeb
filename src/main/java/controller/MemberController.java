@@ -26,7 +26,6 @@ public class MemberController {
 
 	@Autowired
 	private MemberDAO memberDao;
-	private MemberDTO memberDto;
 	
 	@RequestMapping("memberLogin.we")
 	public String loginForm(){
@@ -50,7 +49,7 @@ public class MemberController {
 		
 		if(result==null){
 			
-			mav.addObject("msg","�븘�씠�뵒 �삉�뒗 �씠硫붿씪�씠 留욎��븡�뒿�땲�떎.");
+			mav.addObject("msg","이름또는 이메일이 틀립니다.");
 			mav.setViewName("member/memberidFind");
 		}else{
 			mav.addObject("result",result);
@@ -83,7 +82,7 @@ public class MemberController {
 			if(saveid==null){
 				Cookie ck = new Cookie("saveid", id);
 				
-				ck.setMaxAge(0	);
+				ck.setMaxAge(0);
 				resp.addCookie(ck);
 			}else{
 				Cookie ck = new Cookie("saveid", id);
@@ -93,18 +92,18 @@ public class MemberController {
 			}
 			
 			
-			mav.addObject("msg", "濡쒓렇�씤�꽦怨�");
+			mav.addObject("msg", "로그인 성공");
 			
 			mav.addObject("gourl", "index.we");
 			
-			session.setAttribute("sid", id);
-			System.out.println(saveid);
+			session.setAttribute("sname", memberDao.getName(id));
+			
 			
 			
 		} else {
 			
 			
-			mav.addObject("msg", "濡쒓렇�씤�떎�뙣");
+			mav.addObject("msg", "로그인실패");
 			mav.addObject("gourl", "memberLogin.we");
 		}
 		
@@ -114,12 +113,12 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping("idCheck.we")
+/*	@RequestMapping("idCheck.we")
 	public ModelAndView member_IdCheck(@RequestParam("userid")String userid){
 		System.out.println(userid);
 		
 		return null;
-	}
+	}*/
 	
 	@RequestMapping("memberLogout.we")
 	public ModelAndView member_logout(HttpServletRequest req){
@@ -129,10 +128,10 @@ public class MemberController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.addObject("msg" , "濡쒓렇�븘�썐�릺�뿀�뒿�땲�떎.");
+		mav.addObject("msg" , "로그아웃 되었습니다.");
+		mav.addObject("gourl","index.we");
 		
-		
-		mav.setViewName("index");
+		mav.setViewName("member/memberlogoutMsg");
 		
 		return mav;
 	}
@@ -148,7 +147,7 @@ public class MemberController {
 		
 		int result = memberDao.MemberJoin(dto);
 		
-		String msg = result>0?"�쉶�썝媛��엯 異뺥븯 ":"�쉶�썝媛��엯 �떎�뙣";
+		String msg = result>0?"회원가입성공 ":"회원가입 실패";
 	
 		mav.addObject("msg" , msg);
 		

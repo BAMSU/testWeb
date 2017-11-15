@@ -9,7 +9,7 @@
 <body>
 <h2>마이페이지</h2>
 
-<h1><a href="myPage_Estm.we">내 견적리스트</a></h1>
+
 <h1><a href="myPage_Like.we">관심상품 리스트</a></h1>
 <h1><a href="myPage_Review.we">리뷰 리스트</a></h1>
 <h1><a href="myPage_Ask.we">문의하기 리스트</a></h1>

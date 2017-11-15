@@ -4,16 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<mappers>
-		<mapper resource="sql/memberSql.xml"/>
-		<mapper resource="sql/hallSql.xml"/>
-		<mapper resource="sql/admin.xml"/>
-		<mapper resource="sql/beSql.xml"/>
-		<mapper resource="sql/aHallstats.xml"/>
-		<mapper resource="sql/mealSql.xml"/>
-		<!-- <mapper resource="sql/honeySql.xml"/>
-		<mapper resource="sql/beSql.xml"/>
-		<mapper resource="sql/cardSQL.xml"/>
-		<mapper resource="sql/consultSQL.xml"/> -->
-	</mappers>
+   <mappers>
+      <mapper resource="sql/memberSql.xml"/>
+      <mapper resource="sql/hallSql.xml"/>
+      <mapper resource="sql/admin.xml"/>
+      <mapper resource="sql/beSql.xml"/>
+      <mapper resource="sql/aHallstats.xml"/>
+      <mapper resource="sql/mealSql.xml"/>
+      <mapper resource="sql/mypageSql.xml"/>
+      <mapper resource="sql/scrapSql.xml"/>
+      <!-- <mapper resource="sql/honeySql.xml"/>
+      <mapper resource="sql/beSql.xml"/>
+      <mapper resource="sql/cardSQL.xml"/>
+      <mapper resource="sql/consultSQL.xml"/> -->
+   </mappers>
 </configuration>

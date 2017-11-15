@@ -22,7 +22,7 @@
 		(select rownum as rnum,a.* from
 		(select * from consult order by consult_idx desc)a)b
 		where rnum<![CDATA[>=]]>#{startnum}
-		and rnum<![CDATA[<=]]>#{endnum} and name='홍길동'
+		and rnum<![CDATA[<=]]>#{endnum} and name=#{name}
 		
  	</select>
  	
