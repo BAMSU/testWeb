@@ -9,6 +9,9 @@ import javax.websocket.Session;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
+import review.model.ReviewDTO;
+
+
 
 
 public class ConsultDAOImple implements ConsultDAO {
@@ -33,7 +36,9 @@ public class ConsultDAOImple implements ConsultDAO {
 		data.put("email", email);
 		data.put("reservation", dto.getReservation());
 		data.put("context", dto.getContext());
-		
+		data.put("gubun", dto.getGubun());
+		data.put("gubun2", dto.getGubun2());
+	
 		
 	
 		int count = sqlMap.insert("consultWrite",data);
@@ -89,6 +94,21 @@ public class ConsultDAOImple implements ConsultDAO {
 		
 		int count = sqlMap.update("consultUpdate", data);
 		return count;
+	}
+	
+	public List<ConsultDTO> AllConsultList(int cp, int ls) {
+		
+		Map data = new HashMap();
+		int startnum = (cp-1)*ls+1;
+		int endnum = cp*ls;
+		
+	
+		data.put("startnum", startnum);
+		data.put("endnum", endnum);
+		
+		
+		List<ConsultDTO> list =sqlMap.selectList("AllConsultList",data);
+		return list;
 	}
 
 }

@@ -6,20 +6,17 @@ public class HalleDTO {
 
 	private int idx;
 	private String hall_name;
-	private String hall_type;
-	private String gestalt;
-	private String guest;
-	private String interval;
-	private String hall_product;
-	private String hall_price;
-	private String hall_note;
+	private int hall_idx;
+	private int est_guest;
+	private int hall_price1; 
 	private String hall_content;
+	private int ourfit_price;
 	private String meal;
-	private String meal_price;
-	private String meal_content;
-	private String drink_type;
-	private String drink_price;
-	private int volume;
+	private String meal_1; 
+	private int meal_price;
+	private int meal_price2;
+	private String meal_content; 
+	private String meal_content2;
 	
 	
 	
@@ -29,26 +26,23 @@ public class HalleDTO {
 
 
 
-	public HalleDTO(int idx, String hall_name, String hall_type, String gestalt, String guest, String interval,
-			String hall_product, String hall_price, String hall_note, String hall_content, String meal,
-			String meal_price, String meal_content, String drink_type, String drink_price, int volume) {
+	public HalleDTO(int idx, String hall_name, int hall_idx, int est_guest, int hall_price1, String hall_content,
+			int ourfit_price, String meal, String meal_1, int meal_price, int meal_price2, String meal_content,
+			String meal_content2) {
 		super();
 		this.idx = idx;
 		this.hall_name = hall_name;
-		this.hall_type = hall_type;
-		this.gestalt = gestalt;
-		this.guest = guest;
-		this.interval = interval;
-		this.hall_product = hall_product;
-		this.hall_price = hall_price;
-		this.hall_note = hall_note;
+		this.hall_idx = hall_idx;
+		this.est_guest = est_guest;
+		this.hall_price1 = hall_price1;
 		this.hall_content = hall_content;
+		this.ourfit_price = ourfit_price;
 		this.meal = meal;
+		this.meal_1 = meal_1;
 		this.meal_price = meal_price;
+		this.meal_price2 = meal_price2;
 		this.meal_content = meal_content;
-		this.drink_type = drink_type;
-		this.drink_price = drink_price;
-		this.volume = volume;
+		this.meal_content2 = meal_content2;
 	}
 
 
@@ -77,86 +71,38 @@ public class HalleDTO {
 
 
 
-	public String getHall_type() {
-		return hall_type;
+	public int getHall_idx() {
+		return hall_idx;
 	}
 
 
 
-	public void setHall_type(String hall_type) {
-		this.hall_type = hall_type;
+	public void setHall_idx(int hall_idx) {
+		this.hall_idx = hall_idx;
 	}
 
 
 
-	public String getGestalt() {
-		return gestalt;
+	public int getEst_guest() {
+		return est_guest;
 	}
 
 
 
-	public void setGestalt(String gestalt) {
-		this.gestalt = gestalt;
+	public void setEst_guest(int est_guest) {
+		this.est_guest = est_guest;
 	}
 
 
 
-	public String getGuest() {
-		return guest;
+	public int getHall_price1() {
+		return hall_price1;
 	}
 
 
 
-	public void setGuest(String guest) {
-		this.guest = guest;
-	}
-
-
-
-	public String getInterval() {
-		return interval;
-	}
-
-
-
-	public void setInterval(String interval) {
-		this.interval = interval;
-	}
-
-
-
-	public String getHall_product() {
-		return hall_product;
-	}
-
-
-
-	public void setHall_product(String hall_product) {
-		this.hall_product = hall_product;
-	}
-
-
-
-	public String getHall_price() {
-		return hall_price;
-	}
-
-
-
-	public void setHall_price(String hall_price) {
-		this.hall_price = hall_price;
-	}
-
-
-
-	public String getHall_note() {
-		return hall_note;
-	}
-
-
-
-	public void setHall_note(String hall_note) {
-		this.hall_note = hall_note;
+	public void setHall_price1(int hall_price1) {
+		this.hall_price1 = hall_price1;
 	}
 
 
@@ -173,6 +119,18 @@ public class HalleDTO {
 
 
 
+	public int getOurfit_price() {
+		return ourfit_price;
+	}
+
+
+
+	public void setOurfit_price(int ourfit_price) {
+		this.ourfit_price = ourfit_price;
+	}
+
+
+
 	public String getMeal() {
 		return meal;
 	}
@@ -185,14 +143,38 @@ public class HalleDTO {
 
 
 
-	public String getMeal_price() {
+	public String getMeal_1() {
+		return meal_1;
+	}
+
+
+
+	public void setMeal_1(String meal_1) {
+		this.meal_1 = meal_1;
+	}
+
+
+
+	public int getMeal_price() {
 		return meal_price;
 	}
 
 
 
-	public void setMeal_price(String meal_price) {
+	public void setMeal_price(int meal_price) {
 		this.meal_price = meal_price;
+	}
+
+
+
+	public int getMeal_price2() {
+		return meal_price2;
+	}
+
+
+
+	public void setMeal_price2(int meal_price2) {
+		this.meal_price2 = meal_price2;
 	}
 
 
@@ -209,40 +191,16 @@ public class HalleDTO {
 
 
 
-	public String getDrink_type() {
-		return drink_type;
+	public String getMeal_content2() {
+		return meal_content2;
 	}
 
 
 
-	public void setDrink_type(String drink_type) {
-		this.drink_type = drink_type;
+	public void setMeal_content2(String meal_content2) {
+		this.meal_content2 = meal_content2;
 	}
-
-
-
-	public String getDrink_price() {
-		return drink_price;
-	}
-
-
-
-	public void setDrink_price(String drink_price) {
-		this.drink_price = drink_price;
-	}
-
-
-
-	public int getVolume() {
-		return volume;
-	}
-
-
-
-	public void setVolume(int volume) {
-		this.volume = volume;
-	}
-
-
+	
+	
 
 }

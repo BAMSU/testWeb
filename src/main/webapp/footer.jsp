@@ -5,7 +5,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<h2>Jack &amp; Rose</h2>
+							<img alt="zz" src="images/p.png" width="200" height="150">
 						</div>
 						<div class="col-md-6 col-md-offset-3 text-center">
 							<p class="fh5co-social-icons">

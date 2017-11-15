@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import hall.model.HallDTO;
+
 public class HalleDAOImple implements HalleDAO {
 
 	private SqlSessionTemplate sqlMap;
@@ -15,36 +17,39 @@ public class HalleDAOImple implements HalleDAO {
 		this.sqlMap=sqlMap;
 	}
 	
-	
 
-	public List<HalleDTO> hallestlist(HalleDTO dto) {
-		List<HalleDTO> estlist=sqlMap.selectList("hall_estlistSQL", dto);
-		return estlist;
-	}
-
-
-
-	public List<HalleDTO> hallUpdate(HalleDTO edto) {
-		List<HalleDTO> list = sqlMap.selectList("hall_estimateSQL", edto);
-		return list;
-	}
-
-	public List<HalleDTO> estfind(String hall_type, String guest, String interval) {
-		Map map = new HashMap();
-		map.put("hall_type", hall_type);
+	public List<HallDTO> hallList(String hallType, String menuType, String mealCost, String guest, String lineType,
+			String search_text) {
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("hallType",hallType);
+		map.put("menuType", menuType);
+		map.put("mealCost",mealCost);
 		map.put("guest",guest);
-		map.put("interval",interval);
-		List<HalleDTO> list = sqlMap.selectList("hall_estlistSQL",map);
+		map.put("lineType",lineType);
+		map.put("search_text",search_text);
+		
+		List<HallDTO> list = sqlMap.selectList("hall_searchview",map);
 		return list;
 	}
 
 
-
-	public int hallestAdd(HalleDTO edto) {
-		int count = sqlMap.insert("hallestAdd", edto);
-		return count;
+	public List<HallDTO> hallview() {
+		List<HallDTO> list = sqlMap.selectList("hallsearchSQL");
+		return list;
+	}
+	
+	public List<HalleDTO> hallestList() {
+		List<HalleDTO> list = sqlMap.selectList("hall_estlistSQL");
+				return list;
 	}
 
 
+	public List<HallDTO> hallreview() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
 
 }

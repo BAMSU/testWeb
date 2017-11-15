@@ -147,7 +147,7 @@ function selectEmail() {
 
 </head>
 <body>
-
+<%@include file="/header.jsp" %>
 	<h2>회원가입</h2>
 	<form action="memberJoin.we" name="join" method="POST">
 		<table>
@@ -232,5 +232,6 @@ function selectEmail() {
 
 		</table>
 	</form>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>

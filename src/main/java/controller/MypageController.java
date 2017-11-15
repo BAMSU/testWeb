@@ -42,4 +42,14 @@ public class MypageController {
 	}
 	
 	
+	@RequestMapping("myPage_Like.we")
+	public ModelAndView myPageLike(String name){
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", mypageLikeDao.mypage_Like(name));
+		mav.setViewName("myPage/myPage_Like");
+		return mav;
+	}
+	
+	
 }

@@ -39,11 +39,11 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 <script>
-function openLogin(){
-	window.open('memberLogin.we','login','width=500px, height=500px');
-}
-
+	function openLogin() {
+		window.open('memberLogin.we', 'login', 'width=500px, height=500px');
+	}
 </script>
+
 </head>
 <body>
 	<script type="text/javascript"
@@ -65,9 +65,9 @@ function openLogin(){
 
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
-
+			
 			<div class="fh5co-hero" data-section="home">
-				
+
 				<div class="fh5co-cover text-center"
 					data-stellar-background-ratio="0.5"
 					style="background-image: url(https://freehtml5.co/demos/nuptial/images/cover_bg_1.jpg);">
@@ -85,75 +85,7 @@ function openLogin(){
 				</div>
 			</div>
 
-			<header id="fh5co-header-section" class="sticky-banner">
-				<div class="container">
-					<div class="nav-header">
-						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-						<h1 id="fh5co-logo">
-							<a href="index.html">Nuptial</a>
-						</h1>
-						<!-- START #fh5co-menu-wrap -->
-						<nav id="fh5co-menu-wrap" role="navigation">
-							<ul class="sf-menu" id="fh5co-primary-menu">
-								<li class="active"><a href="index.html">Home</a></li>
-								<!-- <li><a href="groom-bride.html" class="fh5co-sub-ddown">Groom
-										&amp; Bride</a>
-									<ul class="fh5co-sub-menu">
-										<li><a
-											href="https://freehtml5.co/wedding-free-html5-bootstrap-template-for-wedding-websites/">Wedding
-												Template</a></li>
-										<li><a
-											href="https://freehtml5.co/marble-free-html5-bootstrap-template-for-portfolio-or-multi-purpose-websites/">Marble
-												Template</a></li>
-										<li><a
-											href="https://freehtml5.co/tasty-free-bootstrap-html5-template-for-restaurant-websites/">Tasty
-												Template</a></li>
-										<li><a
-											href="https://freehtml5.co/education-free-html5-bootstrap-template-elearning-school-websites/">Education
-												Template</a></li>
-										<li><a
-											href="https://freehtml5.co/words-free-html5-bootstrap-template-multi-purpose/">Words
-												Template</a></li>
-									</ul></li> -->
-									
-								<li><a href="#">웨딩홀</a></li>
-								<li><a href="#">드레스</a></li>
-								<li><a href="#">청첩장</a></li>
-								<li><a href="#">패키지</a></li>
-								<li class="fh5co-sub-ddown"><a href="#">웨딩 컬렉션 </a>
-								<ul class="fh5co-sub-menu">
-										<li><a
-											href="#">스튜디오</a></li>
-										
-										<li><a
-											href="#">메이크업</a></li>
-										<li><a
-											href="#">예복</a></li>
-										<li><a
-											href="#">웨딩카</a></li>
-											<li><a
-											href="#">웨딩슈즈</a></li>
-											<li><a
-											href="#">부케</a></li>
-									</ul></li>
-								
-								<li><a href="#">상담하기</a></li>
-								<c:if test="${empty sessionScope.sname}">
-									<li><a href="javascript:openLogin()">LOGIN</a></li>
-								</c:if>
-
-
-								<c:if test="${!empty sname}">
-									<li><a href="mypage.we">MYPAGE</a></li>
-									<li><a href="memberLogout.we">LOGOUT</a></li>
-								</c:if>
-								<li><a href="memberJoin.we">SIGN UP</a></li>
-
-							</ul>
-						</nav>
-					</div>
-				</div>
-			</header>
+			<%@include file="/header.jsp" %>
 
 			<!-- end:header-top -->
 

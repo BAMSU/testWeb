@@ -9,6 +9,7 @@
 </head>
 <body>
 	<h2>아이디 찾기</h2>
+	<%@include file="/header.jsp" %>
 	<form name="fm" action="idFindSubmit.we">
 		<fieldset>
 			<legend>아이디 찾기</legend>
