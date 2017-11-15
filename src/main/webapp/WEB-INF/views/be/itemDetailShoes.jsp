@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 <h2>itemDetailShoes</h2>
 <c:if test="${empty dto}">
 	<script type="text/javascript">

@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 <c:if test="${empty dto}">
 	<script type="text/javascript">
 		window.alert('잘못된 접근입니다.');

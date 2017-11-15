@@ -62,6 +62,7 @@
 
 </head>
 <body>
+<%@include file="/header.jsp" %>
 <h2>itemDetailSDMY</h2>
 <c:if test="${empty dto}">
 	<script type="text/javascript">

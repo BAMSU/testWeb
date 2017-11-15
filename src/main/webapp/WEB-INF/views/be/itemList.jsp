@@ -33,7 +33,8 @@
 
 </head>
 <body>
-<h2>itemList.jsp</h2>
+<%@include file="/header.jsp" %>
+
 <p>${category}</p>
 
 <table id="table">
