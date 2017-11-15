@@ -20,6 +20,8 @@ import hall.model.HallDAO;
 import hall.model.HallDTO;
 import hallEstimate.model.HalleDAO;
 import hallEstimate.model.HalleDTO;
+import review.model.ReviewDAO;
+import review.model.ReviewDTO;
 
 @Controller
 public class HallSearchController {
@@ -28,6 +30,8 @@ public class HallSearchController {
 	private HallDAO hallDao;
 	@Autowired
 	private HalleDAO halleDao;
+	@Autowired
+	private ReviewDAO ReviewDao;
 
 	
 	@RequestMapping(value="/hallsearch.do")
@@ -81,6 +85,18 @@ public class HallSearchController {
 		mav.setViewName("hall/hallmode");
 		return mav;
 	}
+	
+	/*·©Å·*/
+	@RequestMapping(value="/hallranking.do")
+	public ModelAndView hallrank(int cp,int ls){
+		ModelAndView mav = new ModelAndView();
+		List<ReviewDTO> hallrank = ReviewDao.AllReviewList(cp, ls);
+		mav.addObject("hallrank",hallrank);
+		mav.setViewName("hall/hallranking");
+		return mav;
+	}
+	
+	
 
 
 }

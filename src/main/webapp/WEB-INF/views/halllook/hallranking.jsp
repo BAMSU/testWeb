@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,16 +38,21 @@ li {
 	margin-right: 5px;
 	word-break: break-all;
 }
+#tab{
+	margin: 0 auto;
+}
 
 </style>
 <body>
+<h3>홀 랭킹 리스트</h3>
 <div id="search">
-		<div id="menum_box">
-			<div class="menu_br">
+<div id="#menu_box">
+<div class="menu_br">
 				<ul id="menu">
 					<li><a href="hallsearch.do">웨딩홀 검색</a></li>
 					<li><a href="hallrankingForm.do">홀 랭킹</a></li>
 					<li><a>홀vs홀</a></li>
+					<li><a href="hallsearchlist.do">불러오기확인</a></li>
 					<li><a href="hallestimate.do">홀 견적내기</a></li>
 					<li><a href="hallestmate.do">견적</a></li>
 					<li><a href="hallmode.do">견적 수정</a></li>
@@ -55,37 +60,20 @@ li {
 
 				</ul>
 			</div>
-		</div>
+			</div>
+			<c:forEach var="dto" items="${hallrank }">
 <table>
-					<c:if test="${empty estlist }a">
+<tr>
 
-						<td>검색 결과가 없습니다.</td>
-					</c:if>
+<td>${dto.name }</td>
+<td><span style="border:1px solid #BCA9F5;border-radius: 6px;" onclick="window.alert('halllist.do')">상세보기</span></td>
+<td><span style="border:1px solid #BCA9F5;border-radius: 6px;" onclick="window.alert('hallstatistics.do')">홀 통계보기</span></td>
+<td>${dto.average}</td>
+</tr>
+</table>
+</c:forEach>
 
-					<c:forEach var="est" items="${estlist}">
-					
-						<tr>
 
-							<!-- <td>'/finalproject/img/hall/'+idx+'/r1.jpg'</td> -->
-							<td>${est.hall_name }</td>
-							<td>${est.hall_type}</td>
-							<td>${est.gestalt}</td>
-							<td>${est.guest}</td>
-							<td>${est.interval }</td>
-							<td>${est.hall_product }</td>
-							<td>${est.hall_price }</td>
-							<td>${est.hall_note }</td>
-							<td>${est.hall_content }</td>
-							<td>${est..meal }</td>
-							<td>${est.meal_price }</td>
-							<td>${est.meal_content }</td>
-							<td>${est.drink_type }</td>
-							<td>${est.drink_price }</td>
-							<td>${est.volume }</td>
-						</tr>
-						
-					</c:forEach>
-				</table>
-				</div>
+</div>
 </body>
 </html>

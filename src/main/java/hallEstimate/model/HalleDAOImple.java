@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import hall.model.HallDTO;
+import review.model.ReviewDTO;
 
 public class HalleDAOImple implements HalleDAO {
 
@@ -44,10 +45,6 @@ public class HalleDAOImple implements HalleDAO {
 	}
 
 
-	public List<HallDTO> hallreview() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	
 	
