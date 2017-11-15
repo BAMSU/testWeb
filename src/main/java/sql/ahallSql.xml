@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ahall">
+	<!-- hall -->
+	<select id="ahallInfoSQL" parameterType="int" resultType="ahall.model.aHallDTO">
+		select * from hall where idx = #{idx}
+	</select>
+	<select id="ahallCompareFormSQL" resultType="ahall.model.aHallDTO">
+		select * from hall
+	</select>
+	<select id="amax" resultType="int">
+		select max(idx) from hall
+	</select>
+	<select id="ahallGuSQL" resultType="String">
+		select distinct gu from hall
+	</select>
+	<select id="ahallAddSearchByGuSQL" parameterType="String" resultType="ahall.model.aHallDTO">
+		select * from hall where gu = #{gu}
+	</select>
+	<select id="ahallAddSearchByNameSQL" parameterType="String" resultType="ahall.model.aHallDTO">
+		select * from hall where name = #{name}
+	</select>
+	<insert id="ainserthall" parameterType="ahall.model.aHallDTO">
+		insert into 
+	hall
+	values(hall_idx.nextval,
+		#{name},
+		0.0,
+		0,
+		#{si},
+		#{gu},
+		#{dong},
+		#{addr},
+		#{roadAddr},
+		#{hallType},
+		#{mealCost},
+		#{menuType},
+		#{guest},
+		#{ckPoint},
+		#{locationX},
+		#{locationY},
+		#{traffic},
+		#{line},
+		#{station})
+	</insert>
+	<update id="aupdatehall" parameterType="ahall.model.aHallDTO">
+		update hall
+		set
+		name = #{name},
+		grade = #{grade},
+		accrue = #{accrue},
+		si = #{si},
+		gu = #{gu},
+		dong = #{dong},
+		addr = #{addr},
+		roadAddr = #{roadAddr},
+		hallType = #{hallType},
+		mealCost = #{mealCost},
+		menuType = #{menuType},
+		guest = #{guest},
+		ckPoint = #{ckPoint},
+		locationX = #{locationX},
+		locationY = #{locationY},
+		traffic = #{traffic},
+		line = #{line},
+		station = #{station}
+		where idx=#{idx}
+	</update>
+	<delete id="adeletehall" parameterType="int">
+		delete from hall where idx=#{idx}
+	</delete>
+	<!-- room -->
+	<insert id="addR" parameterType="int">
+		insert into room (room_idx.nextval, #{name}, #{weekday}, #{type}, #{guest}, #{interval}, #{menu}, #{menuprice}, #{hallidx} )
+	</insert>
+	<select id="aroomInfoSQL" parameterType="int" resultType="room.model.RoomDTO">
+		select * from room where hallIdx = #{hallIdx}
+	</select>
+	<!-- hallStats -->
+	<select id="ahallStatsSQL" parameterType="map"  resultType="hallStats.model.HallStatsDTO">
+		select * from hallStats where hallIdx = #{hallIdx} and type = #{type}
+	</select>
+	<select id="ahallStatsRankSQL" parameterType="map" resultType="int">
+		select rnum 
+		from(select rownum rnum,hallIdx 
+		from(select sum(typeNum),hallIdx from hallStats 
+		where month in (#{m1},#{m2},#{m3}) 
+		group by type,hallIdx having type=#{type} 
+		order by sum(typeNum) desc)a)b
+		where b.hallIdx=#{hallIdx}
+	</select>
+	<select id="ahallCountSQL" resultType="int">
+		select count(distinct hallIdx) from hallStats
+	</select>
+	<update id="ahallStatsUpSQL" parameterType="map">
+		update hallStats set typeNum=typeNum+1 
+		where hallIdx=#{hallIdx} and type=#{type} and month=#{month}
+	</update>
+</mapper>

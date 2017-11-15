@@ -15,28 +15,28 @@ public class aHallDAOImple implements aHallDAO {
 	}
 
 	public aHallDTO getHallInfo(int idx) {
-		return sst.selectOne("hallInfoSQL",idx);
+		return sst.selectOne("ahallInfoSQL",idx);
 	}
 
 	public List getHallList() {
-		return sst.selectList("hallCompareFormSQL");
+		return sst.selectList("ahallCompareFormSQL");
 	}
 	
 	public List getHallGu() {
-		return sst.selectList("hallGuSQL");
+		return sst.selectList("ahallGuSQL");
 	}
 	public List getHallListByGu(String gu) {
-		return sst.selectList("hallAddSearchByGuSQL",gu);
+		return sst.selectList("ahallAddSearchByGuSQL",gu);
 	}
 
 	public List getHallListByName(String name) {
-		return sst.selectList("hallAddSearchByNameSQL",name);
+		return sst.selectList("ahallAddSearchByNameSQL",name);
 	}
 	public int insertWd(aHallDTO dto) {
 		
-		int result = sst.insert("inserthall", dto);
+		int result = sst.insert("ainserthall", dto);
 		
-		int max = sst.selectOne("max");
+		int max = sst.selectOne("amax");
 		
 		Map m = new HashMap();
 		m.put("hallIdx", max);
@@ -51,11 +51,11 @@ public class aHallDAOImple implements aHallDAO {
 	}
 	
 	public int updateWd(aHallDTO dto) {
-		return sst.update("updatehall", dto);
+		return sst.update("aupdatehall", dto);
 	}
 	
 	public int deleteWd(int idx) {
-		return sst.delete("deletehall", idx);
+		return sst.delete("adeletehall", idx);
 	}
 
 }

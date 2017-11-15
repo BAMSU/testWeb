@@ -116,8 +116,8 @@ public class BeDAOImple implements BeDAO {
 		
 		return list;
 	}
-	public SDMYDTO itemDetailSDMY(String be_name) {
-		SDMYDTO dto = (SDMYDTO)sqlMap.selectOne("itemDetailSDMY", be_name);
+	public SDMYDTO itemDetailSDMY(String sdmy_be) {
+		SDMYDTO dto = (SDMYDTO)sqlMap.selectOne("itemDetailSDMY", sdmy_be);
 		return dto;
 	}
 	public CarDTO itemDetailCar(String car_idx) {
@@ -194,35 +194,129 @@ public class BeDAOImple implements BeDAO {
 		return result;
 	}
 	
-	public List<SDMYDTO> ItemListStudio(String category) {
-		List<SDMYDTO> list = sqlMap.selectList("ListStudio", category);
+	public List<SDMYDTO> ItemListStudio(String category,int cp, int ls) {
+		
+		Map data = new HashMap();
+		int startnum = (cp-1)*ls+1;
+		int endnum = (cp*ls);
+		
+		data.put("startnum", startnum);
+		data.put("endnum", endnum);
+		data.put("category", category);
+		
+		List<SDMYDTO> list = sqlMap.selectList("ListStudio", data);
 		return list;
 	}
-	public List<SDMYDTO> ItemListDress(String category) {
-		List<SDMYDTO> list = sqlMap.selectList("ListDress", category);
+	public List<SDMYDTO> ItemListDress(String category,int cp, int ls) {
+		Map data = new HashMap();
+		int startnum = (cp-1)*ls+1;
+		int endnum = (cp*ls);
+		
+		data.put("startnum", startnum);
+		data.put("endnum", endnum);
+		data.put("category", category);
+		
+		List<SDMYDTO> list = sqlMap.selectList("ListStudio", data);
 		return list;
 	}
-	public List<SDMYDTO> ItemListMakeup(String category) {
-		List<SDMYDTO> list = sqlMap.selectList("ListMakeup", category);
+	public List<SDMYDTO> ItemListMakeup(String category,int cp, int ls) {
+		Map data = new HashMap();
+		int startnum = (cp-1)*ls+1;
+		int endnum = (cp*ls);
+		
+		data.put("startnum", startnum);
+		data.put("endnum", endnum);
+		data.put("category", category);
+		
+		List<SDMYDTO> list = sqlMap.selectList("ListStudio", data);
 		return list;
 	}
-	public List<SDMYDTO> ItemListSuit(String category) {
-		List<SDMYDTO> list = sqlMap.selectList("ListSuit", category);
+	public List<SDMYDTO> ItemListSuit(String category,int cp, int ls) {
+		Map data = new HashMap();
+		int startnum = (cp-1)*ls+1;
+		int endnum = (cp*ls);
+		
+		data.put("startnum", startnum);
+		data.put("endnum", endnum);
+		data.put("category", category);
+		
+		List<SDMYDTO> list = sqlMap.selectList("ListStudio", data);
 		return list;
 	}
-	public List<CarDTO> ItemListCar() {
-		List<CarDTO> list = sqlMap.selectList("ListCar");
+	public List<CarDTO> ItemListCar(int cp, int ls) {
+		Map data = new HashMap();
+		int startnum = (cp-1)*ls+1;
+		int endnum = (cp*ls);
+		
+		data.put("startnum", startnum);
+		data.put("endnum", endnum);
+		
+		List<CarDTO> list = sqlMap.selectList("ListCar",data);
 		return list;
 	}
-	public List<ShoesDTO> ItemListShoes() {
-		List<ShoesDTO> list = sqlMap.selectList("ListShoes");
+	public List<ShoesDTO> ItemListShoes(int cp, int ls) {
+		Map data = new HashMap();
+		int startnum = (cp-1)*ls+1;
+		int endnum = (cp*ls);
+		
+		data.put("startnum", startnum);
+		data.put("endnum", endnum);
+		
+		List<ShoesDTO> list = sqlMap.selectList("ListShoes",data);
 		return list;
 	}
-	public List<BouqDTO> ItemListBouq() {
-		List<BouqDTO> list = sqlMap.selectList("ListBouq");
+	public List<BouqDTO> ItemListBouq(int cp, int ls) {
+		Map data = new HashMap();
+		int startnum = (cp-1)*ls+1;
+		int endnum = (cp*ls);
+		
+		data.put("startnum", startnum);
+		data.put("endnum", endnum);
+		
+		List<BouqDTO> list = sqlMap.selectList("ListBouq",data);
 		return list;
 	}
-	
+	//pagination related
+	public int getStudioTotalCnt() {
+		int result = sqlMap.selectOne("StudioTotalCnt");
+		return result;
+	}
+	public int getDressTotalCnt() {
+		int result = sqlMap.selectOne("DressTotalCnt");
+		return result;
+	}
+	public int getMakeupTotalCnt() {
+		int result = sqlMap.selectOne("MakeupTotalCnt");
+		return result;
+	}
+	public int getSuitTotalCnt() {
+		int result = sqlMap.selectOne("SuitTotalCnt");
+		return result;
+	}
+	public int getCarTotalCnt() {
+		int result = sqlMap.selectOne("CarTotalCnt");
+		return result;
+	}
+	public int getShoesTotalCnt() {
+		int result = sqlMap.selectOne("ShoesTotalCnt");
+		return result;
+	}
+	public int getBouqTotalCnt() {
+		int result = sqlMap.selectOne("BouqTotalCnt");
+		return result;
+	}
+	public void sdmyReadNum(String sdmy_be) {
+		sqlMap.selectOne("sdmyReadNum",sdmy_be);
+	}
+	public void carReadNum(String car_idx) {
+		sqlMap.update("carReadNum",car_idx);
+	}
+	public void shoesReadNum(String shoes_idx) {
+		sqlMap.update("shoesReadNum",shoes_idx);
+	}
+	public void bouqReadNum(String bouq_idx) {
+		sqlMap.update("bouqReadNum",bouq_idx);
+	}
 	
 	
 }

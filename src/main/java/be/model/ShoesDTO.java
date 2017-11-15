@@ -15,6 +15,7 @@ public class ShoesDTO {
 	private int readnum;
 	private int consult;
 	private String admin_permission;
+	private int gubun;
 	
 	public ShoesDTO() {
 		// TODO Auto-generated constructor stub
@@ -22,7 +23,7 @@ public class ShoesDTO {
 
 	public ShoesDTO(int shoes_idx, String shoes_name, String shoes_be, String shoes_thumbnail, String shoes_size,
 			String shoes_heel, String shoes_material, String shoes_img, String shoes_detail, int readnum, int consult,
-			String admin_permission) {
+			String admin_permission, int gubun) {
 		super();
 		this.shoes_idx = shoes_idx;
 		this.shoes_name = shoes_name;
@@ -36,6 +37,7 @@ public class ShoesDTO {
 		this.readnum = readnum;
 		this.consult = consult;
 		this.admin_permission = admin_permission;
+		this.gubun = gubun;
 	}
 
 	public int getShoes_idx() {
@@ -134,6 +136,14 @@ public class ShoesDTO {
 		this.admin_permission = admin_permission;
 	}
 
+	public int getGubun() {
+		return gubun;
+	}
+
+	public void setGubun(int gubun) {
+		this.gubun = gubun;
+	}
+	
 	
 	
 	

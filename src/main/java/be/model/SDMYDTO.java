@@ -20,7 +20,7 @@ public class SDMYDTO {
 	private int readnum;
 	private int consult;
 	private String admin_permission;
-	
+	private int gubun;
 	
 	public SDMYDTO() {
 		// TODO Auto-generated constructor stub
@@ -29,7 +29,7 @@ public class SDMYDTO {
 
 	public SDMYDTO(int sdmy_idx, String sdmy_category, String sdmy_be, String sdmy_thumbnail, int sdmy_avg,
 			String sdmy_img1, String sdmy_img2, String sdmy_img3, String sdmy_img4, String sdmy_img5, String sdmy_img6,
-			String sdmy_img7, String sdmy_img8, String sdmy_img9, int readnum, int consult, String admin_permission) {
+			String sdmy_img7, String sdmy_img8, String sdmy_img9, int readnum, int consult, String admin_permission,int gubun) {
 		super();
 		this.sdmy_idx = sdmy_idx;
 		this.sdmy_category = sdmy_category;
@@ -48,6 +48,7 @@ public class SDMYDTO {
 		this.readnum = readnum;
 		this.consult = consult;
 		this.admin_permission = admin_permission;
+		this.gubun = gubun;
 	}
 
 
@@ -220,6 +221,16 @@ public class SDMYDTO {
 		this.admin_permission = admin_permission;
 	}
 
+
+	public int getGubun() {
+		return gubun;
+	}
+
+
+	public void setGubun(int gubun) {
+		this.gubun = gubun;
+	}
+	
 	
 	
 	

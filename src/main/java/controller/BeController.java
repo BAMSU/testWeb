@@ -30,7 +30,7 @@ import be.model.ShoesDTO;
 @Controller
 public class BeController {
 	
-	private String fileroot = "E:/jspstudy/myweb5/src/main/webapp/upload";
+	private String fileroot = "C:/Users/LG/git/testWeb/src/main/webapp/upload";
 	
 	@Autowired
 	private BeDAO beDao;
@@ -419,7 +419,7 @@ public class BeController {
 	}
 	
 	@RequestMapping(value="/item_detail_sdmy.we")
-	public ModelAndView itemDetailSDMY(
+	public ModelAndView beItemDetailSDMY(
 			@RequestParam(value="be_name")String be_name
 			) {
 		
@@ -432,7 +432,7 @@ public class BeController {
 		return mav;
 	}
 	@RequestMapping(value="/item_detail_car.we")
-	public ModelAndView itemDetailCar(
+	public ModelAndView beItemDetailCar(
 			@RequestParam(value="car_idx")String car_idx
 			) {
 		
@@ -445,7 +445,7 @@ public class BeController {
 		return mav;
 	}
 	@RequestMapping(value="/item_detail_shoes.we")
-	public ModelAndView itemDetailShoes(
+	public ModelAndView beItemDetailShoes(
 			@RequestParam(value="shoes_idx")String shoes_idx
 			) {
 		
@@ -458,7 +458,7 @@ public class BeController {
 		return mav;
 	}
 	@RequestMapping(value="/item_detail_bouq.we")
-	public ModelAndView itemDetailBouq(
+	public ModelAndView beItemDetailBouq(
 			@RequestParam(value="bouq_idx")String bouq_idx
 			) {
 		
@@ -664,45 +664,132 @@ public class BeController {
 		mav.setViewName("be/beMsg");
 		return mav;
 	}
-	@RequestMapping(value="itemList.we")
+	@RequestMapping(value="/itemList.we")
 	public ModelAndView itemList(
-			@RequestParam(value="category",defaultValue="car")String category
+			@RequestParam(value="category",defaultValue="car")String category,
+			@RequestParam(value="cp", defaultValue="1")int cp
 			) {
 		ModelAndView mav = new ModelAndView();
+		int listSize = 1;
+		int pageSize = 5;
+		int totalCnt= 0;
 		
-		if(category.equals("studio")) {
+		String pageStr="";
+		if(category.equals("studio")||category.equals("스튜디오")) {
 			category="스튜디오";
-			List<SDMYDTO> list = beDao.ItemListStudio(category);
+			totalCnt = beDao.getStudioTotalCnt();
+			pageStr = yong.page.BeItemPageModule.makePage("itemList.we", totalCnt, listSize, pageSize, cp,category);
+			
+			List<SDMYDTO> list = beDao.ItemListStudio(category, cp, listSize);
 			mav.addObject("sdmyList",list);
-		}else if(category.equals("dress")) {
+			
+			
+		}else if(category.equals("dress")||category.equals("드레스")) {
 			category="드레스";
-			List<SDMYDTO> list = beDao.ItemListDress(category);
+			totalCnt = beDao.getDressTotalCnt();
+			pageStr = yong.page.BeItemPageModule.makePage("itemList.we", totalCnt, listSize, pageSize, cp,category);
+			
+			List<SDMYDTO> list = beDao.ItemListDress(category,cp,listSize);
 			mav.addObject("sdmyList",list);
-		}else if(category.equals("makeup")) {
+			
+		}else if(category.equals("makeup")||category.equals("메이크업")) {
 			category="메이크업";
-			List<SDMYDTO> list = beDao.ItemListMakeup(category);
+			totalCnt = beDao.getMakeupTotalCnt();
+			pageStr = yong.page.BeItemPageModule.makePage("itemList.we", totalCnt, listSize, pageSize, cp,category);
+			
+			List<SDMYDTO> list = beDao.ItemListMakeup(category,cp,listSize);
 			mav.addObject("sdmyList",list);
-		}else if(category.equals("suit")) {
+			
+		}else if(category.equals("suit")||category.equals("예복")) {
 			category="예복";
-			List<SDMYDTO> list = beDao.ItemListSuit(category);
+			totalCnt = beDao.getSuitTotalCnt();
+			pageStr = yong.page.BeItemPageModule.makePage("itemList.we", totalCnt, listSize, pageSize, cp,category);
+			
+			List<SDMYDTO> list = beDao.ItemListSuit(category,cp,listSize);
 			mav.addObject("sdmyList",list);
+			
 		}else if(category.equals("car")) {
-			List<CarDTO> list = beDao.ItemListCar();
+			totalCnt = beDao.getCarTotalCnt();
+			pageStr = yong.page.BeItemPageModule.makePage("itemList.we", totalCnt, listSize, pageSize, cp, category);
+			
+			List<CarDTO> list = beDao.ItemListCar(cp,listSize);
 			mav.addObject("list",list);
+			
 		}else if(category.equals("shoes")) {
-			List<ShoesDTO> list = beDao.ItemListShoes();
+			
+			totalCnt = beDao.getShoesTotalCnt();
+			pageStr = yong.page.BeItemPageModule.makePage("itemList.we", totalCnt, listSize, pageSize, cp, category);
+			
+			List<ShoesDTO> list = beDao.ItemListShoes(cp,listSize);
 			mav.addObject("list",list);
+			
 		}else if(category.equals("bouq")) {
-			List<BouqDTO> list = beDao.ItemListBouq();
+			totalCnt = beDao.getBouqTotalCnt();
+			pageStr = yong.page.BeItemPageModule.makePage("itemList.we", totalCnt, listSize, pageSize, cp, category);
+			
+			List<BouqDTO> list = beDao.ItemListBouq(cp,listSize);
 			mav.addObject("list",list);
 		}
 		
+		mav.addObject("pageStr",pageStr);
 		mav.addObject("category",category);
 		mav.setViewName("be/itemList");
 		
 		return mav;
 	}
 	
+	@RequestMapping(value="/showItemSDMY.we")
+	public ModelAndView showItemDetailSDMY(
+			@RequestParam(value="sdmy_be")String sdmy_be
+			) {
+		ModelAndView mav = new ModelAndView();
+		SDMYDTO dto = beDao.itemDetailSDMY(sdmy_be);
+		beDao.sdmyReadNum(sdmy_be);
+		
+		mav.addObject("dto",dto);
+		mav.setViewName("be/itemDetailSDMY");
+		
+		return mav;
+	}
+	@RequestMapping(value="/showItemCar.we")
+	public ModelAndView showItemDetailCar(
+			@RequestParam(value="car_idx")String car_idx
+			) {
+		ModelAndView mav = new ModelAndView();
+		CarDTO dto = beDao.itemDetailCar(car_idx);
+		beDao.carReadNum(car_idx);
+		
+		mav.addObject("dto",dto);
+		mav.setViewName("be/itemDetailCar");
+		
+		return mav;
+	}
+	@RequestMapping(value="/showItemShoes.we")
+	public ModelAndView showItemDetailShoes(
+			@RequestParam(value="shoes_idx")String shoes_idx
+			) {
+		ModelAndView mav = new ModelAndView();
+		ShoesDTO dto = beDao.itemDetailShoes(shoes_idx);
+		beDao.shoesReadNum(shoes_idx);
+		
+		mav.addObject("dto",dto);
+		mav.setViewName("be/itemDetailShoes");
+		
+		return mav;
+	}
+	@RequestMapping(value="/showItemBouq.we")
+	public ModelAndView showItemDetailBouq(
+			@RequestParam(value="bouq_idx")String bouq_idx
+			) {
+		ModelAndView mav = new ModelAndView();
+		BouqDTO dto = beDao.itemDetailBouq(bouq_idx);
+		beDao.bouqReadNum(bouq_idx);
+		
+		mav.addObject("dto",dto);
+		mav.setViewName("be/itemDetailBouq");
+		
+		return mav;
+	}
 	
 	
 	
