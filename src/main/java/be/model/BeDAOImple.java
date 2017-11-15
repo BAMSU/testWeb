@@ -132,6 +132,10 @@ public class BeDAOImple implements BeDAO {
 		BouqDTO dto = (BouqDTO)sqlMap.selectOne("itemDetailBouq",bouq_idx);
 		return dto;
 	}
+	public BeDTO itemDetailBe(String be_name) {
+		BeDTO bdto = (BeDTO)sqlMap.selectOne("itemDetailBe",be_name);
+		return bdto;
+	}
 	
 	public int delItem(String columName, String idx, String tableName) {
 		

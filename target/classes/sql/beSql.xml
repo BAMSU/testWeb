@@ -123,26 +123,29 @@
 					where
 					sdmy_be = #{sdmy_be}
 	</select>
-	
 	<select id="itemDetailCar" parameterType="String" resultType="be.model.CarDTO">
 		select * from 
 					be_car
 					where
 					car_idx = #{car_idx}
 	</select>
-	
 	<select id="itemDetailShoes" parameterType="String" resultType="be.model.ShoesDTO">
 		select * from 
 					be_shoes
 					where
 					shoes_idx = #{shoes_idx}
 	</select>
-	
 	<select id="itemDetailBouq" parameterType="String" resultType="be.model.BouqDTO">
 		select * from 
 					be_bouquet
 					where
 					bouq_idx = #{bouq_idx}
+	</select>
+	<select id="itemDetailBe" parameterType="String" resultType="be.model.BeDTO">
+		select * from 
+					be_join
+					where
+					be_name = #{be_name}
 	</select>
 	
 	<delete id="delCar" parameterType="String">

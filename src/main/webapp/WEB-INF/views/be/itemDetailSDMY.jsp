@@ -19,7 +19,7 @@
 			padding: 0;
 			list-style-type: none;
 		}
-		.a{
+		a{
 		text-decoration: none;
 		}
 </style>
@@ -63,17 +63,18 @@
 </head>
 <body>
 <%@include file="/header.jsp" %>
-<h2>itemDetailSDMY</h2>
+
+
 <c:if test="${empty dto}">
 	<script type="text/javascript">
 		window.alert('잘못된 접근입니다.');
 		location.href='index.we';
 	</script>		
 </c:if>
-
+<br>
 <div class="jumbotron">
 <div align="center" style="float: left; padding-left: 10%; padding-right: 10%;">
-<ul id="slider">
+<ul id="slider" class="ul">
 		<li><img src="${dto.sdmy_img1}" width="480" height="380" /></li>
 		<li><img src="${dto.sdmy_img2}" width="480" height="380" /></li>
 		<li><img src="${dto.sdmy_img3}" width="480" height="380" /></li>
@@ -113,6 +114,16 @@
 <br><br>
 <br><br>  
   </div>
+</div>
+
+<div class="jumbotron">
+	<p>
+	업체명 : ${bdto.be_name }<br>
+	사업자등록번호 : ${bdto.be_license}<br>
+	대표번호 : ${bdto.be_rep_tell}<br>
+	소재지 : ${bdto.be_loc}<br>
+	주차시설 : ${bdto.be_park}<br>
+	</p>
 </div>
 
 

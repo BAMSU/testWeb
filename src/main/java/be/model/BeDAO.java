@@ -24,6 +24,7 @@ public interface BeDAO {
 	public CarDTO itemDetailCar(String car_idx);
 	public ShoesDTO itemDetailShoes(String shoes_idx);
 	public BouqDTO itemDetailBouq(String bouq_idx);
+	public BeDTO itemDetailBe(String be_name);
 	
 	public int delItem(String columName, String idx, String tableName);
 	
