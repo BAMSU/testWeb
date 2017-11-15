@@ -23,8 +23,14 @@ function aa() {
 		<c:url var="contentUrl" value="updateWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
 		${dto.idx}<a href="${contentUrl}">${dto.name}</a>
 		
+		<c:url var="contentUrl5" value="roomList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl5}">방 관리</a>
+		
 		<c:url var="contentUrl3" value="mealList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
 		<a href="${contentUrl3}">식사관리</a>
+		
+		<c:url var="contentUrl4" value="image.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl4}">웨딩홀 사진 관리</a>
 		
 		<c:url var="contentUrl2" value="deleteWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
 		<a href="${contentUrl2}">삭제</a>
