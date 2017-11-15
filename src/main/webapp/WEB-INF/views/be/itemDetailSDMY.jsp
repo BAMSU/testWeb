@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="becss/slider/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="becss/slider/epiloum_slider.js"></script>
 <style type="text/css">
-		ul {
+		.ul {
 			overflow: hidden;
 			position: relative;			
 			width: 480px;
@@ -19,7 +19,7 @@
 			padding: 0;
 			list-style-type: none;
 		}
-		a{
+		.a{
 		text-decoration: none;
 		}
 </style>
