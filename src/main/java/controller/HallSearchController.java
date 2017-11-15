@@ -31,7 +31,7 @@ public class HallSearchController {
 	@Autowired
 	private HalleDAO halleDao;
 	@Autowired
-	private ReviewDAO ReviewDao;
+	private ReviewDAO review;
 
 	
 	@RequestMapping(value="/hallsearch.do")
@@ -90,7 +90,7 @@ public class HallSearchController {
 	@RequestMapping(value="/hallranking.do")
 	public ModelAndView hallrank(int cp,int ls){
 		ModelAndView mav = new ModelAndView();
-		List<ReviewDTO> hallrank = ReviewDao.AllReviewList(cp, ls);
+		List<ReviewDTO> hallrank = review.AllReviewList(cp, ls);
 		mav.addObject("hallrank",hallrank);
 		mav.setViewName("hall/hallranking");
 		return mav;
