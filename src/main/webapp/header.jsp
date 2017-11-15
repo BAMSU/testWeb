@@ -40,7 +40,7 @@
 				<ul class="sf-menu" id="fh5co-primary-menu">
 					<li class="active"><a href="index.html">Home</a></li>
 					<li><a href="#">웨딩홀</a></li>
-					<li><a href="#">드레스</a></li>
+					<li><a href="itemList.we?category=dress">드레스</a></li>
 					<li><a href="#" class="fh5co-sub-ddown">청첩장</a>
 						<ul class="fh5co-sub-menu">
 							<li><a href="#">유림</a></li>
@@ -52,12 +52,12 @@
 					<li><a href="#">패키지</a></li>
 					<li class="fh5co-sub-ddown"><a href="#">웨딩 컬렉션</a>
 						<ul class="fh5co-sub-menu">
-							<li><a href="#">스튜디오</a></li>
-							<li><a href="#">메이크업</a></li>
-							<li><a href="#">예복</a></li>
-							<li><a href="#">웨딩카</a></li>
-							<li><a href="#">웨딩슈즈</a></li>
-							<li><a href="#">부케</a></li>
+							<li><a href="itemList.we?category=studio">스튜디오</a></li>
+							<li><a href="itemList.we?category=makeup">메이크업</a></li>
+							<li><a href="itemList.we?category=suit">예복</a></li>
+							<li><a href="itemList.we?category=car">웨딩카</a></li>
+							<li><a href="itemList.we?category=shoes">웨딩슈즈</a></li>
+							<li><a href="itemList.we?category=bouq">부케</a></li>
 						</ul></li>
 					<li><a href="#">상담하기</a></li>
 					<li><a href="#">상담하기</a></li>
