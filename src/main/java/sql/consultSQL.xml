@@ -12,7 +12,7 @@
  				#{email},
  				#{reservation},
  				#{context},
- 				'여백',
+ 				'1',
  				#{gubun},#{gubun2})
  
  	</insert>

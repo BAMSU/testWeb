@@ -71,6 +71,11 @@
          <ref bean="sqlSessionTemplate"/>
       </constructor-arg>
    </bean>
+    <bean id="ahalleDao" class="ahall.model.aHalleDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
     <bean id="ahallDao" class="ahall.model.aHallDAOImple">
       <constructor-arg>
          <ref bean="sqlSessionTemplate"/>

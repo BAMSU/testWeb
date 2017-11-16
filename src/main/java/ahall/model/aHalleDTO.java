@@ -1,6 +1,9 @@
-package meal.model;
+package ahall.model;
 
-public class mealDTO {
+import java.util.*;
+
+public class aHalleDTO {
+
 	private int idx;
 	private String hall_name;
 	private int hall_idx;
@@ -17,13 +20,13 @@ public class mealDTO {
 	
 	
 	
-	public mealDTO(){
+	public aHalleDTO(){
 		super();
 	}
 
 
 
-	public mealDTO(int idx, String hall_name, int hall_idx, int est_guest, int hall_price1, String hall_content,
+	public aHalleDTO(int idx, String hall_name, int hall_idx, int est_guest, int hall_price1, String hall_content,
 			int ourfit_price, String meal, String meal_1, int meal_price, int meal_price2, String meal_content,
 			String meal_content2) {
 		super();
