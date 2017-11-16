@@ -53,40 +53,57 @@ table.type03 td {
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <script>
 function ok(){
-   var IMP = window.IMP; // 생략가능   
-   IMP.init('imp55802002');  // 가맹점 식별 코드
+	var total =  parseInt(document.getElementById("totalprice").value);
+	alert(total);
+	if (confirm("모든 항목을 정확히 작성하셨습니까?") == true){    //확인
+		var IMP = window.IMP; // 생략가능   
+		   IMP.init('imp55802002');  // 가맹점 식별 코드
 
-   IMP.request_pay({
-    pg : 'html5_inicis',
-    pay_method : 'card',
-    merchant_uid : 'merchant_' + new Date().getTime(),
-    name : '주문명:예약결제',
-    amount : 100,
-    buyer_email : 'iamport@siot.we',
-    buyer_name : '구매자이름',
-    buyer_tel : '010-3043-2881',
-    buyer_addr : '서울특별시 강남구 삼성동',
-    buyer_postcode : '123-456'
-}, function(rsp) {
-    if ( rsp.success ) {
-           var msg = '결제가 완료되었습니다.';
-/*            msg += '고유ID : ' + rsp.imp_uid;
-           msg += '상점 거래ID : ' + rsp.merchant_uid;
-           msg += '결제 금액 : ' + rsp.paid_amount;
-           msg += '카드 승인번호 : ' + rsp.apply_num; */
-    } else {
-        var msg = '결제에 실패하였습니다.';
-        msg += '에러내용 : ' + rsp.error_msg;
-    }
+		   IMP.request_pay({
+		    pg : 'html5_inicis',
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '청첩장 결재',
+		    amount : total,
+		    buyer_email : 'iamport@siot.we',
+		    buyer_name : '구매자이름',
+		    buyer_tel : '010-9800-5375',
+		    buyer_addr : '서울특별시 강남구',
+		    buyer_postcode : '123-456'
+		}, function(rsp) {
+		    if ( rsp.success ) {
+		/*            msg += '고유ID : ' + rsp.imp_uid;
+		           msg += '상점 거래ID : ' + rsp.merchant_uid;
+		           msg += '결제 금액 : ' + rsp.paid_amount;
+		           msg += '카드 승인번호 : ' + rsp.apply_num; */
+		           
+	        	   if(confirm("결제가 완료되었습니다. 마이페이지로 이동하시겠습니까?")==true){
+		        	   location.href=
+		           } else{
+		        	   
+		           }
+		    } else {
+		       var msg = '결제에 실패하였습니다.';
+		        msg += '에러내용 : ' + rsp.error_msg;
+		    }
 
-    alert(msg);
-});
+		    alert(msg);
+		});
+	}else{
+	   return;
+	}
+
+
+   
 }
 </script>
 
 </head>
 <body>
 <script>
+function ordernext(){
+	
+}
 function gita(){
 	var gita = document.getElementById("gita").checked;
 	var tgita = document.getElementById("tgita");
@@ -109,23 +126,73 @@ function show(){
 		var su = cnt.options[cnt.selectedIndex].value;
 	}
 	
-	var ge= (${list.card_price}-(((su/100)*5))+5);
+	var ge= ${list.card_price}; //개당가격
+	var sale=(((su/100)*5))+5; //할인율
 	
-	price.innerHTML=ge;
+	var mal = ge-sale; //물품가격
+	
+	var cucu = 0; //추가가격
+	var opti = ""; //옵션 db저장값
+	 
+	var rocat = document.getElementById("bal").checked; //로켓발송 
+	var suti = document.getElementById("su").checked; //무료스티커 
+	var label = document.getElementById("label").checked; //주소라벨지
+	var han = document.getElementById("hanji").checked; //한지자켓봉투
+	var envplu = document.getElementById("envp").checked; //봉투삽입서비스
+	
+	var lt = document.getElementById("part1");
+	var lbcnt = parseInt(lt.options[lt.selectedIndex].value); //주소라벨지 가격(1:4000 / 2:8000 / 3:13000 / 4:16000 / 5:19000)
+	
+	if(rocat){
+		cucu+=5000;
+		opti +='로켓발송\n';
+	}
+	if(suti){
+		opti +='무료스티커\n';
+	}
+	if(label){
+		cucu+= lbcnt;
+		opti +='주소라벨지\n';
+	}
+	if(han){
+		cucu+= (su*100);
+		opti +='한지자켓봉투\n';
+	}
+	if(envplu){
+		cucu+= (su*100);
+		opti +='봉투삽입서비스\n';
+	}
+	
+	alert(cucu + " %% " + opti)
+	var envtype = $("input[type=radio][name=envsel]:checked").val(); //봉투 타입
+	var envcnt = document.getElementById("envsu").value; //봉투 수량
+	
+	//if{
+		
+	//}
+	
+	var ttprice=(mal*su)+cucu;
+	
+	price.innerHTML=mal;
 	
 	var total = document.all.total;
-	total.innerHTML=ge*su;
+	total.innerHTML=ttprice;
+	//o_count 
+	//o_sale 
+	//o_plus 
+	document.getElementById("totalprice").value = ttprice; //o_price 
 }
 </script>
-<div id="left">
- <img src="card_img/${list.card_img}" width="200px" height="150px">
- <div>
+<div id="left" style="text-align: center;">
+ <img src="card_img/${list.card_img}" width="250px" height="200px">
+ <div style="width: 500px; height: 700px;">
+ <img src="order_img/${filename}.png">
  </div>
 </div>
 <div id="right">
 	${list.card_name}
 	<p id="price">${list.card_price}</p>
-	
+	<input type="hidden" id="totalprice">
 	<select id="cnt" onclick="show()" onchange="show()">
 		<option>100</option>
 		<option>200</option>
@@ -137,6 +204,8 @@ function show(){
 	</select>
 	<input type="checkbox" id="gita" onclick="show()"> <input type="text" id="tgita" onchange="show()">
 	<p id="total"></p>
+	
+	
 	<table class="type03">
     <tr>
         <th scope="row">주문자명</th>
@@ -168,32 +237,44 @@ function show(){
 <div>
 부가 옵션 서비스
 <br>
-<input type="checkbox" value="1">로켓발송 <!-- +5000원 -->
+<input type="checkbox" id="bal" >로켓발송 <!-- +5000원 -->
 <br>
-<input type="checkbox" value="2">무료스티커
+<input type="checkbox" id="su" >무료스티커
 <br>
-<input type="checkbox" value="3">주소라벨지
+<input type="checkbox" id="label" >주소라벨지
 <p><img src="card_img/label.JPG" width="600px" height="300px"></p>
-<select class="part1">
+<select id="part1">
 	<option>매수</option>
-	<option>1권(420통 분량)</option>
-	<option>2권(960통 분량)</option>
-	<option>3권(1,440통 분량)</option>
-	<option>4권(1,920통 분량)</option>
-	<option>5권(2,400통 분량)</option>
+	<option value='4000'>1권(420통 분량)</option>
+	<option value='8500'>2권(960통 분량)</option>
+	<option value='13000'>3권(1,440통 분량)</option>
+	<option value='16000'>4권(1,920통 분량)</option>
+	<option value='19000'>5권(2,400통 분량)</option>
 </select>
 
 <br>
-<input type="checkbox" value="4">한지자켓봉투<!-- 장당 100원 추가 -->
+<input type="checkbox" id="hanji" >한지자켓봉투<!-- 장당 100원 추가 -->
 <br>
-<input type="checkbox" value="5">봉투삽입서비스 <!-- 장당 100원씩 추가 -->
+<input type="checkbox" id = "envp">봉투삽입서비스 <!-- 장당 100원씩 추가 -->
 <br>
 </div>
 <br><br>
-	<form name="payMent" action="payMent.we">
-		<h1>결제하기</h1>
-   <input type="button" value="결제" onclick="ok()">
-</form>
+<form id="cOrder" action="ok()">
+		<input type="hidden" id="o_id" name="o_id">
+		<input type="hidden" id="o_code" name="o_code">
+		<input type="hidden" id="o_name"  name="o_name">
+		<input type="hidden" id="o_phone" name="o_phone">
+		<input type="hidden" id="o_addr" name="o_addr">
+		<input type="hidden" id="o_memo" name="o_memo">
+		<input type="hidden" id="o_env" name="o_env">
+		<input type="hidden" id="o_option" name="o_option">
+		<input type="hidden" id="o_count" name="o_count">
+		<input type="hidden" id="o_sale" name="o_sale">
+		<input type="hidden" id="o_plus" name="o_plus">
+		<input type="hidden" id="o_price" name="o_price">
+		<input type="hidden" id="o_img" name="o_img">
+		<input type="submit" value="결제">
+	</form>
 <br>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>

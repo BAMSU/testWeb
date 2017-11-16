@@ -32,10 +32,10 @@ public class HallSearchController {
 	@Autowired
 	private HalleDAO halleDao;
 	@Autowired
-	private ReviewDAO ReviewDao;
+	private ReviewDAO review;
 
 	
-	@RequestMapping(value="/hallsearch.do")
+	@RequestMapping(value="/hallsearch.we")
 	public ModelAndView view(){
 		ModelAndView mav = new ModelAndView();
 		List<HallDTO> hallview2 = halleDao.hallview();
@@ -45,7 +45,7 @@ public class HallSearchController {
 	}
 	
 	
-	@RequestMapping(value="/hallsearch.do", method = RequestMethod.POST)
+	@RequestMapping(value="/hallsearch.we", method = RequestMethod.POST)
 	public ModelAndView test(
 			@RequestParam(value="hallType")String hallType,
 			@RequestParam("menuType")String menuType,
@@ -71,7 +71,7 @@ public class HallSearchController {
 
 	
 	/* 견적확인 */
-	@RequestMapping(value = "/hallestimate.do")
+	@RequestMapping(value = "/hallestimate.we")
 	public ModelAndView hallestlist(@RequestParam(value="hall_idx",defaultValue="1")int hall_idx) {
 		ModelAndView est = new ModelAndView();
 		HalleDTO dto = halleDao.halles(hall_idx);
@@ -83,7 +83,7 @@ public class HallSearchController {
 	}
 	
 	/*견적서 모형 보기*/
-	@RequestMapping(value="/hallmode.do")
+	@RequestMapping(value="/hallmode.we")
 	public ModelAndView hallesview(HalleDTO dto,@RequestParam(value="hall_idx")int hall_idx){
 		dto = halleDao.halles(hall_idx);
 		List<RoomDTO> dtorom = halleDao.hallroom(hall_idx);
@@ -94,7 +94,7 @@ public class HallSearchController {
 	}
 	
 	/*랭킹*/
-	@RequestMapping(value="/hallranking.do")
+	@RequestMapping(value="/hallranking.we")
 	public ModelAndView hallrank(){
 	
 	ModelAndView mas = new ModelAndView("hall/hallranking");

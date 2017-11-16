@@ -48,18 +48,19 @@ li {
 }
 </style>
 <body>
+<%@include file="/header.jsp" %>
 	<h3>홀 랭킹 리스트</h3>
 	<div id="search">
 		<div id="#menu_box">
 			<div class="menu_br">
 				<ul id="menu">
-					<li><a href="hallsearch.do">웨딩홀 검색</a></li>
-					<li><a href="hallranking.do">홀 랭킹</a></li>
+					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
+					<li><a href="hallranking.we">홀 랭킹</a></li>
 					<li><a>홀vs홀</a></li>
-					<li><a href="hallsearchlist.do">불러오기확인</a></li>
-					<li><a href="hallestimate.do">홀 견적내기</a></li>
-					<li><a href="hallmode.do">견적 작성</a></li>
-					<li><a href="hallranking.do">랭킹</a></li>
+					<li><a href="hallsearchlist.we">불러오기확인</a></li>
+					<li><a href="hallestimate.we">홀 견적내기</a></li>
+					<li><a href="hallmode.we">견적 작성</a></li>
+					<li><a href="hallranking.we">랭킹</a></li>
 
 				</ul>
 			</div>
@@ -89,6 +90,6 @@ li {
 			
 		</form>
 	</div>
-
+<%@include file="/footer.jsp" %>
 </body>
 </html>
