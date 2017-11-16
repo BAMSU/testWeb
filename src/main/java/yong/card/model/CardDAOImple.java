@@ -12,13 +12,22 @@ private SqlSessionTemplate sqlMap;
 	public CardDAOImple(SqlSessionTemplate sqlMap) {
 		this.sqlMap = sqlMap;
 	}
-	public List<CardDTO> cardList(int cp, int listSize) {
+	public List<CardDTO> cardList(int cp, int listSize, int type) {
 		Map data=new HashMap();
 		int startnum=(cp-1)*listSize+1;
 		int endnum=cp*listSize;
 		data.put("startnum", startnum);
 		data.put("endnum",endnum);
-		List<CardDTO> list= sqlMap.selectList("cardlist",data);
+		List<CardDTO> list;
+		if(type==1){
+			list= sqlMap.selectList("cardlist1",data);
+		} else if(type==2){
+			list= sqlMap.selectList("cardlist2",data);
+		} else if(type==4){
+			list= sqlMap.selectList("cardlist3",data);
+		}else{
+			list= sqlMap.selectList("cardlist4",data);
+		}
 		return list;
 	}
 	public int getTotalCnt() {

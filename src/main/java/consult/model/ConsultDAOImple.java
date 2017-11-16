@@ -28,6 +28,8 @@ public class ConsultDAOImple implements ConsultDAO {
 	public int consultWrite(ConsultDTO dto) {
 		String tel = dto.getTel1()+dto.getTel2()+dto.getTel3();
 		String email = dto.getEmail()+"@"+dto.getEmail2();
+		System.out.println(tel+":tel");
+		System.out.println("email: "+email);
 		
 		Map data = new HashMap();
 		data.put("name", dto.getName());
@@ -39,11 +41,8 @@ public class ConsultDAOImple implements ConsultDAO {
 		data.put("gubun", dto.getGubun());
 		data.put("gubun2", dto.getGubun2());
 	
-		
-	
 		int count = sqlMap.insert("consultWrite",data);
 		return count;
-	
 	}
 	
 	public List<ConsultDTO> consultList(int cp,int ls,String name){
