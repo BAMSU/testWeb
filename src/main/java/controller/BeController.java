@@ -424,9 +424,12 @@ public class BeController {
 			) {
 		
 		SDMYDTO dto =beDao.itemDetailSDMY(be_name); 
-				
+		BeDTO bdto = beDao.itemDetailBe(be_name);
+		System.out.println("test:"+bdto.getBe_loc());
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("dto", dto);
+		mav.addObject("bdto", bdto);
 		
 		mav.setViewName("be/beItemDetailSDMY");
 		return mav;
