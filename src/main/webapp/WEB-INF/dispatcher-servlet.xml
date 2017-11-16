@@ -57,7 +57,9 @@
          <ref bean="sqlSessionTemplate"/>
       </constructor-arg>
    </bean>
-
+ 	<bean id="cardOrderDao" class="yong.cardOrder.model.CardOrderDAOImple">
+   		<constructor-arg><ref bean="sqlSessionTemplate"/></constructor-arg>
+   </bean>	
    <!-- <bean id="beDao" class="be.model.BeDAOImple"/> -->
      
     <bean id="hallDao" class="hall.model.HallDAOImple">
