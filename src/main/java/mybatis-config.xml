@@ -14,12 +14,8 @@
       <mapper resource="sql/mypageSql.xml"/>
       <mapper resource="sql/scrapSql.xml"/>
       <mapper resource="sql/ahallSql.xml"/>
-<<<<<<< HEAD
-      <mapper resource="sql/roomSql.xml"/>
-      <mapper resource="sql/consultSQL.xml"/>
-=======
       <mapper resource="sql/roomSql.xml"/>
       <mapper resource="sql/hallsearchSql.xml"/>
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
+      <mapper resource="sql/consultSQL.xml"/>
    </mappers>
 </configuration>
