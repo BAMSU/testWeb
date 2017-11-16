@@ -107,8 +107,6 @@
   		평균이용금액 : ${dto.sdmy_avg } 만원<br>
   		조회수 : ${dto.readnum }<br>
   		상담수 : ${dto.consult }
-  		${dto.gubun} /
-  		${dto.sdmy_idx}
   </p>
   <p><a class="btn btn-primary btn-lg" href="${consultUrl}">상담신청하기</a></p>
 <br><br>
