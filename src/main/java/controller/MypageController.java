@@ -52,4 +52,21 @@ public class MypageController {
 	}
 	
 	
+	@RequestMapping("myPage_Review.we")
+	public ModelAndView myPageReview(String writer){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list" , mypageReviewDao.mypage_Review(writer));
+		mav.setViewName("myPage/myPage_Review");
+		return mav;
+	}
+	
+	
+	@RequestMapping("/myPage_Ask.we")
+	public ModelAndView myPageAsk(@RequestParam("name")String name){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list" , mypageAskDao.mypage_Ask(name));
+		mav.setViewName("myPage/myPage_Ask");
+		return mav;
+	}
+	
 }

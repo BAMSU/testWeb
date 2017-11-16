@@ -1,5 +1,9 @@
 package mypageReview.model;
 
-public interface MypageReviewDAO {
+import java.util.List;
 
+public interface MypageReviewDAO {
+	
+	
+	public List mypage_Review(String writer);
 }

@@ -40,12 +40,38 @@
 	<![endif]-->
 <script>
 	function openLogin() {
-		window.open('memberLogin.we', 'login', 'width=500px, height=500px');
+		var maskHeight = $(document).height(); 
+		var maskWidth = $(window).width();
+		//마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		//마스크의 투명도 처리
+		$('#mask').fadeTo("slow",0.8);
+		window.open('memberLogin.we', 'login', 'left='+(screen.availWidth-400)/ 2+',top='+(screen.availHeight-400)/2+', width=400px,height=400px');
+		
 	}
+	
+	
 </script>
 
+<!-- main jquery  -->
+<script>
+
+
+</script>
+
+<style>
+#mask {
+	position: absolute;
+	z-index: 9000;
+	background-color: #000;
+	display: none;
+	left: 0;
+	top: 0;
+}
+</style>
 </head>
 <body>
+	<div id="mask"></div>
 	<script type="text/javascript"
 		src="http://bpmaker.giffy.me/userdata/user/54/54797/2/parts.js"></script>
 	<!-- 하트내리는 효과  -->
@@ -61,11 +87,10 @@
 			href="http://bpmaker.giffy.me/parts/userPartsId/17340/"></a>
 	</p>
 	<!-- 마우스 위에 하트 내려지는 효과  -->
-
-
+	
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
-			
+
 			<div class="fh5co-hero" data-section="home">
 
 				<div class="fh5co-cover text-center"
@@ -76,8 +101,11 @@
 							<div class="container">
 								<div class="col-md-10 col-md-offset-1">
 									<div class="animate-box">
-										<img alt="zz" src="images/p.png" width="250" height="200">
+										<img alt="zz" src="images/p.png" width="250" height="200"
+											style="margin-bottom: 205px;">
 									</div>
+
+
 								</div>
 							</div>
 						</div>
@@ -85,7 +113,7 @@
 				</div>
 			</div>
 
-			<%@include file="/header.jsp" %>
+			<%@include file="/header.jsp"%>
 
 			<!-- end:header-top -->
 

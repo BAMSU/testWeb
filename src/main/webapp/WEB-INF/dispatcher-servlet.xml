@@ -110,6 +110,12 @@
       </constructor-arg>
    </bean>
    
+   <bean id="aconsult" class="consult.model.aConsultDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+   
     <bean id="aroom" class="aroom.model.aRoomDAOImple">
       <constructor-arg>
          <ref bean="sqlSessionTemplate"/>

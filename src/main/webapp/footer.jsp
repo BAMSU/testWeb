@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<footer>
+<footer style="clear: both;">
 			<div id="footer">
 				<div class="container">
 					<div class="row">
@@ -20,7 +20,7 @@
 							<p>
 							
 							<a href="beIndex.we">
-							<img alt="businessEnterprise" src="/upload/handShake.png" style="vertical-align: middle;">
+							<img alt="BusinessEnterprise" src="upload/handshake.png" style="vertical-align: middle; opacity:0.5;">
 							 제휴업체 관련 사이트</a>
 							</p>
 							<p>Copyright 2016 Free Html5 <a href="#">Module</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">KH정보교육원</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>

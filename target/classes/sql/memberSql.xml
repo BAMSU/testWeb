@@ -23,8 +23,8 @@
 		order by idx desc
 	</select>
 
-	<select id="memberIdcheck" resultType="String">
-		select id from member
+	<select id="memberIdcheck" parameterType="String" resultType="int">
+		select count(*) from member
 		where member_id=#{id}
 	</select>
 
@@ -50,5 +50,4 @@
 	select member_id from member where member_name= #{member_name} and member_email= #{member_email} 
 	
 	</select>
-
 </mapper>

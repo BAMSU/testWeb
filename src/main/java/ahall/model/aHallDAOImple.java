@@ -55,6 +55,9 @@ public class aHallDAOImple implements aHallDAO {
 	}
 	
 	public int deleteWd(int idx) {
+		sst.delete("deleteR", idx);
+		sst.delete("deleteH", idx);
+		sst.delete("deleteI", idx);
 		return sst.delete("adeletehall", idx);
 	}
 
