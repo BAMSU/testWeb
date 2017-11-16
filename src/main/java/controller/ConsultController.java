@@ -35,7 +35,10 @@ public class ConsultController {
 	@RequestMapping(value="/consult.we",method=RequestMethod.POST)
 	public ModelAndView bbsWriteSubmit(ConsultDTO dto){
 		
+		System.out.println(dto.getGubun()+"/"+dto.getGubun2());
+		
 		int result =consultDao.consultWrite(dto);
+		
 		String msg = result>0?"문의가 완료 되었습니다.":"문의 가 실패 하였습니다.";
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg", msg);

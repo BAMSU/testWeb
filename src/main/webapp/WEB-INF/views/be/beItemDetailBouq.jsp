@@ -37,5 +37,15 @@
 조회수 : ${dto.readnum}<br>
 상담수 : ${dto.consult}<br>
 상세정보 : ${dto.bouq_detail}
+
+<div class="jumbotron">
+	<p>
+	업체명 : ${bdto.be_name }<br>
+	사업자등록번호 : ${bdto.be_license}<br>
+	대표번호 : ${bdto.be_rep_tell}<br>
+	소재지 : ${bdto.be_loc}<br>
+	주차시설 : ${bdto.be_park}<br>
+	</p>
+</div>
 </body>
 </html>
