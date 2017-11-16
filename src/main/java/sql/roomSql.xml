@@ -10,6 +10,14 @@
 		select * from room where hallidx=#{idx} order by idx
 	</select>
 	
+	<select id="listR2" parameterType="int" resultType="aroom.model.aRoomDTO">
+		select * from room where idx=#{idx} order by idx
+	</select>
+	
+	<select id="whatHall" parameterType="int" resultType="int">
+		select hallIdx from room where idx=#{idx}
+	</select>
+	
 	<select id="cntR" parameterType="int" resultType="int">
 		select count(*) from room where hallidx=#{idx}
 	</select>
@@ -18,6 +26,21 @@
 		insert into room values (room_idx.nextval, #{name}, #{weekDay}, #{type}, #{guest}, #{interval}, #{menu}, #{menuPrice}, #{hallIdx})
 	</insert>
 	
+	<update id="updateR" parameterType="aroom.model.aRoomDTO">
+		update room set name = #{name}, weekday = #{weekDay}, type = #{type}, guest =  #{guest}, interval =  #{interval}, menu =  #{menu}, menuPrice =  #{menuPrice} where idx=#{idx}
+	</update>
+	
+	<delete id="deleteR" parameterType="int">
+		delete from room where idx=#{idx}
+	</delete>
+	
+	<delete id="deleteH" parameterType="int">
+		delete from hallstats where hallidx = #{idx}
+	</delete>
+	
+	<delete id="deleteI" parameterType="int">
+		delete from hall_estimate where hall_idx = #{idx}
+	</delete>
 	
 </mapper>
 

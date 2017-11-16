@@ -16,12 +16,28 @@ public class aRoomDAOImple implements aRoomDAO {
 		return sst.selectList("listR", idx);
 	}
 	
+	public List roomInfo2(int idx) {
+		return sst.selectList("listR2", idx);
+	}
+	
+	public int whatHall(int idx) {
+		return sst.selectOne("whatHall", idx);
+	}
+	
 	public int cnt(int idx) {
 		return sst.selectOne("cntR", idx);
 	}
 	
 	public int insertR(aRoomDTO dto) {
 		return sst.insert("insertR", dto);
+	}
+	
+	public int updateR(aRoomDTO dto) {
+		return sst.update("updateR", dto);
+	}
+	
+	public int deleteR(int idx) {
+		return sst.delete("deleteR", idx);
 	}
 
 }

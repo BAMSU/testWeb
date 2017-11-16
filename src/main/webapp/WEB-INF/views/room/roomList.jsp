@@ -9,14 +9,24 @@
 </head>
 <body>
 <h3>웨딩홀 룸 리스트</h3>
-<input type="text" name="hallidx" value="${idx}">
-<input type="text" name="cnt" value="${cnt}">
+<input type="hidden" name="hallidx" value="${idx}">
+<input type="hidden" name="cnt" value="${cnt}">
 	<c:if test="${empty list}">
 		<h3>등록한 룸이 없습니다.</h3>
-		<input type="button" value="룸 추가하기" onclick="javascript:location.href='insertRoom.we?idx=${idx}'">
 	</c:if>
+	<c:if test="${cnt<2}">
+		<input type="button" value="룸 추가하기" onclick="javascript:location.href='insertRoom.we?idx=${idx}'"> <br>
+	</c:if>
+	
+	
+	
 	<c:forEach var="dto" items="${list}">
-		${dto.name} <br>
+		
+	<c:url var="contentUrl" value="updateRoom.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl}">${dto.name}</a> <br>
+		
+	<c:url var="contentUrl2" value="deleteRoom.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl2}">삭제</a> <br>
 	</c:forEach>
 </body>
 </html>
