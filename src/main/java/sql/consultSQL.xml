@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="consult">
- <insert id="consultWrite" parameterType="consult.model.ConsultDTO">
+ <insert id="consultWrite" parameterType="Map">
  		insert into 
  			consult values(consult_idx.nextval,
  				#{name},
@@ -14,7 +14,6 @@
  				#{context},
  				'여백',
  				#{gubun},#{gubun2})
- 
  	</insert>
  	
  	<select id="ConsultList" parameterType="Map" resultType="consult.model.ConsultDTO">
