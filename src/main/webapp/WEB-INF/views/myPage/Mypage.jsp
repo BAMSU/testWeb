@@ -12,7 +12,9 @@
 
 <c:url var="contentUrl" value="myPage_Like.we"><c:param name="name">${sname}</c:param></c:url>
      <a href="${contentUrl}">관심상품 리스트</a>
-<h1><a href="myPage_Review.we">리뷰 리스트</a></h1>
-<h1><a href="myPage_Ask.we">문의하기 리스트</a></h1>
+<c:url var="contentUrl2" value="myPage_Review.we"><c:param name="writer">${sname}</c:param></c:url>
+     <a href="${contentUrl2}">나의 리뷰 리스트</a>
+<c:url var="contentUrl3" value="myPage_Ask.we"><c:param name="name">${sname}</c:param></c:url>
+     <a href="${contentUrl3}">문의 리스트</a>
 </body>
 </html>

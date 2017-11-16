@@ -30,16 +30,13 @@ public class MemberDAOImple implements MemberDAO {
 			}
 		}
 	}
+	
+	public int Member_idCheck(String id){
+		
+		return sqlMap.selectOne("memberIdcheck",id);
+	}
 
-	/*
-	 * public String Member_idCheck(String idCheck){
-	 * System.out.println("member_id"); String result =
-	 * sqlMap.selectOne("memberIdcheck",member_id);
-	 * 
-	 * 
-	 * 
-	 * }
-	 */
+	
 	public int MemberJoin(MemberDTO dto) {
 		int result = sqlMap.insert("memberJoin",dto);
 		System.out.println(dto.getMember_id());

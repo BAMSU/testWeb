@@ -3,6 +3,8 @@
     
 <script>
 	window.alert('${msg}');
-	opener.location.reload();
 	window.self.close();
+	opener.location.reload();
+	
+	
 </script>

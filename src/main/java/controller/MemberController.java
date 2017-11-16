@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberDAO;
@@ -39,6 +40,15 @@ public class MemberController {
 		return "member/memberidFind";
 	}
 	
+	
+	@ResponseBody
+	@RequestMapping(value="/idcheck.we",method=RequestMethod.POST)
+	public String idCheck(@RequestParam("id")String member_id){
+		int idcheck = memberDao.Member_idCheck(member_id);
+		
+		return String.valueOf(idcheck);
+		
+	}
 	@RequestMapping("idFindSubmit.we")
 	public ModelAndView IdFind(String member_name,String member_email,MemberDTO dto){
 		
@@ -113,12 +123,6 @@ public class MemberController {
 	}
 	
 	
-/*	@RequestMapping("idCheck.we")
-	public ModelAndView member_IdCheck(@RequestParam("userid")String userid){
-		System.out.println(userid);
-		
-		return null;
-	}*/
 	
 	@RequestMapping("memberLogout.we")
 	public ModelAndView member_logout(HttpServletRequest req){

@@ -3,15 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypage">
-	
-	
-	
-	
 	<select id="mypage_like" parameterType="String" resultType="ahall.model.aHallDTO">
 	select distinct hall.* from scrap, hall where scrap.hallidx = 
 	hall.idx and scrap.membername=#{name} order by hall.idx
 	</select>
 	
-
-
+	<select id="mypage_review" parameterType="String" resultType="mypageReview.model.MypageReviewDTO">
+	select * from hallreview where writer =#{writer}
+	</select>
+	
+	<select id="mypage_ask" parameterType="String" resultType="consult.model.ConsultDTO">
+	select * from consult where name=#{name}
+	</select>
 </mapper>
