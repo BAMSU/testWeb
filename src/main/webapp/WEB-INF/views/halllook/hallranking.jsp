@@ -49,14 +49,13 @@ li {
 <div id="#menu_box">
 <div class="menu_br">
 				<ul id="menu">
-					<li><a href="hallsearch.do">웨딩홀 검색</a></li>
-					<li><a href="hallrankingForm.do">홀 랭킹</a></li>
+					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
+					<li><a href="hallrankingForm.we">홀 랭킹</a></li>
 					<li><a>홀vs홀</a></li>
-					<li><a href="hallsearchlist.do">불러오기확인</a></li>
-					<li><a href="hallestimate.do">홀 견적내기</a></li>
-					<li><a href="hallestmate.do">견적</a></li>
-					<li><a href="hallmode.do">견적 수정</a></li>
-					<li><a href="hallranking.do">랭킹</a></li>
+					<li><a href="hallestimate.we">홀 견적내기</a></li>
+					<li><a href="hallestmate.we">견적</a></li>
+					<li><a href="hallmode.we">견적 수정</a></li>
+					<li><a href="hallranking.we">랭킹</a></li>
 
 				</ul>
 			</div>

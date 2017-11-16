@@ -43,71 +43,69 @@ public class RoomController {
 		
 		if(result>0) {
 			mav.addObject("msg", "등록 성공!");
-			mav.addObject("gourl", "admin.we");
 			
 		} else {
 			mav.addObject("msg", "등록 실패!");
-			mav.addObject("gourl", "admin.we");
 		}
+		
+		
+		String add = "roomList.we?idx=" + dto.getHallIdx();
+
+		mav.addObject("gourl", add);
 		mav.setViewName("room/roomMsg");
 		return mav;
 	}
 	
 	
-	/*@RequestMapping("/insertWd.we")
-	public String adminForm() {
-		return "wd/insertWd";
-	}
-	
-	@RequestMapping("/insertWd2.we")
-	public ModelAndView adminAction(aHallDTO dto) {
+	@RequestMapping(value="/updateRoom.we", method=RequestMethod.GET)
+	public ModelAndView updateRForm(int idx) {
 		ModelAndView mav = new ModelAndView();
-		int result = dao.insertWd(dto);
 		
-		if(result>0) {
-			mav.addObject("msg", "등록 성공!");
-			mav.addObject("gourl", "wdList.we");
-			
-		} else {
-			mav.addObject("msg", "등록 실패!");
-			mav.addObject("gourl", "wdList.we");
-		}
-		mav.setViewName("wd/wdMsg");
+		mav.addObject("list", dao.roomInfo2(idx));
+		mav.addObject("idx", idx);
+		mav.setViewName("room/updateRoom");
 		return mav;
 	}
 	
-	@RequestMapping("/wdList.we")
-	public ModelAndView wdList() {
+	@RequestMapping(value="/updateRoom.we", method=RequestMethod.POST)
+	public ModelAndView updateR(aRoomDTO dto) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", dao.getHallList());
-		mav.setViewName("wd/wdList");
-		return mav;
-	}
-	
-	@RequestMapping("/updateWd.we")
-	public ModelAndView wdContent(int idx) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", dao.getHallInfo(idx));
-		mav.setViewName("wd/updateWd");
-		return mav;
-	}
-	
-	@RequestMapping("/update2.we")
-	public ModelAndView updateWd(aHallDTO dto) {
 		
-		ModelAndView mav = new ModelAndView();
-		int result = dao.updateWd(dto);
+		
+		int result = dao.updateR(dto);
 		
 		if(result>0) {
 			mav.addObject("msg", "수정 성공!");
-			mav.addObject("gourl", "wdList.we");
 			
 		} else {
 			mav.addObject("msg", "수정 실패!");
-			mav.addObject("gourl", "wdList.we");
 		}
-		mav.setViewName("wd/wdMsg");
+		
+		
+		String add = "roomList.we?idx=" + dto.getHallIdx();
+
+		mav.addObject("gourl", add);
+		mav.setViewName("room/roomMsg");
 		return mav;
-	}*/
+	}
+	
+	@RequestMapping("/deleteRoom.we")
+	public ModelAndView deleteR(int idx) {
+		ModelAndView mav = new ModelAndView();
+		String add = "roomList.we?idx=" + dao.whatHall(idx);
+		int result = dao.deleteR(idx);
+		
+		if(result>0) {
+			mav.addObject("msg", "삭제 성공!");
+			
+		} else {
+			mav.addObject("msg", "삭제 실패!");
+		}
+		
+
+		mav.addObject("gourl", add);
+		mav.setViewName("room/roomMsg");
+		return mav;
+	}
 
 }
