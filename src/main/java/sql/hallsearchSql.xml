@@ -11,8 +11,7 @@
 	</select>
 
 
-	<select id="hall_searchview1" parameterType="map"
-		resultType="hall.model.HallDTO">
+	<select id="hall_searchview1" parameterType="map" resultType="hall.model.HallDTO">
 		select * from hall where hallType like '%'||#{hallType}||'%' and menuType
 		like '%#{menuType}%'
 		<!-- <if test="hallType!=null"> and hallType like '%#{hallType}%' </if> -->
@@ -32,8 +31,7 @@
 
 	</select>
 
-	<select id="hall_estlistSQL" parameterType="map"
-		resultType="yong.hall.model.HalleDTO">
+	<select id="hall_estlistSQL" parameterType="map" resultType="hallEstimate.model">
 		select * from hall_estimate order by idx desc
 	</select>
 
@@ -46,17 +44,14 @@
 		where hall.idx = hall_estimate.hall_idx
 	</select>
 
-	<select id="hall3" resultType="hallEstimate.model"
-		parameterType="int">
+	<select id="hall3" resultType="hallEstimate.model"	parameterType="int">
 		select * from hall_estimate where hall_idx = #{idx}
 	</select>
-	<select id="hall4" resultType="hall.model.HallDTO"
-		parameterType="int">
+	<select id="hall4" resultType="hall.model.HallDTO"	parameterType="int">
 		select * from hall where idx = #{idx}
 	</select>
 
-	<select id="hallroom" resultType="room.model.RoomDTO"
-		parameterType="int">
+	<select id="hallroom" resultType="room.model.RoomDTO"	parameterType="int">
 		select * from room where hallIdx=#{idx}
 	</select>
 
