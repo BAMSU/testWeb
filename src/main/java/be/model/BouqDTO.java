@@ -12,13 +12,14 @@ public class BouqDTO {
 		private int readnum;
 		private int consult;
 		private String admin_permission;
+		private int gubun;
 		
 		public BouqDTO() {
 			// TODO Auto-generated constructor stub
 		}
 
 		public BouqDTO(int bouq_idx, String bouq_name, String bouq_be, String bouq_thumbnail, String bouq_simple,
-				String bouq_price, String bouq_detail, int readnum, int consult, String admin_permission) {
+				String bouq_price, String bouq_detail, int readnum, int consult, String admin_permission, int gubun) {
 			super();
 			this.bouq_idx = bouq_idx;
 			this.bouq_name = bouq_name;
@@ -30,6 +31,7 @@ public class BouqDTO {
 			this.readnum = readnum;
 			this.consult = consult;
 			this.admin_permission = admin_permission;
+			this.gubun = gubun;
 		}
 
 		public int getBouq_idx() {
@@ -111,6 +113,15 @@ public class BouqDTO {
 		public void setAdmin_permission(String admin_permission) {
 			this.admin_permission = admin_permission;
 		}
+
+		public int getGubun() {
+			return gubun;
+		}
+
+		public void setGubun(int gubun) {
+			this.gubun = gubun;
+		}
+		
 		
 		
 		

@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 	function sample4_execDaumPostcode() {
@@ -77,22 +78,23 @@
 
 <script>
 	function show() {
-		var userid = document.join.id.value;
-		var params = 'userid=' + userid;
-		sendRequest('idCheck.we', params, showResult, 'GET');
+		 $.ajax({
+             type: 'POST',
+             url: 'idcheck.we',
+             data: {
+                 "id" : $('#id').val()
+             },
+             success: function(data){
+                 if($.trim(data) == 0){
+                     $('#idCheckMsg').html('사용가능한 아이디입니다.');
+                 }
+                 else{
+                     $('#idCheckMsg').html('중복된 아이디입니다.');
+                 }
+             }
+         });    
 	}
 
-	function showResult() {
-		if (XHR.readyState == 4) {
-			if (XHR.status == 200) {
-				var data = XHR.responseText;
-
-				var spanTag = document.all.idCheckMsg;
-				spanTag.innerHTML = data;
-
-			}
-		}
-	}
 	
 function aa(){
 		
@@ -148,12 +150,12 @@ function selectEmail() {
 </head>
 <body>
 <%@include file="/header.jsp" %>
-	<h2>회원가입</h2>
+	
 	<form action="memberJoin.we" name="join" method="POST">
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="member_id" required=required> <input type="button"
+				<td><input type="text" name="member_id"  id ="id" required=required> <input type="button"
 					value="중복검사" onclick="show()"> <span id="idCheckMsg"></span>
 				</td>
 			</tr>

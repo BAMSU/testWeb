@@ -16,4 +16,10 @@ public class MypageReviewDAOImple implements MypageReviewDAO {
 		super();
 		this.sqlMap = sqlMap;
 	}
+	
+	public List mypage_Review(String writer){
+		return sqlMap.selectList("mypage_review", writer);
+	}
+
+
 }

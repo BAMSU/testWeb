@@ -20,10 +20,11 @@ public interface BeDAO {
 	public List<ShoesDTO> beItemListShoes(String besname);
 	public List<BouqDTO> beItemListBouq(String besname);
 	
-	public SDMYDTO itemDetailSDMY(String be_name);
+	public SDMYDTO itemDetailSDMY(String sdmy_be);
 	public CarDTO itemDetailCar(String car_idx);
 	public ShoesDTO itemDetailShoes(String shoes_idx);
 	public BouqDTO itemDetailBouq(String bouq_idx);
+	public BeDTO itemDetailBe(String be_name);
 	
 	public int delItem(String columName, String idx, String tableName);
 	
@@ -37,13 +38,28 @@ public interface BeDAO {
 	public int updateShoes(ShoesDTO dto);
 	public int updateBouq(BouqDTO dto);
 	
-	public List<SDMYDTO> ItemListStudio(String category);
-	public List<SDMYDTO> ItemListDress(String category);
-	public List<SDMYDTO> ItemListMakeup(String category);
-	public List<SDMYDTO> ItemListSuit(String category);
-	public List<CarDTO> ItemListCar();
-	public List<ShoesDTO> ItemListShoes();
-	public List<BouqDTO> ItemListBouq();
+	public List<SDMYDTO> ItemListStudio(String category,int cp, int ls);
+	public List<SDMYDTO> ItemListDress(String category,int cp, int ls);
+	public List<SDMYDTO> ItemListMakeup(String category,int cp, int ls);
+	public List<SDMYDTO> ItemListSuit(String category,int cp, int ls);
+	public List<CarDTO> ItemListCar(int cp, int ls);
+	public List<ShoesDTO> ItemListShoes(int cp, int ls);
+	public List<BouqDTO> ItemListBouq(int cp, int ls);
+	
+	//pagination
+	public int getStudioTotalCnt();
+	public int getDressTotalCnt();
+	public int getMakeupTotalCnt();
+	public int getCarTotalCnt();
+	public int getSuitTotalCnt();
+	public int getShoesTotalCnt();
+	public int getBouqTotalCnt();
+	
+	//readNum
+	public void sdmyReadNum(String sdmy_be);
+	public void carReadNum(String car_idx);
+	public void shoesReadNum(String shoes_idx);
+	public void bouqReadNum(String bouq_idx);
 	
 }
 
