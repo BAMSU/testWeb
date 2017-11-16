@@ -34,17 +34,17 @@ public class HallSearchController {
 	private ReviewDAO review;
 
 	
-	@RequestMapping(value="/hallsearch.do")
+	@RequestMapping(value="/hallsearch.we")
 	public ModelAndView view(){
 		ModelAndView mav = new ModelAndView();
 		List<HallDTO> hallview2 = halleDao.hallview();
 		mav.addObject("hallview",hallview2);
-		mav.setViewName("hall/hallsearch");	
+		mav.setViewName("halllook/hallsearch");	
 		return mav;
 	}
 	
 	
-	@RequestMapping(value="/hallsearch.do", method = RequestMethod.POST)
+	@RequestMapping(value="/hallsearch.we", method = RequestMethod.POST)
 	public ModelAndView test(
 			@RequestParam(value="hallType",defaultValue="noDATA")String hallType,
 			@RequestParam("menuType")String menuType,
@@ -65,34 +65,34 @@ public class HallSearchController {
 
 	
 	/* 견적확인 */
-	@RequestMapping(value = "/hallestimate.do")
+	@RequestMapping(value = "/hallestimate.we")
 	public ModelAndView hallestlist() {
 		ModelAndView est = new ModelAndView();
 		List<HallDTO> hallview2 = halleDao.hallview();
 		List<HalleDTO> hallest = halleDao.hallestList();
 		est.addObject("hallestimate1", hallest);
 		est.addObject("hallestimate2", hallview2);
-		est.setViewName("hall/hallestimate");
+		est.setViewName("halllook/hallestimate");
 		return est;
 	}
 	
 	/*견적서 모형 보기*/
-	@RequestMapping(value="/hallmode.do")
+	@RequestMapping(value="/hallmode.we")
 	public ModelAndView hallesview(){
 		ModelAndView mav = new ModelAndView();
 		List<HalleDTO> hallest = halleDao.hallestList();
 		mav.addObject("hallmode",hallest);
-		mav.setViewName("hall/hallmode");
+		mav.setViewName("halllook/hallmode");
 		return mav;
 	}
 	
 	/*랭킹*/
-	@RequestMapping(value="/hallranking.do")
+	@RequestMapping(value="/hallranking.we")
 	public ModelAndView hallrank(int cp,int ls){
 		ModelAndView mav = new ModelAndView();
 		List<ReviewDTO> hallrank = review.AllReviewList(cp, ls);
 		mav.addObject("hallrank",hallrank);
-		mav.setViewName("hall/hallranking");
+		mav.setViewName("halllook/hallranking");
 		return mav;
 	}
 	
