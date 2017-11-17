@@ -12,6 +12,7 @@
 	margin-left: 200px;
 	margin-right: 200px;
 	border: 5px solid red;
+	padding: 100px;
 }
 li {
 	display: inline-block;
@@ -133,11 +134,11 @@ function search(){
 			<div class="menu_br">
 				<ul id="menu">
 					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
-					<li><a href="hallrankingForm.we">홀 랭킹</a></li>
+					<li><a href="hallranking.we">홀 랭킹</a></li>
 					<li><a>홀vs홀</a></li>
+					<li><a href="hallsearchlist.we">불러오기확인</a></li>
 					<li><a href="hallestimate.we">홀 견적내기</a></li>
-					<li><a href="hallestmate.we">견적</a></li>
-					<li><a href="hallmode.we">견적 수정</a></li>
+					<li><a href="hallmode.we">견적 작성</a></li>
 					<li><a href="hallranking.we">랭킹</a></li>
 
 				</ul>
@@ -249,7 +250,7 @@ function search(){
 				
 				<div class="wedding_img">
 				<a href="">
-				<img src="/finalproject/img/hall/${all.idx}/r1.jpg" alt="홀대표사진" style=" width: 90px; height: 60px;float: left;	"/>
+				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 90px; height: 60px;float: left;	"/>
 				</a>
 				</div>
 				

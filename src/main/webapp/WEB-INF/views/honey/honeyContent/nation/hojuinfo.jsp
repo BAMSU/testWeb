@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <style type="text/css">
 section {
-	width: 1000px;
+	width: 1000px;margin: 0px auto;
 }
 
 table {
-	width: 800px;
+	width: 800px;margin: 0px auto;
 }
 
 #banner {
@@ -28,7 +28,8 @@ table {
 }
 </style>
 </head>
-<body>
+<body><%@include file="/header.jsp" %>
+
 	<section>
 		<table border="1" id="banner">
 			<tr>
@@ -120,5 +121,6 @@ table {
 
 
 	</section>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>

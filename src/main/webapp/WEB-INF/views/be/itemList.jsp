@@ -34,9 +34,11 @@
 </head>
 <body>
 <%@include file="/header.jsp" %>
-
-<p>${category}</p>
-
+<br><br>
+<div>
+	<h2>사랑이 머물다와 함께하는 ${category} 업체 리스트</h2>
+</div>
+<br><br><br><br>
 <table id="table">
 <!-- sdmyList 출력 -->
 <c:choose >
