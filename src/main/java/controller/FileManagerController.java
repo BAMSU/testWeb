@@ -6,54 +6,38 @@ import java.util.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import ahall.model.FileDTO;
 
 @Controller
 public class FileManagerController {
 	@RequestMapping("/fileUploadForm.we")
-	public String fileUploadForm(){
-		return "admin/fileUploadForm";
+	public ModelAndView fileUploadForm(int idx){
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("idx", idx);
+		mav.setViewName("admin/fileUploadForm");
+		return mav;
 	}
 	@RequestMapping("/fileUpload1.we")
 	public String fileUpload1(
-			@RequestParam("writer")String writer,
-			@RequestParam("upload")MultipartFile upload){
-		File f = new File("C:/Users/song/git/testWeb/src/main/webapp/img/hall/36");
+			@RequestParam("upload")MultipartFile upload, int idx, String what){
+		File f = new File("C:/Users/song/git/testWeb/src/main/webapp/img/hall/"+idx);
 		if(!f.exists()) {
-			f.mkdir();	//업체카테고리별 디렉토리 생성
+			f.mkdir();
 		}
-		copyInto(writer, upload);
-		return "admin/fileOk";
-	}
-	@RequestMapping("/fileUpload2.we")
-	public String fileUpload2(MultipartHttpServletRequest req){
-		String writer = req.getParameter("writer");
-		MultipartFile upload= req.getFile("upload");
-		copyInto(writer, upload);
-		return "admin/fileOk";
-	}
-	@RequestMapping("/fileUpload3.we")
-	public String fileUpload3(FileDTO dto){
-		copyInto(dto.getWriter(), dto.getUpload());
-		return "admin/fileOk";
-	}
-	@RequestMapping("/fileUpload4.we")
-	public String fileUpload4(
-			@RequestParam("writer")String writer,
-			@RequestParam("upload")List<MultipartFile> uploads){
-		for(MultipartFile upload : uploads){
-			copyInto(writer, upload);
-		}
+		copyInto(upload, idx, what);
 		return "admin/fileOk";
 	}
 	
 
-	public void copyInto(String writer,MultipartFile upload){
+	public void copyInto(MultipartFile upload, int idx, String what){
 		//<img src="/finalproject/img/hall/${dto.idx}/r1.jpg">
 		try {
 			byte[] bytes = upload.getBytes();
-			File newfile = new File("C:/Users/song/git/testWeb/src/main/webapp/img/hall/36/r1.jpg");
+			File newfile = new File("C:/Users/song/git/testWeb/src/main/webapp/img/hall/"+idx+what);
 			FileOutputStream fos = new FileOutputStream(newfile);
 			fos.write(bytes);
 			fos.close();

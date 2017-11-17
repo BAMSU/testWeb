@@ -29,7 +29,7 @@ function aa() {
 		<c:url var="contentUrl3" value="mealList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
 		<a href="${contentUrl3}">웨딩홀 정보/견적서 관리</a>
 		
-		<c:url var="contentUrl4" value="image.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<c:url var="contentUrl4" value="fileUploadForm.we"><c:param name="idx">${dto.idx}</c:param></c:url>
 		<a href="${contentUrl4}">웨딩홀 사진 관리</a>
 		
 		<c:url var="contentUrl2" value="deleteWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
