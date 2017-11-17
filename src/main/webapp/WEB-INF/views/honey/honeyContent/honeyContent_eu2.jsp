@@ -41,18 +41,26 @@
 <style type="text/css">
 section {
 	width: 1000px;
+	margin: 0px auto;
 }
 
 table {
 	width: 800px;
+	margin: 0px auto;
 }
 
 #box {
 	width: 100%;
 }
+#t_div{
+	margin: 0px auto;
+	padding-left: 170px;
+	padding-right: 170px;
+	}
 </style>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 	<section>
 		<table border="1">
 			<tr>
@@ -68,17 +76,17 @@ table {
 					alt="상품상담문의" /></td>
 			</tr>
 			<tr>
-				<th width="172">판매기간</th>
+				<th class="table-active" width="172">판매기간</th>
 				<td width="230" style="text-align: center;">2017-10-20 ~
 					2018-06-30</td>
-				<th width="172">상품가격</th>
+				<th class="table-active" width="172">상품가격</th>
 				<td width="230" style="text-align: center;">2,100,000원 ~
 					2,400,000원</td>
 			</tr>
 			<tr>
-				<th>국가</th>
+				<th class="table-active">국가</th>
 				<td style="text-align: center;">유럽</td>
-				<th>여행지역</th>
+				<th class="table-active">여행지역</th>
 				<td style="text-align: center;">크로아티아</td>
 			</tr>
 
@@ -95,7 +103,7 @@ table {
 
 		<table border="1">
 			<tr>
-				<th colspan="2" align="left"
+				<th class="table-active" colspan="2" align="left"
 					style="line-height: 24px; padding: 12px 10px 12px 10px;">리조트
 					정보</th>
 			</tr>
@@ -132,9 +140,9 @@ table {
 				</td>
 			</tr>
 			<tr>
-				<th style="line-height: 24px; padding: 12px 10px 12px 10px;">포함
+				<th class="table-active" style="line-height: 24px; padding: 12px 10px 12px 10px;">포함
 					조항</th>
-				<th style="line-height: 24px; padding: 12px 10px 12px 10px;">불포함
+				<th class="table-active" style="line-height: 24px; padding: 12px 10px 12px 10px;">불포함
 					조항</th>
 			</tr>
 			<tr>
@@ -166,7 +174,7 @@ table {
 
 		<table border="1">
 			<tr>
-				<th colspan="2" align="left"
+				<th class="table-active" colspan="2" align="left"
 					style="line-height: 24px; 
 					padding: 12px 10px 12px 10px;">허니문
 					일정</th>
@@ -225,7 +233,7 @@ table {
 				</a></td>
 				<td width="170">
 					<div
-						onclick="javascript:location.href='honeyPackage.we?nation=eu.jsp'"
+						onclick="javascript:location.href='honeyPackage.we?nation=eu'"
 						style="cursor: pointer;">
 						<font size="5" color="#F29661">유럽 <br></font><font size="4">패키지<br>보러가기
 						</font> <em> <img
@@ -235,46 +243,53 @@ table {
 				</td>
 			</tr>
 		</table>
-		<table border="1">
-			<tr>
-				<th>문의 하기</th>
-			</tr>
-			<tr>
-				<td>*이름</td>
-				<td><input type="text" name="name" id="name"></td>
-				<td rowspan="4"><textarea rows="20" cols="20"
-						readonly="readonly" style="resize: none;">이용약관</textarea></td>
-			</tr>
-			<tr>
-				<td>*휴대폰</td>
-				<td><input type="text" name="tel" id="tel"></td>
-			</tr>
-			<tr>
-				<td>*이메일</td>
-				<td><input type="text" name="email" id="email">@ <select
-					name="email">
-						<option value="naver.com" selected>naver.com</option>
-						<option value="nate.com" selected>nate.com</option>
-						<option value="hanmail.net" selected>hanmail.net</option>
-						<option value="hotmail.com" selected>hotmail.com</option>
-						<option value="gmail.com" selected>gmail.com</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td>*결혼 예정일</td>
-				<td><input type="text" id="datepicker"></td>
-			</tr>
-			<tr>
-				<td rowspan="2" valign="top">*문의 내용</td>
-				<td rowspan="2"><textarea rows="10" cols="10"
-						style="resize: none;"></textarea></td>
-				<td><input type="checkbox" value="ygcheck" id="ygcheck">
-					이용약관에 동의합니다</td>
-			</tr>
-			<tr>
-				<td align="center"><input type="button" value="문의하기"></td>
-			</tr>
-		</table>
+		<hr>
+		<div id="t_div">
+			<table 
+			class="table table-striped table-hover table-bordered"
+			border="1" id="qna" >
+				<tr >
+					<th colspan="3">문의 하기</th>
+				</tr>
+				<tr >
+					<td><font size="2">*이름</font></td>
+					<td><input type="text" name="name" id="name" style="width: 300px;"></td>
+					
+				</tr >
+				<tr >
+					<td><font size="2">*휴대폰</font></td>
+					<td><input type="text" name="tel" id="tel" style="width: 300px;"></td>
+				</tr>
+				<tr >
+					<td><font size="2">*이메일</font></td>
+					<td><input type="text" name="email" id="email">@ <select
+						name="email">
+							<option value="naver.com" selected>naver.com</option>
+							<option value="nate.com" selected>nate.com</option>
+							<option value="hanmail.net" selected>hanmail.net</option>
+							<option value="hotmail.com" selected>hotmail.com</option>
+							<option value="gmail.com" selected>gmail.com</option>
+					</select></td>
+				</tr>
+				<tr >
+					<td><font size="2">*결혼 예정일</font></td>
+					<td><input type="text" id="datepicker" style="width: 300px;"></td>
+				</tr>
+				<tr >
+					<td rowspan="2" valign="top"><font size="2">*문의 내용</font></td>
+					<td rowspan="2"><textarea rows="5" 
+							style="resize: none;width: 300px;"></textarea></td>
+					</tr>
+				<tfoot >
+				<tr >
+				<td colspan="2" align="right">
+				<button type="button" class="btn btn-info">문의하기</button>
+				</td>
+				</tr>
+				</tfoot>
+			</table>
+			</div>
 	</section>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>
