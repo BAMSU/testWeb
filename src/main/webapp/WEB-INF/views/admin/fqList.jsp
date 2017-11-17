@@ -15,6 +15,7 @@ function show() {
 </script>
 </head>
 <body>
+<%@include file="/adminheader.jsp"%>
 <form name="fm">
 <h3>문의 내역 보기</h3>
 

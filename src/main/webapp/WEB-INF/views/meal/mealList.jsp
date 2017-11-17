@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/adminheader.jsp"%>
 <h3>웨딩홀 견적서 상세정보</h3>
 
 

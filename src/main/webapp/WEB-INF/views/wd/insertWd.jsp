@@ -155,6 +155,7 @@ function show() {
 </script>
 </head>
 <body>
+<%@include file="/adminheader.jsp"%>
 <form name="fm" action="insertWd2.we">
 홀 이름 : <input type="text" name="name" placeholder="ㅇㅇ웨딩홀" required><br>
 홀 타입 : <input type="hidden" name="halltype"> <br>

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/adminheader.jsp"%>
 	<c:forEach var="dto" items="${list}">
 		${dto.context}
 		<c:if test="${dto.available eq '1'}">

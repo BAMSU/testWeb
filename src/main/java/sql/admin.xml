@@ -45,6 +45,22 @@
 	</update>
 	
 	
+	<select id="beLista" resultType="ahall.model.HBeDTO">
+		select * from be_join order by be_idx
+	</select>
+	
+	<select id="beListb" resultType="ahall.model.HBeDTO">
+		select * from be_join where admin_permission = #{type} order by be_idx
+	</select>
+	
+	<update id="updateBebe1" parameterType="int">
+		update be_join set admin_permission = 'y' where be_idx = #{be_idx}
+	</update>
+	
+	<update id="updateBebe2" parameterType="int">
+		update be_join set admin_permission = 'n' where be_idx = #{be_idx}
+	</update>
+
 	
 	
 	

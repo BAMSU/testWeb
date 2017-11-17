@@ -13,6 +13,7 @@ function aa() {
 </script>
 </head>
 <body>
+<%@include file="/adminheader.jsp"%>
 <input type="button" name="insertWd" value="웨딩홀등록" onclick="aa()">
 <h3>웨딩홀 리스트</h3>
 
