@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <style type="text/css">
 section{
-	width:800px;
+	width:800px;margin: 0px auto;
 }
 #plist {
 	border: 0px; padding-top : 15px;
@@ -30,6 +30,7 @@ section{
 </style>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 	<table>
 		<tr>
 			<td>
@@ -74,5 +75,6 @@ section{
 				</td>
 				</tr>
 	</table>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>

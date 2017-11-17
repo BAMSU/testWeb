@@ -10,6 +10,7 @@
 <style type="text/css">
 section{
 	width:800px;
+	margin: 0px auto;
 }
 #plist {
 	border: 0px; padding-top : 15px;
@@ -30,6 +31,7 @@ section{
 </style>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 	<section>
 		
 		<table>
@@ -131,5 +133,6 @@ section{
 		</table>
 
 	</section>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>
