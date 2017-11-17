@@ -13,7 +13,7 @@ public class ReviewDTO {
 	private Date writedate;
 	private int readnum;
 	private String name;
-	private String review_sum;
+	private int review_sum;
 	private String img;
 	private float average;
 	private int avg1;
@@ -31,7 +31,7 @@ public class ReviewDTO {
 
 
 	public ReviewDTO(int review_idx, int room_idx, String subject, String content, String writer, Date writedate,
-			int readnum, String name, String review_sum, String img, float average, int avg1, int avg2, int avg3,
+			int readnum, String name, int review_sum, String img, float average, int avg1, int avg2, int avg3,
 			int avg4, int avg5) {
 		super();
 		this.review_idx = review_idx;
@@ -150,13 +150,13 @@ public class ReviewDTO {
 
 
 
-	public String getReview_sum() {
+	public int getReview_sum() {
 		return review_sum;
 	}
 
 
 
-	public void setReview_sum(String review_sum) {
+	public void setReview_sum(int review_sum) {
 		this.review_sum = review_sum;
 	}
 

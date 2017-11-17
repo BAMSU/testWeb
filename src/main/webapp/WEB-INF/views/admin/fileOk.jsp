@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h2>파일업로드 성공!!</h2>
 </body>
 </html>

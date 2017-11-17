@@ -26,7 +26,6 @@
 					<li><a>홀vs홀</a></li>
 					<li><a href="hallsearchlist.we">불러오기확인</a></li>
 					<li><a href="hallestimate.we">홀 견적내기</a></li>
-					<li><a href="hallmode.we">견적 작성</a></li>
 					<li><a href="hallranking.we">랭킹</a></li>
 				</ul>
 			</div>

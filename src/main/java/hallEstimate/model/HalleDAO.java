@@ -18,4 +18,5 @@ public interface HalleDAO {
 	public List<String> hallstation(String line);
 	public List<HallDTO> hallLinesearch(String station);
 	public List<HallDTO> hallname(String name);
+	public List<HalleDTO> hallestList();
 }

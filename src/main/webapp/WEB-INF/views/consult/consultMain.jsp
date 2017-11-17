@@ -10,6 +10,13 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css" />
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
+<link href="https://fonts.googleapis.com/css?family=Montez"
+	rel="stylesheet">
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300'
+	rel='stylesheet' type='text/css'>
 
 <style>
 [type="date"] {
@@ -26,22 +33,27 @@
 body {
   padding: 4em;
   background: #e5e5e5;
+
   font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 label {
   display: block;
+
+  
+
 }
 input{
   border: 1px solid #c4c4c4;
   border-radius: 5px;
   background-color: #fff;
   padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
  
 }
+
 </style>
 </head>
 <body>
+<%@include file="/header.jsp"%>
 
 <h2 align="center">문의 / 상담하기</h2>
 <form name="consult" action="consult.we" method="post">
@@ -52,21 +64,22 @@ input{
 	</script>
 </c:if>
 
-<table align="center">
+<table align="center" >
 	<tr>
-	<td><div><lable>이름</lable><input type="text" name="name" value="${sname }"readonly="readonly" style="width: 100px;"> | 
-	
-		 <input type="radio" value="1" name="gender" >남자
-		 <input type="radio" value="2" name="gender" >여자</div></td>
-	</tr>
-	<tr>
+	<td colspan="1" >이름</td><td colspan="3" ><input type="text"  class="form-control is-invalid"  name="name" value="${sname }"readonly="readonly" style="width: 430px;"></td> 
 	<td>
+		 <input type="radio" value="1" name="gender" >남자
+		 <input type="radio" value="2" name="gender" >여자
+		</td> 
+		 
+		
 	</tr>
+	
+	
 	<tr>
-	<td><hr></td>
+	<td colspan="5"><hr></td>
 	</tr>
-	<tr><td>
-	<div><lable>전화번호</lable><select name="tel1">
+	<tr><td colspan="1">전화번호</td><td colspan="4"><select name="tel1" class="form-control is-invalid" style="width: 150px;">
 				<option value="010">010</option>
 				<option value="011">011</option>
 				<option value="016">016</option>
@@ -74,38 +87,42 @@ input{
 				<option value="018">018</option>
 				<option value="019">019</option>
 				<option value="070">070</option>
-			</select> - <input type="text" name="tel2"> - <input type="text" name="tel3"></div>
+			</select> - <input type="text" class="form-control is-invalid"  name="tel2"> - <input type="text" name="tel3"></div>
 		</td>
 		</tr>	
 		<tr>
-	<td><hr></td>
+	<td colspan="5"><hr></td>
 	</tr>
-		<tr><td>
-	<div><lable>이메일</lable><input type="text" name="email"> @ 
+		<tr><td colspan="1">이메일</td><td colspan="4"><input type="text" name="email"> @ 
 			<select name="email2">
 				<option value="naver.com">naver.com</option>
 				<option value="gmail.com">gmail.com</option>
 				<option value="nate.com">nate.com</option>
 				<option value="yahoo.co.kr">yahoo.co.kr</option>
-			</select></div>
+			</select>
 		</td>
 	
 		</tr>	
+		<tr>
+	<td colspan="5"><hr></td>
+	</tr>
 		<tr>  
-		<td><div><lable>결혼예정일  </lable>
-		<input type="date" name="reservation" id="dateofbirth">
-		</div>
+		<td colspan="1">결혼예정일 </td>
+		<td colspan="4">
+		<input type="date" name="reservation" id="dateofbirth" style="width: 189px;">
+		
 		</td>
 		</tr>
 		
 		<tr>
-	<td><hr></td>
+	<td colspan="5"><hr></td>
 	</tr>
 		<tr>
 		
 		
-			<td>
-			<textarea rows="15" cols="45" name="context">
+			<td colspan="5">
+			<textarea rows="15" cols="45" name="context" style="width: 600px;" >
+			
 			</textarea>
 			</td>
 			<td>
@@ -113,7 +130,7 @@ input{
 			<input type="hidden" name="gubun2" value="${idx}" >
 			</td>
 		</tr>
-		<tr><td>
+		<tr><td colspan="5">
 		<input type="submit" value="문의하기">
 		<input type="reset" value="다시작성">
 		</td>
@@ -121,6 +138,6 @@ input{
 	
 </table>	
 </form>
-
+<%@include file="/footer.jsp"%>
 </body>
 </html>

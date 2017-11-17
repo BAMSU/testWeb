@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,14 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import hall.model.HallDAO;
-import hall.model.HallDTO;
-import hall.model.HallListModule;
-import hallStats.model.HallStatsDAO;
-import hallStats.model.HallStatsDTO;
-import room.model.RoomDAO;
-import scrap.model.ScrapDAO;
-import scrap.model.ScrapDTO;
+import hall.model.*;
+import hallStats.model.*;
+import review.model.*;
+import room.model.*;
+import scrap.model.*;
 
 @Controller
 public class HallController {
@@ -29,18 +28,30 @@ public class HallController {
 	private HallStatsDAO hallStatsDao;
 	@Autowired
 	private ScrapDAO scrapDao;
+	@Autowired
+	private ReviewDAO reviewDao;
 	
 	@RequestMapping("/hallInfo.we")
 	public ModelAndView hallInfoForm(@RequestParam(value="idx",defaultValue="1")int idx,
-			@RequestParam(value="name",defaultValue="�븳�옱�슦")String name){
+			@RequestParam(value="name",defaultValue="한재우")String name,
+			@RequestParam(value="cp",defaultValue="1")int cp,
+			HttpSession session){
 		ModelAndView mav = new ModelAndView("hall/hallInfo");
-		mav.addObject("hallInfo",hallDao.getHallInfo(idx));
+		HallDTO h = hallDao.getHallInfo(idx);
+		mav.addObject("hallInfo",h);
 		mav.addObject("roomInfo",roomDao.roomInfo(idx));
+		mav.addObject("reviewList",reviewDao.hallReviewList(cp, 5, h.getName()));
+		mav.addObject("pageStr",PageModule.makePage("hallInfo.we", reviewDao.getTotelContByHall(h.getName()), 5, 5, cp));
 		if(scrapDao.getScrap(name, idx)!=null){
 			mav.addObject("srp",true);
 		}else{
 			mav.addObject("srp",false);
 		}
+		String sname = "";
+		if(session.getAttribute("sname")!=null){
+			sname = (String) session.getAttribute("sname");
+		}
+		mav.addObject("userName",sname);
 		return mav;
 	}
 	
@@ -56,7 +67,7 @@ public class HallController {
 	
 	@RequestMapping(value="/hallCompare.we", method=RequestMethod.POST)
 	public ModelAndView hallCompareSubmit(@RequestParam("idx")int idx){
-		hallStatsDao.upHallStats(idx, "��vs��");
+		hallStatsDao.upHallStats(idx, "홀vs홀");
 		return new ModelAndView("jsonView","hallListByIdx",hallDao.getHallInfo(idx));
 	}
 
@@ -68,7 +79,6 @@ public class HallController {
 		if(gu.equals("all")) hl=hallDao.getHallList();
 		else hl=hallDao.getHallListByGu(gu);
 		mav.addObject("hallListBy",HallListModule.makeHallList(hl));
-		//mav.addObject("hallListBy",hl);
 		return mav;
 	}
 	@RequestMapping("/hallAddSearchByName.we")
@@ -85,14 +95,14 @@ public class HallController {
 	
 	@RequestMapping(value="/hallStats.we",method=RequestMethod.GET)
 	public ModelAndView hallStatsForm(@RequestParam(value="idx",defaultValue="1")int idx,
-			@RequestParam(value="name",defaultValue="�샇�뀛�봽由щ쭏")String name){
+			@RequestParam(value="name",defaultValue="호텔프리마")String name){
 		ModelAndView mav = new ModelAndView("hall/hallStats");
 		mav.addObject("hallIdx",idx);
 		mav.addObject("hallName",name);
-		mav.addObject("hallRank1",hallStatsDao.getHallStatsRank(idx, "�긽�떞�떊泥�"));
-		mav.addObject("hallRank2",hallStatsDao.getHallStatsRank(idx, "�� 寃ъ쟻�궡湲�"));
-		mav.addObject("hallRank3",hallStatsDao.getHallStatsRank(idx, "怨좉컼�룊媛�"));
-		mav.addObject("hallRank4",hallStatsDao.getHallStatsRank(idx, "��vs��"));
+		mav.addObject("hallRank1",hallStatsDao.getHallStatsRank(idx, "상담신청"));
+		mav.addObject("hallRank2",hallStatsDao.getHallStatsRank(idx, "홀 견적내기"));
+		mav.addObject("hallRank3",hallStatsDao.getHallStatsRank(idx, "고객평가"));
+		mav.addObject("hallRank4",hallStatsDao.getHallStatsRank(idx, "홀vs홀"));
 		mav.addObject("hallCount",hallStatsDao.getHallCount());
 		return mav;
 	}
@@ -100,19 +110,30 @@ public class HallController {
 	@RequestMapping(value="/hallStats.we",method=RequestMethod.POST)
 	public ModelAndView hallStatsInfo(@RequestParam(value="idx",defaultValue="1")int idx){
 		ModelAndView mav = new ModelAndView("jsonView");
-		mav.addObject("hallStats1",hallStatsDao.getHallStatsList(idx,"�긽�떞�떊泥�"));
-		mav.addObject("hallStats2",hallStatsDao.getHallStatsList(idx,"�� 寃ъ쟻�궡湲�"));
-		mav.addObject("hallStats3",hallStatsDao.getHallStatsList(idx,"��vs��"));
-		mav.addObject("hallStats4",hallStatsDao.getHallStatsList(idx,"怨좉컼�룊媛�"));
+		mav.addObject("hallStats1",hallStatsDao.getHallStatsList(idx,"상담신청"));
+		mav.addObject("hallStats2",hallStatsDao.getHallStatsList(idx,"홀 견적내기"));
+		mav.addObject("hallStats3",hallStatsDao.getHallStatsList(idx,"홀vs홀"));
+		mav.addObject("hallStats4",hallStatsDao.getHallStatsList(idx,"고객평가"));
 		return mav;
 	}
 	
 	@ResponseBody
-	@RequestMapping("/scrap.we")
+	@RequestMapping(value="/scrap.we",method=RequestMethod.GET)
 	public String insertScrap(@RequestParam(value="idx",defaultValue="1")int idx,
-			@RequestParam(value="name",defaultValue="�븳�옱�슦")String name){
+			@RequestParam(value="name",defaultValue="한재우")String name){
 		boolean srp = false;
 		if(scrapDao.insertScrap(name, idx)>0){
+			srp=true;
+		}
+		return String.valueOf(srp);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/scrap.we",method=RequestMethod.POST)
+	public String deleteScrap(@RequestParam(value="idx",defaultValue="1")int idx,
+			@RequestParam(value="name",defaultValue="한재우")String name){
+		boolean srp = false;
+		if(scrapDao.deleteScrap(name, idx)>0){
 			srp=true;
 		}
 		return String.valueOf(srp);

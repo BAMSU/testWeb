@@ -40,7 +40,7 @@
 
 
 	<select id="hall_estlistSQL" parameterType="map" resultType="hallEstimate.model.HalleDTO">
-		select * from hall_estimate order by idx desc
+		select * from hall_estimate order by hall_idx desc
 	</select>
 
 	<select id="hallranking" resultType="hall.model.HallDTO">
@@ -60,7 +60,7 @@
 		select * from hall where idx = #{idx}
 	</select>
 
-	<select id="hallroom" resultType="room.model.RoomDTO"	parameterType="int">
+	<select id="hallroom" resultType="room.model.RoomDTO" parameterType="int">
 		select * from room where hallIdx=#{idx}
 	</select>
 	
@@ -75,4 +75,7 @@
 	<select id="hallnamelist" resultType="hall.model.HallDTO" parameterType="String">
 		select * from hall where name like '%'||#{name}||'%'
 	</select>
+	
+	
+	
 </mapper>

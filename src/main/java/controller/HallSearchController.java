@@ -109,23 +109,18 @@ public class HallSearchController {
 		List<RoomDTO> dtorom = halleDao.hallroom(hall_idx);
 		ModelAndView mas = new ModelAndView("halllook/hallmode");
 		mas.addObject("hallmod", dto);
-		mas.addObject("");
 		mas.addObject("dtorom", dtorom);
+		System.out.println(dtorom);
 		return mas;
 	}
 	
 	/*·©Å·*/
 	@RequestMapping(value="/hallranking.we")
 	public ModelAndView hallrank(){
-	
 	ModelAndView mas = new ModelAndView("halllook/hallranking");
 	List<HallDTO> list = halleDao.rankingList();
 	mas.addObject("hallrank", list);
 	return mas;
 	}
-	
-	/*@RequestMapping(value="/hall")
-	public ModelAndView hallline(){
-		
-	}*/
+
 }

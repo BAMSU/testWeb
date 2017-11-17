@@ -95,6 +95,7 @@ public class HalleDAOImple implements HalleDAO {
 		List<HallDTO> list = sqlMap.selectList("hallnamelist",name);
 		return list;
 	}
-
+	
+	
 
 }
