@@ -22,14 +22,19 @@ public class FileManagerController {
 		return mav;
 	}
 	@RequestMapping("/fileUpload1.we")
-	public String fileUpload1(
+	public ModelAndView fileUpload1(
 			@RequestParam("upload")MultipartFile upload, int idx, String what){
 		File f = new File("C:/Users/song/git/testWeb/src/main/webapp/img/hall/"+idx);
 		if(!f.exists()) {
 			f.mkdir();
 		}
 		copyInto(upload, idx, what);
-		return "admin/fileOk";
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("idx", idx);
+		mav.addObject("msg", "파일 업로드 성공!");
+		mav.addObject("gourl", "wdList.we");
+		mav.setViewName("admin/fqMsg");
+		return mav;
 	}
 	
 
