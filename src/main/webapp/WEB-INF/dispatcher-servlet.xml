@@ -101,9 +101,15 @@
    
    	<bean id="review" class="review.model.ReviewDAOImple">
 		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
+	<ref bean="sqlSessionTemplate" />
 		</constructor-arg>
 	</bean>
+	
+	<bean id="aconsult" class="consult.model.aConsultDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
 	
 	
 	
@@ -119,11 +125,7 @@
       </constructor-arg>
    </bean>
    
-   <bean id="aconsult" class="consult.model.aConsultDAOImple">
-      <constructor-arg>
-         <ref bean="sqlSessionTemplate"/>
-      </constructor-arg>
-   </bean>
+   
    
     <bean id="aroom" class="aroom.model.aRoomDAOImple">
       <constructor-arg>

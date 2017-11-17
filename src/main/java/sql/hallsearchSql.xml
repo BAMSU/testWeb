@@ -31,20 +31,20 @@
 
 	</select>
 
-	<select id="hall_estlistSQL" parameterType="map" resultType="hallEstimate.model">
+	<select id="hall_estlistSQL" parameterType="map" resultType="hallEstimate.model.HallStatsDTO">
 		select * from hall_estimate order by idx desc
 	</select>
 
-	<select id="hallranking" resultType="hallEstimate.model">
+	<select id="hallranking" resultType="hallEstimate.model.HallStatsDTO">
 		select * from hall order by accrue desc
 	</select>
 
-	<select id="hallemt" resultType="hallEstimate.model">
+	<select id="hallemt" resultType="hallEstimate.model.HallStatsDTO">
 		select hall.idx,hall_estimate.hall_idx from hall,hall_estimate
 		where hall.idx = hall_estimate.hall_idx
 	</select>
 
-	<select id="hall3" resultType="hallEstimate.model"	parameterType="int">
+	<select id="hall3" resultType="hallEstimate.model.HallStatsDTO"	parameterType="int">
 		select * from hall_estimate where hall_idx = #{idx}
 	</select>
 	<select id="hall4" resultType="hall.model.HallDTO"	parameterType="int">
