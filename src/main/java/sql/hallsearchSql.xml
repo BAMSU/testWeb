@@ -12,30 +12,38 @@
 
 
 	<select id="hall_searchview1" parameterType="map" resultType="hall.model.HallDTO">
-		select * from hall where hallType like '%'||#{hallType}||'%' and menuType
-		like '%#{menuType}%'
-		<!-- <if test="hallType!=null"> and hallType like '%#{hallType}%' </if> -->
-		<!-- <if test="menuType!=null"> and menuType like '%#{menuType}%' </if> -->
-		<if test="line!=null">
-			and line = #{line}
-		</if>
-		<if test="name!=null">
-			and name = #{name}
-		</if>
+		select * from hall where hallType like '%'||#{hallType}||'%' and menuType like '%'||#{menuType}||'%'
+		<choose>
+			<when test="meal_price eq 0">
+				<![CDATA[ and idx in (select hall_idx from hall_estimate where meal_price <= 30000 or meal_price2 <= 30000)]]>
+			</when>
+			<when test="meal_price eq 60000">
+				<![CDATA[ and idx in (select hall_idx from hall_estimate where meal_price >= 60000 or meal_price2 >= 60000)]]>
+			</when>
+			<otherwise>
+				<![CDATA[ and idx in (select hall_idx from hall_estimate where (meal_price between #{meal_price} and #{meal_price}+10000) or (meal_price2 between #{meal_price} and #{meal_price}+10000))]]>
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="est_guest eq 0">
+				<![CDATA[ and idx in (select hall_idx from hall_estimate where est_guest<=100)]]>
+			</when>
+			<when test="est_guest eq 100">
+				<![CDATA[ and idx in (select hall_idx from hall_estimate where est_guest>=300)]]>
+			</when>
+			<otherwise>
+				<![CDATA[ and idx in (select hall_idx from hall_estimate where est_guest between #{est_guest} and #{est_guest}+100)]]>
+			</otherwise>
+		</choose>
 	</select>
+	
 
-	<select id="hall_searchview2" resultType="hall.model.HallDTO">
-		select * from hall_estimate where est_guest like '%#{est_guest}%' and
-		meal_price1 like '%#{meal_price1}'
-		and meal_price2 like '%#{meal_price2}'
-
-	</select>
 
 	<select id="hall_estlistSQL" parameterType="map" resultType="hallEstimate.model.HalleDTO">
 		select * from hall_estimate order by idx desc
 	</select>
 
-	<select id="hallranking" resultType="hallEstimate.model.HalleDTO">
+	<select id="hallranking" resultType="hall.model.HallDTO">
 		select * from hall order by accrue desc
 	</select>
 
@@ -47,6 +55,7 @@
 	<select id="hall3" resultType="hallEstimate.model.HalleDTO"	parameterType="int">
 		select * from hall_estimate where hall_idx = #{idx}
 	</select>
+	
 	<select id="hall4" resultType="hall.model.HallDTO"	parameterType="int">
 		select * from hall where idx = #{idx}
 	</select>
@@ -54,6 +63,16 @@
 	<select id="hallroom" resultType="room.model.RoomDTO"	parameterType="int">
 		select * from room where hallIdx=#{idx}
 	</select>
-
-
+	
+	<select id="hallstation" resultType="String" parameterType="String">
+		select distinct station from hall where line=#{line}
+	</select>
+	
+	<select id="linesear" resultType="hall.model.HallDTO" parameterType="String">
+		select * from hall where station =#{station}
+	</select>
+	
+	<select id="hallnamelist" resultType="hall.model.HallDTO" parameterType="String">
+		select * from hall where name like '%'||#{name}||'%'
+	</select>
 </mapper>

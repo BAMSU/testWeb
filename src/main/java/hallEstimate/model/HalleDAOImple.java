@@ -21,11 +21,7 @@ public class HalleDAOImple implements HalleDAO {
 	}
 	
 
-	public List<HallDTO> hallList(String hallType, String menuType) {
-		Map<String,String> map = new HashMap<String, String>();
-		map.put("hallType",hallType);
-		map.put("menuType", menuType);
-		
+	public List<HallDTO> hallList(Map map) {
 		List<HallDTO> list = sqlMap.selectList("hall_searchview1",map);
 		return list;
 	}
@@ -80,6 +76,25 @@ public class HalleDAOImple implements HalleDAO {
 		List<RoomDTO> list = sqlMap.selectList("hallroom", idx);
 		return list;
 	}
+
+
+
+
+	public List<String> hallstation(String line) {
+		List<String> list = sqlMap.selectList("hallstation",line);
+		return list;
+	}
+
+
+	public List<HallDTO> hallLinesearch(String station) {
+		List<HallDTO> list = sqlMap.selectList("linesear", station);
+		return list;
+	}
 	
+	public List<HallDTO> hallname(String name){
+		List<HallDTO> list = sqlMap.selectList("hallnamelist",name);
+		return list;
+	}
+
 
 }

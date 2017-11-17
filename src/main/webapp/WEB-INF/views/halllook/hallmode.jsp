@@ -16,14 +16,14 @@ function submit(){
 </script>
 </head>
 <body>
-<%@include file="/header.we" %>
+<%@include file="/header.jsp" %>
 	<div class="popup_title">견적내기</div>
 	
 
-		<c:if test="${empty hallest}">
+		<c:if test="${empty hallestList}">
 		<h3>해당 내용이 없습니다.</h3>
 		</c:if>
-			<c:forEach var="est" items="${hallest}">
+			<c:forEach var="est" items="${hallestList}">
 				<table>
 					<tr>
 						<th rowspan="6" align="center">${est.hall_name }</th>
@@ -201,6 +201,6 @@ function submit(){
 			
 		
 	
-	<%@include file="/footer.we" %>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>

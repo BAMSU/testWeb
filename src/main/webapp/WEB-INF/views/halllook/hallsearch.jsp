@@ -79,6 +79,9 @@ a:link{
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
+$(document).ready(function(){
+	$('#box').val('${hallline}').prop('selected',true);
+});
 function search(){
 	
  	//alert(document.getElementByName('hallType').value);
@@ -122,7 +125,9 @@ function search(){
 		
 	}); 
 }
-
+function linestation(){
+	location.href="hallsearch.we?lineType="+$('#box').val();
+}
 
 </script>
 
@@ -154,8 +159,9 @@ function search(){
 		<div>
 
 
-			<form id="seh" action="/hallsearch.do">
-				<div id="hallview">
+<div id="hallview">
+			<form id="seh" action="hallsearch.we" method="post">
+				
 					<div class="chk1">
 						<div>
 							<h3>홀 타입</h3>
@@ -164,7 +170,10 @@ function search(){
 								type="radio" name="hallType" value="호텔"> 호텔
 						</div>
 					</div>
-
+					
+					
+					
+					
 					<div class="chk2">
 						<div>
 							<h3>식사메뉴</h3>
@@ -174,7 +183,10 @@ function search(){
 								type="radio" name="menuType" value="퓨전코스"> 기타
 						</div>
 					</div>
-
+					
+					
+					
+					
 					<div class="chk3">
 						<div>
 							<h3>식대가격</h3>
@@ -182,11 +194,12 @@ function search(){
 							<input type="radio" name="mealCost" value="30000">
 							30,000~40,000원 <input type="radio" name="mealCost" value="40000">
 							40,000원~50,000원 <input type="radio" name="mealCost" value="50000">
-							50,000원~70,000원 <input type="radio" name="mealCost" value="70000">
-							70,000원이상
+							50,000원~60,000원 <input type="radio" name="mealCost" value="60000">
+							60,000원이상
 						</div>
 					</div>
-
+					
+					
 					<div class="chk4">
 						<div>
 							<h3>하객수</h3>
@@ -197,12 +210,14 @@ function search(){
 								type="radio" name="guest" value="300"> 300명 이상
 						</div>
 					</div>
+					<input type="submit" value="검색">
+					</form>
 
-
+						<form id="seh2" action ="hallsearch2.we">
 					<div class="chk5">
 						<div>
 							<h3>지하철</h3>
-							<select id="box" name="lineType">
+							<select id="box" name="lineType" onchange="linestation()">
 								<option value="">--선택--</option>
 								<option value="1호선">1호선</option>
 								<option value="2호선">2호선</option>
@@ -215,25 +230,33 @@ function search(){
 								<option value="9호선">9호선</option>
 								<option value="분당선">분당선</option>
 								<option value="경의중앙선">경의중앙선</option>
-
-
-
+							</select>
+								<select id="box2" name="stationType">
+								<option value="">--선택--</option>
+								<c:if test="${!empty hallstation}">
+								<c:forEach var ="station" items="${hallstation}">
+								<option value="${station}">${station}</option>
+								</c:forEach>
+								</c:if>
 							</select>
 						</div>
 					</div>
-
+					<input type="submit" value="검색">
+					</form>
+					
+					<form name="seh3" action="hallsearch3.we">
 					<div id="table_search">
 						<div>
-							웨딩홀 업체명: <input id="search_text" class="search_text">
+							웨딩홀 업체명: <input id="search_text" name="name" >
 
-							<input type="button" value="검색" id="btn" onclick="search();">
+							<input type="submit" value="검색">
 							<div id="listDiv"></div>
 						</div>
 					</div>
-
+					</form>
 				</div>
-			</form>
-		<c:if test="${empty hallList}">
+			
+		<c:if test="${empty hallview}">
 				<h2>검색 결과가 없습니다.</h2>
 				</c:if>
 			<br> <label id="la1">추천 웨딩홀</label>
@@ -281,37 +304,6 @@ function search(){
 					
 			
 				
-				<table border="1" id="tab">
-					
-
-					<c:forEach var="dto" items="${hallList}">
-					<label>검색 결과</label>
-					<tr>
-						<th>웨딩홀 이름</th>
-						<th>홀 타입</th>
-						<th>메뉴 타입</th>
-						<th>식대</th>
-						<th>하객 수</th>
-						<th>지하철 호선</th>
-					</tr>
-
-					
-					
-				
-						<tr id="tt">
-
-
-					 		<td>${dto.name }</td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td> 
-						</tr>
-						
-					</c:forEach>
-				</table>
-
 		
 
 		</div>

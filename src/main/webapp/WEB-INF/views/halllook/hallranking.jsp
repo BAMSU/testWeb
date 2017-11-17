@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+</script>
 </head>
 <style>
 #search {
@@ -67,27 +70,35 @@ li {
 		</div>
 		
 		<form name="frm">
-			<c:forEach var="dto" items="${hallrank }">
+		<c:set var="cnt" value="0"/>
+		 <table>
+		  <c:forEach var="dto" items="${hallrank}">
+		  <c:if test="${cnt%3==0}">
+		 <tr>
+		</c:if>
+		 <td>
+		 <c:set var="cnt" value="${cnt+1}"/>
 				<div id="rank">
 					<div>
 						<a href="rank_img"> <img
-							src="/finalproject/img/hall/${all.idx}/r1.jpg" alt="홀대표사진"
+							src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
 							style="width: 90px; height: 60px; float: left;" />
 						</a>
 					</div>
 					<ul>
-						<li>${dto.name }</li>
-						<li><span
-							style="border: 1px solid #BCA9F5; border-radius: 6px;"
-							onclick="window.alert('halllist.do')">상세보기</span></li>
-						<li><span
-							style="border: 1px solid #BCA9F5; border-radius: 6px;"
-							onclick="window.alert('hallstatistics.do')">홀 통계보기</span></li>
-						
+						<li>${dto.name}</li>
+						<li><span style="border: 1px solid #BCA9F5; border-radius: 6px;"
+							onclick="window.alert('hallCompare.we')">상세보기</span></li>
+						<li><span style="border: 1px solid #BCA9F5; border-radius: 6px;"
+							onclick="window.alert('hallstatistics.we')">홀 통계보기</span></li>
 					</ul>
 				</div>
+				</td>
+				 <c:if test="${cnt%3==0}">
+				</tr>
+				</c:if>
 			</c:forEach>
-			
+			</table>
 		</form>
 	</div>
 <%@include file="/footer.jsp" %>
