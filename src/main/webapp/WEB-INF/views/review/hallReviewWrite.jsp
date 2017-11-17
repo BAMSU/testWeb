@@ -13,6 +13,7 @@ img{
 	width: 50px;
 }
 /**별관련 css*/
+
 .rating {
 			width: 90px;
 			margin: 0 auto 1em;

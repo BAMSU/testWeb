@@ -35,6 +35,7 @@ public class MemberController {
 	}
 	
 	
+	
 	@ResponseBody
 	@RequestMapping(value="/idcheck.we",method=RequestMethod.POST)
 	public String idCheck(@RequestParam("id")String member_id){
