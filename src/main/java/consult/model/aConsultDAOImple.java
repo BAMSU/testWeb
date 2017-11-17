@@ -14,8 +14,24 @@ private SqlSessionTemplate sqlMap;
 		this.sqlMap = sqlMap;
 	}
 	
-	public List aCList() {
-		return sqlMap.selectList("consultaa");
+	public List aCList(String type) {
+		if(type.equals("0")) {
+			return sqlMap.selectList("consultaa");
+		}
+		return sqlMap.selectList("consultaa2", type);
 	}
+	
+	public List aCcon(int consult_idx) {
+		
+		return sqlMap.selectList("acontext", consult_idx);
+	}
+	
+	
+	public int updateCon(int idx) {
+		
+		return sqlMap.update("changeconsult", idx);
+	}
+	
+	
 	
 }

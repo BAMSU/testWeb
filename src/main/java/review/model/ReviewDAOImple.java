@@ -5,15 +5,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.web.multipart.MultipartFile;
 
-import consult.model.ConsultDTO;
 import review.model.*;
 
 public class ReviewDAOImple implements ReviewDAO {
 
 	
-
 	private SqlSessionTemplate sqlMap;
 	
 	
@@ -28,9 +25,7 @@ public class ReviewDAOImple implements ReviewDAO {
 					+dto.getAvg5();
 	
 		float average = avg/5; 
-		System.out.println(avg);
-		System.out.println(avg);
-		System.out.println(average);
+	
 		
 		Map data = new HashMap();
 		data.put("name", dto.getName());
@@ -94,5 +89,68 @@ public class ReviewDAOImple implements ReviewDAO {
  		int count = sqlMap.delete("reviewDelete", idx);
  		return count;
  	}
-	
+     
+     public int review_accrue_Update(int getreview_sum,String name) {
+    	 
+    	
+	 		Map data = new HashMap();
+	 		
+	 		data.put("sum", getreview_sum);
+	 		data.put("name", name);
+	 		//data.put("grade", result);
+	 	
+ 		
+ 		int count = sqlMap.update("review_accrue_Update", data);
+ 		return count;
+ 		
+ 	}
+     
+     
+     public int review_accrue_Update2(ReviewDTO dto, String name) {
+    	 
+    	 int avg = dto.getAvg1()+dto.getAvg2()+dto.getAvg3()+dto.getAvg4()
+			+dto.getAvg5();
+
+ 	 	float average = avg/5; 
+ 	 	
+ 	 
+	 		Map data = new HashMap();
+	 		data.put("average", average);
+	 		data.put("sum", avg);
+	 		data.put("name", name);
+	 	
+
+		
+		int count = sqlMap.update("review_accrue_Update2", data);
+		return count;
+    }
+     
+     public int getNameTotelCont(String name) {
+    	 int count = sqlMap.selectOne("reviewNamTotelCnt",name);
+		return count==0?1:count;
+    }
+     
+     public ReviewDTO reviewContent(int idx) {
+    	 
+    	 ReviewDTO dto = sqlMap.selectOne("ReviewContent", idx);
+ 		return dto;
+ 		
+    }
+     
+     public double getReviewAge(String name){
+    	 double count = sqlMap.selectOne("hallReviewAge", name);
+    	 return count;
+     }
+
+     public List hallReviewList(int cp, int ls, String hallName) {
+         Map m = new HashMap();
+         m.put("startnum", (cp-1)*ls+1);
+         m.put("endnum", cp*ls);
+         m.put("hallName", hallName);
+         return sqlMap.selectList("hallReviewList",m);
+      }
+
+      public int getTotelContByHall(String hallName) {
+         return sqlMap.selectOne("reviewTotelCntByHall",hallName);
+      }
 }

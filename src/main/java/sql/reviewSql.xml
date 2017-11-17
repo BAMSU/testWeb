@@ -22,6 +22,16 @@
  
  	</insert>
  	
+ 	<update id="review_accrue_Update" parameterType="Map">
+	
+			update hall set accrue=accrue+#{sum} where name=#{name} 
+
+	</update>
+	
+	<select id="hallReviewAge" parameterType="String" resultType="double" >
+		select avg(average) from hallreview where name=#{name}
+	</select>
+ 	
  		<select id="ReviewList" parameterType="Map" resultType="review.model.ReviewDTO">
 
  		select * from
@@ -32,10 +42,13 @@
 		
  	</select>
  	
+
  	
  		<select id="reviewTotelCnt" resultType="int">
  		select count(*) from hallreview
  	</select>
+ 	
+
  	
  		<select id="NameReviewList" parameterType="Map" resultType="review.model.ReviewDTO">
 
@@ -52,7 +65,36 @@
 					 review_idx= #{idx}	
 	
 	</delete>
+	
+	<update id="review_accrue_Update2" parameterType="review.model.ReviewDTO">
+	
+		update hall set grade=grade-#{average}, accrue=accrue-#{sum} where name=#{name}
+		
+		
+	</update>
+	
+	
+	
+ 		<select id="reviewNameTotelCnt" parameterType="String" resultType="int">
+ 		select count(*) from hallreview where name=#{name}
+ 	</select>
  	
  	
- 
+ 	<select id="ReviewContent" parameterType="int" resultType="review.model.ReviewDTO">
+ 		select * from 
+ 		hallreview
+ 		where review_idx = #{idx}
+ 	</select>
+ 	
+ 	<select id="hallReviewList" parameterType="Map" resultType="review.model.ReviewDTO">
+       select * from
+      (select rownum as rnum,a.* from
+      (select * from hallreview where name=#{hallName} order by review_idx desc)a)b
+      where rnum<![CDATA[>=]]>#{startnum}
+      and rnum<![CDATA[<=]]>#{endnum}
+    </select>
+    
+    <select id="reviewTotelCntByHall" parameterType="String" resultType="int">
+       select count(*) from hallreview where name=#{hallName}
+    </select>
  </mapper>

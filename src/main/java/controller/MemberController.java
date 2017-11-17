@@ -27,18 +27,13 @@ public class MemberController {
 
 	@Autowired
 	private MemberDAO memberDao;
-	
-	@RequestMapping("memberLogin.we")
-	public String loginForm(){
-		
-		return "member/memberLogin";
-	}
 
 	
 	@RequestMapping("memberidFind.we")
 	public String idFind(){
 		return "member/memberidFind";
 	}
+	
 	
 	
 	@ResponseBody
