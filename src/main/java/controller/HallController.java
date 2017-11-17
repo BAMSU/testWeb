@@ -40,8 +40,8 @@ public class HallController {
 		HallDTO h = hallDao.getHallInfo(idx);
 		mav.addObject("hallInfo",h);
 		mav.addObject("roomInfo",roomDao.roomInfo(idx));
-		mav.addObject("reviewList",reviewDao.hallReviewList(cp, 5, h.getName()));
-		mav.addObject("pageStr",PageModule.makePage("hallInfo.we", reviewDao.getTotelContByHall(h.getName()), 5, 5, cp));
+		mav.addObject("reviewList",reviewDao.ReviewList(cp, 5, h.getName()));
+		mav.addObject("pageStr",PageModule.makePage("hallInfo.we", reviewDao.getNameTotelCont(h.getName()), 5, 5, cp));
 		if(scrapDao.getScrap(name, idx)!=null){
 			mav.addObject("srp",true);
 		}else{
