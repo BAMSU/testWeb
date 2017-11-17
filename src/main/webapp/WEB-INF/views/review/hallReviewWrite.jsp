@@ -7,36 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<script>
-$(document).ready(function(){
-    $('#checkbtn').on('click', function(){
-        $.ajax({
-            type: 'POST',
-            url: $('#hallReviewWrite').attr('action'),
-            data: $('#hallReviewWrite').serialize(),
-            success: function(data){
-                if(parseInt($.trim(data))>0){
-                   alert('리뷰 등록 및 랭킹정보 수정  완료 되었습니다.');
-                 }else{
-                    alert('리뷰 등록 및 랭킹정보 수정  실패 하였습니다.');
-                 }
-            }
-        });    //end ajax    
-    });    //end on    
-});
-
-
-</script>
-<body>
-
-<c:if test="${empty sname }">
-	<script>
-		window.alert('로그인후 이용이 가능합니다.');
-		location.href='index.we';
-		
-	</script>
-</c:if>
-
 <style>
 img{
 	width: 50px;
@@ -76,6 +46,18 @@ img{
 
 
 </style>
+
+<body>
+
+<c:if test="${empty sname }">
+	<script>
+		window.alert('로그인후 이용이 가능합니다.');
+		location.href='index.we';
+		
+	</script>
+</c:if>
+
+
 
 <section>
 	<article>	
