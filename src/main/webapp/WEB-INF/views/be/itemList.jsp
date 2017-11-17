@@ -12,12 +12,16 @@
 	width: 150px;
 	height:170px;
 	background-color: gray;
+	vertical-align: middle;
 }
 #table{
-	border: 10px;
-	border-color: black;
 	margin:auto;
-	padding-left: 30%;
+	width: 70%;
+	margin: auto;
+	border: thin;
+	border-color: black;
+	margin: auto;
+	
 }
 #td_sdmy{
 	border: 1px;
@@ -38,7 +42,8 @@
 	<h2>사랑이 머물다와 함께하는 결혼식</h2>
 </div>
 <br><br><br><br>
-<table id="table" border="1" cellspacing="0" width="60%" align="center">
+
+<table id="table">
 <!-- sdmyList 출력 -->
 <c:set var="i" value="0"></c:set>
 <c:choose >
@@ -126,7 +131,7 @@
 </c:choose>
 
 <tr>
-	<td id="td_csb">
+	<td id="td_csb" colspan="3" align="center">
 	${pageStr}
 	</td>
 </tr>

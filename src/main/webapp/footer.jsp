@@ -6,13 +6,13 @@
 	<div id="footer_content" style="width:100%;">
 		<div class="col-md-6 col-md-offset-3" style = "">
 			<img alt="zz" src="images/p.png" width="200" height="150" style=" float:left;">
-			<p class="fh5co-social-icons">
-			<a href="#"><i class="icon-twitter2"></i></a>
-			<a href="#"><i class="icon-facebook2"></i></a>
-			<a href="#"><i class="icon-instagram"></i></a>
-			<a href="#"><i class="icon-dribbble2"></i></a>
-			<a href="#"><i class="icon-youtube"></i></a>
-			</p>
+				<p class="fh5co-social-icons">
+				<a href="#"><i class="icon-twitter2"></i></a>
+				<a href="#"><i class="icon-facebook2"></i></a>
+				<a href="#"><i class="icon-instagram"></i></a>
+				<a href="#"><i class="icon-dribbble2"></i></a>
+				<a href="#"><i class="icon-youtube"></i></a>
+				</p>
 			<p>
 			<a href="beIndex.we">
 				<img alt="BusinessEnterprise" src="upload/handshake.png" style="vertical-align: middle; opacity:0.5;">
