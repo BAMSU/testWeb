@@ -6,6 +6,9 @@
 	<insert id="insertScrapSQL" parameterType="map">
 		insert into scrap values(scrap_idx.nextval,#{memberName},#{hallIdx})
 	</insert>
+	<delete id="deleteScrapSQL" parameterType="map">
+		delete from scrap where memberName=#{memberName} and hallIdx=#{hallIdx}
+	</delete>
 	<select id="getScrapSQL" parameterType="map" resultType="scrap.model.ScrapDTO">
 		select * from scrap where memberName=#{memberName} and hallIdx=#{hallIdx}
 	</select>
