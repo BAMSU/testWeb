@@ -34,7 +34,7 @@ public class MemberController {
 		return "member/memberidFind";
 	}
 	
-	
+	 
 	
 	@ResponseBody
 	@RequestMapping(value="/idcheck.we",method=RequestMethod.POST)
