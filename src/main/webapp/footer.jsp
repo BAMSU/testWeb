@@ -4,7 +4,7 @@
 			<div id="footer">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-12 text-center">
+						<div class="col-md-12 text-center" >
 							<img alt="zz" src="images/p.png" width="200" height="150">
 						</div>
 						<div class="col-md-6 col-md-offset-3 text-center">
