@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/adminheader.jsp"%>
 <h2>웨딩홀 사진</h2>
 <img src="/finalproject/img/hall/${idx}/r1.jpg" height="200px" width="200px">
 <form name="fileUpload1" action="fileUpload1.we" method="post" enctype="multipart/form-data">

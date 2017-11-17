@@ -29,14 +29,18 @@ header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
          <!-- START #fh5co-menu-wrap -->
          <nav id="fh5co-menu-wrap" role="navigation">
             <ul class="sf-menu" id="fh5co-primary-menu">
-               <li><a href="#">청첩장</a></li>
-               <li><a href="#">패키지</a></li>
-               <c:if test="${empty sessionScope.admin}">
+               <li><a href="index.we">Home</a></li>
+               <li><a href="wdList.we">웨딩홀관리</a></li>
+               <li><a href="acon.we?type=0">문의게시판</a></li>
+               <li><a href="abelist.we?type=0">가입업체정보</a></li>
+               
+             <%--   <c:if test="${empty sessionScope.admin}">
                   <script>
                   window.alert('잘못된 접근입니다.');
                   location.href='index.we';
                   </script>
-               </c:if>
+               </c:if> --%>
+
 
                
             </ul>

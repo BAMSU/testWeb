@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/adminheader.jsp"%>
 <form name = "fm" action="insertMeal.we" method="POST">
 <input type="text" name="hall_idx" value="${idx}">
 홀 이름 : <input type="text" name="hall_name" placeholder="뷔페"> <br>
