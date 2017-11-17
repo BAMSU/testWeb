@@ -28,7 +28,6 @@ public class MemberController {
 	@Autowired
 	private MemberDAO memberDao;
 
-
 	
 	@RequestMapping("memberidFind.we")
 	public String idFind(){
