@@ -4,12 +4,12 @@
 
 		
 	<div id="footer_content" style="width:100%;">
-	<div class="col-md-12" style="float: left;padding-left: 30%;padding-top: 5%;">
+	<div class="col-md-12" style = "float: left;padding-left: 30%;padding-top: 5%;">
 	<img alt="zz" src="images/p.png" width="200" height="150">
 	
 	</div>
 	
-	<div class="col-md-6 col-md-offset-3" style="float: right; padding-right: 10%; padding-bottom: 20%;">
+	<div class="col-md-6 col-md-offset-3" style = "float: right; padding-right: 10%; padding-bottom: 20%; position: relative;">
 		<p class="fh5co-social-icons">
 		<a href="#"><i class="icon-twitter2"></i></a>
 		<a href="#"><i class="icon-facebook2"></i></a>
