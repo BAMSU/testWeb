@@ -38,37 +38,6 @@
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-<script>
-	function openLogin() {
-		var maskHeight = $(document).height(); 
-		var maskWidth = $(window).width();
-		//마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
-		$('#mask').css({'width':maskWidth,'height':maskHeight});
-		//마스크의 투명도 처리
-		$('#mask').fadeTo("slow",0.8);
-		window.open('memberLogin.we', 'login', 'left='+(screen.availWidth-1000)/ 2+',top='+(screen.availHeight-590)/2+', width=1000px,height=590px');
-		
-		
-	}
-	
-	
-</script>
-
-<!-- main jquery  -->
-<script>
-$(document).ready(function(){
-	
-
-	
-	$('.window .close').click(function (e) {  
-	    
-	    e.preventDefault();  
-	    $('#mask, .window').hide();  
-	});       
-    
-});
-</script>
-
 <style>
 #mask {
 	position: absolute;
@@ -78,7 +47,40 @@ $(document).ready(function(){
 	left: 0;
 	top: 0;
 }
+.bgimg{
+      width: 100%;
+      height: 480px;
+      position: relative;
+      cursor: pointer;
+      display: none;
+      background-repeat: no-repeat;
+      background-size: 100%;
+   }
+.bgtext{ 
+      position: absolute; 
+      z-index: 1; 
+      margin: 100px 130px;
+   }
+.bgtext hr{
+	margin: 0px;
+}
 </style>
+<script>
+   var index = 0;
+   $(document).ready(function(){
+	   slideshow();
+   });
+   function slideshow() {
+       var cd = document.getElementsByClassName("bgimg");
+       for (var i = 0; i < cd.length; i++) {
+          cd[i].style.display = "none"; 
+       }
+       index++;
+       if (index > cd.length) {index = 1} 
+       cd[index-1].style.display = "block"; 
+       setTimeout(slideshow, 2000);
+   }
+</script>
 </head>
 <body>
 	<div id="mask"></div>
@@ -126,40 +128,40 @@ $(document).ready(function(){
 			<%@include file="/header.jsp"%>
 
 			<!-- end:header-top -->
-
-			<div id="fh5co-couple" class="fh5co-section-gray">
-				<div class="container">
-					<div class="row row-bottom-padded-md animate-box">
-						<div class="col-md-6 col-md-offset-3 text-center">
-							<div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-								<img src="images/groom.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Jack Wood</h3>
-							</div>
-							<div class="col-md-2 col-sm-2 col-xs-2 nopadding">
-								<h2 class="amp-center">
-									<i class="icon-heart"></i>
-								</h2>
-							</div>
-							<div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-								<img src="images/bride.jpg" class="img-responsive"
-									alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-								<h3>Rose Thomas</h3>
-							</div>
-						</div>
-					</div>
-					<div class="row animate-box">
-						<div class="col-md-8 col-md-offset-2">
-							<div class="col-md-12 text-center heading-section">
-								<h2>Are Getting Married</h2>
-								<p>
-									<strong>on Dec 28, 2017 &mdash; Boracay, Philippines</strong>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+<div>
+<div class="bgimg" style="background-image: url('/finalproject/img/main/1.jpg'); display: block;" 
+   onclick="location.href='hallInfo.we?idx=1';">
+   <div class="bgtext">
+      <p style="font-size: 50px; margin-bottom: 10px; color: #393939;"><strong>호텔프리마</strong></p>
+      <hr style="width: 560px;">
+      <p style="font-size: 20px; color: #393939;">이국적인 정취의 로맨틱한 야외 정원 세련된 인테리어로 멋을 더한 호텔프리마!</p>
+   </div>
+</div>
+<div class="bgimg" style="background-image: url('/finalproject/img/main/2.jpg');"
+   onclick="location.href='hallInfo.we?idx=2';">
+   <div class="bgtext">
+      <p style="font-size: 50px; margin-bottom: 10px; color: white;"><strong>한강호텔웨딩홀</strong></p>
+      <hr style="width: 550px;">
+      <p style="font-size: 20px; color: white;">전 층 전면 통유리로 한강 전망을 바라보는 웨딩이 펼쳐지는 한강호텔웨딩홀!</p>
+   </div>
+</div>
+<div class="bgimg" style="background-image: url('/finalproject/img/main/4.jpg');"
+   onclick="location.href='hallInfo.we?idx=4';">
+   <div class="bgtext">
+      <p style="font-size: 50px; margin-bottom: 10px; color: black;"><strong>프레지던트호텔</strong></p>
+      <hr style="width: 365px;">
+      <p style="font-size: 20px; color: black;">프라이빗한 패밀리웨딩이 펼쳐지는 프레지던트호텔!</p>
+   </div>
+</div>
+<div class="bgimg" style="background-image: url('/finalproject/img/main/33.jpg');"
+   onclick="location.href='hallInfo.we?idx=33';">
+   <div class="bgtext">
+      <p style="font-size: 50px; margin-bottom: 10px; color: white;"><strong>베르가모</strong></p>
+      <hr style="width: 435px;">
+      <p style="font-size: 20px; color: white;">사랑의 맹세가 시작되는 감동의 순간이 탄생하는 베르가모!</p>
+   </div>
+</div>
+</div>
 			<div id="fh5co-countdown">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center animate-box">
