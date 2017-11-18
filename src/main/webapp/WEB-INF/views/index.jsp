@@ -61,9 +61,6 @@
       z-index: 1; 
       margin: 100px 130px;
    }
-.bgtext hr{
-	margin: 0px;
-}
 </style>
 <script>
    var index = 0;
@@ -133,7 +130,7 @@
    onclick="location.href='hallInfo.we?idx=1';">
    <div class="bgtext">
       <p style="font-size: 50px; margin-bottom: 10px; color: #393939;"><strong>호텔프리마</strong></p>
-      <hr style="width: 560px;">
+      <p style="width: 560px; background-color: #393939; height: 1px; margin: 0px;"></p>
       <p style="font-size: 20px; color: #393939;">이국적인 정취의 로맨틱한 야외 정원 세련된 인테리어로 멋을 더한 호텔프리마!</p>
    </div>
 </div>
@@ -141,15 +138,15 @@
    onclick="location.href='hallInfo.we?idx=2';">
    <div class="bgtext">
       <p style="font-size: 50px; margin-bottom: 10px; color: white;"><strong>한강호텔웨딩홀</strong></p>
-      <hr style="width: 550px;">
+      <p style="width: 550px; background-color: white; height: 1px; margin: 0px;"></p>
       <p style="font-size: 20px; color: white;">전 층 전면 통유리로 한강 전망을 바라보는 웨딩이 펼쳐지는 한강호텔웨딩홀!</p>
    </div>
 </div>
 <div class="bgimg" style="background-image: url('/finalproject/img/main/4.jpg');"
    onclick="location.href='hallInfo.we?idx=4';">
    <div class="bgtext">
-      <p style="font-size: 50px; margin-bottom: 10px; color: black;"><strong>프레지던트호텔</strong></p>
-      <hr style="width: 365px;">
+      <p style="font-size: 50px; margin-bottom: 10px; color: #393939;"><strong>프레지던트호텔</strong></p>
+      <p style="width: 365px; background-color: #393939; height: 1px; margin: 0px;"></p>
       <p style="font-size: 20px; color: black;">프라이빗한 패밀리웨딩이 펼쳐지는 프레지던트호텔!</p>
    </div>
 </div>
@@ -157,7 +154,7 @@
    onclick="location.href='hallInfo.we?idx=33';">
    <div class="bgtext">
       <p style="font-size: 50px; margin-bottom: 10px; color: white;"><strong>베르가모</strong></p>
-      <hr style="width: 435px;">
+      <p style="width: 435px; background-color: white; height: 1px; margin: 0px;"></p>
       <p style="font-size: 20px; color: white;">사랑의 맹세가 시작되는 감동의 순간이 탄생하는 베르가모!</p>
    </div>
 </div>
