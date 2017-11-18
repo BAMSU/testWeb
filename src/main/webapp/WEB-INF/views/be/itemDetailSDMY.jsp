@@ -72,6 +72,7 @@
 	</script>		
 </c:if>
 <div class="jumbotron">
+<div id="item_detail">
 <div align="center" style="float: left; padding-left: 10%; padding-right: 10%;">
 <ul id="slider" class="ul">
 		<li><img src="${dto.sdmy_img1}" width="480" height="380" /></li>
@@ -100,6 +101,7 @@
 	<c:param name="gubun" value="${dto.gubun}"></c:param>
 	<c:param name="idx" value="${dto.sdmy_idx}"></c:param>
 </c:url>
+</div>
 <br><br>
 &nbsp;&nbsp;&nbsp;<div style="align-content: left; padding-left: 25%; margin: auto;" >
   <h1 class="display-3">${dto.sdmy_be}</h1>
@@ -128,7 +130,7 @@
 
 
 
-
+<%@include file="/footer.jsp" %>
 </body>
 </html>
 

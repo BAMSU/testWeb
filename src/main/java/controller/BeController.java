@@ -673,7 +673,7 @@ public class BeController {
 			@RequestParam(value="cp", defaultValue="1")int cp
 			) {
 		ModelAndView mav = new ModelAndView();
-		int listSize = 1;
+		int listSize = 9;
 		int pageSize = 5;
 		int totalCnt= 0;
 		
