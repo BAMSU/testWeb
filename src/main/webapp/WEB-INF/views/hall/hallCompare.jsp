@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
+	section{
+		background-color: gray;
+	}
 	table{
 		width: 100%;
 	}
@@ -84,16 +87,16 @@
 	}
 	
 	#hct{
-		border-top: 1px solid #BDBDBD;
+		border-top: 3px solid #BDBDBD;
 	}
 	#hct th{
-		border-bottom: 1px solid #BDBDBD;
+		border-bottom: 3px solid #BDBDBD;
 		padding-left: 20px;
 		padding-right: 20px;
 	}
 	#hct td{
-		border-left: 1px solid #BDBDBD;
-		border-bottom: 1px solid #BDBDBD;
+		border-left: 3px solid #BDBDBD;
+		border-bottom: 3px solid #BDBDBD;
 		text-align: center;
 		padding: 10px;
 	}
@@ -125,9 +128,18 @@
 	}
 	.atd{
 		border: 0px;
+		background-color: #F6F6F6;
+		opacity: 0.5;
 	}
 	.ath{
+		border-right: 0px;
 		font-weight: bold;
+		background-color: #F6F6F6;
+		color: black;
+		opacity: 0.5;
+	}
+	.ctd{
+		background-color: white;
 	}
 </style>
 <script>
@@ -386,7 +398,8 @@
 <%@include file="/header.jsp"%>
 <section>
 	<article>
-		<div style="margin: 20px auto; width: 1300px;">
+		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
+		<div style="margin: 0px auto; width: 1300px; background-color: white; padding: 20px;">
 		<p><h2 style="display: inline;">홀 비교하기</h2>&nbsp;2개 이상의 웨딩홀을 선택하여, 식대, 가격, 교통 등 다양한 정보에 대한 비교 결과의 확인이 가능합니다.</p>
 		<form action="hallCompare.we" method="post">
 			<table id="hct">
@@ -448,91 +461,92 @@
 				</tr>
 			</thead>
 			<tbody>
-			<tr class="table-active">
+			<tr>
 				<td class="ath">지역정보</td>
 				<td colspan="3" class="atd"></td>
 			</tr>
 			<tr>
 				<th>지역</th>
-				<td class="hlocation"></td>
-				<td class="hlocation"></td>
-				<td class="hlocation"></td>
+				<td class="hlocation ctd"></td>
+				<td class="hlocation ctd"></td>
+				<td class="hlocation ctd"></td>
 			</tr>
 			<tr>
 				<th>지하철</th>
-				<td class="hstation"></td>
-				<td class="hstation"></td>
-				<td class="hstation"></td>
+				<td class="hstation ctd"></td>
+				<td class="hstation ctd"></td>
+				<td class="hstation ctd"></td>
 			</tr>
-			<tr class="table-active">
+			<tr>
 				<td class="ath">홀 정보</td>
 				<td colspan="3" class="atd"></td>
 			</tr>
 			<tr>
 				<th>홀형태</th>
-				<td class="htype"></td>
-				<td class="htype"></td>
-				<td class="htype"></td>
+				<td class="htype ctd"></td>
+				<td class="htype ctd"></td>
+				<td class="htype ctd"></td>
 			</tr>
-			<tr class="table-active">
+			<tr>
 				<td class="ath">메뉴,연회정보</td>
 				<td colspan="3" class="atd"></td>
 			</tr>
 			<tr>
 				<th>메뉴정보</th>
-				<td class="hmenu"></td>
-				<td class="hmenu"></td>
-				<td class="hmenu"></td>
+				<td class="hmenu ctd"></td>
+				<td class="hmenu ctd"></td>
+				<td class="hmenu ctd"></td>
 			</tr>
 			<tr>
 				<th>식사비용</th>
-				<td class="hcost"></td>
-				<td class="hcost"></td>
-				<td class="hcost"></td>
+				<td class="hcost ctd"></td>
+				<td class="hcost ctd"></td>
+				<td class="hcost ctd"></td>
 			</tr>
 			<tr>
 				<th>보증인원</th>
-				<td class="hguest"></td>
-				<td class="hguest"></td>
-				<td class="hguest"></td>
+				<td class="hguest ctd"></td>
+				<td class="hguest ctd"></td>
+				<td class="hguest ctd"></td>
 			</tr>
-			<tr class="table-active">
+			<tr>
 				<td class="ath">평가,리뷰</td>
 				<td colspan="3" class="atd"></td>
 			</tr>
 			<tr>
 				<th>별점평</th>
-				<td class="hgrade"></td>
-				<td class="hgrade"></td>
-				<td class="hgrade"></td>
+				<td class="hgrade ctd"></td>
+				<td class="hgrade ctd"></td>
+				<td class="hgrade ctd"></td>
 			</tr>
 			<tr>
 				<th>리뷰</th>
-				<td class="rvBtn"></td>
-				<td class="rvBtn"></td>
-				<td class="rvBtn"></td>
+				<td class="rvBtn ctd"></td>
+				<td class="rvBtn ctd"></td>
+				<td class="rvBtn ctd"></td>
 			</tr>
-			<tr class="table-active">
+			<tr>
 				<td class="ath">상세보기,견적내기</td>
 				<td colspan="3" class="atd"></td>
 			</tr>
 			<tr>
 				<th>상세보기</th>
-				<td class="ifBtn"></td>
-				<td class="ifBtn"></td>
-				<td class="ifBtn"></td>
+				<td class="ifBtn ctd"></td>
+				<td class="ifBtn ctd"></td>
+				<td class="ifBtn ctd"></td>
 			</tr>
 			<tr>
 				<th>견적내기</th>
-				<td class="emBtn"></td>
-				<td class="emBtn"></td>
-				<td class="emBtn"></td>
+				<td class="emBtn ctd"></td>
+				<td class="emBtn ctd"></td>
+				<td class="emBtn ctd"></td>
 			</tr>
 			</tbody>
 		</table>
-		<p style="text-align: center; margin-bottom: 50px;"><input type="button" value="목록보기" id="beforeBtn" class="btn btn-danger btn-lg"/></p>
+		<p style="text-align: center;"><input type="button" value="목록보기" id="beforeBtn" class="btn btn-danger btn-lg"/></p>
 		</div>
 		</div>
+		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
 	</article>
 </section>
 <%@include file="/footer.jsp"%>
