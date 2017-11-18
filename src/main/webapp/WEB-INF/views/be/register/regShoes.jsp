@@ -5,11 +5,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.button{
+	width:90px;
+	height:50px;
+	text-align: center;
+	vertical-align: center;
+	background: white;
+	opacity:0.4;
+	border:2px solid gray;
+	border-radius: 5px;
+}
+.button:hover{
+	background: transparent;
+}	
+</style>
 </head>
 <body>
 <!--웨딩슈즈 입력폼  -->
+<div style="width:90%;margin:auto; ">
+<h2>${sessionScope.besname } 상품 등록 신청</h2>
+	<br><br>
 <form action="regShoes.we" method="post" enctype="multipart/form-data">
-<table>
+<table align="center" style="margin:auto;width:100%;">
 	<tr>
 		<td>업체명</td>
 		<td><input type="text" name="shoes_be" value="${sessionScope.besname}"></td>
@@ -50,18 +68,20 @@
 	</tr>
 	
 	<tr>
+		<td>세부설명</td>
 		<td>
-			<textarea rows="20" cols="20" name="shoes_detail"></textarea>
+			<textarea rows="20" cols="40" name="shoes_detail"></textarea>
 		</td>
 	</tr>
 	
 	<tr>
-		<td>
+		<td colspan="2" align="center">
 			<input type="hidden" name="be_sort" value="${sessionScope.besort }">
 			<input type="submit" value="상품등록신청">
 		</td>
 	</tr>
 </table>
 </form>
+</div>
 </body>
 </html>

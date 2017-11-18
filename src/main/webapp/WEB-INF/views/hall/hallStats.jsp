@@ -9,10 +9,11 @@
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
+	section{
+		background-color: gray;
+	}
 	#hn{
 		border-bottom: 3px solid black;
-		margin-bottom: 20px;
-		padding: 30px;
 	}
 	table{
 		text-align: center;
@@ -132,7 +133,8 @@ var mon=new Array(12);
 <%@include file="/header.jsp"%>
 <section>
 	<article>
-		<div style="margin: 0px auto; width: 1100px;">
+		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
+		<div style="margin: 0px auto; width: 1100px; background-color: white; padding: 10px 20px;">
 		<div id="hn"><h2>${hallName}</h2></div>
 		<table class="table table-striped table-bordered">
 			<tr>
@@ -170,6 +172,7 @@ var mon=new Array(12);
 			</tr>
 		</table>
 		</div>
+		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
 	</article>
 </section>
 <%@include file="/footer.jsp"%>

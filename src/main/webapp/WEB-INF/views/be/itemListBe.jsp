@@ -10,8 +10,13 @@
 <body>
 <%@include file="beHeader.jsp" %>
 
-<h2>itemListBe.jsp</h2>
 <br><br>
+<div style="border:1px solid red; width:100%; margin:auto;">
+<c:set var="i" value="0"></c:set>
+
+<div style=" width:70%; align-self: center;margin:auto;">
+	<div style="width:100%; align-self: center; margin:auto;">
+	</div>
 
 <table>
 <c:choose>
@@ -110,20 +115,30 @@
 		 	</tr>
 		 </c:if>
 		 <c:forEach var="dto" items="${list}">
-		 	<tr>
-		 		<td align="center">
-		 		<c:url var="carUrl" value="item_detail_car.we">
+			<c:if test="${i%3==0}">
+				<tr>
+			</c:if>
+				<td id="td_csb" style="width: 200px;" class="table table-hover">
+				<c:url var="carUrl" value="item_detail_car.we">
 		 			<c:param name="car_idx" value="${dto.car_idx}" />
 		 		</c:url>
-		 			<a href="${carUrl}">
-		 			<img alt="썸네일" src="${dto.car_img}" width="300px">
-		 			<br>${dto.car_be}<br>
-		 			${dto.car_name}</a>
-		 			<br><br><br><br>
-		 		</td>
-		 	</tr>
-		 	
-		 </c:forEach>
+				<div class="gallery_content">
+				<div class="img_content" style="border: 1px thin gray; width:150px; height:150px;
+				 align-self: center; text-align: center; margin:auto; margin-bottom: 15px;">
+					<a href="${carUrl}">
+					<img alt="shoes" src="${dto.car_img }" width="150px" style="vertical-align: middle;"> 
+					<p>${dto.car_name}</p>
+					</a>
+					</div>
+				</div>
+				
+				</td>
+				<c:set var="i" value="${i+1}"></c:set>
+				
+			<c:if test="${i%3==0}">
+				</tr>
+			</c:if>
+		</c:forEach>
 	</c:when>
 	
 	<c:when test="${sessionScope.besort == '웨딩슈즈' }">
@@ -174,6 +189,7 @@
 
 </c:choose>
 </table>
-
+</div>
+</div>
 </body>
 </html>

@@ -12,19 +12,21 @@
 }
 </style>
 </head>
-<body>
+<body style="background-image: url('upload/beBackGround.jpg'); opacity: 0.9; background-size: cover;">
 <br>
 <br>
-<div style="width:80%; margin:auto;">
+<div style="background:white;  width:80%;;height:fit-content;padding:10px;margin:auto;">
+<div style="width:100%; margin:auto; ">
 	<div class="alert alert-dismissible alert-warning" align="center" >
 	  <h4>환영합니다!</h4>
-	  	<p>사랑이 머물다와 함께 하기 위해서는 등록 신청과 승인이 필요합니다. <br>
-	  	아래의 간단한 업체정보를 확인 후 담당자에게 개별 문의로 알려드립니다.</p>
+	  	<p>사랑이 머물다와 함께 하기 위해서는 등록 신청과 승인이 필요합니다.<br>
+	  	아래의 간단한 업체정보를 입력하시고 신청하시면 절차를 걸쳐 <br>
+	  	 담당자에게 개별로 알려드립니다.</p>
 	</div>
 </div>
 <!-- be_idx, be_sort, be_name, be_license, be_rep_tell, incharge_name, incharge_email, incharge_tell
 , be_loc, be_size, be_park, be_empnum, be_consult, admin_permission -->
-<div style="width:80%;margin:auto;">
+<div style="width:100%;margin:auto;">
 <form action="beJoin.we" name="beJoinForm" method="post">
 <table class="table table-striped table-hover table-bordered">
 	<tr>
@@ -99,6 +101,7 @@
    
 </table>
 </form>
+</div>
 </div>
 <br><br><br><br><br><br><br><br><br>
 <%@include file="/footer.jsp" %>

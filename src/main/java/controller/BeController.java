@@ -765,6 +765,8 @@ public class BeController {
 			) {
 		ModelAndView mav = new ModelAndView();
 		CarDTO dto = beDao.itemDetailCar(car_idx);
+		dto.setCar_detail(dto.getCar_detail().replaceAll("\r", "<br>"));
+		
 		beDao.carReadNum(car_idx);
 		
 		BeDTO bdto = beDao.itemDetailBe(dto.getCar_be());
@@ -782,6 +784,7 @@ public class BeController {
 			) {
 		ModelAndView mav = new ModelAndView();
 		ShoesDTO dto = beDao.itemDetailShoes(shoes_idx);
+		dto.setShoes_detail(dto.getShoes_detail().replaceAll("\r", "<br>"));
 		beDao.shoesReadNum(shoes_idx);
 		
 		BeDTO bdto = beDao.itemDetailBe(dto.getShoes_be());
@@ -799,11 +802,15 @@ public class BeController {
 			) {
 		ModelAndView mav = new ModelAndView();
 		BouqDTO dto = beDao.itemDetailBouq(bouq_idx);
+		dto.setBouq_simple(dto.getBouq_simple().replaceAll("\r", "<br>"));
+		
 		beDao.bouqReadNum(bouq_idx);
 		
 		BeDTO bdto = beDao.itemDetailBe(dto.getBouq_be());
 		System.out.println("업체 소재지:"+bdto.getBe_loc());
-
+		
+		
+		
 		mav.addObject("bdto", bdto);
 		mav.addObject("dto",dto);
 		mav.setViewName("be/itemDetailBouq");
