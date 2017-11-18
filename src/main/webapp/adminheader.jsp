@@ -19,17 +19,15 @@
 		$('#mask').css({'width':maskWidth,'height':maskHeight});
 		//마스크의 투명도 처리
 		$('#mask').fadeTo("slow",0.8);
-		window.open('memberLogin.we', 'login', 'left='+(screen.availWidth-1000)/ 2+',top='+(screen.availHeight-590)/2+', width=1000px,height=590px');
-		
-		
+		var left = (screen.availWidth-1000)/2;
+		var top = (screen.availHeight-590)/2;
+		window.open('memberLogin.we', 'login', 'left='+left+',top='+top+', width=1000px,height=590px');
 	}
-	
-	
 </script>
 <style>
-@import url('//fonts.googleapis.com/earlyaccess/jejuhallasan.css');
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
-	font-family: ''; 
+	font-family: 'Hanna'; 
 }
 a{
 	text-decoration: none;
@@ -61,6 +59,9 @@ a:hover{
                   location.href='index.we';
                   </script>
                </c:if>
+
+
+               
             </ul>
          </nav>
       </div>

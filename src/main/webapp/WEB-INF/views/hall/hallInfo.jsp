@@ -12,7 +12,9 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <c:set var="h" value="${hallInfo}"/>
 <style>
-
+section{
+	background-color: gray;
+}
 #map {
  height: 400px;
  width: 100%;
@@ -213,7 +215,8 @@ table tfoot td{
 <%@include file="/header.jsp"%>
 <section>
 	<article>
-		<div style="margin: 0px auto; width: 71%;">
+		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
+		<div style="margin: 0px auto; width: 71%; background-color: white;">
 		<div style="width: 500px; height: 400px; float: left; margin: 30px 30px; margin-bottom: 0px;">
 			<h2>${h.name}</h2>
 			<p style="border-bottom: 1px solid #EAEAEA; border-top: 1px solid #EAEAEA; margin: 20px 0px;"><a id="grade">☆☆☆☆☆</a><font color="red">${h.grade}점</font> <a id="scrap">♡</a></p>
@@ -456,11 +459,12 @@ table tfoot td{
 			  </li>
 			</ul>
 			
-			<div id="location" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 10px; margin-bottom: 50px;">
+			<div id="location" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 10px;">
 			  <div id="map"></div>
 			</div>
 		</div>
 		</div>
+		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
 	</article>
 </section>
 <%@include file="/footer.jsp"%>

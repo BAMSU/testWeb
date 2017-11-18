@@ -6,6 +6,40 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#tr1{
+	border:5px solid red;
+}
+.title{
+	text-align: center;
+	font-size: 30px;
+}
+#tr2{
+	border: 5px solid red;	
+	font-size: 20px;
+}
+#tr2.tr{
+	width: 50px;
+	height: 100px;
+}
+#tr3{
+	font-size: 30px;
+	border: 5px solid bule;
+	width: 50px;
+	height: 100px;
+}
+#tr5{
+	border: 5px solid yellow;
+}
+#tr6{
+	border: 5px solid black;
+}
+#tr7{
+	border: 5px solid bule;
+}
+
+</style>
+
 <script>
 function submit(){
 	alert('확인');
@@ -16,31 +50,31 @@ function submit(){
 </script>
 </head>
 <body>
-<%@include file="/header.we" %>
-	<div class="popup_title">견적내기</div>
+<%@include file="/header.jsp" %>
+	<div class="title">견적내기</div>
 	
-
-		<c:if test="${empty hallest}">
-		<h3>해당 내용이 없습니다.</h3>
-		</c:if>
-			<c:forEach var="est" items="${hallest}">
-				<table>
+		<div id="tr1">
+		<div class="td1">
+		
+		<c:set var="es" value="${hallmod}"/>
+			
+				<table class="tr2">
 					<tr>
-						<th rowspan="6" align="center">${est.hall_name }</th>
+						<th rowspan="6" align="center">${es.hall_name }</th>
 					</tr>
 				</table>
 
 				<h3>하객수</h3>
-				<table>
+				<table class="tr3">
 					<tr>
-						<td><input type="text" name="guest">${est.est_guest }</td>
+						<td>${es.est_guest }</td>
 					</tr>
 				</table>
 
 
 				<h3>결혼 예정일</h3>
-				<table>
-					<tbody>
+				<table class="tr4">
+					<tbody class="td2">
 						<tr>
 							<td><input type="text" name="wedding"> <select
 								name="be">
@@ -54,7 +88,7 @@ function submit(){
 
 				<h3>홀 선택</h3>
 
-				<table>
+				<table class="tr5">
 					<tbody>
 						<tr>
 
@@ -66,16 +100,21 @@ function submit(){
 							<th>예식 간격</th>
 						</tr>
 
+						
+						
 						<tr>
-							<td><input type="radio" name="hall_name" checked="checked">
+						<c:forEach var="e" items="${dtorom}">
+							<td><input type="radio" name="halame" checked="checked">
 							</td>
-							<td>${est.room_type1 }</td>
+							<td>${e.name}</td>
+							</c:forEach>
 						</tr>
+						 
 					</tbody>
 				</table>
 
 				<h3>사용료</h3>
-				<table>
+				<table id="tr6">
 					<tbody>
 						<tr>
 							<th>선택</th>
@@ -152,7 +191,7 @@ function submit(){
 				</table>
 
 				<h3>식사 메뉴</h3>
-				<table>
+				<table id="tr7">
 					<tr>
 						<th>선택</th>
 						<th>메뉴</th>
@@ -162,20 +201,20 @@ function submit(){
 
 					<tr>
 						<td><input type="radio" name="hall_meal" checked="checked"></td>
-						<td>${dto.meal }</td>
-						<td>${dto.meal_price }</td>
-						<td>${dto.meal_content }</td>
+						<td>${es.meal }</td>
+						<td>${es.meal_price }</td>
+						<td>${es.meal_content }</td>
 					</tr>
 					<tr>
 						<td><input type="radio" name="hall_meal" checked="checked"></td>
-						<td>${dto.meal }</td>
-						<td>${dto.meal_price2 }</td>
-						<td>${dto.meal_content2 }</td>
+						<td>${es.meal }</td>
+						<td>${es.meal_price2 }</td>
+						<td>${es.meal_content2 }</td>
 					</tr>
 				</table>
 
 				<h3>음주류 선택</h3>
-				<table>
+				<table id="tr8">
 					<tr>
 						<th>선택</th>
 						<th>음주류</th>
@@ -195,12 +234,12 @@ function submit(){
 						<td>총 견적비용  : ${es.hall_price1+es.ourfit_price+es.meal_price}</td>
 					</tr>
 				</table>
-</c:forEach>
+
 				<input type="button" value="견적확인하기" onclick="submit();">
 				<input type="button" value="닫기" onclick="colse()">
 			
-		
-	
-	<%@include file="/footer.we" %>
+		</div>
+	</div>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>
