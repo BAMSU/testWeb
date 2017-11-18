@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import yong.card.model.CardDAO;
 import yong.card.model.CardDTO;
+import yong.card.model.PageModule;
 import yong.cardOrder.model.CardOrderDAO;
 import yong.cardOrder.model.CardOrderDTO;
 
@@ -55,12 +56,13 @@ public class CardController {
 		int totalCnt = cardDao.getTotalCnt();
 		int listSize = 8;
 		int pageSize = 5;
-		String pageStr = yong.page.PageModule.makePage("cardList.we", totalCnt, listSize, pageSize, cp);
+		String pageStr = PageModule.makePage("cardList.we", totalCnt, listSize, pageSize, cp);
 		
 		List<CardDTO> list=cardDao.cardList(cp,listSize, type);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.addObject("pageStr", pageStr);
+		mav.addObject("type", type-1);
 		mav.setViewName("card/cardMain");
 		return mav;
 	}
@@ -114,7 +116,7 @@ public class CardController {
 		return mav;
 	}
 	
-	/*모바일 페이지 제작 후 QR코드 생성*/
+	/*紐⑤컮�씪 �럹�씠吏� �젣�옉 �썑 QR肄붾뱶 �깮�꽦*/
 	 @RequestMapping(value = "/imgsave.we",method = {RequestMethod.GET, RequestMethod.POST})
 	 public ModelAndView createImage1(HttpServletRequest request) 
 			 throws Exception {
@@ -139,39 +141,39 @@ public class CardController {
 		 try {
 	            File file = null;
 	            
-	            // 큐알이미지를 저장할 디렉토리 지정
+	            // �걧�븣�씠誘몄�瑜� ���옣�븷 �뵒�젆�넗由� 吏��젙
 	            file = new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/");
 	            if(!file.exists()) {
 	                file.mkdirs();
 	            }
-	            // 코드인식시 링크걸 URL주소
+	            // 肄붾뱶�씤�떇�떆 留곹겕嫄� URL二쇱냼
 	            String codeurl = new String("http://172.30.1.23:9090/finalproject/mobile_img/"+fileName + ".png");
-	            // 큐알코드 바코드 생상값
+	            // �걧�븣肄붾뱶 諛붿퐫�뱶 �깮�긽媛�
 	            int qrcodeColor =   0xFF2e4e96;
-	            // 큐알코드 배경색상값
+	            // �걧�븣肄붾뱶 諛곌꼍�깋�긽媛�
 	            int backgroundColor = 0xFFFFFFFF;
 	             
 	            QRCodeWriter qrCodeWriter = new QRCodeWriter();
-	            // 3,4번째 parameter값 : width/height값 지정
+	            // 3,4踰덉㎏ parameter媛� : width/height媛� 吏��젙
 	            BitMatrix bitMatrix = qrCodeWriter.encode(codeurl, BarcodeFormat.QR_CODE,200, 200);
 	            //
 	            MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
 	            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
-	            // ImageIO를 사용한 바코드 파일쓰기
+	            // ImageIO瑜� �궗�슜�븳 諛붿퐫�뱶 �뙆�씪�벐湲�
 	            ImageIO.write(bufferedImage, "png", new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/"+fileName + ".png"));
 	        	
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }  
 	 } catch (Exception e) {
-		 System.out.println("파일이 정상적으로 넘어오지 않았습니다");
+		 System.out.println("�뙆�씪�씠 �젙�긽�쟻�쑝濡� �꽆�뼱�삤吏� �븡�븯�뒿�땲�떎");
 		 return mav;
 	 } finally {
 		 stream.close();
 	 }
 	 	return mav;
 	 }
-	 /** * 캡쳐된 화면 서버 저장 * @param request * @return * @throws Exception */ 
+	 /** * 罹≪퀜�맂 �솕硫� �꽌踰� ���옣 * @param request * @return * @throws Exception */ 
 	 @RequestMapping(value="/imgsave2.we")
 	 public ModelAndView createImage(HttpServletRequest request) 
 			 throws Exception {
@@ -193,7 +195,7 @@ public class CardController {
 		 stream.close();
 		 mav.addObject("filename", fileName);
 	 } catch (Exception e) {
-		 System.out.println("파일이 정상적으로 넘어오지 않았습니다");
+		 System.out.println("�뙆�씪�씠 �젙�긽�쟻�쑝濡� �꽆�뼱�삤吏� �븡�븯�뒿�땲�떎");
 		 return mav;
 	 } finally {
 		 stream.close();
@@ -201,7 +203,7 @@ public class CardController {
 	 	return mav;
 	 }
 	 
-	 /** QR코드 */
+	 /** QR肄붾뱶 */
 	 @RequestMapping("/qrMake.we")
 	 public ModelAndView qrCode() {
 		 ModelAndView mav = new ModelAndView();
@@ -209,7 +211,7 @@ public class CardController {
 	        
 	        return mav;
 	}
-	 /**청첩장 주문*/
+	 /**泥�泥⑹옣 二쇰Ц*/
 	 @RequestMapping("/priceOrder.we")
 	 public ModelAndView cardorder(CardOrderDTO dto){
 		int result = cardOrderDao.Order(dto);
