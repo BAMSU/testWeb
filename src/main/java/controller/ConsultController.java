@@ -63,6 +63,7 @@ public class ConsultController {
 		return mav;
 	}
 	
+	
 	@RequestMapping("/consultDel.we")
 	public ModelAndView consultDel(@RequestParam("idx")int idx){
 		

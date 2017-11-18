@@ -28,6 +28,7 @@ public class AdminController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		mav.addObject("type", type);
 		mav.addObject("list", dao.aCList(type));
 		mav.setViewName("admin/fqList");
 		
