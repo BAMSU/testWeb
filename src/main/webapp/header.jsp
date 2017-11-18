@@ -25,9 +25,9 @@
 	}
 </script>
 <style>
-@import url('//fonts.googleapis.com/earlyaccess/jejuhallasan.css');
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
-	font-family: ''; 
+	font-family: 'Hanna'; 
 }
 a{
 	text-decoration: none;

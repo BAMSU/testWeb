@@ -25,8 +25,7 @@ a {
 	color: pink;
 	font-size: 20px;
 }
-
-.hif th{
+#hif td{
 	color: gray;
 }
 table th{
@@ -86,6 +85,7 @@ table tfoot td{
 </script>
 <script>
 	var srp = ${srp};
+	var sname='${userName}';
 	$(document).ready(function(){
 		$('#grade').css('color','red');
 		var gg = ${h.grade};
@@ -164,7 +164,6 @@ table tfoot td{
 	
 	function cgSrp(){
 		var iii=${h.idx};
-		var sname='${userName}';
 		if($('#scrap').text()=='♡'){
 			$('#scrap').hover(function(){
 				$(this).text('♥').css('font-size','25px');
@@ -198,6 +197,14 @@ table tfoot td{
 					});
 				}
 			});
+		}
+	}
+	
+	function goConsult(i){
+		if(sname==null || sname==''){
+			alert('로그인하여 주세요.');
+		}else{
+			location.href='consult.we?gubun=1&idx='+i;
 		}
 	}
 </script>
@@ -237,7 +244,7 @@ table tfoot td{
 				</tr>
 			</table>
 			<hr style="color: gray;">
-			<h4 style="color: gray;"><font color="red">※</font>체크포인트</h4>
+			<h4><font color="red">※</font>체크포인트</h4>
 			<p><small class="text-muted">${h.ckPoint}</small></p>
 		</div>
 		<div style="width: 450px; height: 350px; float: left; margin: 30px 30px;">
@@ -246,7 +253,7 @@ table tfoot td{
 				<input type="button" class="btn btn-secondary" value="견적내기"/>
 				<input type="button" class="btn btn-secondary" value="비교하기" onclick="location.href='hallCompare.we?idx=${h.idx}'"/>
 				<input type="button" class="btn btn-secondary" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'"/>
-				<input type="button" class="btn btn-primary" value="상담신청" onclick="location.href='consult.we?gubun=1&idx=${h.idx}'"/>
+				<input type="button" class="btn btn-primary" value="상담신청" onclick="goConsult('${h.idx}')"/>
 			</p>
 		</div>
 		<div style="width: 1000px; clear: both; margin: 0px 30px;">
