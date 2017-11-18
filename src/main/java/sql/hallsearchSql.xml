@@ -5,15 +5,12 @@
   
   <mapper namespace="hallsearch">
  	
- <select id="hallsearchSQL" resultType="hall.model.HallDTO">
+  <select id="hallsearchSQL" resultType="hall.model.HallDTO">
     select * from hall order by idx desc
  
  </select>
-    
-    
-
-
-<<<<<<< HEAD
+ 
+ 
 	<select id="hall_searchview1" parameterType="map" resultType="hall.model.HallDTO">
 		select * from hall where hallType like '%'||#{hallType}||'%' and menuType like '%'||#{menuType}||'%'
 		<choose>
@@ -40,17 +37,10 @@
 		</choose>
 	</select>
 	
-=======
-<!--   where name=#{name} and hallType=#{hallType} and menuType=#{menuType} and 
-  mealCost=#{mealCost} and guest=#{guest} order by idx desc -->
- <select id="hall_searchview1" parameterType="map"  resultType="hall.model.HallDTO">
+
+ <select id="hall_searchview2" parameterType="map"  resultType="hall.model.HallDTO">
  	select * from hall where hallType like '%#{hallType}%' and menuType like '%#{menuType}%' 
- 	<!-- <if test="hallType!=null">
- 	 and hallType like '%#{hallType}%'
- 	 </if> -->
- 	 <!-- <if test="menuType!=null">
- 	 and menuType like '%#{menuType}%'
- 	 </if> -->
+
  	 <if test="line!=null">
  	and line = #{line} 
  	 </if>
@@ -58,11 +48,6 @@
  	 and name = #{name} 
  	 </if>
 </select>
-<select id="hall_searchview2" resultType="hallEstimate.model.HalleDTO">
-select * from hall_estimate where est_guest like '%#{est_guest}%' and meal_price like '%#{meal_price}'
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
-
-<<<<<<< HEAD
 
 	<select id="hall_estlistSQL" parameterType="map" resultType="hallEstimate.model.HalleDTO">
 		select * from hall_estimate order by hall_idx desc
@@ -101,39 +86,16 @@ select * from hall_estimate where est_guest like '%#{est_guest}%' and meal_price
 		select * from hall where name like '%'||#{name}||'%'
 	</select>
 	
-	
-	
-=======
-</select>
-	 	
+<!-- 	 	
  	<select id="hall_estlistSQL" parameterType="map" resultType="hallEstimate.model.HalleDTO">
  	select * from hall_estimate order by idx desc
  	</select>
- 	
+ 	 -->
  
 
  	  <select id="hall_rankSQL" resultType="review.model.ReviewDTO">
  	  select * from hallreview order by idx desc
  	  </select>
- 	  
- 	  
-    <!-- <insert id="hall_estlistSQL2" parameterType="yong.hall.model.HalleDTO">
-  <![CDATA[
-  insert into hall_estimate values(hall_estimate_idx.nextval,#{hall_name},
-  #{est_guest},#{gestalt},#{guest},#{interval},#{hall_product},
-  #{hall_price},#{hall_note},#{hall_content},#{meal},#{meal_price},
-  #{meal_content},
-  #{drink_type},#{drink_price},#{volume})]]>
-  </insert>  -->
+
  
- 	
- 	<!--  	<update id="hall_estimateSQL" parameterType="yong.hall.model.HalleDTO">
- 	update hall_estimate set hall_name=#{hall_name},hall_type=#{hall_type},
- 	gestalt=#{gestalt},guest=#{guest},interval=#{interval},hall_product=#{hall_product},
- 	hall_price=#{hall_price},hall_note=#{hall_note},hall_content=#{hall_content},
- 	meal=#{meal},meal_price=#{meal_price},meal_content=#{meal_content},drink_type=#{drink_type},
- 	drink_price=#{drink_price},volume=#{volume} where idx=#{idx}
- 	</update> -->
- 
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
 </mapper>

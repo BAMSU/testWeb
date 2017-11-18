@@ -22,7 +22,7 @@ public class HalleDAOImple implements HalleDAO {
 	
 
 	public List<HallDTO> hallList(Map map) {
-		List<HallDTO> list = sqlMap.selectList("hall_searchview1",map);
+		List<HallDTO> list = sqlMap.selectList("hallsearchSQL",map);
 		return list;
 	}
 	
@@ -31,7 +31,7 @@ public class HalleDAOImple implements HalleDAO {
 		map.put("est_guest", est_guest);
 		map.put("price1", meal_price);
 		map.put("price2", meal_price2);
-		List<HalleDTO> list = sqlMap.selectList("hall_searchview2",map);
+		List<HalleDTO> list = sqlMap.selectList("hall_searchview1",map);
 		return list;
 	}
 	
@@ -39,7 +39,7 @@ public class HalleDAOImple implements HalleDAO {
 		Map map = new HashMap();
 		map.put("lineType", lineType);
 		map.put("search_text", search_text);
-		List<HallDTO> list = sqlMap.selectList("hall_searchview3", map);
+		List<HallDTO> list = sqlMap.selectList("hall_searchview2", map);
 		return list;
 	}
 

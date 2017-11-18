@@ -130,5 +130,5 @@ public class HallSearchController {
 		mav.setViewName("card/pSearch");
 		return mav;
 	}
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
+
 }
