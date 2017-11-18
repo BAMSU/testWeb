@@ -25,8 +25,7 @@ a {
 	color: pink;
 	font-size: 20px;
 }
-
-.hif th{
+#hif td{
 	color: gray;
 }
 table th{
@@ -86,6 +85,7 @@ table tfoot td{
 </script>
 <script>
 	var srp = ${srp};
+	var sname='${userName}';
 	$(document).ready(function(){
 		$('#grade').css('color','red');
 		var gg = ${h.grade};
@@ -111,7 +111,6 @@ table tfoot td{
 		
 		initSrp();
 		cgSrp();
-		
 	});
 	
 	function setSlide(i){
@@ -165,7 +164,6 @@ table tfoot td{
 	
 	function cgSrp(){
 		var iii=${h.idx};
-		var sname='${userName}';
 		if($('#scrap').text()=='♡'){
 			$('#scrap').hover(function(){
 				$(this).text('♥').css('font-size','25px');
@@ -199,6 +197,14 @@ table tfoot td{
 					});
 				}
 			});
+		}
+	}
+	
+	function goConsult(i){
+		if(sname==null || sname==''){
+			alert('로그인하여 주세요.');
+		}else{
+			location.href='consult.we?gubun=1&idx='+i;
 		}
 	}
 </script>
@@ -238,7 +244,7 @@ table tfoot td{
 				</tr>
 			</table>
 			<hr style="color: gray;">
-			<h4 style="color: gray;"><font color="red">※</font>체크포인트</h4>
+			<h4><font color="red">※</font>체크포인트</h4>
 			<p><small class="text-muted">${h.ckPoint}</small></p>
 		</div>
 		<div style="width: 450px; height: 350px; float: left; margin: 30px 30px;">
@@ -247,7 +253,7 @@ table tfoot td{
 				<input type="button" class="btn btn-secondary" value="견적내기"/>
 				<input type="button" class="btn btn-secondary" value="비교하기" onclick="location.href='hallCompare.we?idx=${h.idx}'"/>
 				<input type="button" class="btn btn-secondary" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'"/>
-				<input type="button" class="btn btn-primary" value="상담신청" onclick="location.href='consult.we?gubun=1&idx=${h.idx}'"/>
+				<input type="button" class="btn btn-primary" value="상담신청" onclick="goConsult('${h.idx}')"/>
 			</p>
 		</div>
 		<div style="width: 1000px; clear: both; margin: 0px 30px;">
@@ -405,31 +411,31 @@ table tfoot td{
 			  	<p>작성된 리뷰가 없습니다.</p>
 			  </c:if>
 			  <c:if test="${!empty reviewList}">
-			  <table class="table table-striped table-hover table-bordered">
-			  	<thead class="thd">
-			  		<tr>
-			  			<th>제목</th>
-			  			<th>평점</th>
-			  			<th>등록일</th>
-			  			<th>조회수</th>
-			  		</tr>
-			  	</thead>
-			  	<tfoot>
-			  		<tr>
-			  			<td colspan="4">${pageStr}</td>
-			  		</tr>
-			  	</tfoot>
-			  	<tbody>
-			  		<c:forEach var="rv" items="${reviewList}">
+				  <table class="table table-striped table-hover table-bordered">
+				  	<thead class="thd">
 				  		<tr>
-				  			<td onclick="location.href='reviewContent.we?idx=${rv.idx}&idx2=${h.idx}'">${rv.subject}</td>
-				  			<td>${rv.average}</td>
-				  			<td>${rv.writedate}</td>
-				  			<td>${rv.readnum}</td>
+				  			<th>제목</th>
+				  			<th>평점</th>
+				  			<th>등록일</th>
+				  			<th>조회수</th>
 				  		</tr>
-			  		</c:forEach>
-			  	</tbody>
-			  </table>
+				  	</thead>
+				  	<tfoot>
+				  		<tr>
+				  			<td colspan="4">${pageStr}</td>
+				  		</tr>
+				  	</tfoot>
+				  	<tbody>
+				  		<c:forEach var="rv" items="${reviewList}">
+					  		<tr>
+					  			<td style="cursor: pointer;" onclick="location.href='reviewContent.we?idx=${h.idx}&idx2=${rv.review_idx}'">${rv.subject}</td>
+					  			<td>${rv.average}</td>
+					  			<td>${rv.writedate}</td>
+					  			<td>${rv.readnum}</td>
+					  		</tr>
+				  		</c:forEach>
+				  	</tbody>
+				  </table>
 			  </c:if>
 			</div>
 			
@@ -453,7 +459,6 @@ table tfoot td{
 			<div id="location" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 10px; margin-bottom: 50px;">
 			  <div id="map"></div>
 			</div>
-		</div>
 		</div>
 		</div>
 	</article>

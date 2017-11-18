@@ -2,7 +2,13 @@
 <<<<<<<=HEAD
 >>>>>>>=branch 'master' of https\://github.com/BAMSU/testWeb.git
 eclipse.preferences.version=1
+encoding//src/main/java/ahall/model/PageModule.java=UTF-8
+encoding//src/main/java/ahall/model/PageModule2.java=UTF-8
+encoding//src/main/java/controller/CardController.java=UTF-8
 encoding//src/main/java/controller/FileManagerController.java=UTF-8
 encoding//src/main/java/controller/HallController.java=UTF-8
 encoding//src/main/java/controller/MemberController.java=UTF-8
 encoding//src/main/java/fly/model/FlyDTO_Inter.java=UTF-8
+encoding//src/main/java/hall/model/PageModule.java=UTF-8
+encoding//src/main/java/yong/card/model/PageModule.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/hall/hallCompare.jsp=UTF-8

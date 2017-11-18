@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%@include file="/header.jsp" %>
 <style>
 	body{
 		margin-left:100px;
@@ -77,11 +78,6 @@ function ok(){
 		           msg += '결제 금액 : ' + rsp.paid_amount;
 		           msg += '카드 승인번호 : ' + rsp.apply_num; */
 		           
-	        	   if(confirm("결제가 완료되었습니다. 마이페이지로 이동하시겠습니까?")==true){
-		        	   location.href=
-		           } else{
-		        	   
-		           }
 		    } else {
 		       var msg = '결제에 실패하였습니다.';
 		        msg += '에러내용 : ' + rsp.error_msg;
@@ -93,9 +89,8 @@ function ok(){
 	   return;
 	}
 
-
-   
 }
+
 </script>
 
 </head>
@@ -112,6 +107,18 @@ function gita(){
 	}else{
 		tgita.disabled=true;
 	}
+}
+function inputval(){
+	var sname;
+	'${sname}'==null?sname="":sname='${sname}';
+	document.getElementById("o_code").value= ${idx};
+	document.getElementById("o_id").value=sname;
+	document.getElementById("o_name").value=sname;
+	document.getElementById("o_phone").value=document.getElementById("phone").value;
+	document.getElementById("o_addr").value="(" + document.getElementById('sample4_postcode').value + ") " + document.getElementById('sample4_roadAddress').value
+	+" " + document.getElementById('sample4_jibunAddress').value + document.getElementById('sample4_sangAddress').value
+	document.getElementById("o_memo").value= document.getElementById("memo").value;
+	document.getElementById("o_img").value = '${filename}';
 }
 function show(){
 	var price = document.all.price;
@@ -163,10 +170,9 @@ function show(){
 		opti +='봉투삽입서비스\n';
 	}
 	
-	alert(cucu + " %% " + opti)
 	var envtype = $("input[type=radio][name=envsel]:checked").val(); //봉투 타입
 	var envcnt = document.getElementById("envsu").value; //봉투 수량
-	
+	alert(cucu + " %% " + opti + " %%" + envtype + " saf " + envcnt);	
 	//if{
 		
 	//}
@@ -177,9 +183,14 @@ function show(){
 	
 	var total = document.all.total;
 	total.innerHTML=ttprice;
-	//o_count 
-	//o_sale 
-	//o_plus 
+	document.getElementById("o_id").value = envcnt; //o_id는 봉투 수량로 바꿧음
+	document.getElementById("o_count").value = su;
+	document.getElementByIdo_option
+	("o_sale").value = sale;
+	document.getElementById("o_plus").value = cucu;
+	document.getElementById("o_price").value = mal;
+	document.getElementById("o_env").value=envtype; //얘는 봉투 종류
+	document.getElementById("o_option").value=opti
 	document.getElementById("totalprice").value = ttprice; //o_price 
 }
 </script>
@@ -209,23 +220,29 @@ function show(){
 	<table class="type03">
     <tr>
         <th scope="row">주문자명</th>
-        <td><input type="text"></td>
+        <td><input type="text" id="name" class="text" value="${sname }" readonly></td>
     </tr>
     <tr>
         <th scope="row">핸드폰 번호</th>
-        <td><input type="text"></td>
+        <td><input type="text" id="phone" class="text" onchange="inputval()"></td>
     </tr>
     <tr>
         <th scope="row">주소</th>
-        <td><input type="text" id="sample4_postcode" placeholder="우편번호"><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+        <td><input type="text" id="sample4_postcode" placeholder="우편번호" onchange="inputval()"><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
         <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-<input type="text" id="sample4_jibunAddress" placeholder="지번주소"><span id="guide" style="color:#999"></span>
+<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+<input type="text" id="sample4_sangAddress" placeholder="상세주소" onchange="inputval()"><span id="guide" style="color:#999"></span>
         </td>
     </tr>
+    <tr>
+    	<th>메모</th>
+    	<td><textarea rows="3" cols="40" id="memo" onchange="inputval()"></textarea></td>
+    </tr>
 </table>
+
 </div>
 <div id="env">
-<img src="card_img/env.jpg" width="350px" height="300px">
+<img src="card_img/env.jpg" width="350px" height="300px" onchange="show()">
 
 <input type="radio" value="1번" name="envsel">
 <input type="radio" value="2번" name="envsel">
@@ -259,21 +276,22 @@ function show(){
 <br>
 </div>
 <br><br>
-<form id="cOrder" action="ok()">
-		<input type="hidden" id="o_id" name="o_id">
-		<input type="hidden" id="o_code" name="o_code">
-		<input type="hidden" id="o_name"  name="o_name">
-		<input type="hidden" id="o_phone" name="o_phone">
-		<input type="hidden" id="o_addr" name="o_addr">
-		<input type="hidden" id="o_memo" name="o_memo">
-		<input type="hidden" id="o_env" name="o_env">
-		<input type="hidden" id="o_option" name="o_option">
-		<input type="hidden" id="o_count" name="o_count">
-		<input type="hidden" id="o_sale" name="o_sale">
-		<input type="hidden" id="o_plus" name="o_plus">
-		<input type="hidden" id="o_price" name="o_price">
-		<input type="hidden" id="o_img" name="o_img">
-		<input type="submit" value="결제">
+<input type="button" value="결재" onclick="ok()">
+<form id="cOrder" action="priceOrder.we">
+		<input type="text" id="o_id" name="o_id">
+		<input type="text" id="o_code" name="o_code">
+		<input type="text" id="o_name"  name="o_name">
+		<input type="text" id="o_phone" name="o_phone">
+		<input type="text" id="o_addr" name="o_addr">
+		<input type="text" id="o_memo" name="o_memo">
+		<input type="text" id="o_env" name="o_env">
+		<input type="text" id="o_option" name="o_option">
+		<input type="text" id="o_count" name="o_count">
+		<input type="text" id="o_sale" name="o_sale">
+		<input type="text" id="o_plus" name="o_plus">
+		<input type="text" id="o_price" name="o_price">
+		<input type="text" id="o_img" name="o_img">
+		<input type="submit" value="다음">
 	</form>
 <br>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -318,4 +336,5 @@ function show(){
     }
 </script>
 </body>
+<%@include file="/footer.jsp" %>
 </html>

@@ -13,6 +13,17 @@ public class aHallDAOImple implements aHallDAO {
 	public aHallDAOImple(SqlSessionTemplate sst) {
 		this.sst = sst;
 	}
+	
+	public int getTotelContByHall2() {
+        return sst.selectOne("totalaHall");
+     }
+	
+	public List hallaList(int cp, int ls) {
+        Map m = new HashMap();
+        m.put("startnum", (cp-1)*ls+1);
+        m.put("endnum", cp*ls);
+        return sst.selectList("ahallPList",m);
+     }
 
 	public aHallDTO getHallInfo(int idx) {
 		return sst.selectOne("ahallInfoSQL",idx);

@@ -1,16 +1,15 @@
 package yong.cardOrder.model;
 
-import java.sql.Date;
-
 public class CardOrderDTO {
 	private int o_idx;
 	private String o_id;
 	private int o_code;
+	private String o_name;
 	private String o_phone;
 	private String o_addr;
 	private String o_memo;
 	private String o_env;
-	private String e_option;
+	private String o_option;
 	private int o_count ;
 	private int o_sale ;
 	private int o_plus ;
@@ -21,17 +20,18 @@ public class CardOrderDTO {
 	public CardOrderDTO() {
 	}
 
-	public CardOrderDTO(int o_idx, String o_id, int o_code, String o_phone, String o_addr, String o_memo, String o_env,
-			String e_option, int o_count, int o_sale, int o_plus, int o_price, String o_img, String ect) {
+	public CardOrderDTO(int o_idx, String o_id, int o_code, String o_name, String o_phone, String o_addr, String o_memo,
+			String o_env, String o_option, int o_count, int o_sale, int o_plus, int o_price, String o_img, String ect) {
 		super();
 		this.o_idx = o_idx;
 		this.o_id = o_id;
 		this.o_code = o_code;
+		this.o_name = o_name;
 		this.o_phone = o_phone;
 		this.o_addr = o_addr;
 		this.o_memo = o_memo;
 		this.o_env = o_env;
-		this.e_option = e_option;
+		this.o_option = o_option;
 		this.o_count = o_count;
 		this.o_sale = o_sale;
 		this.o_plus = o_plus;
@@ -62,6 +62,14 @@ public class CardOrderDTO {
 
 	public void setO_code(int o_code) {
 		this.o_code = o_code;
+	}
+
+	public String getO_name() {
+		return o_name;
+	}
+
+	public void setO_name(String o_name) {
+		this.o_name = o_name;
 	}
 
 	public String getO_phone() {
@@ -96,12 +104,12 @@ public class CardOrderDTO {
 		this.o_env = o_env;
 	}
 
-	public String getE_option() {
-		return e_option;
+	public String getO_option() {
+		return o_option;
 	}
 
-	public void setE_option(String e_option) {
-		this.e_option = e_option;
+	public void setO_option(String o_option) {
+		this.o_option = o_option;
 	}
 
 	public int getO_count() {
@@ -151,5 +159,6 @@ public class CardOrderDTO {
 	public void setEct(String ect) {
 		this.ect = ect;
 	}
+
 	
 }

@@ -33,4 +33,7 @@ public class HallDAOImple implements HallDAO {
 	public List getHallListByName(String name) {
 		return sst.selectList("hallAddSearchByNameSQL",name);
 	}
+	public HallDTO hallSer(String hallname) {
+		return sst.selectOne("hallnameSer", hallname);
+	}
 }

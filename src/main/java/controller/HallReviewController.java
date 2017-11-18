@@ -71,16 +71,19 @@ public class HallReviewController {
 	
 	
 	@RequestMapping("/AllhallList.we")
-	public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp){
-	
-		int totalCnt = reviewDao.getTotelCont();
+	public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp,
+			@RequestParam(value="name",defaultValue="0")String name){
+		int totalCnt = reviewDao.getTotelContByHall(name);
 		int listSize = 5;
-		int pageSize = 2;
+		int pageSize = 5;
 		String pageStr = yong.page.PageModule.makePage("AllhallList.we", totalCnt, listSize, pageSize, cp);
 		
+		List<ReviewDTO> list=reviewDao.hallReviewList(cp, listSize, name);
 		
-		List<ReviewDTO> list=reviewDao.AllReviewList(cp,listSize);
-		
+		if(name.equals("0")){
+			totalCnt = reviewDao.getTotelCont();
+			list=reviewDao.AllReviewList(cp,listSize);
+		}
 		
 		ModelAndView mav = new ModelAndView();
 	
