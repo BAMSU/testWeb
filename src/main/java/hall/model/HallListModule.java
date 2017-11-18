@@ -7,7 +7,7 @@ public class HallListModule {
 		StringBuffer sb = new StringBuffer();
 		sb.append("<div id='hallList'>");
 		for(HallDTO h : hl){
-			sb.append("<p><a>"+h.getName()+"</a>&nbsp;&nbsp;<input type='button' value='ì„ íƒ' "
+			sb.append("<p><a>"+h.getName()+"</a>&nbsp;&nbsp;<input type='button' value='¼±ÅÃ' "
 					+ "onclick='selHall("+h.getIdx()+")' class='btn btn-info btn-sm'/></p>");
 		}
 		sb.append("</div>");
