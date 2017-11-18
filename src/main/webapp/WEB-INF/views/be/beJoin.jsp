@@ -8,14 +8,14 @@
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <style type="text/css">
 .td1 {
-	width: 150px;
+	width: auto;
 }
 </style>
 </head>
 <body>
 <br>
 <br>
-<div style="width:70%; margin:auto;">
+<div style="width:80%; margin:auto;">
 	<div class="alert alert-dismissible alert-warning" align="center" >
 	  <h4>환영합니다!</h4>
 	  	<p>사랑이 머물다와 함께 하기 위해서는 등록 신청과 승인이 필요합니다. <br>
@@ -24,7 +24,7 @@
 </div>
 <!-- be_idx, be_sort, be_name, be_license, be_rep_tell, incharge_name, incharge_email, incharge_tell
 , be_loc, be_size, be_park, be_empnum, be_consult, admin_permission -->
-<div style="width:70%;margin:auto;">
+<div style="width:80%;margin:auto;">
 <form action="beJoin.we" name="beJoinForm" method="post">
 <table class="table table-striped table-hover table-bordered">
 	<tr>
@@ -49,14 +49,14 @@
       <td class="td1">업체명</td> 
       <td><input type="text" name="be_name" required></td> 
       <td class="td1">사업자 등록번호</td> 
-      <td><input type="text" name="be_license" required></td>
+      <td><input type="text" name="be_license" required placeholder="123-00-000"></td>
    </tr>
    
    <tr>
       <td>소재지</td> 
-      <td><input type="text" name="be_loc" required></td> 
+      <td><input type="text" name="be_loc" required ></td> 
       <td>매장규모</td> 
-      <td><input type="text" name="be_size" required>ex)<p>50평규모</p></td>
+      <td style="size: 20%;"><input type="text" name="be_size" required placeholder="ex)50평규모"></td>
    </tr>
    
    <tr>
@@ -78,15 +78,15 @@
    
    <tr>
       <td>주차시설</td> 
-      <td><input type="text" name="be_park" required></td> 
+      <td><input type="text" name="be_park" required placeholder="10대가능  or OO백화점"></td> 
       <td>임직원 수</td> 
-      <td><input type="text" name="be_empnum" required></td>
+      <td><input type="text" name="be_empnum"></td>
    </tr>
    
    <tr>
       <td>업체 아이디</td> 
       <td><input type="text" name="be_id" required></td> 
-      <td>업체 비밀번호</td> 
+      <td>비밀번호</td> 
       <td><input type="password" name="be_pwd" required></td>
    </tr>
    
