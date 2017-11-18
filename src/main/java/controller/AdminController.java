@@ -39,7 +39,7 @@ public class AdminController {
 	public ModelAndView beForm(String type) {
 		
 		ModelAndView mav = new ModelAndView();
-		
+		mav.addObject("type", type);
 		mav.addObject("list", dao2.beJoin(type));
 		mav.setViewName("admin/be_list");
 		

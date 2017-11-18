@@ -12,9 +12,18 @@ function show() {
 	
 	location.href=add;
 }
+function aa() {
+	for(i=0;i<document.fm.type.length;i++){
+		var a = ${type};
+		if(document.fm.type[i].value==a) {
+			
+			document.fm.type[i].selected=true;
+		}
+	}
+}
 </script>
 </head>
-<body>
+<body onload="aa()">
 <%@include file="/adminheader.jsp"%>
 <form name="fm">
 <h3>업체 권한 주기</h3>

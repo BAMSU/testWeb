@@ -15,11 +15,10 @@ function show() {
 
 function aa() {
 	for(i=0;i<document.fm.type.length;i++){
-		window.alert(document.fm.type[i].value);
-		window.alert(${type});
-		if(document.fm.type[i].value==${type}) {
+		var a = ${type};
+		if(document.fm.type[i].value==a) {
 			
-			document.fm.type[i].checked==true;
+			document.fm.type[i].selected=true;
 		}
 	}
 }
