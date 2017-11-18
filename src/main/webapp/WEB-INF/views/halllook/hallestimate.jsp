@@ -57,6 +57,7 @@ li{
     border-bottom: 1px solid #f0f0f0;
     padding: 7px 0 15px 0;
     position: relative;
+    
 }
 .estlist{
 	float: right;
@@ -118,18 +119,18 @@ th{
 		<br>
 		
 		
-		<table border="1" class="ta1">
+		<table class="ta1">
 		<tr>
-			<th>식사비용 </th>
-			<td>${em.mealCost }</td>
+			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;text-align: center;">식사비용 </th>
+			<td style="border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">${em.mealCost }</td>
 		</tr>
 		<tr>
-			<th>메뉴종류</th>
-			<td>${em.menuType }</td>
+			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;text-align: center;">메뉴종류</th>
+			<td style="border-bottom: 1px solid #4c545b;">${em.menuType }</td>
 		</tr>
 		<tr>
-			<th>보증인원 </th>
-			<td>${em.guest }</td>
+			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;text-align: center;">보증인원 </th>
+			<td style="border-bottom: 1px solid #4c545b;">${em.guest }</td>
 			
 			</tr>
 			<tr>
@@ -151,45 +152,46 @@ th{
 		<table border="1" style="width: 300px;">
 
 					<tr>
-						<th style="text-align: center;">웨딩홀명</th>
+						<th style="text-align: center;border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">웨딩홀명</th>
 						<td>${em.name }</td>
 					</tr>
 
 					<tr>
-						<th style="text-align: center;">선택 홀</th>
+						<th style="text-align: center;border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">선택 홀</th>
 						<td>${em.hallType }</td>
 					</tr>
 
 					<tr>
-						<th style="text-align: center;">하객수</th>
+						<th style="text-align: center;border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">하객수</th>
 						<td>${em.guest }</td>
 					</tr>
 
 				</table>
+				<br>
 
 <c:set var="es" value="${hallestList }"/>
 				<table border="1">
 				<tr>
-					<td colspan="3">${es.hall_name }</td>
+					<td colspan="3"style="border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">${es.hall_name }</td>
 					<td colspan="3">${es.hall_idx }홀
 					
 					<!-- ------------------------------------------------ -->
 					</td>
 					</tr>
 					<tr>
-					<td colspan="3">하객수</td>
+					<td colspan="3"style="border:1px dotted #EAEAEA;background: #FFD9FA;border-top: 1px solid #4c545b;border-bottom: 1px solid #4c545b;">하객수</td>
 					<td colspan="3">${es.est_guest }명</td>
 				</tr>
 
 					<tr>
-						<th style="text-align: center;">항목</th>
-						<th style="text-align: center;">단가</th>
-						<th style="text-align: center;">비고</th>
-						<th style="text-align: center;">가격</th>
-						<th style="text-align: center;">내용</th>
+						<th style="text-align: center;background: #FFD9FA;border-bottom: 1px solid #4c545b;">항목</th>
+						<th style="text-align: center;background: #FFD9FA;border-bottom: 1px solid #4c545b;">단가</th>
+						<th style="text-align: center;background: #FFD9FA;border-bottom: 1px solid #4c545b;">비고</th>
+						<th style="text-align: center;background: #FFD9FA;border-bottom: 1px solid #4c545b;">가격</th>
+						<th style="text-align: center;background: #FFD9FA;border-bottom: 1px solid #4c545b;">내용</th>
 					</tr>
 					<tr>	
-						<td>홀 대관비</td>
+						<td style="background: #F8F8F8;">홀 대관비</td>
 						<td>${es.hall_price1  }원</td>
 						<td>필수</td>
 						<td>0원</td>
@@ -199,7 +201,7 @@ th{
 						</tr>
 						
 						<tr>
-						<td>꽃 장식</td>
+						<td style="background: #F8F8F8;">꽃 장식</td>
 						<td>0원</td>
 						<td>필수</td>
 						<td>0원</td>
@@ -210,7 +212,7 @@ th{
 						</tr>
 						<tr>
 						
-						<td>폐백실 사용료</td>
+						<td style="background: #F8F8F8;">폐백실 사용료</td>
 						<td>0원</td>
 						<td>필수</td>
 						<td>0원</td>
@@ -218,7 +220,7 @@ th{
 						</tr>
 						
 						<tr>
-						<td>수모비</td>
+						<td style="background: #F8F8F8;">수모비</td>
 					    <td>${es.ourfit_price }원</td>
 						<td>필수</td>
 						<td>${es.ourfit_price }원</td>
@@ -227,7 +229,7 @@ th{
 						</tr>
 						
 						<tr>
-						<td>혼구용품</td>
+						<td style="background: #F8F8F8;">혼구용품</td>
 						<td>0원</td>
 						<td>필수</td>
 						<td>0원</td>
@@ -236,7 +238,7 @@ th{
 						</tr>
 						
 					<tr>
-						<td>연출비</td>
+						<td style="background: #F8F8F8;">연출비</td>
 						<td>0원</td>
 						<td>필수</td>
 						<td>0원</td>
@@ -244,7 +246,7 @@ th{
 						</tr>
 						
 						<tr>
-						<td>${es.meal }</td>
+						<td style="background: #F8F8F8;">${es.meal }</td>
 						<td>${es.meal_price }원</td>
 						<td>필수</td>
 						<td>${es.meal_price }원</td>
@@ -252,7 +254,7 @@ th{
 					</tr>
 					
 					<tr>
-						<td colspan="8" align="center" height="40px;" style="font-size: 25px;">
+						<td colspan="8" align="center" height="40px;" style="font-size: 25px; background: #FFB4FF;">
 						
 					총 견적비용  : ${es.hall_price1+es.ourfit_price+es.meal_price}
 						

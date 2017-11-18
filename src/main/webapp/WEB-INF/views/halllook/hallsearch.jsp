@@ -36,12 +36,6 @@ li {
 	margin-right: 5px;
 	word-break: break-all;
 }
-#tab{
-	margin: 0 auto;
-}
-#la1{
-	text-align: center;
-}
 #sear{
 	float: left;
 	margin: 15px 0 15px 10px;
@@ -73,7 +67,14 @@ a:link{
 	line-height: 15px;
 	margin: 0 auto;
 }
-
+.halsear{
+	border: 5px solid yellow;
+}
+.title{
+	border: 2px dotted #FFD9EC;
+	border-bottom: 2px dotted #FFD9EC;
+	width: 500px;
+}
 </style>
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
@@ -87,14 +88,13 @@ $(document).ready(function(){
 });
 function search(){
 	
- 	//alert(document.getElementByName('hallType').value);
-	var hallType = $(':radio[name="hallType"]:checked').val(); alert(hallType);
-	//$('input:radio[name=hallType]:input[value='+hallType+']').attr("checked", true);
-	var menuType = $(':radio[name="menuType"]:checked').val(); alert(menuType);
-	var mealCost = $(':radio[name="mealCost"]:checked').val(); alert(mealCost);
-	var guest = $(':radio[name="guest"]:checked').val(); alert(guest);
-	var lineType = $("#box").val(); alert(lineType);
-	var search_text = $("#search_text").val(); alert(search_text);
+ 	
+	var hallType = $(':radio[name="hallType"]:checked').val(); 
+	var menuType = $(':radio[name="menuType"]:checked').val(); 
+	var mealCost = $(':radio[name="mealCost"]:checked').val(); 
+	var guest = $(':radio[name="guest"]:checked').val();
+	var lineType = $("#box").val();
+	var search_text = $("#search_text").val(); 
  
  	
 	$.ajax({
@@ -117,13 +117,7 @@ function search(){
 		$('#tab td:eq(4)').html(seli.guest);
 		$('#tab td:eq(5)').html(seli.lineType);
 		$('#tab td:eq(6)').html(seli.search_text); 
-	/* 	$('#tt').html('<td>'+seli.name+'</td>');
-		$('#tt').html('<td>'+seli.hallType+'</td>');
-	 	$('#tt').html('<td>'+seli.menuType+'</td>');
-		$('#tt').html('<td>'+seli.mealCost+'</td>');
-		$('#tt').html('<td>'+seli.guest+'</td>');
-		$('#tt').html('<td>'+seli.lineType+'</td>');
-		$('#tt').html('<td>'+seli.search_text+'</td>');  */
+	
 	}
 		
 	}); 
@@ -133,18 +127,18 @@ function linestation(){
 }
 
 </script>
-
 </head>
 <body>
 <%@include file="/header.jsp" %>
 	<div id="search">
+	
+	
+	
 		<div id="menum_box">
 			<div class="menu_br">
 				<ul id="menu">
 					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
 					<li><a href="hallranking.we">홀 랭킹</a></li>
-					<li><a>홀vs홀</a></li>
-					<li><a href="hallsearchlist.we">불러오기확인</a></li>
 					<li><a href="hallestimate.we">홀 견적내기</a></li>
 					<li><a href="hallmode.we">견적 작성</a></li>
 					<li><a href="hallranking.we">랭킹</a></li>
@@ -154,72 +148,84 @@ function linestation(){
 		</div>
 
 
-		<h2 style="text-align: center;">웨딩홀 검색</h2>
+		<h2 style="text-align: center; font-size: 30px;">웨딩홀 검색</h2>
 		
 
 
 
-		<div>
+		<div class="halsear">
 
 
-<div id="hallview">
+<div id="hallview" style="">
 			<form id="seh" action="hallsearch.we" method="post">
 				
 					<div class="chk1">
-						<div>
-							<h3>홀 타입</h3>
+						<ul>
+						<li>
+						<br>
+							<div class="title" style="float: left; width: 100px; margin-right: 40px;">
+							홀 타입
+							</div>
 							<input type="radio" name="hallType" value="일반형"checked="checked">일반형 <input
 								type="radio" name="hallType" value="하우스"> 하우스 <input
 								type="radio" name="hallType" value="호텔"> 호텔
-						</div>
+								</li>
+						</ul>
 					</div>
 					
 					
 					
 					
 					<div class="chk2">
-						<div>
-							<h3>식사메뉴</h3>
+						<ul>
+						<li>
+							<div class="title"style="float: left; width: 100px; margin-right: 40px;">식사메뉴</div>
 							<input type="radio" name="menuType" value="뷔페"checked="checked"> 뷔페 <input
 								type="radio" name="menuType" value="한식"> 한식 <input
 								type="radio" name="menuType" value="양식"> 양식 <input
 								type="radio" name="menuType" value="퓨전코스"> 기타
-						</div>
+								</li>
+						</ul>
 					</div>
 					
 					
 					
 					
 					<div class="chk3">
-						<div>
-							<h3>식대가격</h3>
+						<ul>
+						<li>
+							<div class="title"style="text-align:center; width: 100px; margin: 0 auto;">식대가격</div>
 							<input type="radio" name="mealCost" value="0"checked="checked"> 30,000원
 							<input type="radio" name="mealCost" value="30000">
 							30,000~40,000원 <input type="radio" name="mealCost" value="40000">
 							40,000원~50,000원 <input type="radio" name="mealCost" value="50000">
 							50,000원~60,000원 <input type="radio" name="mealCost" value="60000">
 							60,000원이상
-						</div>
+							</li>
+						</ul>
 					</div>
 					
 					
 					<div class="chk4">
-						<div>
-							<h3>하객수</h3>
+						<ul>
+						<li>
+							<div class="title">하객수</div>
 
 							<input type="radio" name="guest" value="0"checked="checked"> 100명 미만<input
 								type="radio" name="guest" value="100"> 100명~200명 <input
 								type="radio" name="guest" value="200"> 200명~300명 <input
 								type="radio" name="guest" value="300"> 300명 이상
-						</div>
+								</li>
+						</ul>
 					</div>
 					<input type="submit" value="검색">
 					</form>
 
 						<form id="seh2" action ="hallsearch2.we">
 					<div class="chk5">
-						<div>
-							<h3>지하철</h3>
+					<ul>
+					<li>
+						<div class="title">지하철</div>
 							<select id="box" name="lineType" onchange="linestation()">
 								<option value="">--선택--</option>
 								<option value="1호선">1호선</option>
@@ -242,7 +248,8 @@ function linestation(){
 								</c:forEach>
 								</c:if>
 							</select>
-						</div>
+							</li>
+						</ul>
 					</div>
 					<input type="submit" value="검색">
 					</form>
@@ -293,11 +300,6 @@ function linestation(){
 				${v.guest }
 			</div>
 				</div>
-				
-				
-				 
-				
-				
 				</ul>
 		
 			</div>
