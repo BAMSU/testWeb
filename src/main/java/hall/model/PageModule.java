@@ -5,18 +5,18 @@ public class PageModule {
 	public static String makePage(String pageName, int totalCnt, int listSize, int pageSize, int cp) {
 		StringBuffer sb = new StringBuffer();
 
-		int pageCnt=totalCnt/listSize+1;//珥앺럹�씠吏��닔
+		int pageCnt=totalCnt/listSize+1;//�룯�빜�읂占쎌뵠筌욑옙占쎈땾
 		if(totalCnt%listSize==0)pageCnt--;
 
-		int userGroup=cp/pageSize;//�쁽�옱�쐞移섍렇猷�
+		int userGroup=cp/pageSize;//占쎌겱占쎌삺占쎌맄燁살꼵�젃�뙴占�
 		if(cp%pageSize==0)userGroup--;
 
-		int pageStart=userGroup*pageSize+1;//�럹�씠吏��떆�옉�쐞移�
-		int pageEnd=userGroup*pageSize+pageSize;//�럹�씠吏��걹�쐞移�
-		int pageCntGroup=pageCnt/pageSize-(pageCnt%pageSize==0?1:0);//留덉�留됲럹�씠吏�洹몃９
+		int pageStart=userGroup*pageSize+1;//占쎈읂占쎌뵠筌욑옙占쎈뻻占쎌삂占쎌맄燁삼옙
+		int pageEnd=userGroup*pageSize+pageSize;//占쎈읂占쎌뵠筌욑옙占쎄국占쎌맄燁삼옙
+		int pageCntGroup=pageCnt/pageSize-(pageCnt%pageSize==0?1:0);//筌띾뜆占쏙쭕�맪�읂占쎌뵠筌욑옙域밸챶竊�
 
-		int previousCp = (userGroup-1)*pageSize+pageSize;//�븵�쑝濡쒖씠�룞�떆 �쁽�옱�쐞移�
-		int nextCp = (userGroup+1)*pageSize+1;//�뮘濡쒖씠�룞�떆 �쁽�옱�쐞移�
+		int previousCp = (userGroup-1)*pageSize+pageSize;//占쎈링占쎌몵嚥≪뮇�뵠占쎈짗占쎈뻻 占쎌겱占쎌삺占쎌맄燁삼옙
+		int nextCp = (userGroup+1)*pageSize+1;//占쎈츟嚥≪뮇�뵠占쎈짗占쎈뻻 占쎌겱占쎌삺占쎌맄燁삼옙
 	
 		sb.append("<div id='rvp'><ul class='pagination'>");
 		sb.append("<li class='page-item'>"
@@ -42,7 +42,7 @@ public class PageModule {
 		}
 		if(userGroup!=pageCntGroup){
 			sb.append("<li class='page-item'>"
-					+ "<a class='page-link' href='"+pageName+"?cp="+previousCp
+					+ "<a class='page-link' href='"+pageName+"?cp="+nextCp
 					+"#reviewTab'>&gt;</a></li>");
 		}else{
 			sb.append("<li class='page-item disabled'>"

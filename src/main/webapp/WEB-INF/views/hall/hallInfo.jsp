@@ -405,31 +405,31 @@ table tfoot td{
 			  	<p>작성된 리뷰가 없습니다.</p>
 			  </c:if>
 			  <c:if test="${!empty reviewList}">
-			  <table class="table table-striped table-hover table-bordered">
-			  	<thead class="thd">
-			  		<tr>
-			  			<th>제목</th>
-			  			<th>평점</th>
-			  			<th>등록일</th>
-			  			<th>조회수</th>
-			  		</tr>
-			  	</thead>
-			  	<tfoot>
-			  		<tr>
-			  			<td colspan="4">${pageStr}</td>
-			  		</tr>
-			  	</tfoot>
-			  	<tbody>
-			  		<c:forEach var="rv" items="${reviewList}">
+				  <table class="table table-striped table-hover table-bordered">
+				  	<thead class="thd">
 				  		<tr>
-				  			<td onclick="location.href='reviewContent.we?idx=${rv.idx}&idx2=${h.idx}'">${rv.subject}</td>
-				  			<td>${rv.average}</td>
-				  			<td>${rv.writedate}</td>
-				  			<td>${rv.readnum}</td>
+				  			<th>제목</th>
+				  			<th>평점</th>
+				  			<th>등록일</th>
+				  			<th>조회수</th>
 				  		</tr>
-			  		</c:forEach>
-			  	</tbody>
-			  </table>
+				  	</thead>
+				  	<tfoot>
+				  		<tr>
+				  			<td colspan="4">${pageStr}</td>
+				  		</tr>
+				  	</tfoot>
+				  	<tbody>
+				  		<c:forEach var="rv" items="${reviewList}">
+					  		<tr>
+					  			<td style="cursor: pointer;" onclick="location.href='reviewContent.we?idx=${h.idx}&idx2=${rv.review_idx}'">${rv.subject}</td>
+					  			<td>${rv.average}</td>
+					  			<td>${rv.writedate}</td>
+					  			<td>${rv.readnum}</td>
+					  		</tr>
+				  		</c:forEach>
+				  	</tbody>
+				  </table>
 			  </c:if>
 			</div>
 			
@@ -453,7 +453,6 @@ table tfoot td{
 			<div id="location" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 10px; margin-bottom: 50px;">
 			  <div id="map"></div>
 			</div>
-		</div>
 		</div>
 		</div>
 	</article>
