@@ -6,8 +6,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ahall.model.PageModule;
+import ahall.model.PageModule2;
 import ahall.model.aBeDAO;
 import consult.model.aConsultDAO;
 
@@ -53,23 +56,47 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/acon.we")
-	public ModelAndView conForm(String type) {
+	public ModelAndView conForm(@RequestParam(value="cp",defaultValue="1")int cp, String type) {
 		
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("type", type);
 		mav.addObject("list", dao.aCList(type));
+		
+		mav.addObject("list", dao2.FqaList(cp, 5, type));
+		
+		if(type.equals("0")) {
+		mav.addObject("pageStr",PageModule2.makePage("acon.we", dao2.getTotalFq(), 5, 5, cp, type));
+		} else if(type.equals("1")){
+			mav.addObject("pageStr",PageModule2.makePage("acon.we", dao2.getTotalFq1(), 5, 5, cp, type));
+		} else {
+			mav.addObject("pageStr",PageModule2.makePage("acon.we", dao2.getTotalFq2(), 5, 5, cp, type));
+		}
+		
+		
 		mav.setViewName("admin/fqList");
 		
 		return mav;
 	}
 	
 	@RequestMapping("/abelist.we")
-	public ModelAndView beForm(String type) {
+	public ModelAndView beForm(@RequestParam(value="cp",defaultValue="1")int cp, String type) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("type", type);
-		mav.addObject("list", dao2.beJoin(type));
+		mav.addObject("list", dao2.BeaList(cp, 5, type));
+		
+		if(type.equals("1")) {
+			mav.addObject("pageStr",PageModule2.makePage("abelist.we", dao2.getTotalBe1(), 5, 5, cp, type));
+		} else if(type.equals("2")) {
+			mav.addObject("pageStr",PageModule2.makePage("abelist.we", dao2.getTotalBe2(), 5, 5, cp, type));
+		} else {
+			mav.addObject("pageStr",PageModule2.makePage("abelist.we", dao2.getTotalBe(), 5, 5, cp, type));
+		}
+		
+		
+		
+		
 		mav.setViewName("admin/be_list");
 		
 		return mav;

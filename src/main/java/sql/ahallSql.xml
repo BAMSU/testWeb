@@ -103,10 +103,68 @@
 		select count(*) from hall
 	</select>
 	
+	<select id="totalaBe" resultType="int">
+		select count(*) from be_join
+	</select>
+	
+	<select id="totalaFq" resultType="int">
+		select count(*) from consult
+	</select>
+	
+	<select id="totalaBe1" resultType="int">
+		select count(*) from be_join where admin_permission = 'n'
+	</select>
+	
+	<select id="totalaFq1" resultType="int">
+		select count(*) from consult where available = '1'
+	</select>
+	
+	<select id="totalaBe2" resultType="int">
+		select count(*) from be_join where admin_permission = 'y'
+	</select>
+	
+	<select id="totalaFq2" resultType="int">
+		select count(*) from consult where available = '2'
+	</select>
+	
 	<select id="ahallPList" parameterType="Map" resultType="ahall.model.aHallDTO">
        select * from
       (select rownum as rnum,a.* from
       (select * from hall order by idx desc)a)b
+      where rnum<![CDATA[>=]]>#{startnum}
+      and rnum<![CDATA[<=]]>#{endnum}
+    </select>
+    
+    <select id="abePList" parameterType="Map" resultType="ahall.model.HBeDTO">
+       select * from
+      (select rownum as rnum,a.* from
+      (select * from be_join order by be_idx desc)a)b
+      where rnum<![CDATA[>=]]>#{startnum}
+      and rnum<![CDATA[<=]]>#{endnum}
+    </select>
+    
+    <select id="abePList2" parameterType="Map" resultType="ahall.model.HBeDTO">
+       select * from
+      (select rownum as rnum,a.* from
+      (select * from be_join where admin_permission = #{type} order by be_idx desc)a)b
+      where rnum<![CDATA[>=]]>#{startnum}
+      and rnum<![CDATA[<=]]>#{endnum}
+    </select>
+    
+    
+    
+    <select id="afqPList" parameterType="Map" resultType="consult.model.ConsultDTO">
+       select * from
+      (select rownum as rnum,a.* from
+      (select * from consult order by consult_idx desc)a)b
+      where rnum<![CDATA[>=]]>#{startnum}
+      and rnum<![CDATA[<=]]>#{endnum}
+    </select>
+    
+    <select id="afqPList2" parameterType="Map" resultType="consult.model.ConsultDTO">
+       select * from
+      (select rownum as rnum,a.* from
+      (select * from consult where available = #{type} order by consult_idx desc)a)b
       where rnum<![CDATA[>=]]>#{startnum}
       and rnum<![CDATA[<=]]>#{endnum}
     </select>
