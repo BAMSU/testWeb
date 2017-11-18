@@ -76,6 +76,9 @@ a:link{
 
 </style>
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
+<link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
