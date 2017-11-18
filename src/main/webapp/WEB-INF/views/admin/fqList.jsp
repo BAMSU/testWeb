@@ -12,9 +12,56 @@ function show() {
 	
 	location.href=add;
 }
+
+function aa() {
+	for(i=0;i<document.fm.type.length;i++){
+		var a = ${type};
+		if(document.fm.type[i].value==a) {
+			
+			document.fm.type[i].selected=true;
+		}
+	}
+}
 </script>
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+
+#map {
+ height: 400px;
+ width: 100%;
+}
+a {
+	cursor: pointer;
+}
+
+#scrap{
+	color: pink;
+	font-size: 20px;
+}
+
+.hif th{
+	color: gray;
+}
+table th{
+	padding: 3px;
+}
+table td{
+	padding: 3px;
+}
+table tfoot td{
+	text-align: center;
+}
+#rvp{
+	margin: 0px auto;
+}
+.thd{
+	background-color: #e74742; 
+	color: #fff;
+}
+</style>
 </head>
-<body>
+<body onload="aa()">
 <%@include file="/adminheader.jsp"%>
 <form name="fm">
 <h3>문의 내역 보기</h3>
@@ -36,7 +83,7 @@ function show() {
 		<c:url var="contentUrl" value="fqContent.we"><c:param name="idx">${dto.consult_idx}</c:param></c:url>
 		${dto.consult_idx}<a href="${contentUrl}">${dto.context}</a> <br>
 	</c:forEach>
-	
+	${pageStr}
 	</form>
 </body>
 </html>

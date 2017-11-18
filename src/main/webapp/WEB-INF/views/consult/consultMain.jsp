@@ -66,7 +66,7 @@ input{
 
 <table align="center" >
 	<tr>
-	<td colspan="1" >이름</td><td colspan="3" ><input type="text"  class="form-control is-invalid"  name="name" value="${sname }"readonly="readonly" style="width: 430px;"></td> 
+	<td colspan="1" >이름</td><td colspan="3" ><input type="text"    name="name" value="${sname }"readonly="readonly" style="width: 430px;"></td> 
 	<td>
 		 <input type="radio" value="1" name="gender" >남자
 		 <input type="radio" value="2" name="gender" >여자
@@ -79,7 +79,7 @@ input{
 	<tr>
 	<td colspan="5"><hr></td>
 	</tr>
-	<tr><td colspan="1">전화번호</td><td colspan="4"><select name="tel1" class="form-control is-invalid" style="width: 150px;">
+	<tr><td colspan="1">전화번호</td><td colspan="4"><select name="tel1"  style="width: 150px;">
 				<option value="010">010</option>
 				<option value="011">011</option>
 				<option value="016">016</option>
@@ -87,7 +87,7 @@ input{
 				<option value="018">018</option>
 				<option value="019">019</option>
 				<option value="070">070</option>
-			</select> - <input type="text" class="form-control is-invalid"  name="tel2"> - <input type="text" name="tel3"></div>
+			</select> - <input type="text"  name="tel2" maxlength="4"> - <input type="text" name="tel3" maxlength="4"></div>
 		</td>
 		</tr>	
 		<tr>
@@ -131,10 +131,11 @@ input{
 			</td>
 		</tr>
 		<tr><td colspan="5">
-		<input type="submit" value="문의하기">
+		<input type="submit"value="문의하기" style="size: 150px; " >
 		<input type="reset" value="다시작성">
 		</td>
 		</tr>
+	
 	
 </table>	
 </form>

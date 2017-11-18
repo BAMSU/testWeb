@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import yong.card.model.CardDAO;
 import yong.card.model.CardDTO;
+import yong.card.model.PageModule;
 import yong.cardOrder.model.CardOrderDAO;
 import yong.cardOrder.model.CardOrderDTO;
 
@@ -40,6 +41,14 @@ public class CardController {
 	@Autowired
 	private CardOrderDAO cardOrderDao;
 	
+	@RequestMapping("/mycard.we")
+	public ModelAndView mycard(){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("filename", "17c7d864-9e34-47e1-90ab-0aa195b0e13a.png");
+		mav.setViewName("card/cardMobile");
+		return mav;
+	}
+	
 	@RequestMapping("/cardList.we")
 	public ModelAndView bbsList(@RequestParam(value="cp",
 	defaultValue="1")int cp, @RequestParam(value="type",
@@ -47,12 +56,13 @@ public class CardController {
 		int totalCnt = cardDao.getTotalCnt();
 		int listSize = 8;
 		int pageSize = 5;
-		String pageStr = yong.page.PageModule.makePage("cardList.we", totalCnt, listSize, pageSize, cp);
+		String pageStr = PageModule.makePage("cardList.we", totalCnt, listSize, pageSize, cp);
 		
 		List<CardDTO> list=cardDao.cardList(cp,listSize, type);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.addObject("pageStr", pageStr);
+		mav.addObject("type", type-1);
 		mav.setViewName("card/cardMain");
 		return mav;
 	}
@@ -94,36 +104,76 @@ public class CardController {
 		return mav;
 	}
 	
+	
 	@RequestMapping("/cardOrder.we")
 	public ModelAndView cardOrder(@RequestParam(value="idx")int idx, @RequestParam(value="filename")String filename){
 		ModelAndView mav = new ModelAndView();
 		CardDTO list= cardDao.cardSer(idx);
 		mav.addObject("list", list);
+		mav.addObject("idx",idx);
 		mav.addObject("filename", filename);
 		mav.setViewName("card/cardOrder");
 		return mav;
 	}
 	
+	/*ï§â‘¤ì»®ï¿½ì”ª ï¿½ëŸ¹ï¿½ì” ï§ï¿½ ï¿½ì £ï¿½ì˜‰ ï¿½ì‘ QRè‚„ë¶¾ë±¶ ï¿½ê¹®ï¿½ê½¦*/
 	 @RequestMapping(value = "/imgsave.we",method = {RequestMethod.GET, RequestMethod.POST})
-	   public void download(
-			   ModelMap modelMap, 
-			   HttpServletRequest request, 
-			   HttpServletResponse response) {
-	        try {
-	            String imgData = request.getParameter("imgData");
-	            imgData = imgData.replaceAll("data:image/png;base64,", "");
-	            byte[] file = Base64.decodeBase64(imgData);
-	            ByteArrayInputStream is = new ByteArrayInputStream(file);
-	            response.setContentType("image/png");
-	            response.setHeader("Content-Disposition", "attachment; filename=report.png");
+	 public ModelAndView createImage1(HttpServletRequest request) 
+			 throws Exception {
+	 String binaryData = request.getParameter("imgSrc");
+	 FileOutputStream stream = null;
+	 ModelAndView mav = new ModelAndView();
+	 mav.setViewName("jsonView");
+	 try {
+		 System.out.println("binary file " + binaryData);
+		 if (binaryData == null || binaryData == "") {
+			 throw new Exception();
+		 }
+		 
+		 binaryData = binaryData.replaceAll("data:image/png;base64,", "");
+		 byte[] file2 = Base64.decodeBase64(binaryData);
+		 //String fileName = UUID.randomUUID().toString();
+		 String fileName="37";
+		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/mobile_img/" + fileName + ".png");
+		 stream.write(file2);
+		 stream.close();
+		 mav.addObject("filename", fileName);
+		 try {
+	            File file = null;
 	            
-	            IOUtils.copy(is, response.getOutputStream());
-	        } catch (IOException e) {
+	            // ï¿½ê±§ï¿½ë¸£ï¿½ì” èª˜ëª„ï¿½ç‘œï¿½ ï¿½ï¿½ï¿½ì˜£ï¿½ë¸· ï¿½ëµ’ï¿½ì †ï¿½ë„—ç”±ï¿½ ï§ï¿½ï¿½ì ™
+	            file = new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/");
+	            if(!file.exists()) {
+	                file.mkdirs();
+	            }
+	            // è‚„ë¶¾ë±¶ï¿½ì”¤ï¿½ë–‡ï¿½ë–† ï§ê³¹ê²•å«„ï¿½ URLäºŒì‡±ëƒ¼
+	            String codeurl = new String("http://172.30.1.23:9090/finalproject/mobile_img/"+fileName + ".png");
+	            // ï¿½ê±§ï¿½ë¸£è‚„ë¶¾ë±¶ è«›ë¶¿í«ï¿½ë±¶ ï¿½ê¹®ï¿½ê¸½åª›ï¿½
+	            int qrcodeColor =   0xFF2e4e96;
+	            // ï¿½ê±§ï¿½ë¸£è‚„ë¶¾ë±¶ è«›ê³Œê¼ï¿½ê¹‹ï¿½ê¸½åª›ï¿½
+	            int backgroundColor = 0xFFFFFFFF;
+	             
+	            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+	            // 3,4è¸°ë‰ã parameteråª›ï¿½ : width/heightåª›ï¿½ ï§ï¿½ï¿½ì ™
+	            BitMatrix bitMatrix = qrCodeWriter.encode(codeurl, BarcodeFormat.QR_CODE,200, 200);
+	            //
+	            MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
+	            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
+	            // ImageIOç‘œï¿½ ï¿½ê¶—ï¿½ìŠœï¿½ë¸³ è«›ë¶¿í«ï¿½ë±¶ ï¿½ë™†ï¿½ì”ªï¿½ë²æ¹²ï¿½
+	            ImageIO.write(bufferedImage, "png", new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/"+fileName + ".png"));
+	        	
+	        } catch (Exception e) {
 	            e.printStackTrace();
-	        }
-	 
-	    }
-	 /** * Ä¸ÃÄµÈ È­¸é ¼­¹ö ÀúÀå * @param request * @return * @throws Exception */ 
+	        }  
+	 } catch (Exception e) {
+		 System.out.println("ï¿½ë™†ï¿½ì”ªï¿½ì”  ï¿½ì ™ï¿½ê¸½ï¿½ìŸ»ï¿½ì‘æ¿¡ï¿½ ï¿½ê½†ï¿½ë¼±ï¿½ì‚¤ï§ï¿½ ï¿½ë¸¡ï¿½ë¸¯ï¿½ë’¿ï¿½ë•²ï¿½ë–");
+		 return mav;
+	 } finally {
+		 stream.close();
+	 }
+	 	return mav;
+	 }
+	 /** * ï§¦â‰ªí€œï¿½ë§‚ ï¿½ì†•ï§ï¿½ ï¿½ê½Œè¸°ï¿½ ï¿½ï¿½ï¿½ì˜£ * @param request * @return * @throws Exception */ 
 	 @RequestMapping(value="/imgsave2.we")
 	 public ModelAndView createImage(HttpServletRequest request) 
 			 throws Exception {
@@ -140,12 +190,12 @@ public class CardController {
 		 binaryData = binaryData.replaceAll("data:image/png;base64,", "");
 		 byte[] file = Base64.decodeBase64(binaryData);
 		 String fileName = UUID.randomUUID().toString();
-		 stream = new FileOutputStream("C:/Users/jj051/Desktop/project3/myweb/src/main/webapp/order_img/" + fileName + ".png");
+		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/mobile_img/" + fileName + ".png");
 		 stream.write(file);
 		 stream.close();
 		 mav.addObject("filename", fileName);
 	 } catch (Exception e) {
-		 System.out.println("ÆÄÀÏÀÌ Á¤»óÀûÀ¸·Î ³Ñ¾î¿ÀÁö ¾Ê¾Ò½À´Ï´Ù");
+		 System.out.println("ï¿½ë™†ï¿½ì”ªï¿½ì”  ï¿½ì ™ï¿½ê¸½ï¿½ìŸ»ï¿½ì‘æ¿¡ï¿½ ï¿½ê½†ï¿½ë¼±ï¿½ì‚¤ï§ï¿½ ï¿½ë¸¡ï¿½ë¸¯ï¿½ë’¿ï¿½ë•²ï¿½ë–");
 		 return mav;
 	 } finally {
 		 stream.close();
@@ -153,48 +203,22 @@ public class CardController {
 	 	return mav;
 	 }
 	 
-	 /** QRÄÚµå */
+	 /** QRè‚„ë¶¾ë±¶ */
 	 @RequestMapping("/qrMake.we")
 	 public ModelAndView qrCode() {
 		 ModelAndView mav = new ModelAndView();
 			mav.setViewName("card/cardMobile");
-	        try {
-	            File file = null;
-	            
-	            // Å¥¾ËÀÌ¹ÌÁö¸¦ ÀúÀåÇÒ µğ·ºÅä¸® ÁöÁ¤
-	            file = new File("C:\\test\\");
-	            if(!file.exists()) {
-	                file.mkdirs();
-	            }
-	            // ÄÚµåÀÎ½Ä½Ã ¸µÅ©°É URLÁÖ¼Ò
-	            String codeurl = new String("http://hellogk.tistory.com".getBytes("UTF-8"), "ISO-8859-1");
-	            // Å¥¾ËÄÚµå ¹ÙÄÚµå »ı»ó°ª
-	            int qrcodeColor =   0xFF2e4e96;
-	            // Å¥¾ËÄÚµå ¹è°æ»ö»ó°ª
-	            int backgroundColor = 0xFFFFFFFF;
-	             
-	            QRCodeWriter qrCodeWriter = new QRCodeWriter();
-	            // 3,4¹øÂ° parameter°ª : width/height°ª ÁöÁ¤
-	            BitMatrix bitMatrix = qrCodeWriter.encode(codeurl, BarcodeFormat.QR_CODE,200, 200);
-	            //
-	            MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
-	            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
-	            // ImageIO¸¦ »ç¿ëÇÑ ¹ÙÄÚµå ÆÄÀÏ¾²±â
-	            ImageIO.write(bufferedImage, "png", new File("C:\\test\\qrcode.png"));
-	        	
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }  
+	        
 	        return mav;
 	}
-	 
-	 /**Ã»Ã¸Àå ÁÖ¹®*/
+	 /**ï§£ï¿½ï§£â‘¹ì˜£ äºŒì‡°Ğ¦*/
 	 @RequestMapping("/priceOrder.we")
 	 public ModelAndView cardorder(CardOrderDTO dto){
 		int result = cardOrderDao.Order(dto);
 		ModelAndView mav = new ModelAndView(); 
-		mav.setViewName("");
+		mav.setViewName("myPage/Mypage");
 		return mav;
 	 }
+	 
 }
 	 

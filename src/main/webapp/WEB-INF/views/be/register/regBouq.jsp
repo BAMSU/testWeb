@@ -28,7 +28,7 @@
 	
 	
 	<tr>
-		<td>업체 썸네일</td> 
+		<td>상품 썸네일</td> 
 		<td><input type="file" name="bouq_imgs" required></td>
 	</tr>
 	

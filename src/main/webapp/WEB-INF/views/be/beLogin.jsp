@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <title>Insert title here</title>
 <script type="text/javascript">
 function beJoin(){
@@ -13,23 +14,34 @@ function beJoin(){
 </script>
 </head>
 <body>
-<%@include file="beHeader.jsp" %>
 <c:if test="${!empty sessionScope.besid }">
 	<script type="text/javascript">
 		location.href="beIndex.we";
 	</script>
 </c:if>
-<br>
-<fieldset>
-<div>
-<form action="beLogin.we" method="post">
-	로그인 <input type="text" name="be_id"  required><br>
-	비밀번호 <input type="password" name="be_pwd" required> <br>
-	<input type="submit" value="Login"><br><input type="button" value="업체등록신청" onclick="beJoin()">
-</form>
-</fieldset>
-</div>
+<br><br><br><br>
+<br><br><br><br>
 
+<div style="width:30%;margin:auto;align:center;">
+
+    <form action="beLogin.we" method="post">
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">Id</label>
+      <input type="text" class="form-control" id="id" placeholder="id" name="be_id" required>
+    </div>
+	<div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Password" name="be_pwd" required>
+    </div>
+    <div style="margin:auto; width:fit-content;">
+		<input type="button" value="업체등록신청" onclick="beJoin()" class="btn btn-primary">
+		<button type="submit" class="btn btn-primary">Login</button>
+	</div>
+	</form>
+     
+
+</div>
 
 </body>
 </html>

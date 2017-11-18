@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="css/magnific-popup.css">
 
 <link rel="stylesheet" href="css/style.css">
-
+<script src="https://code.jquery.com/jquery-latest.js"></script> 
 
 <!-- Modernizr JS -->
 <script src="js/modernizr-2.6.2.min.js"></script>
@@ -46,7 +46,8 @@
 		$('#mask').css({'width':maskWidth,'height':maskHeight});
 		//마스크의 투명도 처리
 		$('#mask').fadeTo("slow",0.8);
-		window.open('memberLogin.we', 'login', 'left='+(screen.availWidth-400)/ 2+',top='+(screen.availHeight-400)/2+', width=400px,height=400px');
+		window.open('memberLogin.we', 'login', 'left='+(screen.availWidth-1000)/ 2+',top='+(screen.availHeight-590)/2+', width=1000px,height=590px');
+		
 		
 	}
 	
@@ -55,8 +56,17 @@
 
 <!-- main jquery  -->
 <script>
+$(document).ready(function(){
+	
 
-
+	
+	$('.window .close').click(function (e) {  
+	    
+	    e.preventDefault();  
+	    $('#mask, .window').hide();  
+	});       
+    
+});
 </script>
 
 <style>
@@ -87,7 +97,7 @@
 			href="http://bpmaker.giffy.me/parts/userPartsId/17340/"></a>
 	</p>
 	<!-- 마우스 위에 하트 내려지는 효과  -->
-	
+
 	<div id="fh5co-wrapper">
 		<div id="fh5co-page">
 

@@ -121,5 +121,14 @@ public class HallSearchController {
 	mas.addObject("hallrank", list);
 	return mas;
 	}
-
+	
+	@RequestMapping("/placeSer.we")
+	public ModelAndView hallser(String serText){
+		ModelAndView mav = new ModelAndView();
+		HallDTO list = hallDao.hallSer(serText);
+		mav.addObject("list",list);
+		mav.setViewName("card/pSearch");
+		return mav;
+	}
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
 }
