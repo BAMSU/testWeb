@@ -11,7 +11,21 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- Magnific Popup -->
 <link rel="stylesheet" href="css/magnific-popup.css">
-
+<script>
+	function openLogin() {
+		var maskHeight = $(document).height(); 
+		var maskWidth = $(window).width();
+		//마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		//마스크의 투명도 처리
+		$('#mask').fadeTo("slow",0.8);
+		window.open('memberLogin.we', 'login', 'left='+(screen.availWidth-1000)/ 2+',top='+(screen.availHeight-590)/2+', width=1000px,height=590px');
+		
+		
+	}
+	
+	
+</script>
 <style>
 @import url('//fonts.googleapis.com/earlyaccess/jejuhallasan.css');
 header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
@@ -44,7 +58,7 @@ a:hover{
 							<li><a href="hallCompare.we">홀vs홀</a></li>
 						</ul></li>
                <li><a href="itemList.we?category=dress">드레스</a></li>
-               <li><a href="#">청첩장</a></li>
+               <li><a href="cardList.we">청첩장</a></li>
                <li><a href="#">패키지</a></li>
                <li class="fh5co-sub-ddown"><a href="#">웨딩 컬렉션</a>
                   <ul class="fh5co-sub-menu">
