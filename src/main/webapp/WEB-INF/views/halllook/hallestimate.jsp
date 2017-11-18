@@ -122,7 +122,7 @@ th{
 		<table class="ta1">
 		<tr>
 			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;text-align: center;">식사비용 </th>
-			<td style="border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">${em.mealCost }</td>
+			<td style="border-bottom: 1px solid #4c545b;"style="border-top: 1px solid #4c545b;">${em.mealCost }</td>
 		</tr>
 		<tr>
 			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;text-align: center;">메뉴종류</th>

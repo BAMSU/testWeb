@@ -57,7 +57,17 @@ li {
 	height: 30px;
 	border: 10px solid yellows;
 } 
-
+span{
+	float: left;
+	width: 94px;
+	font-size: 15px;
+	line-height: 26px;
+	cursor: pointer;
+	height: 26px;
+}
+#tr{
+	width: 400px;
+}
 </style>
 <body>
 	<%@include file="/header.jsp"%>
@@ -81,56 +91,39 @@ li {
 		<div class="rank">
 			<form name="frm">
 				<c:set var="cnt" value="0" />
-				<ul>
+				<table id="tr">
 				<c:forEach var="dto" items="${hallrank}">
-				<li>
+				
 				
 					<c:if test="${cnt%3==0}">
-					<li>
+					<tr>
 					</c:if>
 					
 
-						<ul>
+						<td>
 							<c:set var="cnt" value="${cnt+1}" />
-							<li>
-								<div class="raname">
-									<ul>
-										<li><a href="rank_img"> <img
+							</td>
+								<td>
+										<a href="rank_img"> <img
 												src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
 												style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
-										</a></li>
-									</ul>
-								</div>
-
-
-
-								<div class="raname2">
-									<ul>
-										<li>${dto.name}</li>
-
-										<li><span
+										</a>
+									</td>
+							<td>
+										${dto.name}
+</td>
+										<td><span
 											style="border: 2px solid transparent !important; background: #F69D9D; color: #fff; border-radius: 6px;"
-											onclick="window.alert('hallInfo${dto.idx }.we')">상세보기</span></li>
-										<li><span
+											onclick="window.alert('hallInfo${dto.idx }.we')">상세보기</span></td>
+										<td><span
 											style="border: 1px solid #BCA9F5; border-radius: 6px;"
-											onclick="window.alert('hallCompare.we')">홀 통계보기</span></li>
-									</ul>
-								</div>
-							</li>
-						</ul>
-
-						<div class="raname3">
-							<ul>
+											onclick="window.alert('hallCompare.we')">홀 통계보기</span></td>
+								
 								<c:if test="${cnt%3==0}">
-									<li></li>
-
+									</tr>
 								</c:if>
-							</ul>
-						</div>
-						</li>
-					
 				</c:forEach>
-				</ul>
+				</table>
 			</form>
 		</div>
 	</div>
