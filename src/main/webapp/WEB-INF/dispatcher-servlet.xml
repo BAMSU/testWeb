@@ -162,6 +162,7 @@
 	<!-- controller  -->
 	<bean id="flyController" class="controller.FlyController"/>
 	<bean id="honeyController" class="controller.honeyController"/>
+	<bean class="controller.CardController" id="cardController"/>
 	<!-- service -->
 	<bean id="flydao" class="fly.model.FlyDAOImple">
 	</bean>

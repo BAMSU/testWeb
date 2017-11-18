@@ -10,6 +10,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <script type="text/javascript" src="js/html2canvas.js"></script>
+<%@include file="/header.jsp" %>
 <script>
     function capture() {
     alert("ㅎㅇ");
@@ -41,6 +42,12 @@
 	function setChildValue(name){
 	      document.getElementById("insamal").value = name;
 	      document.getElementById("tinsamal").value = name;
+	}
+	function setpValue(name){
+	      document.getElementById("hallplace").value = name;
+	}
+	function setnValue(name){
+	      document.getElementById("hallname").value = name;
 	}
 </script>
      <script>
@@ -76,11 +83,13 @@
     	  document.getElementById("tinsamal").value = document.getElementById("insamal").value;
     	  document.getElementById('tnam').value = nam;
     	  document.getElementById('tyu').value = ya;
-    	  document.getElementById('tplace').value = document.getElementById("mapplace").value;
       	document.getElementById("tdate").value=document.getElementById("dateofbirth").value + " " + document.getElementById("sigan").value;
+      	
+      	document.getElementById("halltype").value=document.getElementById("hall").value
       }
     </script>
 <style>
+
 <style>
 
 [type="date"] {
@@ -93,9 +102,9 @@
   opacity: 0;
 }
 body{
-	margin-left:150px;
-	margin-right:150px;
-	}
+	margin-left:100px;
+	margin-right:100px;
+}
 	.left-box {
 	color:white;
   float: left;
@@ -124,19 +133,26 @@ body{
 	
 	<input type="hidden" name="imgSrc" id="imgSrc" />
     
-    <div id="canv" style="color: blue; background: white; margin-left: 30px; margin-right: 30px;">
-    	<br>
+    <div id="canv" style="text-align:center; color: blue; background: white; margin-left: 30px; margin-right: 30px;">
+    	<br><br><br>
         <textarea id="tinsamal" class="valu" style="height: 100px;" readonly></textarea>
 		<input type="text" id="tnam" value="○○○ · ○○○ 의  - ○○ " class="valu" readonly><br><br>
 		<input type="text" id="tyu" value="○○○ · ○○○ 의  - ○○ " class="valu" readonly><br><br><br>
 		<input type="text" id="tdate" class="valu" readonly><br>
 		<input type="text" id="tplace" class="valu" readonly><br>
 		
+				<img src="card_img/hangang.JPG" width="100%"; height="250px;">
+				<br>
+				<input type="text" class="valu"id="hallname" readonly="readonly"><br>
+				<textarea id="hallplace" class="valu" style="height: 20px;" readonly></textarea>
+    			<input type="text" class="value" id="halltype" readonly="readonly">
+   	<br><br>
     </div>
     
     <br><br><br>
       
 </div>
+</form>
 <div class='right-box' style="margin-left: 40px;">
 	<div>
 	<br>
@@ -216,17 +232,21 @@ body{
 		</select>
 		
 	</div>
+	<script>
+	function hallser(){
+		var sert = document.getElementById("serText").value;
+		window.open('placeSer.we?serText='+sert,'홀 검색',"width=600,height=500");
+	}
+	</script>
 	<div>
-		식장정보
-			<input type="text" id="mapplace" onclick="place()">
+		식장정보<br>
+			예식장 이름 : <input type="text" id="serText">
+		 	<input type="button" value="홀 검색" onclick="hallser()">	
 	</div>
-	<input type="text" id="filename" >
-	<a onclick ="capture()">Next</a>
+	층/홀 : <input type="text" id="hall" onchange="inpu()" required placeholder="층과 홀" >
+	<a onclick ="capture()">다음~!</a>
 
 </div>
-</form>
-	<form action="qrMake.we">
-		<input type="submit" value=">..">
-	</form>
 </body>
+<%@include file="/footer.jsp" %>
 </html>
