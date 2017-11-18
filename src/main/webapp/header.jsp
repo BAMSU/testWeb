@@ -51,13 +51,13 @@ a:hover{
                <li><a href="index.we">Home</a></li>
                <li><a href="#" class="fh5co-sub-ddown">웨딩홀</a>
 					<ul class="fh5co-sub-menu">
-						<li><a href="#">웨딩홀 검색</a></li>
-						<li><a href="#">홀 랭킹</a></li>
+						<li><a href="hallsearch.we">웨딩홀 검색</a></li>
+						<li><a href="hallranking.we">홀 랭킹</a></li>
 						<li><a href="hallCompare.we">홀vs홀</a></li>
 					</ul>
 				</li>
                <li><a href="itemList.we?category=dress">드레스</a></li>
-               <li><a href="#">청첩장</a></li>
+               <li><a href="cardList.we">청첩장</a></li>
                <li><a href="honey.we" class="fh5co-sub-ddown">신혼여행</a>
 					<ul class="fh5co-sub-menu">
 						<li><a href="honey.we">신혼여행 패키지</a></li>
@@ -73,7 +73,7 @@ a:hover{
                      <li><a href="itemList.we?category=shoes">웨딩슈즈</a></li>
                      <li><a href="itemList.we?category=bouq">부케</a></li>
                   </ul></li>
-               <li><a href="#">상담하기</a></li>
+               <li><a href="chatting.we">상담하기</a></li>
                <c:if test="${empty sessionScope.sname}">
                   <li><a href="javascript:openLogin()">LOGIN</a></li>
                   <li><a href="memberJoin.we">SIGN UP</a></li>

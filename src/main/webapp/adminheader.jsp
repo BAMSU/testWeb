@@ -11,11 +11,30 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- Magnific Popup -->
 <link rel="stylesheet" href="css/magnific-popup.css">
-
+<script>
+	function openLogin() {
+		var maskHeight = $(document).height(); 
+		var maskWidth = $(window).width();
+		//마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		//마스크의 투명도 처리
+		$('#mask').fadeTo("slow",0.8);
+		var left = (screen.availWidth-1000)/2;
+		var top = (screen.availHeight-590)/2;
+		window.open('memberLogin.we', 'login', 'left='+left+',top='+top+', width=1000px,height=590px');
+	}
+</script>
 <style>
-@import url('//fonts.googleapis.com/earlyaccess/jejuhallasan.css');
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
-	font-family: 'Jeju Hallasan'; 
+	font-family: 'Hanna'; 
+}
+a{
+	text-decoration: none;
+	
+}
+a:hover{
+	text-decoration: none;
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -24,7 +43,7 @@ header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
       <div class="nav-header">
          <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
          <h1 id="fh5co-logo">
-            <a href="index.we">Nuptial</a>
+            <a href="index.we">Love is staying</a>
          </h1>
          <!-- START #fh5co-menu-wrap -->
          <nav id="fh5co-menu-wrap" role="navigation">
