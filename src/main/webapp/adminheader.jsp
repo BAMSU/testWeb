@@ -34,12 +34,12 @@ header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
                <li><a href="acon.we?type=0">문의게시판</a></li>
                <li><a href="abelist.we?type=0">가입업체정보</a></li>
                
-             <%--   <c:if test="${empty sessionScope.admin}">
+              <c:if test="${empty sessionScope.admin}">
                   <script>
                   window.alert('잘못된 접근입니다.');
                   location.href='index.we';
                   </script>
-               </c:if> --%>
+               </c:if>
 
 
                

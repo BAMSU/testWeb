@@ -98,4 +98,16 @@
 		update hallStats set typeNum=typeNum+1 
 		where hallIdx=#{hallIdx} and type=#{type} and month=#{month}
 	</update>
+	
+	<select id="totalaHall" resultType="int">
+		select count(*) from hall
+	</select>
+	
+	<select id="ahallPList" parameterType="Map" resultType="ahall.model.aHallDTO">
+       select * from
+      (select rownum as rnum,a.* from
+      (select * from hall order by idx desc)a)b
+      where rnum<![CDATA[>=]]>#{startnum}
+      and rnum<![CDATA[<=]]>#{endnum}
+    </select>
 </mapper>

@@ -1,5 +1,8 @@
 package controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +24,32 @@ public class AdminController {
 	@RequestMapping("/admin.we")
 	public String adminForm() {
 		return "admin/admin";
+	}
+	
+	@RequestMapping("/adminLogin.we")
+	public String admin2Form() {
+		return "admin/Login";
+	}
+	
+	@RequestMapping("/adminLogin2.we")
+	public ModelAndView admin2Form2(HttpServletRequest req, String id) {
+		
+		ModelAndView mav = new ModelAndView();
+		
+		if(id.equals("nokcha90")) {
+			
+			
+			HttpSession session = req.getSession();
+			session.setAttribute("admin", id);
+			
+			mav.addObject("msg", "관리자님 환영합니다~");
+			mav.addObject("gourl", "admin.we");
+		} else {
+			mav.addObject("msg", "관리자 페이지 접근 불가");
+			mav.addObject("gourl", "index.we");
+		}
+		mav.setViewName("admin/fqMsg2");
+		return mav;
 	}
 	
 	@RequestMapping("/acon.we")
