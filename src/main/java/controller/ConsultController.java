@@ -33,11 +33,23 @@ public class ConsultController {
 	
 	@RequestMapping(value="/consult.we",method=RequestMethod.POST)
 	public ModelAndView bbsWriteSubmit(ConsultDTO dto){
+	
+		if(dto.getGender()==""||dto.getGender()==null){
+			ModelAndView mav = new ModelAndView();
+			String msg = "성별을 입력하세요.";
+			String url = "consult/consultMain";
+			mav.addObject("msg", msg);
+			mav.addObject("url", url);
+			mav.setViewName("consult/consultMsg");
+			return mav;
+		}
 		
 		int result =consultDao.consultWrite(dto);
 		String msg = result>0?"문의가 완료 되었습니다.":"문의 가 실패 하였습니다.";
+		String url = "index";
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg", msg);
+		mav.addObject("url", url);
 		mav.setViewName("consult/consultMsg");
 		return mav;
 		
@@ -68,8 +80,10 @@ public class ConsultController {
 		
 		int result = consultDao.consultDel(idx);
 		String msg = result>0?"삭제 완료 되었습니다.":"삭제 실패 하였습니다.";
+		String url ="index";
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg", msg);
+		mav.addObject("url", url);
 		mav.setViewName("consult/consultMsg");
 		
 		return mav;
@@ -107,8 +121,10 @@ public class ConsultController {
 		
 		int result =consultDao.consultUpdate(dto,idx);
 		String msg = result>0?"수정 완료 되었습니다.":"수정 실패 하였습니다.";
+		String url = "index";
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("msg", msg);
+		mav.addObject("url", url);
 		mav.setViewName("consult/consultMsg");
 		return mav;
 		
