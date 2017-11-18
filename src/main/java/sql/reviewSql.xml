@@ -76,7 +76,7 @@
 	
 	
  		<select id="reviewNameTotelCnt" parameterType="String" resultType="int">
- 		select count(*) from hallreview where name=#{name}
+ 		select count(*) from hallreview where writer=#{name}
  	</select>
  	
  	

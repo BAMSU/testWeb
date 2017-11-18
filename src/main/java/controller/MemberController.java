@@ -74,11 +74,22 @@ public class MemberController {
 	
 	@RequestMapping("loginForm.we")
 	public ModelAndView member_login(String id, String pwd,HttpServletRequest req,String saveid,
-			HttpServletResponse resp)
+			HttpServletResponse resp,@RequestParam("names")String name)
 			{
 		HttpSession session = req.getSession();
 		
 		ModelAndView mav = new ModelAndView();
+		
+		if(name==""){
+			
+		}else{
+			
+			mav.addObject("msg", "로그인 성공");
+			session.setAttribute("sname", name);
+			mav.addObject("gourl", "index.we");
+			mav.setViewName("member/memberMsg"); 
+			return mav;
+		}
 		
 		
 		int a = memberDao.Member_Login(id, pwd);
