@@ -386,7 +386,7 @@
 <%@include file="/header.jsp"%>
 <section>
 	<article>
-		<div style="margin: 0px auto; width: 1300px;">
+		<div style="margin: 20px auto; width: 1300px;">
 		<p><h2 style="display: inline;">홀 비교하기</h2>&nbsp;2개 이상의 웨딩홀을 선택하여, 식대, 가격, 교통 등 다양한 정보에 대한 비교 결과의 확인이 가능합니다.</p>
 		<form action="hallCompare.we" method="post">
 			<table id="hct">
@@ -406,6 +406,7 @@
 			<p style="text-align: right; padding-right: 50px; margin-top: 10px;"><input type="button" class="btn btn-primary btn-lg" value="비교하기" id="comBtn"/></p>
 		</form>
 		<div id="before">
+		<p><h2 style="display: inline;">홀vs홀 <font color="red">LIST UP</font></h2>&nbsp;실제 고객님들이 비교해본 웨딩홀! 지금 바로 확인하세요!</p>
 		<table>
 			<c:set var="hi" value="0"/>
 			<c:set var="ckHi" value="true"/>
