@@ -37,7 +37,7 @@
 		where b.hallIdx=#{hallIdx}
 	</select>
 	<select id="hallCountSQL" resultType="int">
-		select count(distinct hallIdx) from hallStats
+		select count(*) from hall
 	</select>
 	<update id="hallStatsUpSQL" parameterType="map">
 		update hallStats set typeNum=typeNum+1 
