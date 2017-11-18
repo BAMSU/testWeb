@@ -247,7 +247,7 @@ table tfoot td{
 				<input type="button" class="btn btn-secondary" value="견적내기"/>
 				<input type="button" class="btn btn-secondary" value="비교하기" onclick="location.href='hallCompare.we?idx=${h.idx}'"/>
 				<input type="button" class="btn btn-secondary" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'"/>
-				<input type="button" class="btn btn-primary" value="상담신청"/>
+				<input type="button" class="btn btn-primary" value="상담신청" onclick="location.href='consult.we?gubun=1&idx=${h.idx}'"/>
 			</p>
 		</div>
 		<div style="width: 1000px; clear: both; margin: 0px 30px;">
@@ -422,7 +422,7 @@ table tfoot td{
 			  	<tbody>
 			  		<c:forEach var="rv" items="${reviewList}">
 				  		<tr>
-				  			<td>${rv.subject}</td>
+				  			<td onclick="location.href='reviewContent.we?idx=${rv.idx}&idx2=${h.idx}'">${rv.subject}</td>
 				  			<td>${rv.average}</td>
 				  			<td>${rv.writedate}</td>
 				  			<td>${rv.readnum}</td>

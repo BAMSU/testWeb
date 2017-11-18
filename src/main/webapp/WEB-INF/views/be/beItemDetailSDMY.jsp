@@ -127,6 +127,9 @@
 <br><br>  
   </div>
 </div>
+<div class="alert alert-dismissible alert-info" style="position: relative;">
+  <h4 style="padding-left: 15%;">${dto.sdmy_be}의 상세정보</h4>
+</div>	
 <div class="jumbotron">
 	<p>
 	업체명 : ${bdto.be_name }<br>

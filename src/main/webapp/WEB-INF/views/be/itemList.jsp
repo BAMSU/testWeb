@@ -34,9 +34,8 @@
 </head>
 <body>
 <%@include file="/header.jsp" %>
-<br><br>
-<div>
-	<h2>사랑이 머물다와 함께하는 ${category} 업체 리스트</h2>
+<div class="alert alert-dismissible alert-warning" style="">
+	<h2>사랑이 머물다와 함께하는 결혼식</h2>
 </div>
 <br><br><br><br>
 <table id="table">
@@ -106,9 +105,18 @@
 	</c:otherwise>
 </c:choose>
 
+<tr>
+	<td>
+	${pageStr}
+	</td>
+</tr>
 </table>
 
-${pageStr}
+
+
+<br><br><br><br><br>
+<br><br><br><br><br>
+<%@include file="/footer.jsp" %>
 </body>
 </html>
 

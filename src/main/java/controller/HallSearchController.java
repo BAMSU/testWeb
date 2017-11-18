@@ -110,7 +110,6 @@ public class HallSearchController {
 		ModelAndView mas = new ModelAndView("halllook/hallmode");
 		mas.addObject("hallmod", dto);
 		mas.addObject("dtorom", dtorom);
-		System.out.println(dtorom);
 		return mas;
 	}
 	

@@ -120,6 +120,7 @@ function info() {
 </script>
 </head>
 <body onload = "info()">
+<%@include file="/adminheader.jsp"%>
 <form name="fm" action="update2.we">
 홀 이름 : <input type="text" name="name" value="${list.name}" required><br>
 홀 타입 : <input type="text" name="hallType" value="${list.hallType}" required><br>
