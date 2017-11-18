@@ -5,13 +5,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.button{
+	width:90px;
+	height:50px;
+	text-align: center;
+	vertical-align: center;
+	background: white;
+	opacity:0.4;
+	border:2px solid gray;
+	border-radius: 5px;
+}
+.button:hover{
+	background: transparent;
+}
+
+</style>
 
 </head>
 <body>
 	<!--스.드.메.예 입력폼  -->
-	<h2>${sessionScope.besort } 상품 등록 신청</h2>
+<div style="width:80%; margin:auto;">
+	<h2>${sessionScope.besname } 상품 등록 신청</h2>
+	<br><br>
+
 <form action="regSDMY.we" name="sdmyIn" method="post" enctype="multipart/form-data">
-<table>
+<table align="center" style="margin:auto;width:100%;">
 
 	<tr>
 		<td>업체명</td> <td><input type="text" name="sdmy_be" value="${sessionScope.besname}" readonly style="border-style: none;" required></td>
@@ -44,13 +63,14 @@
 	</tr>
 	
 	<tr>
-		<td>
+		<td colspan="2" align="center">
+		<br>
 			<input type="hidden" name="be_sort" value="${sessionScope.besort }">
-			<input type="submit" value="등록 신청하기">
+			<input type="submit" class="button" value="등록신청">
 		</td>
 	</tr>
 </table>
 </form>
-
+</div>
 </body>
 </html>

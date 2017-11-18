@@ -8,32 +8,27 @@
 <title>Insert title here</title>
 
 </head>
-<body onload="msg()">
+<body style="background-image: url('upload/beBackGround.jpg'); opacity: 0.7; background-size: cover;">
 <%@include file="../beHeader.jsp" %>
-<h2>업체상품등록페이지</h2>		<!-- 상품등록은 업로드 / 리스트 출력은 프로젝트 내에 이미지 파일 경로 -->
+<!-- 상품등록은 업로드 / 리스트 출력은 프로젝트 내에 이미지 파일 경로 -->
 <br><br>
-
-업체종류 : ${sessionScope.besort } 
+<div id="" class="jumbotron" style="width:70%; margin:auto;">
 <br>
-
+<div style="align-content: center; margin:auto;">
 <c:choose>
 	<c:when test="${sessionScope.besort == '스튜디오'}"> 
-		<br> 스튜디오업체입니당 <br>
 		<%@include file="regSDMY.jsp" %>
 	</c:when>
 	
 	<c:when test="${sessionScope.besort == '드레스' }"> 
-		드레스 업체입력폼 불러오기
 		<%@include file="regSDMY.jsp" %>
 	</c:when>
 	
 	<c:when test="${sessionScope.besort == '메이크업' }"> 
-		업체입력폼 불러오기
 		<%@include file="regSDMY.jsp" %>
 	</c:when>
 	
 	<c:when test="${sessionScope.besort == '예복' }"> 
-		업체입력폼 불러오기
 		<%@include file="regSDMY.jsp" %>
 	</c:when>
 	
@@ -49,9 +44,13 @@
 		<%@include file="regBouq.jsp" %>
 	</c:when>
 </c:choose>
-
+ </div>
+</div>
 <br>
-
+<br>
+<br>
+<br>
+<br>
 
 </body>
 </html>

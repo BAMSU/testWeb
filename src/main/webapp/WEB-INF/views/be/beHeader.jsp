@@ -7,9 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-<link rel="stylesheet" href="becss/css/main.css" />
-		<noscript><link rel="stylesheet" href="css/css/noscript.css" /></noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -19,8 +17,12 @@ function loginOpen(){
 }
 </script>
 <style type="text/css">
-.a{
+a{
 text-decoration: none;
+
+}
+a:hover{
+	text-decoration: none;
 }
 </style>
 </head>
@@ -28,15 +30,15 @@ text-decoration: none;
 <p style="font-size: small; text-align: right; padding-right: 15%;">
 
 <c:if test="${empty sessionScope.besid }">
-	<a href="beJoin.we" class="a">업체가입</a> | 
-	<a href="javascript:loginOpen()" class="a">업체로그인</a> | 
+	<a href="beJoin.we" style="font: black;">업체가입</a> | 
+	<a href="javascript:loginOpen()" style="font: black;">업체로그인</a> | 
 </c:if>
 
 <c:if test="${!empty sessionScope.besid }">
 	${sessionScope.besname} 업체(${sessionScope.besort}) 로그인 중 | 
-	<a href="logout.we" class="a">로그아웃 |</a>
+	<a href="logout.we" style="font: black;">로그아웃 |</a>
 </c:if>
-<a href="beIndex.we" class="a">업체메인</a>
+<a href="beIndex.we" style="font: black;">업체메인</a>
 
 </p>
 </body>

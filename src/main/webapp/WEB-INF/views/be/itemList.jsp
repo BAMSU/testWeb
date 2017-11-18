@@ -55,7 +55,6 @@
 	<div style="width:100%; align-self: center; margin:auto;">
 	</div>
 
-<!-- sdmyList 출력 -->
 <c:set var="i" value="0"></c:set>
 <c:choose >
 	<c:when test="${category == 'car'}">

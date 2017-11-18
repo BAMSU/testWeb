@@ -5,14 +5,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.button{
+	width:90px;
+	height:50px;
+	text-align: center;
+	vertical-align: center;
+	background: white;
+	opacity:0.4;
+	border:3px solid gray;
+	border-radius: 5px;
+}
+.button:hover{
+	background: transparent;
+}
+
+</style>
 </head>
 <body>
 		<!-- 웨딩카 입력폼 -->
 <br>
-<h2>${sessionScope.besname } 상품 등록 신청</h2>
-<br>
+<h2	align="center">${sessionScope.besname} 상품 등록 신청</h2>
+<br><br>
 <form action="regCar.we" name="carIn" method="post" enctype="multipart/form-data" >
-<table>
+<table align="center" style="width:90%;margin:auto;">
 	<tr>
 		<td width="30%"></td><td width="30%"></td>
 	</tr>
@@ -47,9 +63,9 @@
 	</tr>
 	
 	<tr>
-		<td>
+		<td colspan="2" align="center">
 		<input type="hidden" name="be_sort" value="${sessionScope.besort}">
-		<input type="submit" value="등록신청하기">
+		<input type="submit" class="button" value="등록 신청">
 		</td>
 	</tr>
 </table>

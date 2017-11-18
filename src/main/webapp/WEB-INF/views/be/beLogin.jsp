@@ -13,7 +13,7 @@ function beJoin(){
 }
 </script>
 </head>
-<body>
+<body style="background-image: url('upload/beBackGround.jpg'); opacity: 0.7; background-size: cover;">
 <c:if test="${!empty sessionScope.besid }">
 	<script type="text/javascript">
 		location.href="beIndex.we";
@@ -22,7 +22,9 @@ function beJoin(){
 <br><br><br><br>
 <br><br><br><br>
 
-<div style="width:30%;margin:auto;align:center;">
+<div style="width:40%;margin:auto;align:center;
+border:4px double pink;background: white;
+border-radius:30px;padding: 50px;">
 
     <form action="beLogin.we" method="post">
     
@@ -31,7 +33,7 @@ function beJoin(){
       <input type="text" class="form-control" id="id" placeholder="id" name="be_id" required>
     </div>
 	<div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
+      <label for="exampleInputPassword1">password</label>
       <input type="password" class="form-control" id="pwd" placeholder="Password" name="be_pwd" required>
     </div>
     <div style="margin:auto; width:fit-content;">
@@ -39,8 +41,6 @@ function beJoin(){
 		<button type="submit" class="btn btn-primary">Login</button>
 	</div>
 	</form>
-     
-
 </div>
 
 </body>
