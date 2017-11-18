@@ -5,18 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>홀 상세정보</title>
+<title>홀 정보</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <c:set var="h" value="${hallInfo}"/>
 <style>
+
 #map {
  height: 400px;
  width: 100%;
 }
-
 a {
 	cursor: pointer;
 }
@@ -26,13 +26,24 @@ a {
 	font-size: 20px;
 }
 
-table th{
-	padding: 3px;
+.hif th{
 	color: gray;
 }
-
+table th{
+	padding: 3px;
+}
 table td{
 	padding: 3px;
+}
+table tfoot td{
+	text-align: center;
+}
+#rvp{
+	margin: 0px auto;
+}
+.thd{
+	background-color: #e74742; 
+	color: #fff;
 }
 </style>
 <script>
@@ -76,10 +87,9 @@ table td{
 <script>
 	var srp = ${srp};
 	$(document).ready(function(){
-		cgSrp();
 		$('#grade').css('color','red');
 		var gg = ${h.grade};
-		var g = parseInt(gg);
+		var g = Math.floor(gg);
 		if(g==1){
 			$('#grade').text('★☆☆☆☆');
 		}else if(g==2){
@@ -98,6 +108,10 @@ table td{
 		
 		$('.mySlides').css('width','100%');
 		$('.mySlides').css('height','400px');
+		
+		initSrp();
+		cgSrp();
+		
 	});
 	
 	function setSlide(i){
@@ -141,42 +155,63 @@ table td{
 		}
 	}
 	
-	function cgSrp(){
+	function initSrp(){
 		if(srp=='true' || srp){
 			$('#scrap').text('♥').css('font-size','20px');
 		}else{
+			$('#scrap').text('♡').css('font-size','20px');
+		}
+	}
+	
+	function cgSrp(){
+		var iii=${h.idx};
+		var sname='${userName}';
+		if($('#scrap').text()=='♡'){
 			$('#scrap').hover(function(){
 				$(this).text('♥').css('font-size','25px');
 			}).mouseout(function(){
 				$(this).text('♡').css('font-size','20px');
 			}).click(function(){
-				var iii=${h.idx};
-				var sname='${sname}';
-				$.get('scrap.we',{idx:iii,name:sname},function(data){
-					if(data=='true' || data){
-						location.reload();
-					}
-				});
+				if(sname==null || sname==''){
+					alert('로그인하여 주세요.');
+				}else{
+					$.get('scrap.we',{idx:iii,name:sname},function(data){
+						if(data=='true' || data){
+							location.reload();
+						}
+					});
+				}
+			});
+		}
+		else{
+			$('#scrap').hover(function(){
+				$(this).text('♡').css('font-size','25px');
+			}).mouseout(function(){
+				$(this).text('♥').css('font-size','20px');
+			}).click(function(){
+				if(sname==null || sname==''){
+					alert('로그인하여 주세요.');
+				}else{
+					$.post('scrap.we',{idx:iii,name:sname},function(data){
+						if(data=='true' || data){
+							location.reload();
+						}
+					});
+				}
 			});
 		}
 	}
 </script>
 </head>
 <body>
-<header>
-<div style="background-color: red; height: 300px;"></div>
-</header>
+<%@include file="/header.jsp"%>
 <section>
-	<article style="float: left;">
-		<div style="background-color: yellow; width: 200px; height: 500px;"></div>
-	</article>
-	<article style="float: left;">
-		<h4 style="padding: 10px;">홀 정보</h4>
-		<div style="border-top: 3px solid black;">
+	<article>
+		<div style="margin: 0px auto; width: 71%;">
 		<div style="width: 500px; height: 400px; float: left; margin: 30px 30px; margin-bottom: 0px;">
 			<h2>${h.name}</h2>
-			<p style="border-bottom: 1px solid gray; border-top: 1px solid gray; margin: 20px 0px;"><a id="grade">☆☆☆☆☆</a><font color="red">${h.grade}점</font> <a id="scrap">♡</a></p>
-			<table>
+			<p style="border-bottom: 1px solid #EAEAEA; border-top: 1px solid #EAEAEA; margin: 20px 0px;"><a id="grade">☆☆☆☆☆</a><font color="red">${h.grade}점</font> <a id="scrap">♡</a></p>
+			<table id="hif">
 				<tr>
 					<th>주소</th>
 					<td>${h.si} ${h.gu} ${h.dong} ${h.addr}</td>
@@ -203,18 +238,19 @@ table td{
 				</tr>
 			</table>
 			<hr style="color: gray;">
-			<h5 style="color: gray;"><font color="red">※</font>체크포인트</h5>
-			<p style="font-size: 13px;">${h.ckPoint}</p>
+			<h4 style="color: gray;"><font color="red">※</font>체크포인트</h4>
+			<p><small class="text-muted">${h.ckPoint}</small></p>
 		</div>
-		<div style="width: 400px; height: 350px; float: left; margin: 30px 30px;">
-			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 400px; height: 270px;"/>
-			<p style="text-align: center; margin-top: 10px; border: 3px solid gray; border-radius: 3px; padding: 5px; background-color: #EAEAEA;">
-				<button type="button" class="btn btn-secondary">견적내기</button>
-				<button type="button" class="btn btn-secondary" style="margin: 0px 35px;" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'">통계보기</button>
-				<button type="button" class="btn btn-primary">상담신청</button>
+		<div style="width: 450px; height: 350px; float: left; margin: 30px 30px;">
+			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 450px; height: 270px;"/>
+			<p style="text-align: center; margin-top: 15px;">
+				<input type="button" class="btn btn-secondary" value="견적내기"/>
+				<input type="button" class="btn btn-secondary" value="비교하기" onclick="location.href='hallCompare.we?idx=${h.idx}'"/>
+				<input type="button" class="btn btn-secondary" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'"/>
+				<input type="button" class="btn btn-primary" value="상담신청" onclick="location.href='consult.we?gubun=1&idx=${h.idx}'"/>
 			</p>
 		</div>
-		<div style="width: 1000px; height: 500px; clear: both; margin: 0px 30px;">
+		<div style="width: 1000px; clear: both; margin: 0px 30px;">
 		
 			<p id="infoTab" style="height: 10px;"></p>
 					
@@ -229,7 +265,7 @@ table td{
 			    <a class="nav-link" data-toggle="tab" href="#reviewTab">홀 리뷰</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" data-toggle="tab" href="#loctionTab">홀 위치</a>
+			    <a class="nav-link" data-toggle="tab" href="#locationTab">홀 위치</a>
 			  </li>
 			</ul>
 			
@@ -243,7 +279,7 @@ table td{
 			  <div>
 			  	<table class="table table-striped table-hover table-bordered">
 			  		<thead>
-				  		<tr class="thead-dark">
+				  		<tr class="thd">
 					  		<th>요일</th>
 					  		<th>형태</th>
 					  		<th>인원</th>
@@ -284,14 +320,14 @@ table td{
 			    <a class="nav-link" data-toggle="tab" href="#reviewTab">홀 리뷰</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" data-toggle="tab" href="#loctionTab">홀 위치</a>
+			    <a class="nav-link" data-toggle="tab" href="#locationTab">홀 위치</a>
 			  </li>
 			</ul>
 			
 			<div id="photo" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 20px;">
 				<div style="background: #EAEAEA; margin: 0px auto; width: 950px;">
 				<div style="margin-left: 50px; padding-top: 20px;">
-				<h5 style="color: #4C4C4C;">Gallery Category</h5>
+				<h4 style="color: #4C4C4C;">Gallery Category</h4>
 				<a class="isa" onclick="setSlide(0)">전체</a> |
 				<c:set var="sc" value="1"/>
 			  	<c:forEach var="r" items="${roomInfo}">
@@ -360,34 +396,41 @@ table td{
 			    <a class="nav-link active" data-toggle="tab" href="#reviewTab">홀 리뷰</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" data-toggle="tab" href="#loctionTab">홀 위치</a>
+			    <a class="nav-link" data-toggle="tab" href="#locationTab">홀 위치</a>
 			  </li>
 			</ul>
 			
 			<div id="review" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 20px;">
+			  <c:if test="${empty reviewList}">
+			  	<p>작성된 리뷰가 없습니다.</p>
+			  </c:if>
+			  <c:if test="${!empty reviewList}">
 			  <table class="table table-striped table-hover table-bordered">
-			  	<thead class="thead-dark">
+			  	<thead class="thd">
 			  		<tr>
-			  			<th></th>
-			  			<th></th>
-			  			<th></th>
-			  			<th></th>
+			  			<th>제목</th>
+			  			<th>평점</th>
+			  			<th>등록일</th>
+			  			<th>조회수</th>
 			  		</tr>
 			  	</thead>
 			  	<tfoot>
 			  		<tr>
-			  			<td colspan="4"></td>
+			  			<td colspan="4">${pageStr}</td>
 			  		</tr>
 			  	</tfoot>
 			  	<tbody>
-			  		<tr>
-			  			<td></td>
-			  			<td></td>
-			  			<td></td>
-			  			<td></td>
-			  		</tr>
+			  		<c:forEach var="rv" items="${reviewList}">
+				  		<tr>
+				  			<td onclick="location.href='reviewContent.we?idx=${rv.idx}&idx2=${h.idx}'">${rv.subject}</td>
+				  			<td>${rv.average}</td>
+				  			<td>${rv.writedate}</td>
+				  			<td>${rv.readnum}</td>
+				  		</tr>
+			  		</c:forEach>
 			  	</tbody>
 			  </table>
+			  </c:if>
 			</div>
 			
 			<p id="locationTab" style="height: 10px;"></p>
@@ -403,23 +446,18 @@ table td{
 			    <a class="nav-link" data-toggle="tab" href="#reviewTab">홀 리뷰</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link active" data-toggle="tab" href="#loctionTab">홀 위치</a>
+			    <a class="nav-link active" data-toggle="tab" href="#locationTab">홀 위치</a>
 			  </li>
 			</ul>
 			
-			<div id="location" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 10px;">
+			<div id="location" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 10px; margin-bottom: 50px;">
 			  <div id="map"></div>
 			</div>
-			
-			<p style="height: 50px;"></p>
 		</div>
 		</div>
-	</article>
-	<article style="float: right;">
-		<div style="background-color: yellow; width: 100px; height: 500px;"></div>
+		</div>
 	</article>
 </section>
-<footer style="clear: both;">
-</footer>
+<%@include file="/footer.jsp"%>
 </body>
 </html>

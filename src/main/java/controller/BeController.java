@@ -422,14 +422,14 @@ public class BeController {
 	public ModelAndView beItemDetailSDMY(
 			@RequestParam(value="be_name")String be_name
 			) {
+		ModelAndView mav = new ModelAndView();
 		
 		SDMYDTO dto =beDao.itemDetailSDMY(be_name); 
 		BeDTO bdto = beDao.itemDetailBe(be_name);
 		System.out.println("test:"+bdto.getBe_loc());
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("dto", dto);
+
 		mav.addObject("bdto", bdto);
+		mav.addObject("dto", dto);
 		
 		mav.setViewName("be/beItemDetailSDMY");
 		return mav;
@@ -673,7 +673,7 @@ public class BeController {
 			@RequestParam(value="cp", defaultValue="1")int cp
 			) {
 		ModelAndView mav = new ModelAndView();
-		int listSize = 1;
+		int listSize = 9;
 		int pageSize = 5;
 		int totalCnt= 0;
 		
@@ -749,6 +749,11 @@ public class BeController {
 		SDMYDTO dto = beDao.itemDetailSDMY(sdmy_be);
 		beDao.sdmyReadNum(sdmy_be);
 		
+		BeDTO bdto = beDao.itemDetailBe(sdmy_be);
+		System.out.println("업체 소재지:"+bdto.getBe_loc());
+
+		mav.addObject("bdto", bdto);
+		
 		mav.addObject("dto",dto);
 		mav.setViewName("be/itemDetailSDMY");
 		
@@ -762,6 +767,10 @@ public class BeController {
 		CarDTO dto = beDao.itemDetailCar(car_idx);
 		beDao.carReadNum(car_idx);
 		
+		BeDTO bdto = beDao.itemDetailBe(dto.getCar_be());
+		System.out.println("업체 소재지:"+bdto.getBe_loc());
+
+		mav.addObject("bdto", bdto);
 		mav.addObject("dto",dto);
 		mav.setViewName("be/itemDetailCar");
 		
@@ -775,6 +784,10 @@ public class BeController {
 		ShoesDTO dto = beDao.itemDetailShoes(shoes_idx);
 		beDao.shoesReadNum(shoes_idx);
 		
+		BeDTO bdto = beDao.itemDetailBe(dto.getShoes_be());
+		System.out.println("업체 소재지:"+bdto.getBe_loc());
+
+		mav.addObject("bdto", bdto);
 		mav.addObject("dto",dto);
 		mav.setViewName("be/itemDetailShoes");
 		
@@ -788,6 +801,10 @@ public class BeController {
 		BouqDTO dto = beDao.itemDetailBouq(bouq_idx);
 		beDao.bouqReadNum(bouq_idx);
 		
+		BeDTO bdto = beDao.itemDetailBe(dto.getBouq_be());
+		System.out.println("업체 소재지:"+bdto.getBe_loc());
+
+		mav.addObject("bdto", bdto);
 		mav.addObject("dto",dto);
 		mav.setViewName("be/itemDetailBouq");
 		

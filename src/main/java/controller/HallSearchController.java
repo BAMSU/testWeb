@@ -21,7 +21,8 @@ import hall.model.HallDTO;
 import hallEstimate.model.HalleDAO;
 import hallEstimate.model.HalleDTO;
 import review.model.ReviewDAO;
-import review.model.ReviewDTO;
+import room.model.RoomDTO;
+
 
 @Controller
 public class HallSearchController {
@@ -39,25 +40,30 @@ public class HallSearchController {
 		ModelAndView mav = new ModelAndView();
 		List<HallDTO> hallview2 = halleDao.hallview();
 		mav.addObject("hallview",hallview2);
-		mav.setViewName("halllook/hallsearch");	
+		mav.setViewName("hall/hallsearch");	
 		return mav;
 	}
 	
 	
 	@RequestMapping(value="/hallsearch.we", method = RequestMethod.POST)
 	public ModelAndView test(
-			@RequestParam(value="hallType",defaultValue="noDATA")String hallType,
+			@RequestParam(value="hallType")String hallType,
 			@RequestParam("menuType")String menuType,
-	         @RequestParam("mealCost")String mealCost,@RequestParam("guest")String guest,@RequestParam("lineType")String lineType,
-	         @RequestParam("search_text")String search_text){
-		if(hallType.equals("noDATA")){
-			System.out.println("zzzzzzzzzzzzzzzzz");
-		}
+	       @RequestParam("lineType")String lineType,
+	         @RequestParam("search_text")String search_text,
+	         @RequestParam("est_guest")int est_guest,
+	         @RequestParam("meal_price")int meal_price,
+	         @RequestParam("meal_price2")int meal_price2){
 		ModelAndView mav = new ModelAndView();
-		System.out.println();
-		List<HallDTO>hallList = halleDao.hallList(hallType, menuType, mealCost, guest, lineType, search_text);
+		System.out.println(hallType);
+		System.out.println(menuType);
+		System.out.println(lineType);
+		System.out.println(search_text);
+		List<HallDTO>hallList = halleDao.hallList(hallType, menuType);
+		List<HalleDTO>hallList2=halleDao.hallList2(est_guest,meal_price,meal_price);
+		List<HallDTO>hallList3=halleDao.hallList3(lineType, search_text);
+		System.out.println(menuType);
 		mav.addObject("hallList",hallList);
-		mav.addObject("aaa","aaa");
 		mav.setViewName("jsonView");
 		return mav;
 	}
@@ -66,37 +72,34 @@ public class HallSearchController {
 	
 	/* 견적확인 */
 	@RequestMapping(value = "/hallestimate.we")
-	public ModelAndView hallestlist() {
+	public ModelAndView hallestlist(@RequestParam(value="hall_idx",defaultValue="1")int hall_idx) {
 		ModelAndView est = new ModelAndView();
-		List<HallDTO> hallview2 = halleDao.hallview();
-		List<HalleDTO> hallest = halleDao.hallestList();
-		est.addObject("hallestimate1", hallest);
-		est.addObject("hallestimate2", hallview2);
-		est.setViewName("halllook/hallestimate");
+		HalleDTO dto = halleDao.halles(hall_idx);
+		HallDTO dto2= halleDao.halle(hall_idx);
+		est.addObject("hallestList",dto);
+		est.addObject("hallview",dto2);
+		est.setViewName("hall/hallestimate");
 		return est;
 	}
 	
 	/*견적서 모형 보기*/
 	@RequestMapping(value="/hallmode.we")
-	public ModelAndView hallesview(){
-		ModelAndView mav = new ModelAndView();
-		List<HalleDTO> hallest = halleDao.hallestList();
-		mav.addObject("hallmode",hallest);
-		mav.setViewName("halllook/hallmode");
-		return mav;
+	public ModelAndView hallesview(HalleDTO dto,@RequestParam(value="hall_idx")int hall_idx){
+		dto = halleDao.halles(hall_idx);
+		List<RoomDTO> dtorom = halleDao.hallroom(hall_idx);
+		ModelAndView mas = new ModelAndView("hall/hallmode");
+		mas.addObject("hallmod", dto);
+		mas.addObject("dtorom", dtorom);
+		return mas;
 	}
 	
 	/*랭킹*/
 	@RequestMapping(value="/hallranking.we")
-	public ModelAndView hallrank(int cp,int ls){
-		ModelAndView mav = new ModelAndView();
-		List<ReviewDTO> hallrank = review.AllReviewList(cp, ls);
-		mav.addObject("hallrank",hallrank);
-		mav.setViewName("halllook/hallranking");
-		return mav;
+	public ModelAndView hallrank(){
+	
+	ModelAndView mas = new ModelAndView("hall/hallranking");
+	List<HallDTO> list = halleDao.rankingList();
+	mas.addObject("hallrank", list);
+	return mas;
 	}
-	
-	
-
-
 }

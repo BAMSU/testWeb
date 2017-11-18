@@ -16,5 +16,7 @@
       <mapper resource="sql/ahallSql.xml"/>
       <mapper resource="sql/roomSql.xml"/>
       <mapper resource="sql/hallsearchSql.xml"/>
+      <mapper resource="sql/consultSQL.xml"/>
+      <mapper resource="sql/reviewSql.xml"/>
    </mappers>
 </configuration>

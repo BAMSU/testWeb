@@ -51,6 +51,9 @@ img{
 			<tr>
 			<c:url var="reviewDelUrl" value="reviewDel.we">
 					<c:param name="idx" >${dto.review_idx}</c:param>
+					<c:param name="name">${dto.name}</c:param>
+					
+					
 			</c:url>
 			<td><a href="${reviewDelUrl}"><input type="button" value="삭제"></a></td>
 			</tr>

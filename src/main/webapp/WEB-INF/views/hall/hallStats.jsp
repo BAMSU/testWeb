@@ -6,10 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>홀 통계</title>
-<style>
-
-</style>
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+	#hn{
+		border-bottom: 3px solid black;
+		margin-bottom: 20px;
+		padding: 30px;
+	}
+	table{
+		text-align: center;
+	}
+	table th{
+		text-align: center;
+	}
+</style>
 <script>
 var cn;
 var cm=new Array(12);
@@ -69,107 +80,99 @@ var mon=new Array(12);
   google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
 	  var options = {
-	      width: 400,
+	      width: 500,
 	      height: 300,
-	      bar: {groupWidth: "50%"},
+	      bar: {groupWidth: "60%"},
 	      legend: {position: "none"},
 	      vAxis: {minValue:0,format:"#"}
 	    };
 	  
     var data1 = google.visualization.arrayToDataTable([
       ["월", "상담신청", {role:"style"},{role:"annotation"}],
-      [mon[0]+"월", cm[0], "red", cm[0]],
-      [mon[1]+"월", cm[1], "blue", cm[1]],
-      [mon[2]+"월", cm[2], "green", cm[2]]
+      [mon[0]+"월", cm[0], "#FFA7A7", cm[0]],
+      [mon[1]+"월", cm[1], "#A566FF", cm[1]],
+      [mon[2]+"월", cm[2], "#4374D9", cm[2]]
     ]);
     var chart1 = new google.visualization.ColumnChart(document.getElementById("chart1"));
     chart1.draw(data1, options);
     
     var data2 = google.visualization.arrayToDataTable([
         ["월", "홀 견적내기", {role:"style"},{role:"annotation"}],
-        [mon[0]+"월", cm[3], "red", cm[3]],
-        [mon[1]+"월", cm[4], "blue", cm[4]],
-        [mon[2]+"월", cm[5], "green", cm[5]]
+        [mon[0]+"월", cm[3], "#FFA7A7", cm[3]],
+        [mon[1]+"월", cm[4], "#A566FF", cm[4]],
+        [mon[2]+"월", cm[5], "#4374D9", cm[5]]
     ]);
     var chart2 = new google.visualization.ColumnChart(document.getElementById("chart2"));
     chart2.draw(data2, options);
     
     var data3 = google.visualization.arrayToDataTable([
         ["월", "홀vs홀", {role:"style"},{role:"annotation"}],
-        [mon[0]+"월", cm[6], "red", cm[6]],
-        [mon[1]+"월", cm[7], "blue", cm[7]],
-        [mon[2]+"월", cm[8], "green", cm[8]]
+        [mon[0]+"월", cm[6], "#FFA7A7", cm[6]],
+        [mon[1]+"월", cm[7], "#A566FF", cm[7]],
+        [mon[2]+"월", cm[8], "#4374D9", cm[8]]
     ]);
     var chart3 = new google.visualization.ColumnChart(document.getElementById("chart3"));
     chart3.draw(data3, options);
     
     var data4 = google.visualization.arrayToDataTable([
         ["월", "고객평가", {role:"style"},{role:"annotation"}],
-        [mon[0]+"월", cm[9], "red", cm[9]],
-        [mon[1]+"월", cm[10], "blue", cm[10]],
-        [mon[2]+"월", cm[11], "green", cm[11]]
+        [mon[0]+"월", cm[9], "#FFA7A7", cm[9]],
+        [mon[1]+"월", cm[10], "#A566FF", cm[10]],
+        [mon[2]+"월", cm[11], "#4374D9", cm[11]]
     ]);
     var chart4 = new google.visualization.ColumnChart(document.getElementById("chart4"));
     chart4.draw(data4, options);
     
-    $('.ct:eq(0)').text(cm[0]+cm[1]+cm[2]+'건/${hallRank1}등/${hallCount}개의 웨딩홀');
-    $('.ct:eq(1)').text(cm[3]+cm[4]+cm[5]+'건/${hallRank2}등/${hallCount}개의 웨딩홀');
-    $('.ct:eq(2)').text(cm[6]+cm[7]+cm[8]+'건/${hallRank3}등/${hallCount}개의 웨딩홀');
-    $('.ct:eq(3)').text(cm[9]+cm[10]+cm[11]+'건/${hallRank4}등/${hallCount}개의 웨딩홀');
+    $('.ct:eq(0)').html('<h4 class="cta">'+parseInt(cm[0]+cm[1]+cm[2])+'건</h4><a class="ctb">${hallRank1}등/${hallCount}개의 웨딩홀</a>');
+    $('.ct:eq(1)').html('<h4 class="cta">'+parseInt(cm[3]+cm[4]+cm[5])+'건</h4><a class="ctb">${hallRank2}등/${hallCount}개의 웨딩홀</a>');
+    $('.ct:eq(2)').html('<h4 class="cta">'+parseInt(cm[6]+cm[7]+cm[8])+'건</h4><a class="ctb">${hallRank3}등/${hallCount}개의 웨딩홀</a>');
+    $('.ct:eq(3)').html('<h4 class="cta">'+parseInt(cm[9]+cm[10]+cm[11])+'건</h4><a class="ctb">${hallRank4}등/${hallCount}개의 웨딩홀</a>');
 }
 </script>
 </head>
 <body>
-<header>
-<div style="background-color: red; height: 300px;"></div>
-</header>
+<%@include file="/header.jsp"%>
 <section>
-	<article style="float: left;">
-		<div style="background-color: yellow; width: 100px; height: 700px;"></div>
-	</article>
-	<article style="float: left;">
-		<h2>${hallName}</h2>
-		<table>
+	<article>
+		<div style="margin: 0px auto; width: 1100px;">
+		<div id="hn"><h2>${hallName}</h2></div>
+		<table class="table table-striped table-bordered">
 			<tr>
-				<th>상담신청</th>
-				<th>홀견적내기</th>
+				<th>상담신청 (단위 : 건)</th>
+				<th>홀견적내기 (단위 : 건)</th>
 			</tr>
 			<tr>
 				<td>
-					<div id="chart1" style="width: 400px; height: 300px;"></div>
-					<a class="ct"></a><br>
-					<input type="button" value="상세정보" onclick="location.href='hallInfo.we?idx=${hallIdx}'"/>
+					<div id="chart1" style="width: 500px; height: 300px;"></div>
+					<p class="ct"></p>
+					<input type="button" class="btn btn-info" value="상세정보" onclick="location.href='hallInfo.we?idx=${hallIdx}'"/>
 				</td>
 				<td>
-					<div id="chart2" style="width: 400px; height: 300px;"></div>
-					<a class="ct"></a><br>
-					<input type="button" value="견적내기"/>
+					<div id="chart2" style="width: 500px; height: 300px;"></div>
+					<p class="ct"></p>
+					<input type="button" class="btn btn-info" value="견적내기"/>
 				</td>
 			</tr>
 			<tr>
-				<th>홀vs홀</th>
-				<th>고객평가</th>
+				<th>홀vs홀 (단위 : 건)</th>
+				<th>고객평가 (단위 : 건)</th>
 			</tr>
 			<tr>
 				<td>
-					<div id="chart3" style="width: 400px; height: 300px;"></div>
-					<a class="ct"></a><br>
-					<input type="button" value="비교하기" onclick="location.href='hallCompare.we?idx=${hallIdx}'"/>
+					<div id="chart3" style="width: 500px; height: 300px;"></div>
+					<p class="ct"></p>
+					<input type="button" class="btn btn-info" value="비교하기" onclick="location.href='hallCompare.we?idx=${hallIdx}'"/>
 				</td>
 				<td>
-					<div id="chart4" style="width: 400px; height: 300px;"></div>
-					<a class="ct"></a><br>
-					<input type="button" value="평가보기"/>
+					<div id="chart4" style="width: 500px; height: 300px;"></div>
+					<p class="ct"></p>
+					<input type="button" class="btn btn-info" value="평가보기"/>
 				</td>
 			</tr>
 		</table>
-	</article>
-	<article style="float: right;">
-		<div style="background-color: yellow; width: 100px; height: 700px;"></div>
+		</div>
 	</article>
 </section>
-<footer style="clear: both;">
-<div style="background-color: blue; height: 300px;"></div>
-</footer>
+<%@include file="/footer.jsp"%>
 </body>
 </html>

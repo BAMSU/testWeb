@@ -6,12 +6,63 @@
 <mapper namespace="admin">
 	
 	<select id="wdList" resultType="hall.model.HallDTO">
-		select * from hall order by 
+		select * from hall order by idx
 	</select>
 	
 	<select id="consultaa" resultType="consult.model.ConsultDTO">
-		select * from consult
+		select * from consult order by consult_idx
 	</select>
+	
+	<select id="consultaa2" parameterType="String" resultType="consult.model.ConsultDTO">
+		select * from consult where available = #{type} order by consult_idx
+	</select>
+	
+	<select id="acontext" parameterType="int" resultType="consult.model.ConsultDTO">
+		select * from consult where consult_idx = #{idx}
+	</select>
+	
+	<update id="changeconsult" parameterType="int">
+		update consult set available = '2' where consult_idx = #{idx}
+	</update>
+	
+	<select id="esCon" parameterType="int" resultType="ahall.model.aHalleDTO">
+		select * from hall_estimate where hall_idx=#{idx}
+	</select>
+	
+	<insert id="esInsert" parameterType="ahall.model.aHalleDTO">
+		insert into hall_estimate values
+		(hall_estimate_idx.nextval, #{hall_name}, #{hall_idx}, 
+		#{est_guest}, #{hall_price1}, #{hall_content}, #{ourfit_price}, 
+		#{meal}, #{meal_1}, #{meal_price}, #{meal_price2}, #{meal_content}, #{meal_content2})
+	</insert>
+	
+	<update id="esUpdate" parameterType="ahall.model.aHalleDTO">
+		update hall_estimate set
+		hall_name = #{hall_name}, est_guest = #{est_guest}, hall_price1 = #{hall_price1}, 
+		hall_content = #{hall_content}, ourfit_price = #{ourfit_price}, meal = #{meal}, 
+		meal_1 = #{meal_1}, meal_price = #{meal_price}, meal_price2 = #{meal_price2}, meal_content = #{meal_content}, 
+		meal_content2 = #{meal_content2} where hall_idx = #{hall_idx}
+	</update>
+	
+	
+	<select id="beLista" resultType="ahall.model.HBeDTO">
+		select * from be_join order by be_idx
+	</select>
+	
+	<select id="beListb" resultType="ahall.model.HBeDTO">
+		select * from be_join where admin_permission = #{type} order by be_idx
+	</select>
+	
+	<update id="updateBebe1" parameterType="int">
+		update be_join set admin_permission = 'y' where be_idx = #{be_idx}
+	</update>
+	
+	<update id="updateBebe2" parameterType="int">
+		update be_join set admin_permission = 'n' where be_idx = #{be_idx}
+	</update>
+
+	
+	
 	
 </mapper>
 

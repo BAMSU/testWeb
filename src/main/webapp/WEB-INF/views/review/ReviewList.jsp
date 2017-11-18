@@ -11,6 +11,7 @@
 img{
 	width: 50px;
 }
+
 </style>
 <body>
 <h2>홀 후기 리스트</h2>
@@ -49,6 +50,7 @@ img{
 			<tr>
 				<td>${dto.content} </td>
 			</tr>
+			<tr>
 			<td>
 			
 				<c:if test="${dto.average==1 }">
@@ -78,7 +80,20 @@ img{
 				<c:if test="${dto.average==5}">
 					<img src="/finalproject/img/star5.png">
 				</c:if>
-			</td>
+				
+				</tr>
+				<tr>
+				<td>
+				<c:url var="reviewContentUrl" value="reviewContent.we">
+					<c:param name="idx" >${dto.room_idx}</c:param>
+					<c:param name="idx2" >${dto.review_idx}</c:param>
+				
+					
+					
+			  </c:url>
+				<a href="${reviewContentUrl} "><input type="button" value="리뷰상세보기"></a>
+				</td>
+				</tr>
 			
 		
 		</c:forEach>

@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="/adminheader.jsp"%>
 <form name = "fm" action="updateMeal.we" method="POST">
 <c:forEach var="dto" items="${list}">
 음식 종류 : <input type="text" name="meal" value="${dto.meal}"> <br>

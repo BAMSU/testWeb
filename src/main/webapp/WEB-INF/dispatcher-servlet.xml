@@ -57,7 +57,9 @@
          <ref bean="sqlSessionTemplate"/>
       </constructor-arg>
    </bean>
-
+ 	<bean id="cardOrderDao" class="yong.cardOrder.model.CardOrderDAOImple">
+   		<constructor-arg><ref bean="sqlSessionTemplate"/></constructor-arg>
+   </bean>	
    <!-- <bean id="beDao" class="be.model.BeDAOImple"/> -->
      
     <bean id="hallDao" class="hall.model.HallDAOImple">
@@ -67,6 +69,11 @@
    </bean>
    
     <bean id="halleDao" class="hallEstimate.model.HalleDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
+    <bean id="ahalleDao" class="ahall.model.aHalleDAOImple">
       <constructor-arg>
          <ref bean="sqlSessionTemplate"/>
       </constructor-arg>
@@ -92,11 +99,21 @@
       <constructor-arg ref="sqlSessionTemplate"/>
    </bean>
    
+   <bean id="aBeDAO" class="ahall.model.aBeDAOImple">
+      <constructor-arg ref="sqlSessionTemplate"/>
+   </bean>
+   
    	<bean id="review" class="review.model.ReviewDAOImple">
 		<constructor-arg>
-			<ref bean="sqlSessionTemplate"/>
+	<ref bean="sqlSessionTemplate" />
 		</constructor-arg>
 	</bean>
+	
+	<bean id="aconsult" class="consult.model.aConsultDAOImple">
+      <constructor-arg>
+         <ref bean="sqlSessionTemplate"/>
+      </constructor-arg>
+   </bean>
 	
 	
 	
@@ -112,11 +129,7 @@
       </constructor-arg>
    </bean>
    
-   <bean id="aconsult" class="consult.model.aConsultDAOImple">
-      <constructor-arg>
-         <ref bean="sqlSessionTemplate"/>
-      </constructor-arg>
-   </bean>
+   
    
     <bean id="aroom" class="aroom.model.aRoomDAOImple">
       <constructor-arg>

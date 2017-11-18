@@ -29,7 +29,14 @@
 <style>
 @import url('//fonts.googleapis.com/earlyaccess/jejuhallasan.css');
 header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
-	font-family: 'Jeju Hallasan'; 
+	font-family: ''; 
+}
+a{
+	text-decoration: none;
+	
+}
+a:hover{
+	text-decoration: none;
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -38,7 +45,7 @@ header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
       <div class="nav-header">
          <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
          <h1 id="fh5co-logo">
-            <a href="index.we">Nuptial</a>
+            <a href="index.we">Love is staying</a>
          </h1>
          <!-- START #fh5co-menu-wrap -->
          <nav id="fh5co-menu-wrap" role="navigation">

@@ -8,10 +8,11 @@
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <style type="text/css">
 section {
-	width: 1000px;
+	width: 1000px;margin: 0px auto;
 }
 
 table {
+	margin:0px auto;
 	width: 800px;
 }
 
@@ -29,11 +30,13 @@ table {
 </style>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 	<!-- <img src="http://ifamily.co.kr/center/website/travel/1407890606_main_1.jpg" /></div>
                 <div class="info_img02">
                 	<div class="info_left"><img src="http://ifamily.co.kr/center/website/travel/1408601980_1.jpg" /></div>
                     <div class="info_right"><img src="http://ifamily.co.kr/center/website/travel/1408601980_2.jpg" /> -->
 	<section>
+	
 		<table border="1" id="banner">
 			<tr>
 				<th><font size="5" color="#F29661">스위스<em>Swis</em>
@@ -122,5 +125,6 @@ table {
 
 
 	</section>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>

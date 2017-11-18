@@ -8,13 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>마이페이지</h2>
-
+<%@include file="/header.jsp" %>
 <c:url var="contentUrl" value="myPage_Like.we"><c:param name="name">${sname}</c:param></c:url>
      <a href="${contentUrl}">관심상품 리스트</a>
 <c:url var="contentUrl2" value="myPage_Review.we"><c:param name="writer">${sname}</c:param></c:url>
      <a href="${contentUrl2}">나의 리뷰 리스트</a>
 <c:url var="contentUrl3" value="myPage_Ask.we"><c:param name="name">${sname}</c:param></c:url>
      <a href="${contentUrl3}">문의 리스트</a>
+     <input type="button" value="청첩장 버튼">
+     <%@include file="/footer.jsp" %>
 </body>
 </html>

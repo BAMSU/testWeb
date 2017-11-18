@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import consult.model.*;
-import review.model.ReviewDTO;
 
 
 @Controller
@@ -63,6 +62,7 @@ public class ConsultController {
 		mav.setViewName("consult/consultList");
 		return mav;
 	}
+	
 	
 	@RequestMapping("/consultDel.we")
 	public ModelAndView consultDel(@RequestParam("idx")int idx){

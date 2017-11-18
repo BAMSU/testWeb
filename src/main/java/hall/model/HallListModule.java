@@ -5,10 +5,10 @@ import java.util.List;
 public class HallListModule {
 	public static String makeHallList(List<HallDTO> hl){
 		StringBuffer sb = new StringBuffer();
-		sb.append("<div id='hallList' style='overflow: auto;'>");
+		sb.append("<div id='hallList'>");
 		for(HallDTO h : hl){
-			sb.append("<p>"+h.getName()+"<input type='button' value='선택' "
-					+ "onclick='selHall("+h.getIdx()+")'/></p>");
+			sb.append("<p><a>"+h.getName()+"</a>&nbsp;&nbsp;<input type='button' value='선택' "
+					+ "onclick='selHall("+h.getIdx()+")' class='btn btn-info btn-sm'/></p>");
 		}
 		sb.append("</div>");
 		return sb.toString();

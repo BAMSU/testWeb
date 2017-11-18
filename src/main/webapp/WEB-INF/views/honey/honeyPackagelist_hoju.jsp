@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <style type="text/css">
 section {
-	width: 800px;
+	width: 800px;margin: 0px auto;
 }
 
 #plist {
@@ -33,6 +33,7 @@ section {
 </style>
 </head>
 <body>
+<%@include file="/header.jsp" %>
 	<table>
 		<tr>
 			<td><img src="selectedhoju.jpg" usemap="#worldmap"
@@ -76,5 +77,6 @@ section {
 		</tr>
 
 	</table>
+	<%@include file="/footer.jsp" %>
 </body>
 </html>

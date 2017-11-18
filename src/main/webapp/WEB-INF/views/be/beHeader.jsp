@@ -10,11 +10,10 @@
 <link rel="stylesheet" href="becss/css/main.css" />
 		<noscript><link rel="stylesheet" href="css/css/noscript.css" /></noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <title>Insert title here</title>
 <script type="text/javascript">
 function loginOpen(){
-	
 	//window.open('beLogin.we', 'login', 'width=350px, height=200px, status=no, resizable=no');
 	location.href="beLogin.we";
 }
