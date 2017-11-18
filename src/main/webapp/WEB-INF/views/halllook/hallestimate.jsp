@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	function revisepopup() {
-		window.open('hallmode.do','hallmode', 'width=500,height=570');
-	}
 	function inquiry() {
 		alert('확인');
 	}
 </script>
+<style>
+
+</style>
 </head>
 <style>
 </style>
@@ -26,7 +26,6 @@
 					<li><a>홀vs홀</a></li>
 					<li><a href="hallsearchlist.we">불러오기확인</a></li>
 					<li><a href="hallestimate.we">홀 견적내기</a></li>
-					<li><a href="hallmode.we">견적 작성</a></li>
 					<li><a href="hallranking.we">랭킹</a></li>
 				</ul>
 			</div>
@@ -61,7 +60,7 @@
 	
 	   <button type="button" class="btn btn-primary">상담신청</button>
 	
-	<form name="hallestmate" action="hallmode.do">
+	<form name="hallestmate" action="hallmode.we">
 		<p>본 견적은 웨딩홀에서 제공한 가격 정보를 단순 계산한 견적으로 실제 견적과의 차이가 있을 수 있습니다.</p>
 		
 		<table border="1">
@@ -178,10 +177,9 @@
 			<div>
 				<ul>
 					<li><c:if test="${empty sessionScope.hallmode}">
-							<a href="javascript:revisepopup()">견적작성하기</a>
 							<input type="hidden" name="a" value="bss">
 							<input type="hidden" name="hall_idx" value="${es.hall_idx }">
-							<input type="submit" value="확인">
+							<input type="submit" value="견적작성">
 						</c:if> <input type="button" value="문의하기" onclick="inquiry()"></li>
 				</ul>
 				
