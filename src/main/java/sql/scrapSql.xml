@@ -9,7 +9,7 @@
 	<delete id="deleteScrapSQL" parameterType="map">
 		delete from scrap where memberName=#{memberName} and hallIdx=#{hallIdx}
 	</delete>
-	<select id="getScrapSQL" parameterType="map" resultType="scrap.model.ScrapDTO">
-		select * from scrap where memberName=#{memberName} and hallIdx=#{hallIdx}
+	<select id="getScrapSQL" parameterType="map" resultType="int">
+		select count(*) from scrap where memberName=#{memberName} and hallIdx=#{hallIdx}
 	</select>
 </mapper>

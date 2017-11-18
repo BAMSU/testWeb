@@ -87,7 +87,7 @@ table tfoot td{
 </script>
 <script>
 	var srp = ${srp};
-	var sname='${userName}';
+	var uname='${userName}';
 	$(document).ready(function(){
 		$('#grade').css('color','red');
 		var gg = ${h.grade};
@@ -159,7 +159,7 @@ table tfoot td{
 	function initSrp(){
 		if(srp=='true' || srp){
 			$('#scrap').text('♥').css('font-size','20px');
-		}else{
+		}else {
 			$('#scrap').text('♡').css('font-size','20px');
 		}
 	}
@@ -172,10 +172,10 @@ table tfoot td{
 			}).mouseout(function(){
 				$(this).text('♡').css('font-size','20px');
 			}).click(function(){
-				if(sname==null || sname==''){
+				if(uname==null || uname==''){
 					alert('로그인하여 주세요.');
 				}else{
-					$.get('scrap.we',{idx:iii,name:sname},function(data){
+					$.get('scrap.we',{idx:iii},function(data){
 						if(data=='true' || data){
 							location.reload();
 						}
@@ -189,10 +189,10 @@ table tfoot td{
 			}).mouseout(function(){
 				$(this).text('♥').css('font-size','20px');
 			}).click(function(){
-				if(sname==null || sname==''){
+				if(uname==null || uname==''){
 					alert('로그인하여 주세요.');
 				}else{
-					$.post('scrap.we',{idx:iii,name:sname},function(data){
+					$.post('scrap.we',{idx:iii},function(data){
 						if(data=='true' || data){
 							location.reload();
 						}
@@ -203,7 +203,7 @@ table tfoot td{
 	}
 	
 	function goConsult(i){
-		if(sname==null || sname==''){
+		if(uname==null || uname==''){
 			alert('로그인하여 주세요.');
 		}else{
 			location.href='consult.we?gubun=1&idx='+i;

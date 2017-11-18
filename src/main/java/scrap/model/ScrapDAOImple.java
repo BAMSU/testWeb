@@ -26,7 +26,7 @@ public class ScrapDAOImple implements ScrapDAO {
 		return sst.delete("deleteScrapSQL", m);
 	}
 	
-	public ScrapDTO getScrap(String memberName, int hallIdx) {
+	public int getScrap(String memberName, int hallIdx) {
 		Map m = new HashMap();
 		m.put("memberName", memberName);
 		m.put("hallIdx", hallIdx);

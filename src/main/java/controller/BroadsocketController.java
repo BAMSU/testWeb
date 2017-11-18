@@ -4,21 +4,16 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.websocket.*;
+import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @ServerEndpoint("/broadcasting")
 public class BroadsocketController {
-	
-	@RequestMapping("/chatting.we")
-	public String catting(){
-		return "chatting/chattingMain";
-	}
 	
 
 	private static Set<Session> clients = Collections
@@ -53,7 +48,7 @@ public class BroadsocketController {
 		
 		for (Session client : clients) {
 			if (!client.equals(session)) {
-			    String message = String.format("System> %s, %s", "���",
+			    String message = String.format("System> %s, %s", "${sname}",
 		                " has disconnection.");
 		    	client.getBasicRemote().sendText(message);
 			}

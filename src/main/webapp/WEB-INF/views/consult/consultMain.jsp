@@ -56,7 +56,7 @@ input{
 <%@include file="/header.jsp"%>
 
 <h2 align="center">문의 / 상담하기</h2>
-<form name="consult" action="consult.we" method="post">
+<form name="consult" action="consultSubmit.we" >
 <c:if test="${empty sname }">
 	<script>
 		window.alert('로그인후 이용이 가능합니다.');
