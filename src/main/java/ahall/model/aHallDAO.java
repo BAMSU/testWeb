@@ -11,4 +11,6 @@ public interface aHallDAO {
 	public int insertWd(aHallDTO dto);
 	public int updateWd(aHallDTO dto);
 	public int deleteWd(int idx);
+	public int getTotelContByHall2();
+	public List hallaList(int cp, int ls);
 }
