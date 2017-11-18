@@ -38,14 +38,20 @@ a:hover{
             <ul class="sf-menu" id="fh5co-primary-menu">
                <li><a href="index.we">Home</a></li>
                <li><a href="#" class="fh5co-sub-ddown">웨딩홀</a>
-						<ul class="fh5co-sub-menu">
-							<li><a href="#">웨딩홀 검색</a></li>
-							<li><a href="#">홀 랭킹</a></li>
-							<li><a href="hallCompare.we">홀vs홀</a></li>
-						</ul></li>
+					<ul class="fh5co-sub-menu">
+						<li><a href="#">웨딩홀 검색</a></li>
+						<li><a href="#">홀 랭킹</a></li>
+						<li><a href="hallCompare.we">홀vs홀</a></li>
+					</ul>
+				</li>
                <li><a href="itemList.we?category=dress">드레스</a></li>
                <li><a href="#">청첩장</a></li>
-               <li><a href="#">패키지</a></li>
+               <li><a href="honey.we" class="fh5co-sub-ddown">신혼여행</a>
+					<ul class="fh5co-sub-menu">
+						<li><a href="honey.we">신혼여행 패키지</a></li>
+						<li><a href="fly.we">항공권 조회</a></li>
+					</ul>
+				</li>
                <li class="fh5co-sub-ddown"><a href="#">웨딩 컬렉션</a>
                   <ul class="fh5co-sub-menu">
                      <li><a href="itemList.we?category=studio">스튜디오</a></li>
