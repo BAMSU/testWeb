@@ -6,14 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
-
 <style>
 img{
 	width: 50px;
 }
 /**별관련 css*/
- 
 .rating {
 			width: 90px;
 			margin: 0 auto 1em;
@@ -34,8 +31,11 @@ img{
 			-moz-transition: color .4s;
 			-o-transition: color .4s;
 			transition: color .4s;
-		}
-
+		} 
+		
+		
+		
+		
 .rating input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) label:hover, /* hover current star */
 .rating:not(:checked) label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
@@ -48,6 +48,7 @@ img{
 
 
 </style>
+</head>
 
 <body>
 
@@ -63,7 +64,7 @@ img{
 
 <section>
 	<article>	
-	<h2 align="center">홀(REVIEW)후기 등록하기</h2>
+	<h2 align="center">홀(REVIEW)후기 등록하기</h2> 
 	
 	<form name="review_upload" action="hallReviewWrite.we" method="post" >
 

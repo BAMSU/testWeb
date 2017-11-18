@@ -65,7 +65,13 @@
 					<c:url var="hallreview" value="hallReviewWrite.we">
 						<c:param name="gubun">${dto.gubun2}</c:param>
 					</c:url>
-					<a href="${hallreview} "><input type="button" value="홀후기 작성"></a>
+					<script>
+					if(${dto.gubun}>=2){
+						  document.getElementById('hallReview').style.display = 'none';
+					}
+					</script>
+				
+					<a href="${hallreview} "><input id="hallReview" type="button" value="홀후기 작성"></a>
 					
 					</td>
 			</tr>
