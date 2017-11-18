@@ -18,6 +18,7 @@ function aa() {
 		window.alert(document.fm.type[i].value);
 		window.alert(${type});
 		if(document.fm.type[i].value==${type}) {
+			
 			document.fm.type[i].checked==true;
 		}
 	}

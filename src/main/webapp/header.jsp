@@ -58,7 +58,7 @@ a:hover{
 							<li><a href="hallCompare.we">홀vs홀</a></li>
 						</ul></li>
                <li><a href="itemList.we?category=dress">드레스</a></li>
-               <li><a href="#">청첩장</a></li>
+               <li><a href="cardList.we">청첩장</a></li>
                <li><a href="#">패키지</a></li>
                <li class="fh5co-sub-ddown"><a href="#">웨딩 컬렉션</a>
                   <ul class="fh5co-sub-menu">
