@@ -40,6 +40,14 @@ public class CardController {
 	@Autowired
 	private CardOrderDAO cardOrderDao;
 	
+	@RequestMapping("/mycard.we")
+	public ModelAndView mycard(){
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("filename", "17c7d864-9e34-47e1-90ab-0aa195b0e13a.png");
+		mav.setViewName("card/cardMobile");
+		return mav;
+	}
+	
 	@RequestMapping("/cardList.we")
 	public ModelAndView bbsList(@RequestParam(value="cp",
 	defaultValue="1")int cp, @RequestParam(value="type",
@@ -94,36 +102,76 @@ public class CardController {
 		return mav;
 	}
 	
+	
 	@RequestMapping("/cardOrder.we")
 	public ModelAndView cardOrder(@RequestParam(value="idx")int idx, @RequestParam(value="filename")String filename){
 		ModelAndView mav = new ModelAndView();
 		CardDTO list= cardDao.cardSer(idx);
 		mav.addObject("list", list);
+		mav.addObject("idx",idx);
 		mav.addObject("filename", filename);
 		mav.setViewName("card/cardOrder");
 		return mav;
 	}
 	
+	/*ëª¨ë°”ì¼ í˜ì´ì§€ ì œì‘ í›„ QRì½”ë“œ ìƒì„±*/
 	 @RequestMapping(value = "/imgsave.we",method = {RequestMethod.GET, RequestMethod.POST})
-	   public void download(
-			   ModelMap modelMap, 
-			   HttpServletRequest request, 
-			   HttpServletResponse response) {
-	        try {
-	            String imgData = request.getParameter("imgData");
-	            imgData = imgData.replaceAll("data:image/png;base64,", "");
-	            byte[] file = Base64.decodeBase64(imgData);
-	            ByteArrayInputStream is = new ByteArrayInputStream(file);
-	            response.setContentType("image/png");
-	            response.setHeader("Content-Disposition", "attachment; filename=report.png");
+	 public ModelAndView createImage1(HttpServletRequest request) 
+			 throws Exception {
+	 String binaryData = request.getParameter("imgSrc");
+	 FileOutputStream stream = null;
+	 ModelAndView mav = new ModelAndView();
+	 mav.setViewName("jsonView");
+	 try {
+		 System.out.println("binary file " + binaryData);
+		 if (binaryData == null || binaryData == "") {
+			 throw new Exception();
+		 }
+		 
+		 binaryData = binaryData.replaceAll("data:image/png;base64,", "");
+		 byte[] file2 = Base64.decodeBase64(binaryData);
+		 //String fileName = UUID.randomUUID().toString();
+		 String fileName="37";
+		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/mobile_img/" + fileName + ".png");
+		 stream.write(file2);
+		 stream.close();
+		 mav.addObject("filename", fileName);
+		 try {
+	            File file = null;
 	            
-	            IOUtils.copy(is, response.getOutputStream());
-	        } catch (IOException e) {
+	            // íì•Œì´ë¯¸ì§€ë¥¼ ì €ì¥í•  ë””ë ‰í† ë¦¬ ì§€ì •
+	            file = new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/");
+	            if(!file.exists()) {
+	                file.mkdirs();
+	            }
+	            // ì½”ë“œì¸ì‹ì‹œ ë§í¬ê±¸ URLì£¼ì†Œ
+	            String codeurl = new String("http://172.30.1.23:9090/finalproject/mobile_img/"+fileName + ".png");
+	            // íì•Œì½”ë“œ ë°”ì½”ë“œ ìƒìƒê°’
+	            int qrcodeColor =   0xFF2e4e96;
+	            // íì•Œì½”ë“œ ë°°ê²½ìƒ‰ìƒê°’
+	            int backgroundColor = 0xFFFFFFFF;
+	             
+	            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+	            // 3,4ë²ˆì§¸ parameterê°’ : width/heightê°’ ì§€ì •
+	            BitMatrix bitMatrix = qrCodeWriter.encode(codeurl, BarcodeFormat.QR_CODE,200, 200);
+	            //
+	            MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
+	            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
+	            // ImageIOë¥¼ ì‚¬ìš©í•œ ë°”ì½”ë“œ íŒŒì¼ì“°ê¸°
+	            ImageIO.write(bufferedImage, "png", new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/"+fileName + ".png"));
+	        	
+	        } catch (Exception e) {
 	            e.printStackTrace();
-	        }
-	 
-	    }
-	 /** * Ä¸ÃÄµÈ È­¸é ¼­¹ö ÀúÀå * @param request * @return * @throws Exception */ 
+	        }  
+	 } catch (Exception e) {
+		 System.out.println("íŒŒì¼ì´ ì •ìƒì ìœ¼ë¡œ ë„˜ì–´ì˜¤ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤");
+		 return mav;
+	 } finally {
+		 stream.close();
+	 }
+	 	return mav;
+	 }
+	 /** * ìº¡ì³ëœ í™”ë©´ ì„œë²„ ì €ì¥ * @param request * @return * @throws Exception */ 
 	 @RequestMapping(value="/imgsave2.we")
 	 public ModelAndView createImage(HttpServletRequest request) 
 			 throws Exception {
@@ -140,12 +188,12 @@ public class CardController {
 		 binaryData = binaryData.replaceAll("data:image/png;base64,", "");
 		 byte[] file = Base64.decodeBase64(binaryData);
 		 String fileName = UUID.randomUUID().toString();
-		 stream = new FileOutputStream("C:/Users/jj051/Desktop/project3/myweb/src/main/webapp/order_img/" + fileName + ".png");
+		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/mobile_img/" + fileName + ".png");
 		 stream.write(file);
 		 stream.close();
 		 mav.addObject("filename", fileName);
 	 } catch (Exception e) {
-		 System.out.println("ÆÄÀÏÀÌ Á¤»óÀûÀ¸·Î ³Ñ¾î¿ÀÁö ¾Ê¾Ò½À´Ï´Ù");
+		 System.out.println("íŒŒì¼ì´ ì •ìƒì ìœ¼ë¡œ ë„˜ì–´ì˜¤ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤");
 		 return mav;
 	 } finally {
 		 stream.close();
@@ -153,48 +201,22 @@ public class CardController {
 	 	return mav;
 	 }
 	 
-	 /** QRÄÚµå */
+	 /** QRì½”ë“œ */
 	 @RequestMapping("/qrMake.we")
 	 public ModelAndView qrCode() {
 		 ModelAndView mav = new ModelAndView();
 			mav.setViewName("card/cardMobile");
-	        try {
-	            File file = null;
-	            
-	            // Å¥¾ËÀÌ¹ÌÁö¸¦ ÀúÀåÇÒ µğ·ºÅä¸® ÁöÁ¤
-	            file = new File("C:\\test\\");
-	            if(!file.exists()) {
-	                file.mkdirs();
-	            }
-	            // ÄÚµåÀÎ½Ä½Ã ¸µÅ©°É URLÁÖ¼Ò
-	            String codeurl = new String("http://hellogk.tistory.com".getBytes("UTF-8"), "ISO-8859-1");
-	            // Å¥¾ËÄÚµå ¹ÙÄÚµå »ı»ó°ª
-	            int qrcodeColor =   0xFF2e4e96;
-	            // Å¥¾ËÄÚµå ¹è°æ»ö»ó°ª
-	            int backgroundColor = 0xFFFFFFFF;
-	             
-	            QRCodeWriter qrCodeWriter = new QRCodeWriter();
-	            // 3,4¹øÂ° parameter°ª : width/height°ª ÁöÁ¤
-	            BitMatrix bitMatrix = qrCodeWriter.encode(codeurl, BarcodeFormat.QR_CODE,200, 200);
-	            //
-	            MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
-	            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
-	            // ImageIO¸¦ »ç¿ëÇÑ ¹ÙÄÚµå ÆÄÀÏ¾²±â
-	            ImageIO.write(bufferedImage, "png", new File("C:\\test\\qrcode.png"));
-	        	
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }  
+	        
 	        return mav;
 	}
-	 
-	 /**Ã»Ã¸Àå ÁÖ¹®*/
+	 /**ì²­ì²©ì¥ ì£¼ë¬¸*/
 	 @RequestMapping("/priceOrder.we")
 	 public ModelAndView cardorder(CardOrderDTO dto){
 		int result = cardOrderDao.Order(dto);
 		ModelAndView mav = new ModelAndView(); 
-		mav.setViewName("");
+		mav.setViewName("myPage/Mypage");
 		return mav;
 	 }
+	 
 }
 	 

@@ -18,5 +18,6 @@
       <mapper resource="sql/hallsearchSql.xml"/>
       <mapper resource="sql/consultSQL.xml"/>
       <mapper resource="sql/reviewSql.xml"/>
+      <mapper resource="sql/cardSql.xml"/>
    </mappers>
 </configuration>

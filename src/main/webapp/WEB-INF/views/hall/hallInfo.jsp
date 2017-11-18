@@ -111,7 +111,6 @@ table tfoot td{
 		
 		initSrp();
 		cgSrp();
-		
 	});
 	
 	function setSlide(i){

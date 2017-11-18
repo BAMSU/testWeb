@@ -8,4 +8,5 @@ public interface HallDAO {
 	public List getHallGu();
 	public List getHallListByGu(String gu);
 	public List getHallListByName(String name);
+	public HallDTO hallSer(String hallname);
 }

@@ -59,6 +59,7 @@ a:hover{
 					</ul>
 				</li>
                <li><a href="itemList.we?category=dress">드레스</a></li>
+<<<<<<< HEAD
                <li><a href="#">청첩장</a></li>
                <li><a href="honey.we" class="fh5co-sub-ddown">신혼여행</a>
 					<ul class="fh5co-sub-menu">
@@ -66,6 +67,10 @@ a:hover{
 						<li><a href="fly.we">항공권 조회</a></li>
 					</ul>
 				</li>
+=======
+               <li><a href="cardList.we">청첩장</a></li>
+               <li><a href="#">패키지</a></li>
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
                <li class="fh5co-sub-ddown"><a href="#">웨딩 컬렉션</a>
                   <ul class="fh5co-sub-menu">
                      <li><a href="itemList.we?category=studio">스튜디오</a></li>

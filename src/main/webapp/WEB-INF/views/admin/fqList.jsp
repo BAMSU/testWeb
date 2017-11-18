@@ -12,9 +12,20 @@ function show() {
 	
 	location.href=add;
 }
+
+function aa() {
+	for(i=0;i<document.fm.type.length;i++){
+		window.alert(document.fm.type[i].value);
+		window.alert(${type});
+		if(document.fm.type[i].value==${type}) {
+			
+			document.fm.type[i].checked==true;
+		}
+	}
+}
 </script>
 </head>
-<body>
+<body onload="aa()">
 <%@include file="/adminheader.jsp"%>
 <form name="fm">
 <h3>문의 내역 보기</h3>

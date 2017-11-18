@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="yong.card">
+	<select id="cardlist1" resultType="yong.card.model.CardDTO" parameterType="Map">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from card_info order by card_date asc)a)b
+		where rnum<![CDATA[>=]]>#{startnum} and rnum<![CDATA[<=]]>#{endnum} order by card_count desc
+	</select>
+	<select id="cardlist2" resultType="yong.card.model.CardDTO" parameterType="Map">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from card_info order by card_date asc)a)b
+		where rnum<![CDATA[>=]]>#{startnum} and rnum<![CDATA[<=]]>#{endnum} order by card_date desc
+	</select>
+	<select id="cardlist3" resultType="yong.card.model.CardDTO" parameterType="Map">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from card_info order by card_date asc)a)b
+		where rnum<![CDATA[>=]]>#{startnum} and rnum<![CDATA[<=]]>#{endnum} order by card_price desc
+	</select>
+	<select id="cardlist4" resultType="yong.card.model.CardDTO" parameterType="Map">
+		select * from
+		(select rownum as rnum,a.* from
+		(select * from card_info order by card_date asc)a)b
+		where rnum<![CDATA[>=]]>#{startnum} and rnum<![CDATA[<=]]>#{endnum} order by card_price asc
+	</select>
+	
+	<select id="ttc" resultType="int">
+			select count(*) from card_info
+	</select>
+	<select id="CardSerList" parameterType="int" resultType="yong.card.model.CardDTO">
+		select * from card_info where card_idx=#{idx}
+	</select>
+	<insert id="OrderInsert" parameterType="yong.cardOrder.model.CardOrderDTO">
+		insert into card_order 
+		values(card_order_o_idx.nextval,#{o_id},#{o_code },#{o_name },#{o_phone},
+		#{o_addr},#{o_memo},#{o_env},#{o_option},#{o_count},
+		#{o_sale},#{o_plus},#{o_price},#{o_img},0)
+	</insert>
+ </mapper>
