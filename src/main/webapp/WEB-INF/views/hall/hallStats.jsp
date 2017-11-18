@@ -25,9 +25,6 @@
 var cn;
 var cm=new Array(12);
 var mon=new Array(12);
-	$(document).ready(function(){
-		init();
-	});
 	function init(){
 		var now = new Date();
 		mon[0]=now.getMonth()-2;
@@ -72,12 +69,12 @@ var mon=new Array(12);
 				}
 	        });
 		});
+		drawChart();
 	}
 </script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
   google.charts.load("current", {packages:['corechart']});
-  google.charts.setOnLoadCallback(drawChart);
   function drawChart() {
 	  var options = {
 	      width: 500,
@@ -86,7 +83,6 @@ var mon=new Array(12);
 	      legend: {position: "none"},
 	      vAxis: {minValue:0,format:"#"}
 	    };
-	  
     var data1 = google.visualization.arrayToDataTable([
       ["월", "상담신청", {role:"style"},{role:"annotation"}],
       [mon[0]+"월", cm[0], "#FFA7A7", cm[0]],
@@ -126,8 +122,10 @@ var mon=new Array(12);
     $('.ct:eq(0)').html('<h4 class="cta">'+parseInt(cm[0]+cm[1]+cm[2])+'건</h4><a class="ctb">${hallRank1}등/${hallCount}개의 웨딩홀</a>');
     $('.ct:eq(1)').html('<h4 class="cta">'+parseInt(cm[3]+cm[4]+cm[5])+'건</h4><a class="ctb">${hallRank2}등/${hallCount}개의 웨딩홀</a>');
     $('.ct:eq(2)').html('<h4 class="cta">'+parseInt(cm[6]+cm[7]+cm[8])+'건</h4><a class="ctb">${hallRank3}등/${hallCount}개의 웨딩홀</a>');
-    $('.ct:eq(3)').html('<h4 class="cta">'+parseInt(cm[9]+cm[10]+cm[11])+'건</h4><a class="ctb">${hallRank4}등/${hallCount}개의 웨딩홀</a>');
-}
+    $('.ct:eq(3)').html('<h4 class="cta">'+parseInt(cm[9]+cm[10]+cm[11])+'건</h4><a class="ctb">${hallRank4}등/${hallCount}개의 웨딩홀</a>'); 
+  }
+  google.charts.setOnLoadCallback(init);
+  setInterval(function() { init();}, 0);
 </script>
 </head>
 <body>
