@@ -62,7 +62,7 @@ public class ConsultController {
 		
 		
 		String name =(String)session.getAttribute("sname");
-		int totalCnt = consultDao.getTotelCont();
+		int totalCnt = consultDao.getTotelCont(name);
 		int listSize = 10;
 		int pageSize = 5;
 		String pageStr = yong.page.PageModule.makePage("consultList.we", totalCnt, listSize, pageSize, cp);
@@ -133,7 +133,7 @@ public class ConsultController {
 	@RequestMapping("/AllConsultList.we")
 	public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp){
 	
-		int totalCnt = consultDao.getTotelCont();
+		int totalCnt = consultDao.getTotelCont(name);
 		int listSize = 5;
 		int pageSize = 2;
 		String pageStr = yong.page.PageModule.makePage("AllConsultList.we", totalCnt, listSize, pageSize, cp);
