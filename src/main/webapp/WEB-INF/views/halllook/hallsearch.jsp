@@ -11,20 +11,20 @@
 	display: inline-block;
 	margin-left: 200px;
 	margin-right: 200px;
+	height: 100%;
+	width: 100%;
 }
 #sear{
 	float: left;
 	margin: 15px 0 15px 10px;
-	width:300px;
+	width:150px;
 	height: 60px;
 	border-right: 1px solid #EBEBEB;
 	padding-left: 50px;
 }
 .wedding1{
-	margin-left: 200px;
 	text-align: center;
 	width: 300px;
-	padding-right: 
 }
 a:link{
 	text-decoration: none;
@@ -148,6 +148,7 @@ $('.ctd:eq(9)').click(function(){
 <body>
 <%@include file="/header.jsp" %>
 	<div id="search">
+	<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 		<h2 style="text-align: center; font-size: 30px; margin-top: 10px;padding-top: 10px;color: #A4A4A4;">웨딩홀 검색</h2>
 		
 

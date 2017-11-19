@@ -74,13 +74,22 @@ span {
     width: 15px;
     height: 15px;   
 }
+.tag{
+	background-position:  100px;
+	width: 40px;
+	height: 22px;
+	position: absolute;
+	background-color: #F78181;
+	color: black;
+}
 </style>
 <body>
 	<%@include file="/header.jsp"%>
-	<p style="background-color: gray; height: 20px;margin: 0px; "></p>
-	<h3 style="text-align: center;">홀 랭킹</h3>
-	<div id="ranking">
 
+	
+	<div id="ranking">
+		<p style="background-color: gray; height: 20px;margin: 0px; "></p>
+<h3 style="text-align: center;">홀 랭킹</h3>
 
 		<div class="rank">
 	
@@ -93,10 +102,12 @@ span {
 				   <tr> 
 		
 				   </c:if>
-				   <td class="ctd"><a href="rank_img"> <img
+				   <td class="ctd">
+				   
+				   <a href="rank_img"> <img
 								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
 								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
-						</a><br>
+						</a><p class="tag">${cnt+1 }위</p>
 				  <span style="text-align: center;width: 200px;"> ${dto.name}</span>
 				   <br>
 				  <p class="but" border="1">
