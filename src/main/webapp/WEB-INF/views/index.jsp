@@ -77,6 +77,8 @@
        cd[index-1].style.display = "block"; 
        setTimeout(slideshow, 2000);
    }
+   
+
 </script>
 </head>
 <body>
