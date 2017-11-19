@@ -126,7 +126,7 @@ public class ReviewDAOImple implements ReviewDAO {
     }
      
      public int getNameTotelCont(String name) {
-    	 int count = sqlMap.selectOne("reviewNamTotelCnt",name);
+    	 int count = sqlMap.selectOne("reviewNameTotelCnt",name);
 		return count==0?1:count;
     }
      

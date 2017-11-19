@@ -130,24 +130,24 @@ public class ConsultController {
 		
 	}
 	
-	@RequestMapping("/AllConsultList.we")
-	public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp){
-	
-		int totalCnt = consultDao.getTotelCont(name);
-		int listSize = 5;
-		int pageSize = 2;
-		String pageStr = yong.page.PageModule.makePage("AllConsultList.we", totalCnt, listSize, pageSize, cp);
-		
-		
-		List<ConsultDTO> list=consultDao.AllConsultList(cp,listSize);
-		
-		
-		ModelAndView mav = new ModelAndView();
-	
-		mav.addObject("list", list);
-		mav.addObject("pageStr", pageStr);
-		mav.setViewName("consult/AllConsultList");
-		return mav;
-	}
+	/*@RequestMapping("/AllConsultList.we")
+	   public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp){
+	   
+	      int totalCnt = consultDao.getTotelCont(null);
+	      int listSize = 5;
+	      int pageSize = 5;
+	      String pageStr = yong.page.PageModule.makePage("AllConsultList.we", totalCnt, listSize, pageSize, cp);
+	      
+	      
+	      List<ConsultDTO> list=consultDao.AllConsultList(cp,listSize);
+	      
+	      
+	      ModelAndView mav = new ModelAndView();
+	   
+	      mav.addObject("list", list);
+	      mav.addObject("pageStr", pageStr);
+	      mav.setViewName("consult/AllConsultList");
+	      return mav;
+	   }*/
 
 }
