@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert title here</title> 
 </head>
 <body>
 <h2>상담/문의  본문보기</h2>

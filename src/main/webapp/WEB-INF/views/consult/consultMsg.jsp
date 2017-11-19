@@ -3,4 +3,4 @@
 <script>
 window.alert('${msg}');
 location.href='index.we';
-</script>
+</script> 

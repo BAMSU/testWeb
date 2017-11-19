@@ -34,7 +34,7 @@
 		<c:forEach var="dto" items="${list }" >
 			<tr>
 		
-				<td>${dto.consult_idx}</td>
+				<td>${dto.consult_idx}</td> 
 		
 		
 				<td><a href="${contentUrl}">${dto.email }</a></td>
