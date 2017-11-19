@@ -5,15 +5,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.button{
+	width:100px;
+	height:50px;
+	text-align: center;
+	color:red;
+	vertical-align: center;
+	background: skyblue;
+	opacity:0.4;
+	border:3px solid gray;
+	border-radius: 5px;
+}
+.button:hover{
+	background: pink;
+	font-weight: bold;
+}
+img{
+	vertical-align:middle;
+	padding-left:10%;
+	border-radius: 5px;
+}
+</style>
 </head>
-<body>
+<body style="background-image: url('upload/beBackGround.jpg'); opacity: 0.7; background-size: cover;">
 <%@include file="beHeader.jsp" %>
 
-<h2>itemUpdateBouq.jsp 입니당</h2>
+<br><br>
+
+<div style="border:1px solid red; width:60%; margin:auto; background: white; border-radius: 10px;">
+
+<h2>상품 수정</h2>
 
 <c:set value="${dto}" var="dto"></c:set>
 
+
+<br>
 <form action="itemUpdateBouq.we" method="post">
+<div style="border:1px solid green; background: beige;opacity:2.5;">
 <table>
 	<tr>
 		<td>업체</td><td>${dto.bouq_be}</td>
@@ -41,7 +70,10 @@
 	
 </table>
 상품 이미지 <img alt="상품이미지" src="${dto.bouq_thumbnail}" width="20%">
+</div>
 
 </form>
+<br><br>
+</div>
 </body>
 </html>

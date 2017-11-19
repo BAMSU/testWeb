@@ -30,15 +30,15 @@ a:hover{
 <p style="font-size: small; text-align: right; padding-right: 15%;">
 
 <c:if test="${empty sessionScope.besid }">
-	<a href="beJoin.we" style="font: black;">업체가입</a> | 
-	<a href="javascript:loginOpen()" style="font: black;">업체로그인</a> | 
+	<a href="beJoin.we" style="color: black;">업체가입</a> | 
+	<a href="javascript:loginOpen()" style="color: black;">업체로그인</a> | 
 </c:if>
 
 <c:if test="${!empty sessionScope.besid }">
 	${sessionScope.besname} 업체(${sessionScope.besort}) 로그인 중 | 
-	<a href="logout.we" style="font: black;">로그아웃 |</a>
+	<a href="logout.we" style="color: black;">로그아웃 |</a>
 </c:if>
-<a href="beIndex.we" style="font: black;">업체메인</a>
+<a href="beIndex.we" style="color: black;">업체메인</a>
 
 </p>
 </body>
