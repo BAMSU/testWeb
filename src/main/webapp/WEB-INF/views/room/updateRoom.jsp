@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="bootstrap/css/style2.css" media="screen"
    title="no title" charset="utf-8">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script>
 function show() {
 	
@@ -112,9 +112,7 @@ function show() {
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               홀 수정하기 <small>끄앗 폼!</small>
-            </h1>
+            <h3 align="center">룸 수정하기</h3>
          </div>
          <form class="form-horizontal" name="fm" action="updateRoom.we" method="POST">
          <c:forEach var="dto" items="${list}">

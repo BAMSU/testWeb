@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap2.min.css" rel="stylesheet">
 <!-- font awesome -->
@@ -21,9 +21,7 @@
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               견적서 <small>끄앗 폼!</small>
-            </h1>
+           <h3 align="center">견적서</h3>
          </div>
 	
 	
