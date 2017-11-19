@@ -170,9 +170,7 @@
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               홀 등록하기 <small>끄앗 폼!</small>
-            </h1>
+            <h3 align="center">홀 등록하기</h3>
          </div>
 
 

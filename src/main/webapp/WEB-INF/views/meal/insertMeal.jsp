@@ -21,9 +21,7 @@
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               견적서 <small>끄앗 폼!</small>
-            </h1>
+           <h3 align="center">견적서</h3>
          </div>
 	
 	

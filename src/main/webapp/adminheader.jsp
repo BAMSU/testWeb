@@ -29,7 +29,7 @@ a:hover{
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <header id="fh5co-header-section" class="sticky-banner" style="border-bottom: 5px solid pink;">
-   <div class="container">
+   <div class="container" style="width:900px;">
       <div class="nav-header">
          <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
          <h1 id="fh5co-logo">

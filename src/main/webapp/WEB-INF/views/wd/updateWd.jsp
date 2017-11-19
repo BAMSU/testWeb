@@ -161,9 +161,7 @@ function info() {
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               홀 수정하기 <small>끄앗 폼!</small>
-            </h1>
+            <h3 align="center">홀 수정하기</h3>
          </div>
          
          <form class="form-horizontal" name="fm" action="update2.we">

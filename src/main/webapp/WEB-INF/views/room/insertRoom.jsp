@@ -109,9 +109,7 @@ function show() {
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               홀 등록하기 <small>끄앗 폼!</small>
-            </h1>
+            <h3 align="center">룸 등록하기</h3>
          </div>
          <form class="form-horizontal" name="fm" action="insertRoom.we" method="POST">
          

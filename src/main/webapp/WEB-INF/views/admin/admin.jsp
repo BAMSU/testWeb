@@ -15,19 +15,6 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- Magnific Popup -->
 <link rel="stylesheet" href="css/magnific-popup.css">
-<script>
-	function openLogin() {
-		var maskHeight = $(document).height(); 
-		var maskWidth = $(window).width();
-		//마스크의 높이와 너비를 화면 것으로 만들어 전체 화면을 채운다.
-		$('#mask').css({'width':maskWidth,'height':maskHeight});
-		//마스크의 투명도 처리
-		$('#mask').fadeTo("slow",0.8);
-		var left = (screen.availWidth-1000)/2;
-		var top = (screen.availHeight-590)/2;
-		window.open('memberLogin.we', 'login', 'left='+left+',top='+top+', width=1000px,height=590px');
-	}
-</script>
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
 header,footer,section,input,p,div,a,span,table,font,strong,small,h1,h2,h3,h4,h5{
@@ -179,7 +166,7 @@ h3 {
 <body>
 
 <header id="fh5co-header-section" class="sticky-banner" style="border-bottom: 5px solid pink;">
-   <div class="container">
+   <div class="container" style="width:900px;">
       <div class="nav-header">
          <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
          <h1 id="fh5co-logo">
