@@ -43,7 +43,7 @@ public class CardController {
 	@RequestMapping("/mycard.we")
 	public ModelAndView mycard(){
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("filename", "17c7d864-9e34-47e1-90ab-0aa195b0e13a.png");
+		mav.addObject("filename", "1fa4da92-6d64-4e29-ab3f-e2df455fba2e.png");
 		mav.setViewName("card/cardMobile");
 		return mav;
 	}
@@ -122,8 +122,9 @@ public class CardController {
 	 FileOutputStream stream = null;
 	 ModelAndView mav = new ModelAndView();
 	 mav.setViewName("jsonView");
+	 System.out.println("binary file " + binaryData);
 	 try {
-		 System.out.println("binary file " + binaryData);
+	
 		 if (binaryData == null || binaryData == "") {
 			 throw new Exception();
 		 }
@@ -145,7 +146,7 @@ public class CardController {
 	                file.mkdirs();
 	            }
 	            // 코드인식시 링크걸 URL주소
-	            String codeurl = new String("http://172.30.1.23:9090/finalproject/mobile_img/"+fileName + ".png");
+	            String codeurl = new String("http://192.168.43.205:9090/finalproject/mobile_img/"+fileName + ".png");
 	            // 큐알코드 바코드 생상값
 	            int qrcodeColor =   0xFF2e4e96;
 	            // 큐알코드 배경색상값

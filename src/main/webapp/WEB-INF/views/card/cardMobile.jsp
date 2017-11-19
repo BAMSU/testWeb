@@ -118,29 +118,57 @@ $("#imgInp").change(function(){
 	background: url("card_img/phoneimg.png"); 
 	height: 800px;"
 	}
+	
+	#left{
+		width: 30%;
+		height:600px;
+		float: left;
+	}
+	#right{
+		width: 70%;
+		height:600px;
+		float: right;
+	
+	}
 </style>
-<body>
+<body style="text-align: center;">
 <br>
 <img src="card_img/mobile.JPG" width="80%">
-
-<input type="text" required="날짜 입력" style="position:absolute; left:500px; top:900px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
-<form>
-<input type="hidden" name="imgSrc" id="imgSrc" />
-    <div id="canv" style="background-color: yellow; height: 800px; width: 300px; margin-left: 200px;">
-   	<img src="order_img/${filename }" width="300" style="position:absolute; left:300px; top:800px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0"><img src="order_img/${filename }" width="300" style="position:absolute; left:300px; top:800px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
-    </div>
-</form>
+<br><br>
+<div style="width: 100%; height: 600px;">
+	<div id="left">
+		<input type="file" accept="image/*" onchange="loadFile(event)">
+		<input type="file" accept="image/*" onchange="loadFile2(event)">
+	</div>
+	
+	<div id="right">
+		<form>
+			<input type="hidden" name="imgSrc" id="imgSrc" />
+				
+		    <div id="canv" style="background-color: yellow; height: 600px; width: 300px; margin-left: 200px;">
+		   		<img src="order_img/${filename }" width="300" style="position:absolute; left:300px; top:800px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
+	    	</div>
+		<input type="button" value="제작하기" onclick="capture()">
+		</form>
+	</div>
+</div>
+		
 <input type="button" value="이미지 추가">
 <br>
-<input type="button" value="제작하기" onclick="capture()">
 
-<input type="file" accept="image/*" onchange="loadFile(event)">
-<img id="output" width="300" style="position:absolute; left:500px; top:900px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
+
+
+<img id="output" width="300" style="position:absolute; left:200px; top:900px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
+<img id="output2" width="300" style="position:absolute; left:200px; top:600px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
 <script>
   var loadFile = function(event) {
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
   };
+  var loadFile2 = function(event) {
+	    var output = document.getElementById('output2');
+	    output.src = URL.createObjectURL(event.target.files[0]);
+	  };
 </script>
 <input type="button" value="텍스트 추가">
 </body>

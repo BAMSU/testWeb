@@ -281,7 +281,7 @@ function show(){
 <h4><font style="color: red;"><strong>봉투</strong></font> 서비스</h4>
 <hr>
 <div id="env" style="width: 100%; float: center; text-align: center;">
-<img src="card_img/env.JPG" width="350px" height="300px" onchange="show()" style="margin-right: 180px;">
+<img src="card_img/env.jpg" width="350px" height="300px" onchange="show()" style="margin-right: 180px;">
 <div >
 <input type="radio" value="1번" name="envsel"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" value="2번" name="envsel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

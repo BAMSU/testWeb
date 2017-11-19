@@ -134,7 +134,7 @@ body{
 	<Br>
 	<input type="hidden" name="imgSrc" id="imgSrc" />
     
-    <div id="canv" style="text-align:center; color: black; background: white; margin-left: 30px; margin-right: 30px;">
+    <div id="canv" style="text-align:center; color: black; background: white; margin-left: 30px; margin-right: 30px; height: 650px;">
     	<br><br>
         <textarea id="tinsamal" class="valu" style="height: 120px;" readonly></textarea><br>
 		<input type="text" id="tnam" value="○○○ · ○○○ 의  - ○○ " class="valu" readonly><br>
