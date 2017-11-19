@@ -63,11 +63,12 @@ table tfoot td{
 </head>
 <body onload="aa()">
 <%@include file="/adminheader.jsp"%>
-<form name="fm">
+<div class="song">
+<form name="fm" style="position:relative; top:20%;">
 
-<div style="margin: 0px auto; width: 60%; background-color: white;">
+<div style="margin: 0px auto;  position:relative; top:20%;width: 60%; background-color: white;">
 		<div>
-			<h3 align="center">업체 리스트</h3>
+			<h3 align="center">문의 리스트</h3>
 			  	<table class="table table-striped table-hover table-bordered">
 			  		<thead>
 			  				
@@ -141,6 +142,6 @@ table tfoot td{
 			  </div>
 	
 	</div>
-	</form>
+	</form></div><%@include file="/footer.jsp"%>
 </body>
 </html>

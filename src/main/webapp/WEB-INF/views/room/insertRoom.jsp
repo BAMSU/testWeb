@@ -103,7 +103,7 @@ function show() {
 </head>
 <body>
 <%@include file="/adminheader.jsp"%>
-
+<div class="song">
 
 <article class="container">
 
@@ -205,6 +205,6 @@ function show() {
          
       </div>
 
-   </article>
+   </article></div><%@include file="/footer.jsp"%>
 </body>
 </html>
