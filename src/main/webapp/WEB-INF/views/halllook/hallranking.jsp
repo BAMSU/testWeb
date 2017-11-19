@@ -50,11 +50,9 @@ $(document).ready(function(){
 #ranking {
 	text-align: center;
 	display: inline-block;
-	border: 5px solid red;
 	width: 100%;
-	height: 600px;
+	height: 100%;
 }
-
 span {
 	float: left;
 	width: 94px;
@@ -63,18 +61,23 @@ span {
 	cursor: pointer;
 	height: 26px;
 }
-
 #tr {
 	width: 100%;
+	height: 100%;
 }
-.but{
-text-align: center; 
-margin-top: 15px; 
-	color: #fff;
+.btn btn-secondary{
+
+    color: #fff;
+    border: 2px solid transparent !important;
+    margin-top: 15px;
+    text-align: center; 
+    width: 15px;
+    height: 15px;   
 }
 </style>
 <body>
 	<%@include file="/header.jsp"%>
+	<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 	<h3 style="text-align: center;">홀 랭킹</h3>
 	<div id="ranking">
 
@@ -82,7 +85,7 @@ margin-top: 15px;
 		<div class="rank">
 	
 <c:set var="cnt" value="0"/>
-				<table id="tr" border="1">
+				<table id="tr" border="1px outset #ECE0F8;">
 				
 					<c:forEach var="dto" items="${hallrank}">
 				
@@ -97,9 +100,10 @@ margin-top: 15px;
 				  <span style="text-align: center;width: 200px;"> ${dto.name}</span>
 				   <br>
 				  <p class="but" border="1">
-						<input type="button" style="background: #F5A9E1;" class="btn btn-secondary" value="홀 설명" onclick="location.href='hallInfo.we?idx=${dto.idx}'"/>
+						<input type="button"  class="btn btn-secondary"style="background: #F5A9E1;" value="홀 설명" onclick="location.href='hallInfo.we?idx=${dto.idx}'"/>
 						<br>
-						<input type="button" style="background: #F5A9E1;"class="btn btn-secondary" value="홀 통계보기" onclick="location.href='hallStats.we?idx=${dto.idx}&name=${dto.name}'"/>
+						<br>
+						<input type="button" class="btn btn-secondary"style="background: #F69D9D;" value="홀 통계보기" onclick="location.href='hallStats.we?idx=${dto.idx}&name=${dto.name}'"/>
 						</p>
 						</td>
 				    
