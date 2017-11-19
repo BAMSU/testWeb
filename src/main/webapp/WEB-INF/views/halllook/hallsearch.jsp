@@ -15,7 +15,7 @@
 #sear{
 	float: left;
 	margin: 15px 0 15px 10px;
-	width:605px;
+	width:300px;
 	height: 60px;
 	border-right: 1px solid #EBEBEB;
 	padding-left: 50px;
@@ -164,7 +164,7 @@ function search(){
 					
 					
 					
-					<table class="chk3" style="text-align:center; width: 500px; margin: 0 auto;">
+					<table class="chk3" style="text-align:center; width: 520px; margin: 0 auto;">
 						<tr>
 						
 							<th class="title">식대가격</th>
@@ -253,22 +253,17 @@ function search(){
 			<br>
 			<c:forEach var="v" items="${hallview}" >
 			
-			<table id="sear" style="border-bottom: 2px Double #F8E0EC; text-align: center;">
+			<table id="sear" border="2" style="border-bottom: 2px Double #F8E0EC; text-align: center;width: 100%;">
 			<tr>
-				<td  class="wedding_img">
-				
-				
-			
-				
-			
+				<th rowspan="2" style="width: 200px; height: 100px;">
 				<a onclick="gohall()">
-				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 100px; height: 80px;float: left;"/>
+				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 200px; height: 100px;float: left;"/>
 				</a>
 				<input type="hidden" value="${v.idx }" class="hallidx">
 		
 				
-				</td>
-				<tr>
+				</th>
+				
 		
 			<td class="wedding_name" style="margin-top: 10px;">
 			<a href="">

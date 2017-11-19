@@ -51,9 +51,9 @@ table tfoot td{
 </head>
 <body>
 <%@include file="/adminheader.jsp"%>
+<div class="song">
 
-
-<div style="margin: 0px auto; width: 60%; background-color: white;">
+<div style="margin: auto auto; position:relative; top:20%; width: 60%; background-color: white;">
 		<div>
 			<h3 align="center">웨딩홀 리스트</h3>
 			  	<table class="table table-striped table-hover table-bordered">
@@ -101,6 +101,6 @@ table tfoot td{
 			  	</table>
 			  </div>
 	
-	</div>
+	</div></div><%@include file="/footer.jsp"%>
 </body>
 </html>

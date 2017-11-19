@@ -26,7 +26,7 @@ public class AdminController {
 	
 	@RequestMapping("/admin.we")
 	public String adminForm() {
-		return "admin/resistration";
+		return "admin/admin";
 	}
 	
 	@RequestMapping("/adminLogin.we")
@@ -45,13 +45,14 @@ public class AdminController {
 			HttpSession session = req.getSession();
 			session.setAttribute("admin", id);
 			
-			mav.addObject("msg", "관리자님 환영합니다~");
-			mav.addObject("gourl", "admin.we");
+			mav.addObject("msg", "코드 입력 성공");
 		} else {
-			mav.addObject("msg", "관리자 페이지 접근 불가");
-			mav.addObject("gourl", "index.we");
+			mav.addObject("msg", "잘못된 코드 입력");
+			
 		}
-		mav.setViewName("admin/fqMsg2");
+		
+		mav.addObject("gourl", "admin.we");
+		mav.setViewName("admin/fqMsg");
 		return mav;
 	}
 	

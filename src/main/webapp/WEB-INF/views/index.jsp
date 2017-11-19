@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="css/magnific-popup.css">
 
 <link rel="stylesheet" href="css/style.css">
-<script src="https://code.jquery.com/jquery-latest.js"></script> 
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 
 <!-- Modernizr JS -->
 <script src="js/modernizr-2.6.2.min.js"></script>
@@ -47,38 +47,125 @@
 	left: 0;
 	top: 0;
 }
-.bgimg{
-      width: 100%;
-      height: 480px;
-      position: relative;
-      cursor: pointer;
-      display: none;
-      background-repeat: no-repeat;
-      background-size: 100%;
-   }
-.bgtext{ 
-      position: absolute; 
-      z-index: 1; 
-      margin: 100px 130px;
-   }
+
+.bgimg {
+	width: 100%;
+	height: 480px;
+	position: relative;
+	cursor: pointer;
+	display: none;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.bgtext {
+	position: absolute;
+	z-index: 1;
+	margin: 100px 130px;
+}
+
+
+	.title-arch {
+		text-align: center;
+		margin: 50px 0;
+		font-size: 22px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+	}
+.project {
+	width: 100%;
+	height: 500px;
+	background-image: url(https://s-media-cache-ak0.pinimg.com/originals/28/8b/01/288b016eb2dc4835ddc4153a37de41cc.jpg);
+	background-size: cover;
+	background-position: center;
+	padding: 0 !important;
+	float:left;
+}
+
+.project-2 {
+	background-image: url(https://scontent-ort2-1.cdninstagram.com/t51.2885-15/e35/c154.0.621.621/22280618_2089151737777353_3883153810046058496_n.jpg);
+}
+
+.project-3 {
+	background-image: url(https://media.istockphoto.com/vectors/wedding-invitation-with-flowers-cherry-blossom-vector-id534536419);
+}
+
+.project-4 {
+	background-image: url(https://s-media-cache-ak0.pinimg.com/originals/2f/52/14/2f5214816debb9392d1872dee0378263.jpg);
+}
+
+.project-hover {
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	background-color: pink;
+	padding: 40% 30px !important;
+	
+}
+
+.project-hover hr {
+	height: 30px;
+	width: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	background-color: rgba(255, 255, 255, 1);
+	border: 0;
+}
+
+.project-hover a {
+	color: rgba(255, 255, 255, 1);
+	padding: 2px 22px;
+	line-height: 40px;
+	border: 2px solid rgba(255, 255, 255, 1);
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.project-hover a:hover {
+	border-color: rgba(51, 51, 51, 1);
+	color: rgba(51, 51, 51, 1);
+	background-color: #FFF;
+}
+
+.project:hover .project-hover {
+	opacity: 1;
+}
+
+.project:hover .project-hover hr {
+	width: 100%;
+	height: 5px;
+}
+#con{
+margin: 0px auto;
+
+}
 </style>
 <script>
-   var index = 0;
-   $(document).ready(function(){
-	   slideshow();
-   });
-   function slideshow() {
-       var cd = document.getElementsByClassName("bgimg");
-       for (var i = 0; i < cd.length; i++) {
-          cd[i].style.display = "none"; 
-       }
-       index++;
-       if (index > cd.length) {index = 1} 
-       cd[index-1].style.display = "block"; 
-       setTimeout(slideshow, 2000);
-   }
-   
-
+	var index = 0;
+	$(document).ready(function() {
+		slideshow();
+	});
+	function slideshow() {
+		var cd = document.getElementsByClassName("bgimg");
+		for (var i = 0; i < cd.length; i++) {
+			cd[i].style.display = "none";
+		}
+		index++;
+		if (index > cd.length) {
+			index = 1
+		}
+		cd[index - 1].style.display = "block";
+		setTimeout(slideshow, 2000);
+	}
 </script>
 </head>
 <body>
@@ -127,49 +214,100 @@
 			<%@include file="/header.jsp"%>
 
 			<!-- end:header-top -->
-<div>
-<div class="bgimg" style="background-image: url('/finalproject/img/main/1.jpg'); display: block;" 
-   onclick="location.href='hallInfo.we?idx=1';">
-   <div class="bgtext">
-      <p style="font-size: 50px; margin-bottom: 10px; color: #393939;"><strong>호텔프리마</strong></p>
-      <p style="width: 560px; background-color: #393939; height: 1px; margin: 0px;"></p>
-      <p style="font-size: 20px; color: #393939;">이국적인 정취의 로맨틱한 야외 정원 세련된 인테리어로 멋을 더한 호텔프리마!</p>
-   </div>
-</div>
-<div class="bgimg" style="background-image: url('/finalproject/img/main/2.jpg');"
-   onclick="location.href='hallInfo.we?idx=2';">
-   <div class="bgtext">
-      <p style="font-size: 50px; margin-bottom: 10px; color: white;"><strong>한강호텔웨딩홀</strong></p>
-      <p style="width: 550px; background-color: white; height: 1px; margin: 0px;"></p>
-      <p style="font-size: 20px; color: white;">전 층 전면 통유리로 한강 전망을 바라보는 웨딩이 펼쳐지는 한강호텔웨딩홀!</p>
-   </div>
-</div>
-<div class="bgimg" style="background-image: url('/finalproject/img/main/4.jpg');"
-   onclick="location.href='hallInfo.we?idx=4';">
-   <div class="bgtext">
-      <p style="font-size: 50px; margin-bottom: 10px; color: #393939;"><strong>프레지던트호텔</strong></p>
-      <p style="width: 365px; background-color: #393939; height: 1px; margin: 0px;"></p>
-      <p style="font-size: 20px; color: black;">프라이빗한 패밀리웨딩이 펼쳐지는 프레지던트호텔!</p>
-   </div>
-</div>
-<div class="bgimg" style="background-image: url('/finalproject/img/main/33.jpg');"
-   onclick="location.href='hallInfo.we?idx=33';">
-   <div class="bgtext">
-      <p style="font-size: 50px; margin-bottom: 10px; color: white;"><strong>베르가모</strong></p>
-      <p style="width: 435px; background-color: white; height: 1px; margin: 0px;"></p>
-      <p style="font-size: 20px; color: white;">사랑의 맹세가 시작되는 감동의 순간이 탄생하는 베르가모!</p>
-   </div>
-</div>
-</div>
-			<div id="fh5co-countdown">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box">
-						<p class="countdown">
-							<span id="days"></span> <span id="hours"></span> <span
-								id="minutes"></span> <span id="seconds"></span>
+			<div>
+				<div class="bgimg"
+					style="background-image: url('/finalproject/img/main/1.jpg'); display: block;"
+					onclick="location.href='hallInfo.we?idx=1';">
+					<div class="bgtext">
+						<p style="font-size: 50px; margin-bottom: 10px; color: #393939;">
+							<strong>호텔프리마</strong>
 						</p>
+						<p
+							style="width: 560px; background-color: #393939; height: 1px; margin: 0px;"></p>
+						<p style="font-size: 20px; color: #393939;">이국적인 정취의 로맨틱한 야외
+							정원 세련된 인테리어로 멋을 더한 호텔프리마!</p>
 					</div>
 				</div>
+				<div class="bgimg"
+					style="background-image: url('/finalproject/img/main/2.jpg');"
+					onclick="location.href='hallInfo.we?idx=2';">
+					<div class="bgtext">
+						<p style="font-size: 50px; margin-bottom: 10px; color: white;">
+							<strong>한강호텔웨딩홀</strong>
+						</p>
+						<p
+							style="width: 550px; background-color: white; height: 1px; margin: 0px;"></p>
+						<p style="font-size: 20px; color: white;">전 층 전면 통유리로 한강 전망을
+							바라보는 웨딩이 펼쳐지는 한강호텔웨딩홀!</p>
+					</div>
+				</div>
+				<div class="bgimg"
+					style="background-image: url('/finalproject/img/main/4.jpg');"
+					onclick="location.href='hallInfo.we?idx=4';">
+					<div class="bgtext">
+						<p style="font-size: 50px; margin-bottom: 10px; color: #393939;">
+							<strong>프레지던트호텔</strong>
+						</p>
+						<p
+							style="width: 365px; background-color: #393939; height: 1px; margin: 0px;"></p>
+						<p style="font-size: 20px; color: black;">프라이빗한 패밀리웨딩이 펼쳐지는
+							프레지던트호텔!</p>
+					</div>
+				</div>
+				<div class="bgimg"
+					style="background-image: url('/finalproject/img/main/33.jpg');"
+					onclick="location.href='hallInfo.we?idx=33';">
+					<div class="bgtext">
+						<p style="font-size: 50px; margin-bottom: 10px; color: white;">
+							<strong>베르가모</strong>
+						</p>
+						<p
+							style="width: 435px; background-color: white; height: 1px; margin: 0px;"></p>
+						<p style="font-size: 20px; color: white;">사랑의 맹세가 시작되는 감동의 순간이
+							탄생하는 베르가모!</p>
+					</div>
+				</div>
+			</div>
+			<!--세번째 블록 메인   -->
+			<div id="con">
+				<div
+					class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated animated4 fadeInLeft">
+					<div class="project-hover">
+						<h2>웨딩홀</h2>
+
+						<hr />
+						<p>test</p>
+						<a href="#">See Project</a>
+					</div>
+				</div>
+				<div
+					class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-2 wow animated animated3 fadeInLeft">
+					<div class="project-hover">
+						<h2>신혼여행</h2>
+						<hr />
+						<p>test</p>
+						<a href="#">See Project</a>
+					</div>
+				</div>
+				<div
+					class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-3 wow animated animated2 fadeInLeft">
+					<div class="project-hover">
+						<h2>청첩장</h2>
+						<hr />
+						<p>자신만의 개성있는 청첩장을 만들어보세요.</p>
+						<a href="#">만들러 가기 뀨?</a>
+					</div>
+				</div>
+				<div
+					class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-4 wow animated fadeInLeft">
+					<div class="project-hover">
+						<h2>드레스</h2>
+						<hr />
+						<p>test</p>
+						<a href="#">See Project</a>
+					</div>
+				</div>
+				<div class="clearfix"></div>
 			</div>
 
 			<div id="fh5co-started"

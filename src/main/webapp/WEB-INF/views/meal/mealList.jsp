@@ -17,7 +17,7 @@
 </head>
 <body>
 <%@include file="/adminheader.jsp"%>
-
+<div class="song">
 <article class="container">
 
       <div class="col-md-12">
@@ -135,7 +135,7 @@
          
       </div>
 
-   </article>
+   </article></div><%@include file="/footer.jsp"%>
 </body>
 
 </html>

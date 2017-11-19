@@ -47,7 +47,6 @@ table tfoot td{
 <%@include file="/adminheader.jsp"%>
 
 
-
 <div style="margin: 0px auto; width: 60%; background-color: white;">
 		<div>
 			<h3 align="center">웨딩홀 사진 목록 / 사진은 하나하나 개별 업로드입니다.</h3>
@@ -144,6 +143,6 @@ table tfoot td{
 			  </div>
 	
 	</div>
-
+<%@include file="/footer.jsp"%>
 </body>
 </html>

@@ -27,8 +27,8 @@
 		
  	</select>
  	
- 		<select id="consultTotelCnt" resultType="int">
- 		select count(*) from consult
+ 		<select id="consultTotelCnt" resultType="int" parameterType="String">
+ 		select count(*) from consult where name=#{name}
  	</select>
  	
  	<delete id="consultDelete" parameterType="consult.model.ConsultDTO"> <!--parameter type String  -->
@@ -51,15 +51,6 @@
 		where consult_idx=#{idx}
 	</update>
 	
-	<select id="AllConsultList" parameterType="Map" resultType="consult.model.ConsultDTO">
-
- 		select * from
-		(select rownum as rnum,a.* from
-		(select * from consult order by consult_idx desc)a)b
-		where rnum<![CDATA[>=]]>#{startnum}
-		and rnum<![CDATA[<=]]>#{endnum}
-		
- 	</select>
  	
 	
  </mapper>

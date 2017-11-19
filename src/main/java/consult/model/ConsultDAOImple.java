@@ -60,8 +60,8 @@ public class ConsultDAOImple implements ConsultDAO {
 		return list;
 	}
 	
-	public int getTotelCont() {
-		int count = sqlMap.selectOne("consultTotelCnt");
+	public int getTotelCont(String name) {
+		int count = sqlMap.selectOne("consultTotelCnt",name);
 		return count==0?1:count;
 	}
 	
@@ -93,21 +93,6 @@ public class ConsultDAOImple implements ConsultDAO {
 		
 		int count = sqlMap.update("consultUpdate", data);
 		return count;
-	}
-	
-	public List<ConsultDTO> AllConsultList(int cp, int ls) {
-		
-		Map data = new HashMap();
-		int startnum = (cp-1)*ls+1;
-		int endnum = cp*ls;
-		
-	
-		data.put("startnum", startnum);
-		data.put("endnum", endnum);
-		
-		
-		List<ConsultDTO> list =sqlMap.selectList("AllConsultList",data);
-		return list;
 	}
 
 }
