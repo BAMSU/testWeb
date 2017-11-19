@@ -84,6 +84,11 @@ table tfoot td{
 		<a href="${contentUrl2}">삭제</a> <br></td>
 				  		</tr>
 			  		</c:forEach>
+			  		<c:if test="${cnt>0}">
+						<tr>
+						<td colspan="2" align="left"><input type="button" value="뒤로가기" onclick="javascript:location.href='wdList.we'"></td>
+						</tr>
+					</c:if>
 			  		</tbody>
 			  	</table>
 			  </div>
