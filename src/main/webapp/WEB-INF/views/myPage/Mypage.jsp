@@ -159,11 +159,8 @@ table tfoot td {
 									type="button" value="삭제"></a> <c:url var="hallreview"
 									value="hallReviewWrite.we">
 									<c:param name="gubun">${dto.gubun2}</c:param>
-								</c:url> <script>
-               if(${dto.gubun}>=2){
-                    document.getElementById('hallReview').style.display = 'none';}
-               </script> 
-               			<c:if test="${dto.gubun>=2||dto.review_ok==1}">
+								</c:url> 
+             				<c:if test="${dto.gubun>=2||dto.review_ok==1}">
                			   document.getElementById('hallReview').style.display = 'none';
                			</c:if>
                
