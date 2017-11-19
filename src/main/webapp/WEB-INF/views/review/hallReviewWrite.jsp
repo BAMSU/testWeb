@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <script src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
-<style> 
+<style>
 img{
 	width: 50px;
 }
@@ -62,7 +62,7 @@ img{
 		location.href='index.we';
 		
 	</script>
-</c:if>
+</c:if> 
 
 	<div style=" width:70%; margin:auto; border:3px solid  #D8D8D8; padding:10px; align-content: center; border-radius: 10px;">
 	

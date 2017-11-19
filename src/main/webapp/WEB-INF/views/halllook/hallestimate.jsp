@@ -35,10 +35,6 @@
 	word-break: break-all;
 	margin: o auto;
 }
-li{
-	display: inline-block;
-	font-family: 'Hanna';
-}
 #estr{
 	text-align: center;
 	margin: 0 auto;

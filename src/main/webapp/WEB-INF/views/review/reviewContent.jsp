@@ -9,7 +9,7 @@
 
 <script src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
-<script> 
+<script>
 /*
 		rolling page by hong..
 */

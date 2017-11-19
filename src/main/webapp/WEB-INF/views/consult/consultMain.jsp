@@ -125,10 +125,10 @@ input{
 		<tr>
 		
 		
-			<td colspan="5"> 
+			<td colspan="5">
 			<textarea rows="15" cols="45" name="context" style="width: 600px;" >
 			
-			</textarea>
+			</textarea> 
 			</td>
 			<td>
 			<input type="hidden" name="gubun"  value="${gubun}" > 

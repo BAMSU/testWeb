@@ -15,49 +15,16 @@
 </script>
 </head>
 <style>
-#search {
+#ranking {
 	text-align: center;
 	display: inline-block;
-	margin-left: 150px;
-	margin-right: 230px;
 	border: 5px solid red;
 	padding: 100px;
-	width: 1000px;
-	height: 1240px;
+	width: 1200px;
+	height: 600px;
 }
 
-li {
-	display: inline-block;
-	margin-right: 5px;
-}
-
-#menu_box {
-	float: left;
-	display: block;
-	border: 5px solid red;
-	width: 150px;
-	height: 100px;
-	padding-top: 300px;
-}
-
-.menu_br {
-	display: inline-block;
-	border: 5px solid red;
-	margin: 0 auto;
-}
-
-#menu {
-	float: left;
-	margin-right: 5px;
-	word-break: break-all;
-}
-
-.rank {
-	width:100px;
-	height: 30px;
-	border: 10px solid yellows;
-} 
-span{
+span {
 	float: left;
 	width: 94px;
 	font-size: 15px;
@@ -65,41 +32,24 @@ span{
 	cursor: pointer;
 	height: 26px;
 }
-#tr{
+
+#tr {
 	width: 400px;
 }
 </style>
 <body>
 	<%@include file="/header.jsp"%>
 	<h3>홀 랭킹 리스트</h3>
-	<div id="search">
-		<div id="#menu_box">
-			<div class="menu_br">
-				<ul id="menu">
-					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
-					<li><a href="hallranking.we">홀 랭킹</a></li>
-					<li><a>홀vs홀</a></li>
-					<li><a href="hallsearchlist.we">불러오기확인</a></li>
-					<li><a href="hallestimate.we">홀 견적내기</a></li>
-					<li><a href="hallmode.we">견적 작성</a></li>
-					<li><a href="hallranking.we">랭킹</a></li>
+	<div id="ranking">
 
-				</ul>
-			</div>
-		</div>
 
 		<div class="rank">
 			<form name="frm">
 				<c:set var="cnt" value="0" />
 				<table id="tr">
-				<c:forEach var="dto" items="${hallrank}">
-				
-				
-					<c:if test="${cnt%3==0}">
-					<tr>
-					</c:if>
-					
+					<c:forEach var="dto" items="${hallrank}">
 
+<<<<<<< HEAD
 						<td>
 							<c:set var="cnt" value="${cnt+1}" />
 							</td>
@@ -125,6 +75,31 @@ span{
 									</tr>
 								</c:if>
 				</c:forEach>
+=======
+
+						<c:if test="${cnt%3==0}">
+							<tr>
+						</c:if>
+
+
+						<td><c:set var="cnt" value="${cnt+1}" /></td>
+						<td><a href="rank_img"> <img
+								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
+								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
+						</a></td>
+						<td style="padding-top: 20px;">${dto.name}</td>
+						<td><span
+							style="border: 2px solid transparent !important; background: #F69D9D;  #fff; border-radius: 6px;"
+							onclick="window.alert('hallInfo${dto.idx }.we')">상세보기</span></td>
+						<td><span
+							style="border: 1px solid #BCA9F5; border-radius: 6px;"
+							onclick="window.alert('hallCompare.we')">홀 통계보기</span></td>
+
+						<c:if test="${cnt%3==0}">
+							</tr>
+						</c:if>
+					</c:forEach>
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
 				</table>
 			</form>
 		</div>

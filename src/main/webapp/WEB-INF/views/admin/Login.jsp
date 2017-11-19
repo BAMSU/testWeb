@@ -137,20 +137,19 @@ h3 {
 </style>
 </head>
 <body>
-<form name="fm" action="adminLogin2.we">
+<form class="login-form" name="fm" action="adminLogin2.we">
 		<section class="login-block">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4 login-sec">
 					<h2 class="text-center">관리자 인증 코드</h2>
-					<form class="login-form">
+					
 						<div class="form-group">
 							<label for="exampleInputEmail1" class="text-uppercase">CODE</label>
 							<input type="password" class="form-control" placeholder="" name="id">
 							<input type="submit"
 								value="로그인" class="btn btn-login float-right"> 
 						</div>
-					</form>
 					<div class="copy-text">
 						관리자 페이지 입니다 !<i class="fa fa-heart"></i>
 					</div>

@@ -64,26 +64,83 @@ table tfoot td{
 <body onload="aa()">
 <%@include file="/adminheader.jsp"%>
 <form name="fm">
-<h3>문의 내역 보기</h3>
 
-	
-	
-	 <select name="type">
+<div style="margin: 0px auto; width: 60%; background-color: white;">
+		<div>
+			<h3 align="center">업체 리스트</h3>
+			  	<table class="table table-striped table-hover table-bordered">
+			  		<thead>
+			  				
+				  		<tr class="thd">
+					  		<th width="30%">문의 내용</th>
+					  		<th width="15%">고객 이름</th>
+					  		<th width="25%">고객 번호</th>
+					  		<th width="10%">업체 구분</th>
+					  		<th width="20%">문의 완료 버튼</th>
+				  		</tr>
+			  		</thead>
+			  		<tbody>
+			  		
+			  		<c:if test="${empty list}">
+						<tr>
+							<td colspan="5">조건에 맞는 문의가 없습니다.</td>
+						</tr>
+					</c:if>
+					
+					<tr>
+						<td colspan="5" align="left">
+						
+						<select name="type">
       <option value="0">전체</option>
       <option value="1">미답변</option>
       <option value="2">답변완료</option>
      </select>
      
-      <input type="button" value="이동하기" onclick="show()"><br>
-      
-      <c:if test="${empty list}">
-		<h3>조건에 맞는 문의가 없습니다.</h3>
-	</c:if>
-	<c:forEach var="dto" items="${list}">
-		<c:url var="contentUrl" value="fqContent.we"><c:param name="idx">${dto.consult_idx}</c:param></c:url>
-		${dto.consult_idx}<a href="${contentUrl}">${dto.context}</a> <br>
-	</c:forEach>
-	${pageStr}
+      <input type="button" value="이동하기" onclick="show()">
+						
+						</td>
+					</tr>
+	
+			  		<c:forEach var="dto" items="${list}">
+				  		<tr>
+				  			<td>${dto.context}</td>
+		
+							<td>${dto.name}</td>
+							<td>${dto.tel}</td>
+							
+							
+							<c:if test="${dto.gubun eq '1'}"><td>
+			웨딩홀</td>
+		</c:if>
+		
+		<c:if test="${dto.gubun ne '1'}"><td>
+			웨딩 업체</td>
+		</c:if>
+				  			
+				  			
+				  			<c:if test="${dto.available eq '1'}"><td>
+			<c:url var="contentUrl" value="fqContenta.we"><c:param name="idx">${dto.consult_idx}</c:param></c:url>
+			<a href="${contentUrl}">미답변(클릭)</a></td>
+		</c:if>
+		
+		<c:if test="${dto.available ne '1'}"><td>
+			답변 완료</td>
+		</c:if>
+		
+		
+		
+				  			
+				  		</tr>
+			  		</c:forEach>
+			  		
+			  		<tr>
+			  			<td colspan="5" align="center">${pageStr}</td>
+			  		</tr>
+			  		</tbody>
+			  	</table>
+			  </div>
+	
+	</div>
 	</form>
 </body>
 </html>

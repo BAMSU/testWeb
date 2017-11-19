@@ -30,7 +30,7 @@
 img{
 	width: 50px;
 }
-body{ 
+body{
 	margin: 0px auto;
 
 }

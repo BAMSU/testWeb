@@ -46,6 +46,9 @@ table tfoot td{
 	background-color: #e74742; 
 	color: #fff;
 }
+#review table td{
+	width: 15%;
+}
 </style>
 <script>
   function initMap() {
@@ -216,8 +219,8 @@ table tfoot td{
 <section>
 	<article>
 		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
-		<div style="margin: 0px auto; width: 71%; background-color: white;">
-		<div style="width: 500px; height: 400px; float: left; margin: 30px 30px; margin-bottom: 0px;">
+		<div style="margin: 0px auto; width: 950px; background-color: white;">
+		<div style="width: 400px; height: 400px; float: left; margin: 20px 45px; margin-bottom: 0px;">
 			<h2>${h.name}</h2>
 			<p style="border-bottom: 1px solid #EAEAEA; border-top: 1px solid #EAEAEA; margin: 20px 0px;"><a id="grade">☆☆☆☆☆</a><font color="red">${h.grade}점</font> <a id="scrap">♡</a></p>
 			<table id="hif">
@@ -250,16 +253,15 @@ table tfoot td{
 			<h4><font color="red">※</font>체크포인트</h4>
 			<p><small class="text-muted">${h.ckPoint}</small></p>
 		</div>
-		<div style="width: 450px; height: 350px; float: left; margin: 30px 30px;">
-			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 450px; height: 270px;"/>
+		<div style="width: 400px; height: 350px; float: left; margin: 30px 30px;">
+			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 400px; height: 270px;"/>
 			<p style="text-align: center; margin-top: 15px;">
-				<input type="button" class="btn btn-secondary" value="견적내기"/>
-				<input type="button" class="btn btn-secondary" value="비교하기" onclick="location.href='hallCompare.we?idx=${h.idx}'"/>
+				<input type="button" class="btn btn-secondary" value="견적내기" onclick="location.href='hallestimate.we?hall_idx=${h.idx}'"/>
 				<input type="button" class="btn btn-secondary" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'"/>
 				<input type="button" class="btn btn-primary" value="상담신청" onclick="goConsult('${h.idx}')"/>
 			</p>
 		</div>
-		<div style="width: 1000px; clear: both; margin: 0px 30px;">
+		<div style="width: 900px; clear: both; margin: 0px 30px;">
 		
 			<p id="infoTab" style="height: 10px;"></p>
 					
@@ -333,9 +335,9 @@ table tfoot td{
 			  </li>
 			</ul>
 			
-			<div id="photo" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 20px;">
-				<div style="background: #EAEAEA; margin: 0px auto; width: 950px;">
-				<div style="margin-left: 50px; padding-top: 20px;">
+			<div id="photo" style="border: 1px solid #EAEAEA; border-top: 0px; padding: 10px;">
+				<div style="background: #EAEAEA; margin: 0px auto; width: 880px;">
+				<div style="margin-left: 50px; padding-top: 10px;">
 				<h4 style="color: #4C4C4C;">Gallery Category</h4>
 				<a class="isa" onclick="setSlide(0)">전체</a> |
 				<c:set var="sc" value="1"/>
@@ -347,7 +349,7 @@ table tfoot td{
 			  	<a class="isa" onclick="setSlide(4)">폐백실</a>
 			  	</div>
 			  	<br>
-				<div class="w3-content w3-display-container" style="width:850px;">
+				<div class="w3-content w3-display-container" style="width:830px;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r1.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r2.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r3.jpg" style="display: none;">
@@ -360,7 +362,7 @@ table tfoot td{
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content w3-display-container" style="width:850px;display:none;">
+				<div class="w3-content w3-display-container" style="width:830px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r1.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r2.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r3.jpg" style="display: none;">
@@ -368,7 +370,7 @@ table tfoot td{
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content w3-display-container" style="width:850px;display:none;">
+				<div class="w3-content w3-display-container" style="width:830px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r4.jpg">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r5.jpg" style="display: none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/r6.jpg" style="display: none;">
@@ -376,13 +378,13 @@ table tfoot td{
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content w3-display-container" style="width:850px;display:none;">
+				<div class="w3-content w3-display-container" style="width:830px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/w1.jpg">
 					
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
 					<a class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">❯</a>
 				</div>
-				<div class="w3-content w3-display-container" style="width:850px;display:none;">
+				<div class="w3-content w3-display-container" style="width:830px;display:none;">
 					<img class="mySlides" src="/finalproject/img/hall/${h.idx}/p1.jpg">
 					
 					<a class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">❮</a>
@@ -431,7 +433,7 @@ table tfoot td{
 				  	<tbody>
 				  		<c:forEach var="rv" items="${reviewList}">
 					  		<tr>
-					  			<td style="cursor: pointer;" onclick="location.href='reviewContent.we?idx=${h.idx}&idx2=${rv.review_idx}'">${rv.subject}</td>
+					  			<td style="cursor: pointer; width: 55%;" onclick="location.href='reviewContent.we?idx=${h.idx}&idx2=${rv.review_idx}'">${rv.subject}</td>
 					  			<td>${rv.average}</td>
 					  			<td>${rv.writedate}</td>
 					  			<td>${rv.readnum}</td>
