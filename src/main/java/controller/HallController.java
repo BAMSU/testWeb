@@ -33,25 +33,24 @@ public class HallController {
 	
 	@RequestMapping("/hallInfo.we")
 	public ModelAndView hallInfoForm(@RequestParam(value="idx",defaultValue="1")int idx,
-			@RequestParam(value="name",defaultValue="한재우")String name,
 			@RequestParam(value="cp",defaultValue="1")int cp,
 			HttpSession session){
 		ModelAndView mav = new ModelAndView("hall/hallInfo");
 		HallDTO h = hallDao.getHallInfo(idx);
 		mav.addObject("hallInfo",h);
 		mav.addObject("roomInfo",roomDao.roomInfo(idx));
-		mav.addObject("reviewList",reviewDao.hallReviewList(cp, 5, h.getName()));
-		mav.addObject("pageStr",PageModule.makePage("hallInfo.we", reviewDao.getTotelContByHall(h.getName()), 5, 5, cp));
-		if(scrapDao.getScrap(name, idx)!=null){
-			mav.addObject("srp",true);
-		}else{
-			mav.addObject("srp",false);
-		}
-		String sname = "";
+		mav.addObject("reviewList",reviewDao.hallReviewList(cp, 5, idx));
+		mav.addObject("pageStr",PageModule.makePage("hallInfo.we?idx="+idx, reviewDao.getTotelContByHall(idx), 5, 5, cp));
+		String name = "";
+		boolean srp=false;
 		if(session.getAttribute("sname")!=null){
-			sname = (String) session.getAttribute("sname");
+			name = (String) session.getAttribute("sname");
+			if(scrapDao.getScrap(name, idx)>0){
+				srp=true;
+			}
 		}
-		mav.addObject("userName",sname);
+		mav.addObject("userName",name);
+		mav.addObject("srp",srp);
 		return mav;
 	}
 	
@@ -74,7 +73,6 @@ public class HallController {
 	@RequestMapping("/hallAddSearchByGu.we")
 	public ModelAndView hallAddSearchByGuSubmit(@RequestParam(value="gu",defaultValue="all")String gu){
 		ModelAndView mav = new ModelAndView("jsonView");
-		//ModelAndView mav = new ModelAndView("hall/hallCompare");
 		List<HallDTO> hl = null;
 		if(gu.equals("all")) hl=hallDao.getHallList();
 		else hl=hallDao.getHallListByGu(gu);
@@ -120,10 +118,12 @@ public class HallController {
 	@ResponseBody
 	@RequestMapping(value="/scrap.we",method=RequestMethod.GET)
 	public String insertScrap(@RequestParam(value="idx",defaultValue="1")int idx,
-			@RequestParam(value="name",defaultValue="한재우")String name){
+			HttpSession session){
 		boolean srp = false;
-		if(scrapDao.insertScrap(name, idx)>0){
-			srp=true;
+		if(session.getAttribute("sname") != null){
+			if(scrapDao.insertScrap((String) session.getAttribute("sname"), idx)>0){
+				srp=true;
+			}
 		}
 		return String.valueOf(srp);
 	}
@@ -131,10 +131,12 @@ public class HallController {
 	@ResponseBody
 	@RequestMapping(value="/scrap.we",method=RequestMethod.POST)
 	public String deleteScrap(@RequestParam(value="idx",defaultValue="1")int idx,
-			@RequestParam(value="name",defaultValue="한재우")String name){
+			HttpSession session){
 		boolean srp = false;
-		if(scrapDao.deleteScrap(name, idx)>0){
-			srp=true;
+		if(session.getAttribute("sname") != null){
+			if(scrapDao.deleteScrap((String) session.getAttribute("sname"), idx)>0){
+				srp=true;
+			}
 		}
 		return String.valueOf(srp);
 	}

@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	  <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!--  <META HTTP-EQUIV="refresh" CONTENT="10">-->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
@@ -16,8 +19,8 @@
 	charset="utf-8"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="jquery-3.2.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
+
 <script>
 $(document).ready(function(){
 	
@@ -30,16 +33,19 @@ $(document).ready(function(){
 	});       
     
 });
+
+
 </script>
 
 <script>
+
 		function getUserData() {
 			/* FB.api('/me', function(response) {
 			    document.getElementById('response').innerHTML = 'Hello ' + response.name;
 			    console.log(response);
 			}); */
 			FB.api('/me', {
-				fields : 'name,email,gender,birthday'
+				fields : 'name,email,gender,birthday' 
 			}, function(response) {
 				console.log(JSON.stringify(response));
 
@@ -47,15 +53,18 @@ $(document).ready(function(){
 				var birthday = response.birthday;
 				var id = response.id;
 
-				$("#name2").html("환영합니다. " + name + "님");
+				$("#name2").html("환영합니다."+ name+" 님");
+				$("#usere").html("Name");
 				$("#name").val(name);
 
 				$("#id2").html(id);
 				$("#id").val(id);
 
 				$("#birthday2").html(birthday);
+				$("#birth").html("Birthday");
 				$("#birthday").val(birthday);
-
+					
+			
 			});
 		}
 
@@ -70,52 +79,58 @@ $(document).ready(function(){
 			});
 
 			//check user session and refresh it
-			FB
-					.getLoginStatus(function(response) {
+			FB.getLoginStatus(function(response) {
+					
+						
 						if (response.status === 'connected') {
-							//user is authorized
-							//document.getElementById('loginBtn').style.display = 'none';
+							
+							document.getElementById('name3').style.display = 'none';
+							document.getElementById('birthday3').style.display = 'none';
+							document.getElementById('pwd').style.display = 'none';
+							document.getElementById('user').style.display = 'none';
+							
+						
 							getUserData();
 						} else {
-							document.getElementById('submitBtn').style.display = 'none';
+							//document.getElementById('submitBtn').style.display = 'none';
 						}
+					
 					});
 		};
 
 		//load the JavaScript SDK
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) {
-				return;
-			}
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "//connect.facebook.com/ko_KR/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
+		(function(d, s, id){
+		    var js, fjs = d.getElementsByTagName(s)[0];
+		    if (d.getElementById(id)) {return;}
+		    js = d.createElement(s); js.id = id;
+		    js.src = "//connect.facebook.com/ko_KR/sdk.js";
+		    fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
-
+		  
 		//add event listener to login button
-		document.getElementById('loginBtn').addEventListener('click',
-				function() {
-					//do the login
-					FB.login(function(response) {
-						if (response.authResponse) {
-							access_token = response.authResponse.accessToken; //get access token
-							user_id = response.authResponse.userID; //get FB UID
-							console.log('access_token = ' + access_token);
-							console.log('user_id = ' + user_id);
-							$("#access_token").text("접근 토큰 : " + access_token);
-							$("#user_id").text("FB UID : " + user_id);
-							//user just authorized your app
-							//document.getElementById('loginBtn').style.display = 'none';
-							getUserData();
-						}
-					}, {
-						scope : 'email,public_profile,user_birthday',
-						return_scopes : true
-					});
-				}, false);
+			document.getElementById('loginBtns').addEventListener('click', function() {
+		    //do the login
+		    FB.login(function(response) {
+		    	 if (response.authResponse) {
+		             access_tokens = response.authResponse.accessToken; //get access token
+		             alert(access_tokens);
+		             user_id = response.authResponse.userID; //get FB UID
+		             console.log('access_token = '+access_tokens);
+		             console.log('user_id = '+user_id);
+		             $("#access_token").text("접근 토큰 : "+access_tokens);
+		             $("#user_id").text("FB UID : "+user_id);
+		             //user just authorized your app
+		             //document.getElementById('loginBtn').style.display = 'none';
+		             getUserData();
+		             
+		        }
+		    }, {scope: 'email,public_profile,user_birthday',
+		        return_scopes: true});
+		}, false);
 		getUserData();
+		
+	
+		
 	</script>
 <style type="text/css">
 html, div, body, h3 {
@@ -239,8 +254,14 @@ h3 {
 </style>
 </head>
 <body>
+
+				
+								
 	<!--  style="overflow: hidden;" -->
 	<form name="fm" action="loginForm.we">
+					<input type="hidden" id="name" name="names">
+					<input type="hidden" id="id" name="ids">
+					<input type="hidden" id="birthday" name="birthdays">
 		<section class="login-block">
 		<div class="container">
 			<div class="row">
@@ -248,16 +269,26 @@ h3 {
 					<h2 class="text-center">Login Now</h2>
 					<form class="login-form">
 						<div class="form-group">
-							<label for="exampleInputEmail1" class="text-uppercase">Userid</label>
-							<input type="text" class="form-control" placeholder="" name="id"
+							<label for="exampleInputEmail1" class="text-uppercase" id="user">Userid</label>
+							<div id="usere"></div>
+							<input type="text" class="form-control" placeholder="" name="id" id="name3"
 								value="${cookie.saveid.value }">
+							
+								<div id="name2"></div>
+							
+							
+						
 
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1" class="text-uppercase">Password</label>
+							<label for="exampleInputPassword1" class="text-uppercase" id="pwd">Password</label>
+							<div id="birth"></div>
+							<div id="email2"></div>
 							<input type="password" class="form-control" placeholder=""
-								name="pwd">
+								name="pwd" id="birthday3">
+								<div id="birthday2"> </div>
 						</div>
+					
 
 
 						<div class="form-check">
@@ -271,16 +302,16 @@ h3 {
 								&nbsp;<span id="naver_id_login"> <a href="${url}"><img
 									src="/finalproject/img/naver.login.png"
 									style="width: 230px;" /></a>
-							</span> <span> <a href="facebook.we" style="text-align: center">
+							</span> <span> <a href="https://www.facebook.com/login/" style="text-align: center">
 									<div class="fb-login-button" data-size="large"
 										data-show-faces="false" data-use-continue-as="false"
-										id="loginBtn" style="width: 245px;"></div>
+										id="loginBtns" style="width: 245px;"></div>
 							</a>
 							</span>
-							<form name="facebookLogin" action="facebookLoginOk.we">
-								 <input type="submit"
-									id="submitBtn" value="페이스북 로그인">
-							</form>
+							
+						
+	
+									
 							<br> <br> <label><a href="memberidFind.we">아이디</a>/<a
 								href="memberpwdFind.we">비밀번호</a>찾기</label>
 

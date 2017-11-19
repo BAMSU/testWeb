@@ -124,19 +124,20 @@ body{
 </head>
 <body>
 <form>
+<br>
 <div class='left-box'>
 	<div>
-	<h3 style="text-align: center;">PREVIEW</h3>
-		<P style="font-size: 13px; margin-left: 20px; margin-right: 20px;">고객님의 주문을 돕기 위한 미리보기 화면으로 실제 인쇄물과는 다를 수 있습니다.
+	<h3 style="text-align: center;">PREVIEW</h3><br>
+		<P style="font-size: 13px; color:white;  margin-left: 20px; margin-right: 20px;">고객님의 주문을 돕기 위한 미리보기 화면으로 실제 인쇄물과는 다를 수 있습니다.
 		정확한 인쇄(초안) 화면은 주문진행 후 “초안보기”에서 확인하실 수 있습니다.</P>
 	</div>
-	
+	<Br>
 	<input type="hidden" name="imgSrc" id="imgSrc" />
     
-    <div id="canv" style="text-align:center; color: blue; background: white; margin-left: 30px; margin-right: 30px;">
-    	<br><br><br>
-        <textarea id="tinsamal" class="valu" style="height: 100px;" readonly></textarea>
-		<input type="text" id="tnam" value="○○○ · ○○○ 의  - ○○ " class="valu" readonly><br><br>
+    <div id="canv" style="text-align:center; color: black; background: white; margin-left: 30px; margin-right: 30px;">
+    	<br><br>
+        <textarea id="tinsamal" class="valu" style="height: 120px;" readonly></textarea><br>
+		<input type="text" id="tnam" value="○○○ · ○○○ 의  - ○○ " class="valu" readonly><br>
 		<input type="text" id="tyu" value="○○○ · ○○○ 의  - ○○ " class="valu" readonly><br><br><br>
 		<input type="text" id="tdate" class="valu" readonly><br>
 		<input type="text" id="tplace" class="valu" readonly><br>
@@ -145,7 +146,7 @@ body{
 				<br>
 				<input type="text" class="valu"id="hallname" readonly="readonly"><br>
 				<textarea id="hallplace" class="valu" style="height: 20px;" readonly></textarea>
-    			<input type="text" class="value" id="halltype" readonly="readonly">
+    			<input type="text" class="valu" id="halltype" readonly="readonly">
    	<br><br>
     </div>
     
@@ -241,10 +242,11 @@ body{
 	<div>
 		식장정보<br>
 			예식장 이름 : <input type="text" id="serText">
-		 	<input type="button" value="홀 검색" onclick="hallser()">	
+			<img src="card_img/ser.png" onclick="hallser()" width="30px" height="30px">
 	</div>
 	층/홀 : <input type="text" id="hall" onchange="inpu()" required placeholder="층과 홀" >
-	<a onclick ="capture()">다음~!</a>
+	<br><Br><br>
+	<input type="button" value="Next" onclick ="capture()" class="btn btn-outline-primary">
 
 </div>
 </body>

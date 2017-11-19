@@ -26,7 +26,7 @@ public class AdminController {
 	
 	@RequestMapping("/admin.we")
 	public String adminForm() {
-		return "admin/admin";
+		return "admin/resistration";
 	}
 	
 	@RequestMapping("/adminLogin.we")

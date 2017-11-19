@@ -14,38 +14,46 @@
 	}
 	#left{
 		float:left;
-		width: 30%;
-		background-color: yellow;
+		width: 40%;
 	}
 	#right{
 		float:right;
-		width: 70%;
-		background-color: red;
+		width: 60%;
 	}
-	table.type03 {
-    border-collapse: collapse;
-    text-align: left;
-    line-height: 1.5;
-    border-top: 1px solid #ccc;
-    border-left: 3px solid #369;
-  margin : 20px 10px;
+	
+#first th{
+	text-align: center;
+	border-bottom: 2px solid #F69D9D;
 }
-table.type03 th {
-    width: 100px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
-    color: #153d73;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+#second th{
+	border-bottom: 2px solid #F69D9D;
+	border-top: 2px solid #F69D9D;
+	border-right: 2px solid #F69D9D;
+}
+#second td{
 
+	border-bottom: 2px solid #F69D9D;
+	border-top: 2px solid #F69D9D;
 }
-table.type03 td {
-    width: 250x;
-    padding: 10px;
-    vertical-align: top;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+#thd th{
+	margin-right:50px;
+	background-color: gray;
+	width: 5%;
+	border-bottom:4px solid #FFF;
+	text-align: center;
+}
+#thd td{
+	padding-left: 30px;
+	border-bottom: 2px solid #000;
+}
+#thd{
+	height: 700px;
+}
+#sub{
+	size: 20px;
+	text-decoration: blink;
+}
+#nsub{
 }
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
@@ -55,7 +63,6 @@ table.type03 td {
 <script>
 function ok(){
 	var total =  parseInt(document.getElementById("totalprice").value);
-	alert(total);
 	if (confirm("모든 항목을 정확히 작성하셨습니까?") == true){    //확인
 		var IMP = window.IMP; // 생략가능   
 		   IMP.init('imp55802002');  // 가맹점 식별 코드
@@ -94,7 +101,7 @@ function ok(){
 </script>
 
 </head>
-<body>
+<body onload="show()">
 <script>
 function ordernext(){
 	
@@ -122,6 +129,7 @@ function inputval(){
 }
 function show(){
 	var price = document.all.price;
+	var ssale=document.all.sale;
 	var gita = document.getElementById("gita").checked;
 	var tgita = document.getElementById("tgita");
 	if(gita){
@@ -135,7 +143,7 @@ function show(){
 	
 	var ge= ${list.card_price}; //개당가격
 	var sale=(((su/100)*5))+5; //할인율
-	
+	ssale.innerHTML=sale+"원";
 	var mal = ge-sale; //물품가격
 	
 	var cucu = 0; //추가가격
@@ -172,39 +180,47 @@ function show(){
 	
 	var envtype = $("input[type=radio][name=envsel]:checked").val(); //봉투 타입
 	var envcnt = document.getElementById("envsu").value; //봉투 수량
-	alert(cucu + " %% " + opti + " %%" + envtype + " saf " + envcnt);	
 	//if{
 		
 	//}
 	
 	var ttprice=(mal*su)+cucu;
 	
-	price.innerHTML=mal;
+	price.innerHTML=mal + "원";
 	
 	var total = document.all.total;
 	total.innerHTML=ttprice;
 	document.getElementById("o_id").value = envcnt; //o_id는 봉투 수량로 바꿧음
 	document.getElementById("o_count").value = su;
-	document.getElementByIdo_option
-	("o_sale").value = sale;
+	document.getElementById("o_sale").value = sale;
 	document.getElementById("o_plus").value = cucu;
 	document.getElementById("o_price").value = mal;
 	document.getElementById("o_env").value=envtype; //얘는 봉투 종류
-	document.getElementById("o_option").value=opti
+	document.getElementById("o_option").value=opti;
 	document.getElementById("totalprice").value = ttprice; //o_price 
 }
 </script>
-<div id="left" style="text-align: center;">
- <img src="card_img/${list.card_img}" width="250px" height="200px">
- <div style="width: 500px; height: 700px;">
- <img src="order_img/${filename}.png">
- </div>
+<br><br>
+<h4><font style="color: red;"><strong>기본주문</strong></font> 정보</h4>
+<hr>
+<div id="top" style="text-align:center; height: 200px; vertical-align: center;">
+<div id="ltop" style="width: 30%; float: left;">
+	<img src="card_img/${list.card_img}" width="260px" height="200px">
 </div>
-<div id="right">
-	${list.card_name}
-	<p id="price">${list.card_price}</p>
-	<input type="hidden" id="totalprice">
-	<select id="cnt" onclick="show()" onchange="show()">
+	
+<div id="rtop" style="width: 60%; float:right; text-align: center;"><br><br>
+<table id="first" width="600px" height="100px" style="text-align: center;">
+<tr>
+	<th>카드번호</th>
+	<th>정가</th>
+	<th>수량</th>
+	<th>할인금액</th>
+	<th>소비자가</th>
+</tr>
+<tr>
+	<td><font style="size:300px; color:red;"><strong>${list.card_name}</strong></font></td>
+	<td>${list.card_price}원</td>
+	<td><select id="cnt" onclick="show()" onchange="show()" style="width: 70px; height: 30px;">
 		<option>100</option>
 		<option>200</option>
 		<option>300</option>
@@ -213,87 +229,137 @@ function show(){
 		<option>1000</option>
 		<option>1500</option>
 	</select>
-	<input type="checkbox" id="gita" onclick="show()"> <input type="text" id="tgita" onchange="show()">
-	<p id="total"></p>
-	
-	
-	<table class="type03">
-    <tr>
-        <th scope="row">주문자명</th>
-        <td><input type="text" id="name" class="text" value="${sname }" readonly></td>
-    </tr>
-    <tr>
-        <th scope="row">핸드폰 번호</th>
-        <td><input type="text" id="phone" class="text" onchange="inputval()"></td>
-    </tr>
-    <tr>
-        <th scope="row">주소</th>
-        <td><input type="text" id="sample4_postcode" placeholder="우편번호" onchange="inputval()"><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-        <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
-<input type="text" id="sample4_sangAddress" placeholder="상세주소" onchange="inputval()"><span id="guide" style="color:#999"></span>
-        </td>
-    </tr>
-    <tr>
-    	<th>메모</th>
-    	<td><textarea rows="3" cols="40" id="memo" onchange="inputval()"></textarea></td>
-    </tr>
-</table>
-
+	<input type="hidden" id="gita" onclick="show()"> <input type="hidden" id="tgita" onchange="show()">
+	</td>
+	<td><p id="sale"></td>
+	<td><p id="price"></p></td>
+	</tr>
+	</table>
 </div>
-<div id="env">
-<img src="card_img/env.jpg" width="350px" height="300px" onchange="show()">
+</div>
+<br><br><br>
+<h4><font style="color: red;"><strong>카드주문</strong></font> 정보</h4>
+<hr>
+<div style="width: 100%; height: 500px;">
+	<div id="left" style="width:30%; float: left;">
+	 <br>
+	 <p style="margin-left: 100px;">[Card Make Img]</p><br><br>
+	 <img src="order_img/${filename}.png" style="width: 300px;">
+	</div>
 
-<input type="radio" value="1번" name="envsel">
-<input type="radio" value="2번" name="envsel">
-<input type="radio" value="3번" name="envsel">
-<input type="radio" value="4번" name="envsel">
-수량 <input type="text" id="envsu">
+	<div id="right" style=" width: 70%; float: right;">
+		<input type="hidden" id="totalprice"><br><br><br><br><br><br>
+		<table id="second" style="float: right; margin-right: 50px; width: 600px; height: 300px;">
+	    <tr>
+	        <th>주문자명</th>
+	        <td><input type="text" id="name" class="text" value="${sname }" readonly></td>
+	    </tr>
+	    <tr>
+	        <th>핸드폰 번호</th>
+	        <td><input type="text" id="phone" class="text" onchange="inputval()"></td>
+	    </tr>
+	    <tr>
+	        <th>주소</th>
+	        <td>
+	        <input type="text" id="sample4_postcode" placeholder="우편번호" onchange="inputval()"><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+	        <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
+			<input type="text" id="sample4_jibunAddress" placeholder="지번주소"><br>
+			<input type="text" id="sample4_sangAddress" placeholder="상세주소" onchange="inputval()"><span id="guide" style="color:#999"></span>
+	        </td>
+	    </tr>
+	    <tr>
+	    	<th>메모</th>
+	    	<td><textarea rows="3" cols="40" id="memo" onchange="inputval()"></textarea></td>
+	    </tr>
+	</table>
+	</div>
 </div>
 <br>
-<div>
-부가 옵션 서비스
-<br>
-<input type="checkbox" id="bal" >로켓발송 <!-- +5000원 -->
-<br>
-<input type="checkbox" id="su" >무료스티커
-<br>
-<input type="checkbox" id="label" >주소라벨지
-<p><img src="card_img/label.JPG" width="600px" height="300px"></p>
-<select id="part1">
-	<option>매수</option>
-	<option value='4000'>1권(420통 분량)</option>
-	<option value='8500'>2권(960통 분량)</option>
-	<option value='13000'>3권(1,440통 분량)</option>
-	<option value='16000'>4권(1,920통 분량)</option>
-	<option value='19000'>5권(2,400통 분량)</option>
-</select>
+<br><br>
 
-<br>
-<input type="checkbox" id="hanji" >한지자켓봉투<!-- 장당 100원 추가 -->
-<br>
-<input type="checkbox" id = "envp">봉투삽입서비스 <!-- 장당 100원씩 추가 -->
-<br>
+
+<h4><font style="color: red;"><strong>봉투</strong></font> 서비스</h4>
+<hr>
+<div id="env" style="width: 100%; float: center; text-align: center;">
+<img src="card_img/env.JPG" width="350px" height="300px" onchange="show()" style="margin-right: 180px;">
+<div >
+<input type="radio" value="1번" name="envsel"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" value="2번" name="envsel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" value="3번" name="envsel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" value="4번" name="envsel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+수량 <input type="text" id="envsu" style="width: 80px;">
+</div>
 </div>
 <br><br>
+<div>
+<h4><font style="color: red;"><strong>부가 옵션</strong></font> 서비스</h4>
+<hr>
+<div style="width: 100%">
+<table id="thd" style="margin-left: 100px;">
+	<tr>
+		<th><input type="checkbox" id="bal" ></th>
+		<td><p id="sub">로켓발송</p>
+		<p id="nsub">일정이 급하신 분들을 위해 준비한 당일출고 서비스입니다. 최단시간에 특별 제작해 드립니다.</p>
+		</td>
+	<tr>
+	<tr>
+		<th><input type="checkbox" id="su" ></th>
+		<td><p id="sub">무료스티커</p>
+		<p id="nsub">청첩장을 주문한 수량만큼 기본스티커는 무료배송됩니다</p>
+		</td>
+	<tr>
+	<tr>
+		<th><input type="checkbox" id="label" ></th>
+		<td><p id="sub">주소라벨지</p>
+		<p id="nsub">봉투 부착용 주소라벨지를 특별할인가로 드립니다.</p>
+		<p><img src="card_img/label.JPG" width="600px" height="300px">
+				<select id="part1">
+					<option>매수</option>
+					<option value='4000'>1권(420통 분량)</option>
+					<option value='8500'>2권(960통 분량)</option>
+					<option value='13000'>3권(1,440통 분량)</option>
+					<option value='16000'>4권(1,920통 분량)</option>
+					<option value='19000'>5권(2,400통 분량)</option>
+				</select>
+		</p>
+		</td>
+	<tr>
+	<tr>
+		<th><input type="checkbox" id="hanji" ></th>
+		<td><p id="sub">한지자켓봉투</p>
+		<p id="nsub">고급한지자켓봉투로 교체합니다. (유료서비스 장당 100원)</p>
+		</td>
+	<tr>
+	<tr>
+		<th><input type="checkbox" id = "envp"></th>
+		<td><p id="sub">봉투삽입서비스</p>
+		<p id="nsub">카드를 일일이 봉투에 넣으실 필요없이 서비스를 이용하시면 본사에서 대행해 드립니다.(유료서비스 장당 100원)</p>
+		</td>
+	<tr>
+</table></div>
+<br>
+
+<br>
+</div>
 <input type="button" value="결재" onclick="ok()">
 <form id="cOrder" action="priceOrder.we">
-		<input type="text" id="o_id" name="o_id">
-		<input type="text" id="o_code" name="o_code">
-		<input type="text" id="o_name"  name="o_name">
-		<input type="text" id="o_phone" name="o_phone">
-		<input type="text" id="o_addr" name="o_addr">
-		<input type="text" id="o_memo" name="o_memo">
-		<input type="text" id="o_env" name="o_env">
-		<input type="text" id="o_option" name="o_option">
-		<input type="text" id="o_count" name="o_count">
-		<input type="text" id="o_sale" name="o_sale">
-		<input type="text" id="o_plus" name="o_plus">
-		<input type="text" id="o_price" name="o_price">
-		<input type="text" id="o_img" name="o_img">
+		<input type="hidden" id="o_id" name="o_id">
+		<input type="hidden" id="o_code" name="o_code">
+		<input type="hidden" id="o_name"  name="o_name">
+		<input type="hidden" id="o_phone" name="o_phone">
+		<input type="hidden" id="o_addr" name="o_addr">
+		<input type="hidden" id="o_memo" name="o_memo">
+		<input type="hidden" id="o_env" name="o_env">
+		<input type="hidden" id="o_option" name="o_option">
+		<input type="hidden" id="o_count" name="o_count">
+		<input type="hidden" id="o_sale" name="o_sale">
+		<input type="hidden" id="o_plus" name="o_plus">
+		<input type="hidden" id="o_price" name="o_price">
+		<input type="hidden" id="o_img" name="o_img">
 		<input type="submit" value="다음">
 	</form>
 <br>
+<p id="total"></p></td>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     function sample4_execDaumPostcode() {
