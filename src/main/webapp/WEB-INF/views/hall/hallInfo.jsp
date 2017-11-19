@@ -256,8 +256,7 @@ table tfoot td{
 		<div style="width: 400px; height: 350px; float: left; margin: 30px 30px;">
 			<img src="/finalproject/img/hall/${h.idx}/r1.jpg" alt="홀대표사진" style=" width: 400px; height: 270px;"/>
 			<p style="text-align: center; margin-top: 15px;">
-				<input type="button" class="btn btn-secondary" value="견적내기"/>
-				<%-- <input type="button" class="btn btn-secondary" value="비교하기" onclick="location.href='hallCompare.we?idx=${h.idx}'"/> --%>
+				<input type="button" class="btn btn-secondary" value="견적내기" onclick="location.href='hallestimate.we?hall_idx=${h.idx}'"/>
 				<input type="button" class="btn btn-secondary" value="통계보기" onclick="location.href='hallStats.we?idx=${h.idx}&name=${h.name}'"/>
 				<input type="button" class="btn btn-primary" value="상담신청" onclick="goConsult('${h.idx}')"/>
 			</p>

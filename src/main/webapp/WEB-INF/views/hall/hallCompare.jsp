@@ -343,7 +343,8 @@
 					+'onclick="goRv('+iidx+')"/>');
 			$('.ifBtn:eq('+ii+')').html('<input type="button" value="상세보기"'
 					+'onclick="goIf('+iidx+')" class="btn btn-info"/>');
-			$('.emBtn:eq('+ii+')').html('<input type="button" value="견적내기" class="btn btn-info"/>');
+			$('.emBtn:eq('+ii+')').html('<input type="button" value="견적내기" class="btn btn-info"'
+					+'onclick="goEm('+iidx+')"/>');
 		});
 	}
 	
@@ -378,6 +379,9 @@
 	}
 	function goRv(i){
 		location.href='AllhallList.we?idx='+i;
+	}
+	function goEm(i){
+		location.href='hallestimate.we?hall_idx='+i;
 	}
 </script>
 </head>

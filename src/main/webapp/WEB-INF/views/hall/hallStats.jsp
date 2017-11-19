@@ -149,12 +149,14 @@ var mon=new Array(12);
 				<td>
 					<div id="chart1"></div>
 					<p class="ct"></p>
-					<input type="button" class="btn btn-info" value="상세정보" onclick="location.href='hallInfo.we?idx=${hallIdx}'"/>
+					<input type="button" class="btn btn-info" value="상세정보" 
+					onclick="location.href='hallInfo.we?idx=${hallIdx}'"/>
 				</td>
 				<td>
 					<div id="chart2"></div>
 					<p class="ct"></p>
-					<input type="button" class="btn btn-info" value="견적내기"/>
+					<input type="button" class="btn btn-info" value="견적내기"
+					onclick="location.href='hallestimate.we?hall_idx=${hallIdx}'"/>
 				</td>
 			</tr>
 			<tr>
@@ -165,7 +167,8 @@ var mon=new Array(12);
 				<td>
 					<div id="chart3"></div>
 					<p class="ct"></p>
-					<input type="button" class="btn btn-info" value="비교하기" onclick="location.href='hallCompare.we?idx=${hallIdx}'"/>
+					<input type="button" class="btn btn-info" value="비교하기" 
+					onclick="location.href='hallCompare.we?idx=${hallIdx}'"/>
 				</td>
 				<td>
 					<div id="chart4"></div>
