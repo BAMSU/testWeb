@@ -11,7 +11,39 @@
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript">
-	
+$(document).ready(function(){
+	$('.ctd:eq(0)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(0)').val();
+	});
+	$('.ctd:eq(1)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(1)').val();
+	});
+	$('.ctd:eq(2)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(2)').val();
+	});
+	$('.ctd:eq(3)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(3)').val();
+	});
+	$('.ctd:eq(4)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(4)').val();
+	});
+	$('.ctd:eq(5)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(5)').val();
+	});
+	$('.ctd:eq(6)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(6)').val();
+	});
+	$('.ctd:eq(7)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(7)').val();
+	});
+	$('.ctd:eq(8)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(8)').val();
+	});
+	$('.ctd:eq(9)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(9)').val();
+	});
+	});
+
 </script>
 </head>
 <style>
@@ -19,8 +51,7 @@
 	text-align: center;
 	display: inline-block;
 	border: 5px solid red;
-	padding: 100px;
-	width: 1200px;
+	width: 100%;
 	height: 600px;
 }
 
@@ -34,45 +65,53 @@ span {
 }
 
 #tr {
-	width: 400px;
+	width: 100%;
+}
+.but{
+text-align: center; 
+margin-top: 15px; 
+	color: #fff;
 }
 </style>
 <body>
 	<%@include file="/header.jsp"%>
-	<h3>홀 랭킹 리스트</h3>
+	<h3 style="text-align: center;">홀 랭킹</h3>
 	<div id="ranking">
 
 
 		<div class="rank">
-			<form name="frm">
-				<c:set var="cnt" value="0" />
-				<table id="tr">
+	
+<c:set var="cnt" value="0"/>
+				<table id="tr" border="1">
+				
 					<c:forEach var="dto" items="${hallrank}">
-
-						<td><c:set var="cnt" value="${cnt+1}" /></td>
-						<td><a href="rank_img"> <img
+				
+				<c:if test="${cnt%3==0 }">
+				   <tr> 
+		
+				   </c:if>
+				   <td class="ctd"><a href="rank_img"> <img
 								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
 								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
-						</a></td>
-						<td>${dto.name}</td>
-						<td><span
-							style="border: 2px solid transparent !important; background: #F69D9D; color: #fff; border-radius: 6px;"
-							onclick="window.alert('hallInfo${dto.idx }.we')">상세보기</span></td>
-						<td><span
-							style="border: 1px solid #BCA9F5; border-radius: 6px;"
-							onclick="window.alert('hallCompare.we')">홀 통계보기</span></td>
+						</a><br>
+				  <span style="text-align: center;width: 200px;"> ${dto.name}</span>
+				   <br>
+				  <p class="but" border="1">
+						<input type="button" style="background: #F5A9E1;" class="btn btn-secondary" value="홀 설명" onclick="location.href='hallInfo.we?idx=${dto.idx}'"/>
+						<br>
+						<input type="button" style="background: #F5A9E1;"class="btn btn-secondary" value="홀 통계보기" onclick="location.href='hallStats.we?idx=${dto.idx}&name=${dto.name}'"/>
+						</p>
+						</td>
+				    
+				
+				    <c:set var="cnt" value="${cnt+1 }" />
+				    <c:if test="${cnt%3==0 }">
+</tr> 
+</c:if>
+				    </c:forEach>
+				     </table>
 
-						<c:if test="${cnt%3==0}">
-							</tr>
-						</c:if>
-					</c:forEach>
-					<c:if test="${cnt%3==0}">
-						<tr>
-					</c:if>
 
-
-				</table>
-			</form>
 		</div>
 	</div>
 	<%@include file="/footer.jsp"%>
