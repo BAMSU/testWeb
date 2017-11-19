@@ -136,10 +136,18 @@
  
   </div>
 </div>
-	<br><br><br><br> <br><br> 
+	<br><br><br><br>
+	
+	<div style="width:85%;margin:auto;">
+	<div style="width:100%;height:2px;border:2px solid pink;"></div>
+	<br>
+	<h2>	업체 관련 정보</h2>
+	<br><br>
+	</div>
+	
   <div style="border:1px solid pink; width:85%; margin:auto; background: white;
    border-radius: 5px; padding: 10px; vertical-align: middle;">
-	<p style="padding-left: 10%;">
+	<p style="padding-left: 10%; padding-top: 5%;">
 	업체명 : ${bdto.be_name }<br>
 	사업자등록번호 : ${bdto.be_license}<br>
 	대표번호 : ${bdto.be_rep_tell}<br>
