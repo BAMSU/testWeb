@@ -339,7 +339,8 @@
 			$('.hcost:eq('+ii+')').html(hlbi.mealCost);
 			$('.hguest:eq('+ii+')').html(hlbi.guest);
 			$('.hgrade:eq('+ii+')').html(hlbi.grade);
-			$('.rvBtn:eq('+ii+')').html('<input type="button" value="리뷰보기" class="btn btn-info"/>');
+			$('.rvBtn:eq('+ii+')').html('<input type="button" value="리뷰보기" class="btn btn-info"'
+					+'onclick="goRv('+iidx+')"/>');
 			$('.ifBtn:eq('+ii+')').html('<input type="button" value="상세보기"'
 					+'onclick="goIf('+iidx+')" class="btn btn-info"/>');
 			$('.emBtn:eq('+ii+')').html('<input type="button" value="견적내기" class="btn btn-info"/>');
@@ -374,6 +375,9 @@
 	
 	function goIf(i){
 		location.href='hallInfo.we?idx='+i;
+	}
+	function goRv(i){
+		location.href='AllhallList.we?idx='+i;
 	}
 </script>
 </head>

@@ -171,7 +171,7 @@ var mon=new Array(12);
 					<div id="chart4"></div>
 					<p class="ct"></p>
 					<input type="button" class="btn btn-info" value="평가보기"
-					onclick="location.href='AllhallList.we?name=${hallName}'"/>
+					onclick="location.href='AllhallList.we?idx=${hallIdx}'"/>
 				</td>
 			</tr>
 		</table>

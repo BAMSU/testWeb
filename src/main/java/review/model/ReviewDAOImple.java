@@ -142,15 +142,15 @@ public class ReviewDAOImple implements ReviewDAO {
     	 return count;
      }
 
-     public List hallReviewList(int cp, int ls, String hallName) {
+     public List hallReviewList(int cp, int ls, int idx) {
          Map m = new HashMap();
          m.put("startnum", (cp-1)*ls+1);
          m.put("endnum", cp*ls);
-         m.put("hallName", hallName);
+         m.put("idx", idx);
          return sqlMap.selectList("hallReviewList",m);
       }
 
-      public int getTotelContByHall(String hallName) {
-         return sqlMap.selectOne("reviewTotelCntByHall",hallName);
+      public int getTotelContByHall(int idx) {
+         return sqlMap.selectOne("reviewTotelCntByHall",idx);
       }
 }
