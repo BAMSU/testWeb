@@ -37,8 +37,9 @@ border-radius:30px;padding: 50px;">
       <input type="password" class="form-control" id="pwd" placeholder="Password" name="be_pwd" required>
     </div>
     <div style="margin:auto; width:fit-content;">
+    
+		<button type="submit" class="btn btn-primary">로그인</button>
 		<input type="button" value="업체등록신청" onclick="beJoin()" class="btn btn-primary">
-		<button type="submit" class="btn btn-primary">Login</button>
 	</div>
 	</form>
 </div>
