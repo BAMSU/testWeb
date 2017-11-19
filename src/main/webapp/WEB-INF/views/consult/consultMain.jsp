@@ -57,7 +57,7 @@ input{
 <%@include file="/header.jsp"%>
 <br>
 <br>
-<div style=" width:70%; margin:auto; border:3px solid  #D8D8D8; padding:10px; align-content: center; border-radius: 10px;">
+<div style=" width:80%; margin:auto; border:3px solid  #D8D8D8; padding:10px; align-content: center; border-radius: 10px;">
 
 <h2 align="center">문의 / 상담하기</h2>
 <form name="consult" action="consultSubmit.we" >

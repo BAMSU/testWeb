@@ -71,7 +71,7 @@ img{
 	<article>	
 <h2 align="center" style="color: #D8D8D8; ">홀 (REVIEW) 등록</h2> 
 	
-	<form name="review_upload" action="hallReviewWrite.we" method="post" >
+	<form name="review_upload" action="hallRevieSubmit.we" >
 
 
 

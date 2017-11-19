@@ -153,4 +153,10 @@ public class ReviewDAOImple implements ReviewDAO {
       public int getTotelContByHall(int idx) {
          return sqlMap.selectOne("reviewTotelCntByHall",idx);
       }
+      
+      public int review_ok(int gubun2) {
+    	
+    	  int count = sqlMap.update("review_ok",gubun2);
+  		return count;
+    }
 }
