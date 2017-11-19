@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script type="text/javascript">
 function beJoin(){
 	location.href="beJoin.we";

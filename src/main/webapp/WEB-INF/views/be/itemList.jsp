@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
-<title>Insert title here</title>
+<title>Love is staying</title>
 <style type="text/css">
 .img_div{
 	width: 150px;
@@ -53,6 +53,7 @@
 <br><br><br><br>
 <div style=" width:70%; align-self: center;margin:auto;">
 	<div style="width:100%; align-self: center; margin:auto;">
+		<img alt="studio_banner" src="upload/banner/studio_banner.jpg">
 	</div>
 
 <c:set var="i" value="0"></c:set>

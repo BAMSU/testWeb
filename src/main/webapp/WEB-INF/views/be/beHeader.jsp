@@ -9,7 +9,7 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script type="text/javascript">
 function loginOpen(){
 	//window.open('beLogin.we', 'login', 'width=350px, height=200px, status=no, resizable=no');

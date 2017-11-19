@@ -4,22 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet" type="text/css" href="css/beCss.css">
 <style type="text/css">
 .button{
 	width:100px;
 	height:50px;
 	text-align: center;
-	color:red;
+	color: black;
 	vertical-align: center;
-	background: skyblue;
-	opacity:0.4;
+	background: white;
+	opacity:0.9;
 	border:3px solid gray;
 	border-radius: 5px;
 }
 .button:hover{
-	background: pink;
+	background: orange;
 	font-weight: bold;
 }
 img{
@@ -44,7 +44,7 @@ img{
 </c:url>
 
 
-<div class="jumbotron" style=" height:600px;">
+<div class="jumbotron" style=" height:700px;">
 	<h2 style="padding-bottom: 2%;">상품 상세정보</h2>
 	
 	<div id="content" style=" padding-left: 10%; padding-right:5%; heigth:300px; padding: 3%;">	
@@ -55,6 +55,7 @@ img{
 		<img alt="상품이미지" src="${dto.bouq_thumbnail}" style="margin:auto auto; width:80%;height:70%; vertical-align: middle; align-self: center;">
 	</div>
 		<div style="border:2px; solid red; background: white; opacity: 2.0; width:100%;margin:auto;">
+		<br>
 		업체 : ${dto.bouq_be}<br>
 		상품명 : ${dto.bouq_name}<br>
 		상품가격 : ${dto.bouq_price}<br>
@@ -63,6 +64,7 @@ img{
 		
 		상세정보 :<br>
 		${dto.bouq_detail}
+		<br><br><br>
 		</div>
 	</div> 
 <br>
