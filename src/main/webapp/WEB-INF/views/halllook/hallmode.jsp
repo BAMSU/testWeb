@@ -10,6 +10,8 @@
 #est{
 	margin: 0 auto;
 	padding-left: 250px;
+	width: 100%;
+	height: 100%;
 }
 #tr1{
 	text-align: center;
@@ -53,17 +55,14 @@ margin: 0 auto;
 </style>
 
 <script>
-function submit(){
-	alert('확인');
-}
-	function close() {
-		alert('닫기');
-	}
+
 </script>
 </head>
 <body>
 <%@include file="/header.jsp" %>
+
 <div id="est">
+<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 	<div class="title">견적내기</div>
 	
 		<div id="tr1">
@@ -265,7 +264,7 @@ function submit(){
 				<br>
 
 				<input type="submit" value="견적확인하기">
-				<input type="button" value="닫기" onclick="colse()">
+				<a href="hall/hallestimate.we"><input type="button" value="닫기" ></a>
 			</form>
 		</div>
 	</div>

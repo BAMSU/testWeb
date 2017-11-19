@@ -22,14 +22,12 @@
 	text-align:center;
 	margin: 0 auto;
 	width: 100%;
-	height: 700px;
-	border: 5px solid red;
+	height: 100%;
 }
 
 #estr{
 	text-align: center;
 	margin: 0 auto;
-	border:5px solid red;
 }
 .des1{
 	float: left;
@@ -66,7 +64,7 @@ th{
 <body> 	
 <%@include file="/header.jsp" %>
 <div id="est">
-
+<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 	
 	<c:set var="em" value="${hallview}"/>
 	<br>
