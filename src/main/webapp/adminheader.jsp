@@ -58,7 +58,7 @@ a:hover{
                   window.alert('잘못된 접근입니다.');
                   location.href='index.we';
                   </script>
-               </c:if>
+              </c:if>
 
 
                
