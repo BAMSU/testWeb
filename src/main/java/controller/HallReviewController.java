@@ -76,7 +76,7 @@ public class HallReviewController {
 		int totalCnt = reviewDao.getTotelContByHall(name);
 		int listSize = 5;
 		int pageSize = 5;
-		String pageStr = yong.page.PageModule.makePage("AllhallList.we", totalCnt, listSize, pageSize, cp);
+		String pageStr = PageModule.makePage("AllhallList.we", totalCnt, listSize, pageSize, cp);
 		
 		List<ReviewDTO> list=reviewDao.hallReviewList(cp, listSize, name);
 		

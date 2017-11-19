@@ -6,101 +6,76 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://bootswatch.com/4/journal/bootstrap.css" />
+<link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript">
-
+	
 </script>
 </head>
 <style>
-#search {
+#ranking {
 	text-align: center;
 	display: inline-block;
-	margin-left: 200px;
-	margin-right: 200px;
 	border: 5px solid red;
 	padding: 100px;
+	width: 1200px;
+	height: 600px;
 }
 
-li {
-	display: inline-block;
-	margin-right: 5px;
-}
-
-#menu_box {
+span {
 	float: left;
-	display: block;
-	border: 5px solid red;
-	width: 150px;
-	height: 100px;
-	padding-top: 300px;
+	width: 94px;
+	font-size: 15px;
+	line-height: 26px;
+	cursor: pointer;
+	height: 26px;
 }
 
-.menu_br {
-	display: inline-block;
-	border: 5px solid red;
-	margin: 0 auto;
-}
-
-#menu {
-	float: left;
-	margin-right: 5px;
-	word-break: break-all;
-}
-
-#tab {
-	margin: 0 auto;
+#tr {
+	width: 400px;
 }
 </style>
 <body>
-<%@include file="/header.jsp" %>
+	<%@include file="/header.jsp"%>
 	<h3>홀 랭킹 리스트</h3>
-	<div id="search">
-		<div id="#menu_box">
-			<div class="menu_br">
-				<ul id="menu">
-					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
-					<li><a href="hallranking.we">홀 랭킹</a></li>
-					<li><a>홀vs홀</a></li>
-					<li><a href="hallsearchlist.we">불러오기확인</a></li>
-					<li><a href="hallestimate.we">홀 견적내기</a></li>
-					<li><a href="hallmode.we">견적 작성</a></li>
-					<li><a href="hallranking.we">랭킹</a></li>
+	<div id="ranking">
 
-				</ul>
-			</div>
+
+		<div class="rank">
+			<form name="frm">
+				<c:set var="cnt" value="0" />
+				<table id="tr">
+					<c:forEach var="dto" items="${hallrank}">
+
+
+						<c:if test="${cnt%3==0}">
+							<tr>
+						</c:if>
+
+
+						<td><c:set var="cnt" value="${cnt+1}" /></td>
+						<td><a href="rank_img"> <img
+								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
+								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
+						</a></td>
+						<td style="padding-top: 20px;">${dto.name}</td>
+						<td><span
+							style="border: 2px solid transparent !important; background: #F69D9D;  #fff; border-radius: 6px;"
+							onclick="window.alert('hallInfo${dto.idx }.we')">상세보기</span></td>
+						<td><span
+							style="border: 1px solid #BCA9F5; border-radius: 6px;"
+							onclick="window.alert('hallCompare.we')">홀 통계보기</span></td>
+
+						<c:if test="${cnt%3==0}">
+							</tr>
+						</c:if>
+					</c:forEach>
+				</table>
+			</form>
 		</div>
-		
-		<form name="frm">
-		<c:set var="cnt" value="0"/>
-		 <table>
-		  <c:forEach var="dto" items="${hallrank}">
-		  <c:if test="${cnt%3==0}">
-		 <tr>
-		</c:if>
-		 <td>
-		 <c:set var="cnt" value="${cnt+1}"/>
-				<div id="rank">
-					<div>
-						<a href="rank_img"> <img
-							src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
-							style="width: 90px; height: 60px; float: left;" />
-						</a>
-					</div>
-					<ul>
-						<li>${dto.name}</li>
-						<li><span style="border: 1px solid #BCA9F5; border-radius: 6px;"
-							onclick="window.alert('hallCompare.we')">상세보기</span></li>
-						<li><span style="border: 1px solid #BCA9F5; border-radius: 6px;"
-							onclick="window.alert('hallstatistics.we')">홀 통계보기</span></li>
-					</ul>
-				</div>
-				</td>
-				 <c:if test="${cnt%3==0}">
-				</tr>
-				</c:if>
-			</c:forEach>
-			</table>
-		</form>
 	</div>
-<%@include file="/footer.jsp" %>
+	<%@include file="/footer.jsp"%>
 </body>
 </html>

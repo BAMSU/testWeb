@@ -51,30 +51,56 @@ table tfoot td{
 </head>
 <body>
 <%@include file="/adminheader.jsp"%>
-<input type="button" name="insertWd" value="웨딩홀등록" onclick="aa()">
-<h3>웨딩홀 리스트</h3>
 
-	<c:if test="${empty list}">
-		<h3>등록된 웨딩홀이 없습니다.</h3>
-	</c:if>
-	<c:forEach var="dto" items="${list}">
-		<c:url var="contentUrl" value="updateWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		${dto.idx}<a href="${contentUrl}">${dto.name}</a>
-		
-		<c:url var="contentUrl5" value="roomList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		<a href="${contentUrl5}">방 관리</a>
-		
-		<c:url var="contentUrl3" value="mealList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		<a href="${contentUrl3}">웨딩홀 정보/견적서 관리</a>
-		
-		<c:url var="contentUrl4" value="fileUploadForm.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		<a href="${contentUrl4}">웨딩홀 사진 관리</a>
-		
-		<c:url var="contentUrl2" value="deleteWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		<a href="${contentUrl2}">삭제</a>
-		
-		<br>
-	</c:forEach>
-	${pageStr}
+
+<div style="margin: 0px auto; width: 60%; background-color: white;">
+		<div>
+			<h3 align="center">웨딩홀 리스트</h3>
+			  	<table class="table table-striped table-hover table-bordered">
+			  		<thead>
+			  				
+				  		<tr class="thd">
+					  		<th width="30%">홀 이름</th>
+					  		<th>방 관리</th>
+					  		<th>웨딩홀 정보/견적서 관리</th>
+					  		<th>웨딩홀 사진 관리</th>
+					  		<th>삭제</th>
+				  		</tr>
+			  		</thead>
+			  		<tbody>
+			  		
+			  		<c:if test="${empty list}">
+						<tr>
+							<td colspan="5">등록된 웨딩홀이 없습니다.</td>
+						</tr>
+					</c:if>
+					
+					<tr>
+						<td colspan="5" align="left"><input type="button" name="insertWd" value="웨딩홀등록" onclick="aa()"></td>
+					</tr>
+	
+			  		<c:forEach var="dto" items="${list}">
+				  		<tr>
+				  			<td><c:url var="contentUrl" value="updateWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl}">${dto.name}</a></td>
+				  			<td><c:url var="contentUrl5" value="roomList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl5}">방 관리</a></td>
+				  			<td><c:url var="contentUrl3" value="mealList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl3}">웨딩홀 정보/견적서 관리</a></td>
+				  			<td><c:url var="contentUrl4" value="fileUploadForm.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl4}">웨딩홀 사진 관리</a></td>
+				  			<td><c:url var="contentUrl2" value="deleteWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
+		<a href="${contentUrl2}">삭제</a></td>
+				  		</tr>
+			  		</c:forEach>
+			  		
+			  		<tr>
+			  			<td colspan="5" align="center">${pageStr}</td>
+			  		</tr>
+			  		</tbody>
+			  	</table>
+			  </div>
+	
+	</div>
 </body>
 </html>
