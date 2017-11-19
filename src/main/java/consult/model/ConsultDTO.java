@@ -17,6 +17,7 @@ public class ConsultDTO {
 	private String tel;
 	private int gubun;
 	private int gubun2;
+	private int review_ok;
 	
 	
 	
@@ -27,7 +28,8 @@ public class ConsultDTO {
 
 
 	public ConsultDTO(int consult_idx, String name, String gender, String tel1, String tel2, String tel3, String email,
-			String email2, String reservation, String context, String available, String tel, int gubun, int gubun2) {
+			String email2, String reservation, String context, String available, String tel, int gubun, int gubun2,
+			int review_ok) {
 		super();
 		this.consult_idx = consult_idx;
 		this.name = name;
@@ -43,6 +45,7 @@ public class ConsultDTO {
 		this.tel = tel;
 		this.gubun = gubun;
 		this.gubun2 = gubun2;
+		this.review_ok = review_ok;
 	}
 
 
@@ -212,9 +215,22 @@ public class ConsultDTO {
 	public void setGubun2(int gubun2) {
 		this.gubun2 = gubun2;
 	}
-	
+
+
+
+	public int getReview_ok() {
+		return review_ok;
+	}
+
+
+
+	public void setReview_ok(int review_ok) {
+		this.review_ok = review_ok;
+	}
 	
 
+
+	
 
 
 }

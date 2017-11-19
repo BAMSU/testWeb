@@ -20,8 +20,9 @@ public class ConsultController {
 	@Autowired
 	private ConsultDAO consultDao;
 	
-	@RequestMapping(value="/consult.we",method=RequestMethod.GET)
-	public ModelAndView consultWriteForm(@RequestParam("gubun")int gubun,@RequestParam("idx")int idx ){		
+	@RequestMapping("/consult.we")
+	public ModelAndView consultWriteForm(@RequestParam("gubun")int gubun,@RequestParam("idx")int idx ){	
+		
 			
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("gubun", gubun);
@@ -31,7 +32,7 @@ public class ConsultController {
 		
 	}
 	
-	@RequestMapping(value="/consult.we",method=RequestMethod.POST)
+	@RequestMapping(value="/consultSubmit.we")
 	public ModelAndView bbsWriteSubmit(ConsultDTO dto){
 	
 		if(dto.getGender()==""||dto.getGender()==null){
@@ -130,24 +131,25 @@ public class ConsultController {
 		
 	}
 	
-	/*@RequestMapping("/AllConsultList.we")
-	   public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp){
-	   
-	      int totalCnt = consultDao.getTotelCont(null);
-	      int listSize = 5;
-	      int pageSize = 5;
-	      String pageStr = yong.page.PageModule.makePage("AllConsultList.we", totalCnt, listSize, pageSize, cp);
-	      
-	      
-	      List<ConsultDTO> list=consultDao.AllConsultList(cp,listSize);
-	      
-	      
-	      ModelAndView mav = new ModelAndView();
-	   
-	      mav.addObject("list", list);
-	      mav.addObject("pageStr", pageStr);
-	      mav.setViewName("consult/AllConsultList");
-	      return mav;
-	   }*/
+	/*
+	@RequestMapping("/AllConsultList.we")
+	public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp){
+	
+		int totalCnt = consultDao.getTotelCont();
+		int listSize = 5;
+		int pageSize = 5;
+		String pageStr = yong.page.PageModule.makePage("AllConsultList.we", totalCnt, listSize, pageSize, cp);
+		
+		
+		List<ConsultDTO> list=consultDao.AllConsultList(cp,listSize);
+		
+		
+		ModelAndView mav = new ModelAndView();
+	
+		mav.addObject("list", list);
+		mav.addObject("pageStr", pageStr);
+		mav.setViewName("consult/AllConsultList");
+		return mav;
+	}*/
 
 }
