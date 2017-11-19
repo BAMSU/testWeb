@@ -21,6 +21,10 @@
 	table th{
 		text-align: center;
 	}
+	#chart1,#chart2,#chart3,#chart4{
+		width: 100%;
+		height: 60%
+	}
 </style>
 <script>
 var cn;
@@ -78,7 +82,7 @@ var mon=new Array(12);
   google.charts.load("current", {packages:['corechart']});
   function drawChart() {
 	  var options = {
-	      width: 500,
+	      width: 416,
 	      height: 300,
 	      bar: {groupWidth: "60%"},
 	      legend: {position: "none"},
@@ -134,7 +138,7 @@ var mon=new Array(12);
 <section>
 	<article>
 		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
-		<div style="margin: 0px auto; width: 1100px; background-color: white; padding: 10px 20px;">
+		<div style="margin: 0px auto; width: 950px; background-color: white; padding: 20px;">
 		<div id="hn"><h2>${hallName}</h2></div>
 		<table class="table table-striped table-bordered">
 			<tr>
@@ -143,12 +147,12 @@ var mon=new Array(12);
 			</tr>
 			<tr>
 				<td>
-					<div id="chart1" style="width: 500px; height: 300px;"></div>
+					<div id="chart1"></div>
 					<p class="ct"></p>
 					<input type="button" class="btn btn-info" value="상세정보" onclick="location.href='hallInfo.we?idx=${hallIdx}'"/>
 				</td>
 				<td>
-					<div id="chart2" style="width: 500px; height: 300px;"></div>
+					<div id="chart2"></div>
 					<p class="ct"></p>
 					<input type="button" class="btn btn-info" value="견적내기"/>
 				</td>
@@ -159,12 +163,12 @@ var mon=new Array(12);
 			</tr>
 			<tr>
 				<td>
-					<div id="chart3" style="width: 500px; height: 300px;"></div>
+					<div id="chart3"></div>
 					<p class="ct"></p>
 					<input type="button" class="btn btn-info" value="비교하기" onclick="location.href='hallCompare.we?idx=${hallIdx}'"/>
 				</td>
 				<td>
-					<div id="chart4" style="width: 500px; height: 300px;"></div>
+					<div id="chart4"></div>
 					<p class="ct"></p>
 					<input type="button" class="btn btn-info" value="평가보기"
 					onclick="location.href='AllhallList.we?name=${hallName}'"/>

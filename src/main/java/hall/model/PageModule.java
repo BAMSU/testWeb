@@ -20,37 +20,37 @@ public class PageModule {
 	
 		sb.append("<div id='rvp'><ul class='pagination'>");
 		sb.append("<li class='page-item'>"
-				+ "<a class='page-link' href='"+pageName+"?cp=1#reviewTab'>&laquo;</a></li>");
+				+ "<a class='page-link' href='"+pageName+"&cp=1#reviewTab'>&laquo;</a></li>");
 		if(userGroup!=0){
 			sb.append("<li class='page-item'>"
-					+ "<a class='page-link' href='"+pageName+"?cp="+previousCp
+					+ "<a class='page-link' href='"+pageName+"&cp="+previousCp
 					+"#reviewTab'>&lt;</a></li>");
 		}else{
 			sb.append("<li class='page-item disabled'>"
-					+ "<a class='page-link' href='"+pageName+"?cp="+previousCp
+					+ "<a class='page-link' href='"+pageName+"&cp="+previousCp
 					+"#reviewTab'>&lt;</a></li>");
 		}
 		for(int i=pageStart;i<=pageEnd;i++){
 			if(cp==i){
 				sb.append("<li class='page-item active'><a class='page-link' "
-						+ "href='"+pageName+"?cp="+i+"#reviewTab'>"+i+"</a></li>");
+						+ "href='"+pageName+"&cp="+i+"#reviewTab'>"+i+"</a></li>");
 			}else{
 				sb.append("<li class='page-item'><a class='page-link' "
-						+ "href='"+pageName+"?cp="+i+"#reviewTab'>"+i+"</a></li>");
+						+ "href='"+pageName+"&cp="+i+"#reviewTab'>"+i+"</a></li>");
 			}
 			if(i==pageCnt)break;
 		}
 		if(userGroup!=pageCntGroup){
 			sb.append("<li class='page-item'>"
-					+ "<a class='page-link' href='"+pageName+"?cp="+nextCp
+					+ "<a class='page-link' href='"+pageName+"&cp="+nextCp
 					+"#reviewTab'>&gt;</a></li>");
 		}else{
 			sb.append("<li class='page-item disabled'>"
-					+ "<a class='page-link' href='"+pageName+"?cp="+nextCp
+					+ "<a class='page-link' href='"+pageName+"&cp="+nextCp
 					+"#reviewTab'>&gt;</a></li>");
 		}
 		sb.append("<li class='page-item'>"
-				+ "<a class='page-link' href='"+pageName+"?cp="+pageCnt+"#reviewTab'>&raquo;</a></li>");
+				+ "<a class='page-link' href='"+pageName+"&cp="+pageCnt+"#reviewTab'>&raquo;</a></li>");
 		sb.append("</ul></div>");
 		
 		return sb.toString();
