@@ -162,13 +162,6 @@
       }
    }
 </script>
-<style>
-label btn btn-danger:hover{
-color:#F69D9D;
-background-color: #F69D9D;
-border-color: #F69D9D;
-}
-</style>
 </head>
 <body>
    <%@include file="/adminheader.jsp"%>
@@ -311,7 +304,6 @@ border-color: #F69D9D;
             
             
          </form>
-         <hr>
       </div>
 
    </article>

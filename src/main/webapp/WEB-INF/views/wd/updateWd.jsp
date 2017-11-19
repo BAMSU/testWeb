@@ -4,6 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Bootstrap -->
+<link href="bootstrap/css/bootstrap2.min.css" rel="stylesheet">
+<!-- font awesome -->
+<link rel="stylesheet" href="bootstrap/css/font-awesome2.min.css"
+   media="screen" title="no title" charset="utf-8">
+<!-- Custom style -->
+<link rel="stylesheet" href="bootstrap/css/style2.css" media="screen"
+   title="no title" charset="utf-8">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -121,33 +129,145 @@ function info() {
 </head>
 <body onload = "info()">
 <%@include file="/adminheader.jsp"%>
-<form name="fm" action="update2.we">
-홀 이름 : <input type="text" name="name" value="${list.name}" required><br>
-홀 타입 : <input type="text" name="hallType" value="${list.hallType}" required><br>
-식사 가격 : <input type="text" name="mealCost" value="${list.mealCost}" required><br>
-식사 타입 : <input type="text" name="menuType" value="${list.menuType}" required><br>
-손님 : <input type="text" name="guest" value="${list.guest}" required><br>
-한줄 성명 : <textarea name = "ckPoint" required>${list.ckPoint}</textarea><br>
-오시는 길 : <input type="text" name="traffic" value="${list.traffic}" required><br>
-호선 : <input type="text" name="line" value="${list.line}" required><br>
-역 이름 : <input type="text" name="station" value="${list.station}" required><br>
 
-				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" required>
-				<br>
-				<input type="text" id="sample4_roadAddress" readOnly required>
-				<input type="text" id="sample4_jibunAddress" readOnly required>
-				<span id="guide" style="color: #999"></span>
-				<input type="hidden" name="locationY" value="${list.locationY}" required>
-				<input type="hidden" name="locationX" value="${list.locationX}" required>
-				<input type="hidden" name="si" value="${list.si}" required>
-				<input type="hidden" name="gu" value="${list.gu}" required>
-				<input type="hidden" name="dong" value="${list.dong}" required>
-				<input type="hidden" name="addr" value="${list.addr}" required>
-				<input type="hidden" name="roadAddr" value="${list.roadAddr}" required>
-				<input type="hidden" name="grade" value="${list.grade}" required>
+   <article class="container">
+
+      <div class="col-md-12">
+         <div class="page-header">
+            <h1>
+               홀 수정하기 <small>끄앗 폼!</small>
+            </h1>
+         </div>
+         
+         <form class="form-horizontal" name="fm" action="update2.we">
+            <div class="form-group">
+               <label class="col-sm-3 control-label">홀 이름 </label>
+
+               <div class="col-sm-6">
+                  <input class="form-control" type="text" name="name"
+                     value="${list.name}" required>
+               </div>
+            </div>
+            <div class="form-group">
+            <input type="hidden" name="hallType" value="${list.hallType}">
+               <label class="col-sm-3 control-label" >홀 타입 </label>
+               
+               <div class="col-sm-6">
+                <input type="checkbox" name="hallType2" value="하우스">하우스
+                <input type="checkbox" name="hallType2" value="웨딩홀">웨딩홀 
+                <input type="checkbox" name="hallType2" value="호텔">호텔 
+               </div>
+            </div>
+            
+            
+            <div class="form-group">
+               <label class="col-sm-3 control-label" >식사 가격</label>
+
+               <div class="col-sm-6">
+                  <input class="form-control" type="text" name="mealCost"
+                     value="${list.mealCost}" required>
+               </div>
+            </div>
+            
+            <div class="form-group">
+            <input type="hidden" name="menuType" value="${list.menuType}" required>
+               <label class="col-sm-3 control-label" >식사 타입</label>
+
+               <div class="col-sm-6">
+                <input type="checkbox" name="menu1" value="한식">한식
+                <input type="checkbox" name="menu1" value="양식">양식 
+                <input type="checkbox" name="menu1" value="뷔페">뷔페 
+                <input type="checkbox" name="menu1" value="퓨전코스">퓨전코스 
+               </div>
+               
+               
+            </div>
+            
+            
+            <div class="form-group">
+               <label class="col-sm-3 control-label" >손님</label>
+
+               <div class="col-sm-6">
+                  <input class="form-control" type="text" name="guest"
+                     value="${list.guest}" required>
+               </div>
+            </div>
+            
+            
+            
+            <div class="form-group">
+               <label class="col-sm-3 control-label" >한줄 성명</label>
+
+               <div class="col-sm-6">
+                  <textarea class="form-control" name="ckPoint"
+                     required>${list.ckPoint}</textarea>
+               </div>
+            </div>
+            
+            
+            <div class="form-group">
+               <label class="col-sm-3 control-label" >오시는 길</label>
+
+               <div class="col-sm-6">
+                  <input class="form-control" type="text" name="traffic"
+                     value="${list.traffic}" required>
+               </div>
+            </div>
+            
+            
+            <div class="form-group">
+               <label class="col-sm-3 control-label" >호선</label>
+
+               <div class="col-sm-6">
+                  <input class="form-control" type="text" name="line"
+                     value="${list.line}" required>
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <label class="col-sm-3 control-label" >역 이름</label>
+
+               <div class="col-sm-6">
+                  <input class="form-control" type="text" name="station"
+                     value="${list.station}" required>
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <label class="col-sm-3 control-label" >주소</label>
+
+               <div class="col-sm-6">
+                  <input class="form-control" type="text"
+               id="sample4_roadAddress" placeholder="도로명주소" readOnly required>
+               <input class="form-control" type="text" id="sample4_jibunAddress" placeholder="지번주소"
+               readOnly required>
+               
+               <input type="button" onclick="sample4_execDaumPostcode()"
+               value="우편번호 찾기" required> <br> 
+             <span id="guide" style="color: #999"></span>
+             <input type="hidden" name="grade" value="${list.grade}" required>
 				<input type="hidden" name="accrue" value="${list.accrue}" required>
 				<input type="hidden" name="idx" value="${list.idx}" required>
-				<input type="submit" value="웨딩홀수정">
-				</form>
+            <input type="hidden" name="locationY" value="${list.locationY}" required> <input
+               type="hidden" name="locationX" value="${list.locationX}" required> <input
+               type="hidden" name="si" value="${list.si}" required> <input type="hidden"
+               name="gu" value="${list.gu}" required> <input type="hidden" name="dong" value="${list.dong}"
+               required> <input type="hidden" name="addr" value="${list.addr}" required>
+            <input type="hidden" name="roadAddr" value="${list.roadAddr}" required>
+               
+                  
+               </div>
+            </div>
+            
+            
+             <div class="form-group">
+          <div class="col-sm-12 text-center">
+          <input class="btn btn-primary" type="submit" value="웨딩홀수정">
+          </div>
+        </div>
+         
+         </form>
+      </div>
+   </article>
 </body>
 </html>

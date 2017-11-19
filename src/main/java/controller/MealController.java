@@ -58,6 +58,7 @@ public class MealController {
 	
 	@RequestMapping(value="/updateMeal.we", method=RequestMethod.POST)
 	public ModelAndView updateM(aHalleDTO dto) {
+		System.out.println("d");
 		ModelAndView mav = new ModelAndView();
 		int result = dao.updateEs(dto);
 		if(result>0) {
