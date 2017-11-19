@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <style>
+
 #search {
 	text-align: center;
 	display: inline-block;
@@ -150,9 +151,9 @@ $('.ctd:eq(9)').click(function(){
 	<div id="search">
 	<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 		<h2 style="text-align: center; font-size: 30px; margin-top: 10px;padding-top: 10px;color: #A4A4A4;">웨딩홀 검색</h2>
-		
+		<section>
 
-
+<article>
 
 		<div class="halsear">
 
@@ -322,7 +323,8 @@ $('.ctd:eq(9)').click(function(){
 			</c:forEach>
 
 		</div>
-
+		</article>
+</section>
 	</div>
 	<%@include file="/footer.jsp" %>
 </body>

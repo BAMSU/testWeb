@@ -47,13 +47,19 @@ $(document).ready(function(){
 </script>
 </head>
 <style>
+section{
+		background-color: gray;
+	
+	}
 #ranking {
 	text-align: center;
 	display: inline-block;
-	width: 100%;
-	height: 100%;
-	padding-left: 300px;
-	padding-right: 300px;
+	background-color: white;
+	padding-left:50px;
+	padding-right:100px;
+	margin: 0 auto;
+		width: 100%;
+	  height: 100%;
 }
 span {
 	float: left;
@@ -87,10 +93,12 @@ span {
 </style>
 <body>
 	<%@include file="/header.jsp"%>
-
+<div id="ran"></div>
 	
-	<div id="ranking">
 		<p style="background-color: gray; height: 20px;margin: 0px; "></p>
+		<section>
+		<article>
+		<div id="ranking">
 <h3 style="text-align: center;">홀 랭킹</h3>
 
 		<div class="rank">
@@ -130,7 +138,10 @@ span {
 
 
 		</div>
-	</div>
+			</div>
+			</article>
+		</section>
+
 	<%@include file="/footer.jsp"%>
 </body>
 </html>
