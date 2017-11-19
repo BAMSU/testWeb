@@ -10,31 +10,22 @@
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript">
-	function inquiry() {
-		alert('확인');
+	function open(){
+		window.open("hallestmode.we","hallestmode","width=500, height=500");
+	}
+	function inquiry(){
+		
 	}
 </script>
 <style>
 #est{
 	text-align:center;
 	margin: 0 auto;
-	width: 1120px;
+	width: 100%;
 	height: 700px;
 	border: 5px solid red;
 }
-.menu_br {
-	display: inline-block;
-	border: 5px solid red;
-	margin: 0 auto;
-	text-align: center;
-}
 
-#menu {
-	float: left;
-	margin-right: 5px;
-	word-break: break-all;
-	margin: o auto;
-}
 #estr{
 	text-align: center;
 	margin: 0 auto;
@@ -47,13 +38,8 @@
 	
 }
 .ta1{
-	border-collapse: collapse;
-    border-spacing: 0;
     width: 100%;
     border-bottom: 1px solid #f0f0f0;
-    padding: 7px 0 15px 0;
-    position: relative;
-    
 }
 .estlist{
 	float: right;
@@ -72,10 +58,11 @@
 th{
 	width: 100px;
 }
+.name{
+	margin: 0 auto;
+}
 </style>
 </head>
-<style>
-</style>
 <body> 	
 <%@include file="/header.jsp" %>
 <div id="est">
@@ -86,38 +73,36 @@ th{
 	<label style="text-align: center; font-size: 30px;">홀 견적내기</label>
 <br>
 	<div class="des1">
-
-	<ul>
-		
-			<li style="font-size: 25px;">${em.name }</li>
-			</ul>
-			<ul>
-			<li>
-			<div class="hall_img">
+<table class="name">
+	
+		<tr>
+			<th style="font-size: 25px;list-style: none;text-align: center;">${em.name }</th>
+			</tr>
+			
+			<tr>
+			<th style="list-style: none;">
 			<a href="">
 			<img src="/finalproject/img/hall/${em.idx}/r1.jpg" alt="홀대표사진" style=" width: 300px; height: 270px;float: left;
 			margin-right: 20px;"/>
 			<input type="hidden" value="${em.idx}" class="hallview"/>
 			</a>
-			</div>
-		</li>
-	</ul>
-	
+			</th>
+		</tr>
+	</table>
+		
 		<br>
-		
-		
-		<table class="ta1">
+		<table class="ta1" style="padding-top: 40px; padding-left: 50px;">
 		<tr>
 			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;text-align: center;">식사비용 </th>
-			<td style="border-bottom: 1px solid #4c545b;"style="border-top: 1px solid #4c545b;">${em.mealCost }</td>
+			<td>${em.mealCost }</td>
 		</tr>
 		<tr>
 			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;text-align: center;">메뉴종류</th>
-			<td style="border-bottom: 1px solid #4c545b;">${em.menuType }</td>
+			<td>${em.menuType }</td>
 		</tr>
 		<tr>
-			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;text-align: center;">보증인원 </th>
-			<td style="border-bottom: 1px solid #4c545b;">${em.guest }</td>
+			<th style="background: #FFD9EC;text-align: center;">보증인원 </th>
+			<td>${em.guest }</td>
 			
 			</tr>
 			<tr>
@@ -128,15 +113,13 @@ th{
 		</div>
 	
 	
-	   
 
-	<form name="hallestmate" action="hallmode.we">
 	<br>
 	<br>
 	
 		<p>본 견적은 웨딩홀에서 제공한 가격 정보를 단순 계산한 견적으로 실제 견적과의 차이가 있을 수 있습니다.</p>
 		
-		<table border="1" style="width: 300px;">
+		<table border="2" style="width: 300px;">
 
 					<tr>
 						<th style="text-align: center;border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">웨딩홀명</th>
@@ -155,9 +138,9 @@ th{
 
 				</table>
 				<br>
-
+<form name="estmode" action="hallmode.we">
 <c:set var="es" value="${hallestList }"/>
-				<table border="1">
+				<table border="2" style="padding-left: 100px;">
 				<tr>
 					<td colspan="3"style="border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">${es.hall_name }</td>
 					<td colspan="3">${es.hall_idx }홀
@@ -181,7 +164,7 @@ th{
 						<td style="background: #F8F8F8;">홀 대관비</td>
 						<td>${es.hall_price1  }원</td>
 						<td>필수</td>
-						<td>0원</td>
+						<td>${es.hall_price1  }원</td>
 						<td>${es.hall_content }원</td>
 						
 						
@@ -250,24 +233,26 @@ th{
 		
 			
 			</table>
-			<div></div>
+			
 	<div>
 			<c:if test="${empty hallestList }a">
-					<ul>
-						<li>견적서가 안보입니다.ㅠ_ㅠ</li>
-						</ul>
+					
+						<span>견적서가 안보입니다.ㅠ_ㅠ</span>
+						
 					</c:if>
 					
 					</div>
 
-			<div>
+			<div clas="button">
 			<br>
 				<ul style="text-align: center; margin-left: 350px;">
-					<li><c:if test="${empty sessionScope.hallmode}">
+					<c:if test="${empty sessionScope.hallmode}">
 							<input type="hidden" name="a" value="bss">
 							<input type="hidden" name="hall_idx" value="${es.hall_idx }">
-							<input type="submit" value="견적작성">
-						</c:if> <input type="button" value="문의하기" onclick="inquiry()"></li>
+							<input type="submit" value="견적 확인">
+						<input type="button" value="문의하기" onclick="inquiry()">
+						</c:if> 
+						
 				</ul>
 				
 			</div>

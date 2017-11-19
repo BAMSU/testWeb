@@ -7,17 +7,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+#est{
+	margin: 0 auto;
+	padding-left: 250px;
+}
 #tr1{
-	border:5px solid red;
 	text-align: center;
 }
 .title{
-	text-align: center;
 	font-size: 30px;
 	margin: 0 auto;
+	padding-left: 300px;
 }
 #tr2{
-	border: 5px solid red;	
+	width:100%;
 	font-size: 20px;
 	margin: 0 auto;
 }
@@ -27,7 +30,6 @@
 }
 #tr3{
 	font-size: 30px;
-	border: 5px solid bule;
 	width: 50px;
 	height: 100px;
 	margin: 0 auto;
@@ -46,7 +48,6 @@ margin: 0 auto;
 margin: 0 auto;
 }
 .td1{
-	border:5px solid blue;
 	width: 500px;
 }
 </style>
@@ -62,6 +63,7 @@ function submit(){
 </head>
 <body>
 <%@include file="/header.jsp" %>
+<div id="est">
 	<div class="title">견적내기</div>
 	
 		<div id="tr1">
@@ -69,17 +71,17 @@ function submit(){
 		<form name="estmoed" action="hallestimate.we">
 		<c:set var="es" value="${hallmod}"/>
 			
-				<table class="tr2" border="1">
+				<table class="tr2">
 					<tr>
-						<th rowspan="6" style="font-size: 25px;text-align: center;">${es.hall_name }</th>
+						<th style="font-size: 35px;text-align: center;padding-left: 200px;">${es.hall_name }</th>
 					</tr>
 				</table>
 			<br>
 				
 				<table class="tr3" border="1">
 					<tr>
-					<th style="margin-right: 300px;">하객수</th>
-						<td style="margin-right: 300px;">${es.est_guest }</td>
+					<th style="font-size: 15px;padding-left: 100px;background: #FFD9EC;">하객수</th>
+						<td style="font-size: 15px;padding-right: 100px;">${es.est_guest }</td>
 					</tr>
 				</table>
 <br>
@@ -213,7 +215,7 @@ function submit(){
 				
 				<table id="tr7" border="1">
 				<tr>
-				<th colspan="4" style="text-align: center;">식사 메뉴</th>
+				<th colspan="4" style="text-align: center;background: #FFD9EC;">식사 메뉴</th>
 				</tr>
 					<tr>
 						<th style="background: #FFD9EC;">선택</th>
@@ -240,17 +242,17 @@ function submit(){
 				
 				<table id="tr8" border="1">
 				<tr>
-				<td colspan="4">음주류 선택</td>
+				<td colspan="4" style="background: #FFD9EC;">음주류 선택</td>
 				</tr>
 					<tr>
-						<th style="width: 10px;background: #FFD9EC;">선택</th>
+						<th style="width: 30px;background: #FFD9EC;">선택</th>
 						<th style="margin-right: 30px;padding-right: 30px;margin-left: 10px;text-align: center;background: #FFD9EC;">음주류</th>
 						<th style="margin-right: 30px;padding-right: 30px;margin-left: 10px;text-align: center;background: #FFD9EC;">단가</th>
 						<th style="background: #FFD9EC;">수량입력</th>
 					</tr>
 
 					<tr>
-						<td style="margin-right: 5px;"><input type="checkbox" name="hall_drink" checked="checked"></td>
+						<td style="width: 30px;"><input type="checkbox" name="hall_drink" checked="checked"></td>
 						<td>음료수</td>
 						<td>3000원</td>
 						<td><input type="text" name="drink_num"></td>
@@ -266,6 +268,7 @@ function submit(){
 				<input type="button" value="닫기" onclick="colse()">
 			</form>
 		</div>
+	</div>
 	</div>
 	<%@include file="/footer.jsp" %>
 </body>

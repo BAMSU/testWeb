@@ -59,7 +59,9 @@ th{
 td{
 	font-size: 15px;
 }
-
+.ctd{
+	cursor: pointer;
+}
 </style>
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
@@ -107,8 +109,38 @@ function search(){
 		
 	}); 
 }
-
-
+$(document).ready(function(){
+$('.ctd:eq(0)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(0)').val();
+});
+$('.ctd:eq(1)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(1)').val();
+});
+$('.ctd:eq(2)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(2)').val();
+});
+$('.ctd:eq(3)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(3)').val();
+});
+$('.ctd:eq(4)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(4)').val();
+});
+$('.ctd:eq(5)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(5)').val();
+});
+$('.ctd:eq(6)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(6)').val();
+});
+$('.ctd:eq(7)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(7)').val();
+});
+$('.ctd:eq(8)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(8)').val();
+});
+$('.ctd:eq(9)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(9)').val();
+});
+});
 
 
 </script>
@@ -253,32 +285,34 @@ function search(){
 			<br>
 			<c:forEach var="v" items="${hallview}" >
 			
-			<table id="sear" border="2" style="border-bottom: 2px Double #F8E0EC; text-align: center;width: 100%;">
+			<table id="sear" style="border-bottom: 2px Double #F8E0EC; text-align: center;width: 100%;">
 			<tr>
-				<th rowspan="2" style="width: 200px; height: 100px;">
-				<a onclick="gohall()">
+				<th class="ctd" rowspan="2" style="width: 200px; height: 100px;">
+				
 				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 200px; height: 100px;float: left;"/>
-				</a>
-				<input type="hidden" value="${v.idx }" class="hallidx">
+				
+				<input type="hidden" value="${v.idx }" class="hallidx"/>
 		
 				
 				</th>
 				
 		
-			<td class="wedding_name" style="margin-top: 10px;">
-			<a href="">
+			<td class="ctd" style="margin-top: 10px;box-shadow: none;
+    background: #F69D9D;">
+			<a href="" style="color: white;">
 				${v.name }
 				</a>
-			
+			<input type="hidden" value="${v.idx }" class="hallidx"/>
 			</td>
 			</tr>
 			
 				<tr>
-				<td >
+				<td class="ctd">
 				${v.hallType }
 				${v.menuType}
 				${v.mealCost }
 				${v.guest }
+				<input type="hidden" value="${v.idx }" class="hallidx"/>
 				</td>
 				</tr>
 				</table>
