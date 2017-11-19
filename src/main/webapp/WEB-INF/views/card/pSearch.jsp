@@ -3,12 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <head>
-<title>검색이다</title>
+<title>Love is staying</title>
  <style>
        #map {
-        height: 400px;
-        width: 50%;
+        height: 300px;
+        width: 500px;
+       }
+       body{
+       	margin: 20px 50px 50px 50px;
        }
     </style>
      <script>
@@ -34,11 +38,15 @@
     </script>
 </head>
 <body>
-	
-	<div id="map" style="width: 50%; float: left;"></div>
-	<div style="width: 50%; float:right;">
-	${list.name }<br>
+
+	<font style="size: 20px; ">${list.name}</font><br><br>
+	<div id="map"></div>
+	<br>
+	오시는길
+	<hr>
 	${list.traffic }
+	<div style="width: 100%; text-align: right;">
+	<input type="button" value="선택"  class="btn btn-outline-success" onclick="sel()">
+	<br><br>
 	</div>
-	<input type="button" value="선택" onclick="sel()">
 </body>

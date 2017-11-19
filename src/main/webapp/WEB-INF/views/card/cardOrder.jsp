@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <%@include file="/header.jsp" %>
 <style>
 	body{
@@ -281,13 +281,13 @@ function show(){
 <h4><font style="color: red;"><strong>봉투</strong></font> 서비스</h4>
 <hr>
 <div id="env" style="width: 100%; float: center; text-align: center;">
-<img src="card_img/env.jpg" width="350px" height="300px" onchange="show()" style="margin-right: 180px;">
-<div >
+<img src="card_img/env.jpg" width="350px" height="300px"style="margin-right: 180px;">
+<div ><br><br>
 <input type="radio" value="1번" name="envsel"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" value="2번" name="envsel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" value="3번" name="envsel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="radio" value="4번" name="envsel">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-수량 <input type="text" id="envsu" style="width: 80px;">
+수량 <input type="text" id="envsu" style="width: 80px;"  onchange="show()" >
 </div>
 </div>
 <br><br>
@@ -341,8 +341,8 @@ function show(){
 
 <br>
 </div>
-<input type="button" value="결재" onclick="ok()">
-<form id="cOrder" action="priceOrder.we">
+
+<form id="cOrder" action="priceOrder.we" style="text-align: right;">
 		<input type="hidden" id="o_id" name="o_id">
 		<input type="hidden" id="o_code" name="o_code">
 		<input type="hidden" id="o_name"  name="o_name">
@@ -356,7 +356,7 @@ function show(){
 		<input type="hidden" id="o_plus" name="o_plus">
 		<input type="hidden" id="o_price" name="o_price">
 		<input type="hidden" id="o_img" name="o_img">
-		<input type="submit" value="다음">
+		<input type="button" class="btn btn-primary" value="결재" onclick="ok()"> &nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-primary" value="다음" onclick="show()">
 	</form>
 <br>
 <p id="total"></p></td>

@@ -11,4 +11,5 @@ encoding//src/main/java/controller/MemberController.java=UTF-8
 encoding//src/main/java/fly/model/FlyDTO_Inter.java=UTF-8
 encoding//src/main/java/hall/model/PageModule.java=UTF-8
 encoding//src/main/java/yong/card/model/PageModule.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/card/makeInsa.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/hall/hallCompare.jsp=UTF-8

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/> 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
@@ -55,7 +55,7 @@
     	  window.open('insa.we','인사말',"width=300,height=500");
       }
       function hongu(){
-    	  window.open('hongu.we','혼주',"width=300,height=400");
+    	  window.open('hongu.we','혼주',"width=500,height=400");
       }
       function place(){
     	  window.open('place.we','식장위치',"width=500,height=400");
@@ -246,7 +246,7 @@ body{
 	</div>
 	층/홀 : <input type="text" id="hall" onchange="inpu()" required placeholder="층과 홀" >
 	<br><Br><br>
-	<input type="button" value="Next" onclick ="capture()" class="btn btn-outline-primary">
+	<input type="button" class="btn btn-primary" value="Next" onclick ="capture()">
 
 </div>
 </body>

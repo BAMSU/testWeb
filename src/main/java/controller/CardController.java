@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import yong.card.model.CardDAO;
 import yong.card.model.CardDTO;
+import yong.card.model.PageModule;
 import yong.cardOrder.model.CardOrderDAO;
 import yong.cardOrder.model.CardOrderDTO;
 
@@ -55,11 +56,12 @@ public class CardController {
 		int totalCnt = cardDao.getTotalCnt();
 		int listSize = 8;
 		int pageSize = 5;
-		String pageStr = yong.page.PageModule.makePage("cardList.we", totalCnt, listSize, pageSize, cp);
+		String pageStr = PageModule.makePage("cardList.we", totalCnt, listSize, pageSize, cp);
 		
 		List<CardDTO> list=cardDao.cardList(cp,listSize, type);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
+		mav.addObject("type", type-1);
 		mav.addObject("pageStr", pageStr);
 		mav.setViewName("card/cardMain");
 		return mav;
@@ -133,7 +135,7 @@ public class CardController {
 		 byte[] file2 = Base64.decodeBase64(binaryData);
 		 //String fileName = UUID.randomUUID().toString();
 		 String fileName="37";
-		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/mobile_img/" + fileName + ".png");
+		 stream = new FileOutputStream("C:/Users/HWANG/git/src/main/webapp/mobile_img/" + fileName + ".png");
 		 stream.write(file2);
 		 stream.close();
 		 mav.addObject("filename", fileName);
@@ -141,7 +143,7 @@ public class CardController {
 	            File file = null;
 	            
 	            // 큐알이미지를 저장할 디렉토리 지정
-	            file = new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/");
+	            file = new File("C:/Users/HWANG/git/testWebsrc/main/webapp/qr_img/");
 	            if(!file.exists()) {
 	                file.mkdirs();
 	            }
@@ -159,7 +161,7 @@ public class CardController {
 	            MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
 	            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
 	            // ImageIO를 사용한 바코드 파일쓰기
-	            ImageIO.write(bufferedImage, "png", new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/"+fileName + ".png"));
+	            ImageIO.write(bufferedImage, "png", new File("C:/Users/HWANG/git/src/main/webapp/qr_img/"+fileName + ".png"));
 	        	
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -189,7 +191,7 @@ public class CardController {
 		 binaryData = binaryData.replaceAll("data:image/png;base64,", "");
 		 byte[] file = Base64.decodeBase64(binaryData);
 		 String fileName = UUID.randomUUID().toString();
-		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/order_img/" + fileName + ".png");
+		 stream = new FileOutputStream("C:/Users/HWANG/git/src/main/webapp/order_img/" + fileName + ".png");
 		 stream.write(file);
 		 stream.close();
 		 mav.addObject("filename", fileName);

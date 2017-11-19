@@ -5,7 +5,7 @@
 <head>
 <meta charset=UTF-8">
 <script type="text/javascript" src="js/html2canvas.js"></script>
-<title>Insert title here</title>
+<title>Love is staying</title>
 </head>
 <%@include file="/header.jsp" %>
 <style>
@@ -40,6 +40,11 @@ function capture() {
                 });
               }
         });
+    }
+    function textplus(){
+    	alert(document.getElementById("ptext1").value);
+    	alert(document.getElementById("text1").value);
+    	document.getElementById("ptext1").value=document.getElementById("text1").value
     }
  </script>
  
@@ -80,7 +85,7 @@ function startDrag(e, obj){
 // 드래그 멈추기
 function stopDrag(){
      document.onmousemove = null;
-     document.onmouseup = nll;
+     document.onmouseup = null;
 }
 function draw() {
     var canvas = document.getElementById("canvas");
@@ -94,6 +99,16 @@ function draw() {
       ctx.fillRect (30, 30, 50, 50);
     }
   }
+</script>
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+  var loadFile2 = function(event) {
+	    var output = document.getElementById('output2');
+	    output.src = URL.createObjectURL(event.target.files[0]);
+	  };
 </script>
 <script>
 function readURL(input) {
@@ -133,43 +148,38 @@ $("#imgInp").change(function(){
 </style>
 <body style="text-align: center;">
 <br>
-<img src="card_img/mobile.JPG" width="80%">
+<img src="card_img/mobile.JPG" width="100%">
 <br><br>
-<div style="width: 100%; height: 600px;">
-	<div id="left">
-		<input type="file" accept="image/*" onchange="loadFile(event)">
-		<input type="file" accept="image/*" onchange="loadFile2(event)">
+<div class="cardcontainer">
+	<div id="left" style="text-align: center;">
+		<input type="file" accept="image/*" onchange="loadFile(event)" style="margin-bottom: 250px;"><br>
+		<input type="file" accept="image/*" onchange="loadFile2(event)" style="margin-bottom: 25px;"><br>
+		<textarea rows="10" cols="10"></textarea>
 	</div>
-	
+	<br>
+	<input type="text" id="text1" onchange="textplus()">
 	<div id="right">
 		<form>
 			<input type="hidden" name="imgSrc" id="imgSrc" />
-				
-		    <div id="canv" style="background-color: yellow; height: 600px; width: 300px; margin-left: 200px;">
-		   		<img src="order_img/${filename }" width="300" style="position:absolute; left:300px; top:800px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
+		    <div id="canv" style="background-color: yellow; height: 500px; width: 250px; margin-left: 150px;">
+		   		<img src="order_img/${filename }" width="250" style="position:absolute; left:570px; top:1000px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
+		   		<img src="mobile_img/123.png" id="output" width="250" style="position:absolute; left:100px; top:700px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
+				<img id="output2" width="250" style="position:absolute; left:100px; top:1000px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
+		   		<img src="mobile_img/KUBA04.jpg" width="250" style="position:absolute; left:100px; top:700px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
+	    		<input type="Text" id="ptext1"width="250" style="position:absolute; left:100px; top:700px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
 	    	</div>
-		<input type="button" value="제작하기" onclick="capture()">
+		<input type="button" value="제작하기" onclick="capture()" style="margin-left: 700px;">
 		</form>
-	</div>
+	</div>KUBA04.jpg
 </div>
 		
-<input type="button" value="이미지 추가">
+<input type="button" value="이미지 추가" style="m">
 <br>
 
 
 
-<img id="output" width="300" style="position:absolute; left:200px; top:900px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
-<img id="output2" width="300" style="position:absolute; left:200px; top:600px; cursor:pointer; cursor:hand" onmousedown="startDrag(event, this)" border="0">
-<script>
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-  var loadFile2 = function(event) {
-	    var output = document.getElementById('output2');
-	    output.src = URL.createObjectURL(event.target.files[0]);
-	  };
-</script>
+
+
 <input type="button" value="텍스트 추가">
 </body>
 <%@include file="/footer.jsp" %>
