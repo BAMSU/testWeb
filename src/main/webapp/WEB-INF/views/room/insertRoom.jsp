@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="bootstrap/css/style2.css" media="screen"
    title="no title" charset="utf-8">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script>
 function show() {
 	

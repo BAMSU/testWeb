@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap2.min.css" rel="stylesheet">
 <!-- font awesome -->

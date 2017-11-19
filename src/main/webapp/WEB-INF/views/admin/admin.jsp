@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <!-- Superfish -->
 <link rel="stylesheet" href="css/superfish.css">
 
