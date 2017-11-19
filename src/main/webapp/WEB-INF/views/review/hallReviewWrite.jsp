@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <style>
 img{
 	width: 50px;
@@ -20,7 +22,6 @@ img{
 .rating input {
   float: left;
   opacity: 0;
-  position: absolute;
 }
 .rating a,
 .rating label {
@@ -51,6 +52,9 @@ img{
 </head>
 
 <body>
+<%@include file="/header.jsp" %>
+<br>
+<br>
 
 <c:if test="${empty sname }">
 	<script>
@@ -60,11 +64,12 @@ img{
 	</script>
 </c:if>
 
-
+	<div style=" width:70%; margin:auto; border:3px solid  #D8D8D8; padding:10px; align-content: center; border-radius: 10px;">
+	
 
 <section>
 	<article>	
-	<h2 align="center">홀(REVIEW)후기 등록하기</h2> 
+<h2 align="center" style="color: #D8D8D8; ">홀 (REVIEW) 등록</h2> 
 	
 	<form name="review_upload" action="hallReviewWrite.we" method="post" >
 
@@ -77,11 +82,11 @@ img{
 		
 		</tr>
 		<tr>
-			<td style=" font-size:10px; width:50px;"><b>WRITER</b></td><td><input type="text" name="writer" value="${sname}" readonly="readonly"  size="40" style="font-size:12px;"></td>
+			<td style=" font-size:10px; width:50px;"><b>WRITER</b></td><td><input type="text" name="writer" value="${sname}" readonly="readonly"  size="40" style="font-size:12px; color: #FACC2E;"></td>
 			
 		</tr>
 		<tr>
-			<td style=" font-size:10px; width:50px;"><b>SUBJECT</b></td><td><input type="text" name="subject" size="85"  style="font-size:12px;"></td>
+			<td style=" font-size:10px; width:50px;"><b>SUBJECT</b></td><td><input type="text" name="subject" size="85"  style="font-size:12px;color: #FACC2E;"></td>
 			
 		</tr>
 		<tr>
@@ -94,9 +99,9 @@ img{
 	
 	
 	</table>
-	<table  align="center"    style="width:600px;" >
+	<table  align="center"   style="width:600px;" >
 		<tr>
-		<td align="left" style="width:200px; font-size: 12px;"><b>Hall NAME</b> | <input type="text" name="name" readonly="readonly" value="${hallInfo.name }" > <!--  value="${hallName}"--></td>
+		<td align="left" style="width:300px; font-size: 12px;"><b>Hall NAME</b> | <input type="text" name="name" readonly="readonly" value="${hallInfo.name }" > <!--  value="${hallName}"--></td>
 		<td align="left" colspan="2" style="widtj:350px; font-size:12px;"><b>Hall_id</b> |  <input type="text" name="room_idx"  value="${hall_idx}" readonly="readonly"  ></td>
 					
 		</tr>
@@ -125,7 +130,7 @@ img{
 			
 			
 				<td class="rating" style="font-size: 15px;">
-				교통 | 
+				교    통 | 
 				  	<input name="avg2" id="a5" value="5" type="radio"><label for="a5">★</label>
 					<input name="avg2" id="a4" value="4" type="radio"><label for="a4">★</label>
 					<input name="avg2" id="a3" value="3" type="radio"><label for="a3">★</label>
@@ -180,8 +185,8 @@ img{
 		<tr>
 			<td colspan="3" align="right">
 		
-			<input type="reset" value = "다시작성" style="background: #FFFFFF;outline:none; border:0;color: #000000;  ">
-			<input type="submit" value = "작성하기" id="checkbtn" style="background: #000000;outline:none; border:0;color: #FFFFFF; ">
+			<input type="reset" value = "다시작성"  class="btn btn-secondary" >
+			<input type="submit"  class="btn btn-primary" value = "작성하기"  >
 		
 			</td>
 	
@@ -192,11 +197,15 @@ img{
 	
 			
 	</form>
-		
+	
+
 	</article>
 	
 
 </section>
-
+</div>
+<br>
+<br>
+<%@include file="/footer.jsp" %>
 </body>
 </html>

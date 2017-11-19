@@ -111,6 +111,8 @@ span{
 									</td>
 							<td>
 										${dto.name}
+										
+										
 </td>
 										<td><span
 											style="border: 2px solid transparent !important; background: #F69D9D; color: #fff; border-radius: 6px;"

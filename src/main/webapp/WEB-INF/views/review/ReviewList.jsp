@@ -130,7 +130,7 @@ body{
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;<a href="${reviewContentUrl} "><input class="btn btn-primary btn-sm" type="button" value="리뷰상세보기"></a>
+					&nbsp;&nbsp;&nbsp;&nbsp;<a href="${reviewContentUrl} "><input class="btn btn-primary btn-sm" type="button" value="리뷰상세보기"></a>
 					 </div>
 				   	  
 				 </div>
