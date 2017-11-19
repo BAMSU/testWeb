@@ -72,8 +72,10 @@
 	</script>		
 </c:if>
 <div class="jumbotron">
-<div id="item_detail">
+<div id="item_detail" style=" width:85%; margin:auto;">
+
 <div align="center" style="float: left; padding-left: 10%; padding-right: 10%;">
+<div id="imgs" style="border: width:fit-content; ">
 <ul id="slider" class="ul">
 		<li><img src="${dto.sdmy_img1}" width="480" height="380" /></li>
 		<li><img src="${dto.sdmy_img2}" width="480" height="380" /></li>
@@ -84,6 +86,7 @@
 		<li><img src="${dto.sdmy_img7}" width="480" height="380" /></li>
 		<li><img src="${dto.sdmy_img8}" width="480" height="380" /></li>
 	</ul><br>
+	
 	<a href="#" id="button1"><img src="${dto.sdmy_img1}" width="50" height="40"/></a>
 	<a href="#" id="button2"><img src="${dto.sdmy_img2}" width="50" height="40"/></a>
 	<a href="#" id="button3"><img src="${dto.sdmy_img3}" width="50" height="40"/></a>
@@ -92,9 +95,26 @@
 	<a href="#" id="button6"><img src="${dto.sdmy_img6}" width="50" height="40"/></a>
 	<a href="#" id="button7"><img src="${dto.sdmy_img7}" width="50" height="40"/></a>
 	<a href="#" id="button8"><img src="${dto.sdmy_img8}" width="50" height="40"/></a>
-	<br>
-	<a href="#" id="buttonLeft">◀</a>
-	<a href="#" id="buttonRight">▶</a>
+	<br><br>
+	<a href="#" id="buttonLeft" style="position: relative; top:-250px; left:-40%;">
+		<button type="button" class="btn btn-primary">◀</button>
+		</a>
+	<a href="#" id="buttonRight" style="position: relative; bottom:250px; right:-40%;">
+		<button type="button" class="btn btn-primary">▶</button>
+		</a>
+		
+	<!-- <div style="border: width:fit-content; position: absolute;
+	 left: 15%; top:40% ;">
+		<a href="#" id="buttonLeft">
+		<button type="button" class="btn btn-primary">◀</button>
+		</a>
+	</div>
+	<div style="border: width:fit-content; position: absolute;
+	 right: 37%; top:40% ;">
+		<a href="#" id="buttonRight">
+		<button type="button" class="btn btn-primary">▶</button>
+		</a>
+	</div> -->
 </div>
 <br>
 <c:url var="consultUrl" value="consult.we">
@@ -103,28 +123,33 @@
 </c:url>
 </div>
 <br><br>
-&nbsp;&nbsp;&nbsp;<div style="align-content: left; padding-left: 25%; margin: auto;" >
+&nbsp;&nbsp;&nbsp;
+<div style="align-content: left; padding-left: 25%; margin: auto;" >
   <h1 class="display-3">${dto.sdmy_be}</h1>
-  <p>	업체명 : ${dto.sdmy_be}<br>
+  <p>	
   		평균이용금액 : ${dto.sdmy_avg } 만원<br>
   		조회수 : ${dto.readnum }<br>
   		상담수 : ${dto.consult }
   </p>
   <p><a class="btn btn-primary btn-lg" href="${consultUrl}">상담신청하기</a></p>
-<br><br>
-<br><br>  
+	<br><br>
+ 
   </div>
 </div>
-
-<div class="jumbotron">
-	<p>
+	<br><br><br><br> <br><br> 
+  <div style="border:1px solid pink; width:85%; margin:auto; background: white;
+   border-radius: 5px; padding: 10px; vertical-align: middle;">
+	<p style="padding-left: 10%;">
 	업체명 : ${bdto.be_name }<br>
 	사업자등록번호 : ${bdto.be_license}<br>
 	대표번호 : ${bdto.be_rep_tell}<br>
 	소재지 : ${bdto.be_loc}<br>
 	주차시설 : ${bdto.be_park}<br>
 	</p>
+	</div>
 </div>
+
+
 
 
 

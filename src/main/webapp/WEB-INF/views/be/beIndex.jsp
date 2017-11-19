@@ -35,7 +35,8 @@ border-style: solid;
 </head>
 
 
-<body style="background-image: url('upload/beBackGround.jpg'); opacity: 0.7; background-size: cover;">
+<body style="background-image: url('upload/beBackGround.jpg');
+ opacity: 0.7; background-size: cover;">
 <%@include file="beHeader.jsp" %>
 <div id="page-wrapper">
 

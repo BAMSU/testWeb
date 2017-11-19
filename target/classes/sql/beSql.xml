@@ -28,6 +28,9 @@
 	<select id="beLogin" parameterType="be.model.BeDTO" resultType="be.model.BeDTO">
 		select * from be_join where be_id=#{be_id}
 	</select>
+	<select id="beLoginCount" parameterType="be.model.BeDTO" resultType="int">
+		select count(*) from be_join where be_id=#{be_id}
+	</select>
 	<select id="loginfo" parameterType="String" resultType="be.model.BeDTO">
 		select * from be_join where be_id=#{be_id}
 	</select>
