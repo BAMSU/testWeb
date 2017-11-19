@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script>
 function show() {
 	var add = 'acon.we?type=' + document.fm.type.value;

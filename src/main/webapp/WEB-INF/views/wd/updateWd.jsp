@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="bootstrap/css/style2.css" media="screen"
    title="no title" charset="utf-8">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fa5970f9e39f19d9b4f5c706aac8d7f9&libraries=services"></script>
 <script>
@@ -161,9 +161,7 @@ function info() {
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               홀 수정하기 <small>끄앗 폼!</small>
-            </h1>
+            <h3 align="center">홀 수정하기</h3>
          </div>
          
          <form class="form-horizontal" name="fm" action="update2.we">

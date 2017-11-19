@@ -276,7 +276,7 @@ margin: 0px auto;
 						<h2>웨딩홀</h2>
 
 						<hr />
-						<p>test</p>
+						
 						<a href="#">See Project</a>
 					</div>
 				</div>
@@ -285,7 +285,7 @@ margin: 0px auto;
 					<div class="project-hover">
 						<h2>신혼여행</h2>
 						<hr />
-						<p>test</p>
+						
 						<a href="#">See Project</a>
 					</div>
 				</div>
@@ -294,7 +294,7 @@ margin: 0px auto;
 					<div class="project-hover">
 						<h2>청첩장</h2>
 						<hr />
-						<p>자신만의 개성있는 청첩장을 만들어보세요.</p>
+						
 						<a href="#">만들러 가기 뀨?</a>
 					</div>
 				</div>
@@ -303,7 +303,7 @@ margin: 0px auto;
 					<div class="project-hover">
 						<h2>드레스</h2>
 						<hr />
-						<p>test</p>
+						
 						<a href="#">See Project</a>
 					</div>
 				</div>
@@ -322,29 +322,7 @@ margin: 0px auto;
 								attending. Thanks.
 						</div>
 					</div>
-					<div class="row animate-box">
-						<div class="col-md-10 col-md-offset-1">
-							<form class="form-inline">
-								<div class="col-md-4 col-sm-4">
-									<div class="form-group">
-										<label for="name" class="sr-only">Name</label> <input
-											type="name" class="form-control" id="name" placeholder="Name">
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-4">
-									<div class="form-group">
-										<label for="email" class="sr-only">Email</label> <input
-											type="email" class="form-control" id="email"
-											placeholder="Email">
-									</div>
-								</div>
-								<div class="col-md-4 col-sm-4">
-									<button type="submit" class="btn btn-primary btn-block">I
-										am Attending</button>
-								</div>
-							</form>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 

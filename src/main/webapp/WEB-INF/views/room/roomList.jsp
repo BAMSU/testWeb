@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
@@ -84,6 +84,11 @@ table tfoot td{
 		<a href="${contentUrl2}">삭제</a> <br></td>
 				  		</tr>
 			  		</c:forEach>
+			  		<c:if test="${cnt>0}">
+						<tr>
+						<td colspan="2" align="left"><input type="button" value="뒤로가기" onclick="javascript:location.href='wdList.we'"></td>
+						</tr>
+					</c:if>
 			  		</tbody>
 			  	</table>
 			  </div>

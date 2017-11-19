@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap2.min.css" rel="stylesheet">
 <!-- font awesome -->
@@ -22,9 +22,7 @@
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               견적서 <small>끄앗 폼!</small>
-            </h1>
+             <h3 align="center">웨딩홀 견적서</h3>
          </div>
          
          <c:if test="${empty list}">
@@ -37,7 +35,7 @@
          
          <form class="form-horizontal" name = "fm" action="updateMeal.we" method="POST">
          <c:forEach var="dto" items="${list}">
-         <h3 align="center">웨딩홀 견적서</h3>
+        
             <div class="form-group">
                <label class="col-sm-3 control-label">홀 이름 </label>
 				<input type="hidden" name="hall_idx" value="${dto.hall_idx}" required>
