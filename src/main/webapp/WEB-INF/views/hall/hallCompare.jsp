@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>홀vs홀</title>
+<title>Love is staying</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -17,11 +17,6 @@
 	table{
 		width: 100%;
 	}
-	.hImg{
-		width: 300px;
-		height: 200px;
-		margin: 20px;
-	}
 	#mask {  
 	  position:absolute;  
 	  z-index:9000;  
@@ -32,11 +27,11 @@
 	}
 	.window{
 	  display: none;
-	  position:absolute;  
-	  margin: 15% 25%;
+	  position:absolute;
+	  margin: 15% 15%;
 	  z-index:10000;
-	  width: 50%;
-	  height: 40%;
+	  width: 700px;
+	  height: 300px;
 	  background-color: white;
 	}
 	.window .at{
@@ -85,14 +80,19 @@
 		float: right;
 		margin-right: 20px;
 	}
-	
+	.hImg{
+		width: 200px;
+		height: 130px;
+		margin: 10px;
+	}
 	#hct{
 		border-top: 3px solid #BDBDBD;
 	}
 	#hct th{
 		border-bottom: 3px solid #BDBDBD;
-		padding-left: 20px;
-		padding-right: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 20%;
 	}
 	#hct td{
 		border-left: 3px solid #BDBDBD;
@@ -109,6 +109,7 @@
 		border-bottom: 3px solid #BDBDBD;
 		border-right: 3px solid #BDBDBD;
 		padding: 10px;
+		width: 20%;
 	}
 	#before td:HOVER{
 		cursor: pointer;
@@ -338,10 +339,12 @@
 			$('.hcost:eq('+ii+')').html(hlbi.mealCost);
 			$('.hguest:eq('+ii+')').html(hlbi.guest);
 			$('.hgrade:eq('+ii+')').html(hlbi.grade);
-			$('.rvBtn:eq('+ii+')').html('<input type="button" value="리뷰보기" class="btn btn-info"/>');
+			$('.rvBtn:eq('+ii+')').html('<input type="button" value="리뷰보기" class="btn btn-info"'
+					+'onclick="goRv('+iidx+')"/>');
 			$('.ifBtn:eq('+ii+')').html('<input type="button" value="상세보기"'
 					+'onclick="goIf('+iidx+')" class="btn btn-info"/>');
-			$('.emBtn:eq('+ii+')').html('<input type="button" value="견적내기" class="btn btn-info"/>');
+			$('.emBtn:eq('+ii+')').html('<input type="button" value="견적내기" class="btn btn-info"'
+					+'onclick="goEm('+iidx+')"/>');
 		});
 	}
 	
@@ -374,6 +377,12 @@
 	function goIf(i){
 		location.href='hallInfo.we?idx='+i;
 	}
+	function goRv(i){
+		location.href='AllhallList.we?idx='+i;
+	}
+	function goEm(i){
+		location.href='hallestimate.we?hall_idx='+i;
+	}
 </script>
 </head>
 <body>
@@ -399,7 +408,7 @@
 <section>
 	<article>
 		<p style="background-color: gray; height: 20px; margin: 0px;"></p>
-		<div style="margin: 0px auto; width: 1300px; background-color: white; padding: 20px;">
+		<div style="margin: 0px auto; width: 950px; background-color: white; padding: 20px;">
 		<p><h2 style="display: inline;">홀 비교하기</h2>&nbsp;2개 이상의 웨딩홀을 선택하여, 식대, 가격, 교통 등 다양한 정보에 대한 비교 결과의 확인이 가능합니다.</p>
 		<form action="hallCompare.we" method="post">
 			<table id="hct">

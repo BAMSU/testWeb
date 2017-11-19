@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <style type="text/css">
 .td1 {
@@ -104,7 +104,7 @@
 </div>
 </div>
 <br><br><br><br><br><br><br><br><br>
-<%@include file="/footer.jsp" %>
+
 </body>
 </html>
 

@@ -5,7 +5,7 @@
 <mapper namespace="mypage">
 	<select id="mypage_like" parameterType="String" resultType="ahall.model.aHallDTO">
 	select distinct hall.* from scrap, hall where scrap.hallidx = 
-	hall.idx and scrap.membername=#{name} order by hall.idx
+	hall.idx and scrap.memberName=#{name} order by hall.idx
 	</select>
 	
 	<select id="mypage_review" parameterType="String" resultType="mypageReview.model.MypageReviewDTO">

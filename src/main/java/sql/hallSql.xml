@@ -17,7 +17,7 @@
 		select * from hall where gu = #{gu}
 	</select>
 	<select id="hallAddSearchByNameSQL" parameterType="String" resultType="hall.model.HallDTO">
-		select * from hall where name = #{name}
+		select * from hall where name like '%' || #{name} || '%'
 	</select>
 	<!-- room -->
 	<select id="roomInfoSQL" parameterType="int" resultType="room.model.RoomDTO">

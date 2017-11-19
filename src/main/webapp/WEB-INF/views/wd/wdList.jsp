@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script>
 function aa() {
 	location.href="/finalproject/insertWd.we";
@@ -51,16 +51,16 @@ table tfoot td{
 </head>
 <body>
 <%@include file="/adminheader.jsp"%>
+<div class="song">
 
-
-<div style="margin: 0px auto; width: 71%; background-color: white;">
+<div style="margin: auto auto; position:relative; top:20%; width: 60%; background-color: white;">
 		<div>
 			<h3 align="center">웨딩홀 리스트</h3>
 			  	<table class="table table-striped table-hover table-bordered">
 			  		<thead>
 			  				
 				  		<tr class="thd">
-					  		<th>홀 이름</th>
+					  		<th width="30%">홀 이름</th>
 					  		<th>방 관리</th>
 					  		<th>웨딩홀 정보/견적서 관리</th>
 					  		<th>웨딩홀 사진 관리</th>
@@ -82,7 +82,7 @@ table tfoot td{
 			  		<c:forEach var="dto" items="${list}">
 				  		<tr>
 				  			<td><c:url var="contentUrl" value="updateWd.we"><c:param name="idx">${dto.idx}</c:param></c:url>
-		${dto.idx}<a href="${contentUrl}">${dto.name}</a></td>
+		<a href="${contentUrl}">${dto.name}</a></td>
 				  			<td><c:url var="contentUrl5" value="roomList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
 		<a href="${contentUrl5}">방 관리</a></td>
 				  			<td><c:url var="contentUrl3" value="mealList.we"><c:param name="idx">${dto.idx}</c:param></c:url>
@@ -101,6 +101,6 @@ table tfoot td{
 			  	</table>
 			  </div>
 	
-	</div>
+	</div></div><%@include file="/footer.jsp"%>
 </body>
 </html>

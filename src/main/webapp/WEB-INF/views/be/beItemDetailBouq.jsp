@@ -4,16 +4,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet" type="text/css" href="css/beCss.css">
+<style type="text/css">
+.button{
+	width:100px;
+	height:50px;
+	text-align: center;
+	color: black;
+	vertical-align: center;
+	background: white;
+	opacity:0.9;
+	border:3px solid gray;
+	border-radius: 5px;
+}
+.button:hover{
+	background: orange;
+	font-weight: bold;
+}
+img{
+	vertical-align:middle;
+	padding-left:10%;
+	border-radius: 5px;
+}
+</style>
 </head>
-<body>
+<body style="background-image: url('upload/beBackGround.jpg'); opacity: 0.7; background-size: cover;">
 <%@include file="beHeader.jsp" %>
 
-<h2>itemDetailBouq.jsp 입니당</h2>
+<div>
 
 <c:set value="${dto}" var="dto"></c:set>
-
 <c:url var="delUrl" value="delItem.we">
 	<c:param name="besort" value="${sessionScope.besort}"/>
 	<c:param name="idx" value="${dto.bouq_idx}"></c:param>
@@ -23,29 +44,40 @@
 </c:url>
 
 
-<div class="item_detail_div">
+<div class="jumbotron" style=" height:700px;">
+	<h2 style="padding-bottom: 2%;">상품 상세정보</h2>
+	
+	<div id="content" style=" padding-left: 10%; padding-right:5%; heigth:300px; padding: 3%;">	
+	
+	<div id="img" style=" float: left; width:40%; height:400px; color: black;
+	background:transparent ;">
+	<br>
+		<img alt="상품이미지" src="${dto.bouq_thumbnail}" style="margin:auto auto; width:80%;height:70%; vertical-align: middle; align-self: center;">
+	</div>
+		<div style="border:2px; solid red; background: white; opacity: 2.0; width:100%;margin:auto;">
+		<br>
+		업체 : ${dto.bouq_be}<br>
+		상품명 : ${dto.bouq_name}<br>
+		상품가격 : ${dto.bouq_price}<br>
+		조회수 : ${dto.readnum}<br>
+		상담수 : ${dto.consult}<br>
+		
+		상세정보 :<br>
+		${dto.bouq_detail}
+		<br><br><br>
+		</div>
+	</div> 
 <br>
-<a href="${updateUrl}"><input type="button" value="상품수정"></a>
-<a href="${delUrl}"><input type="button" value="상품삭제"></a>
-<br>
+<div style="padding-left: 60%; width:fit-content;">
+	<a href="${updateUrl}"><input type="button" class="button" value="상품수정"></a>
+	<a href="${delUrl}"><input type="button" class="button" value="상품삭제"></a>
+	<br>
+</div>
 </div>
 
-업체 : ${dto.bouq_be}
-상품명 : ${dto.bouq_name}
-상품가격 : ${dto.bouq_price}
-상품 이미지 <img alt="상품이미지" src="${dto.bouq_thumbnail}" width="20%">
-조회수 : ${dto.readnum}<br>
-상담수 : ${dto.consult}<br>
-상세정보 : ${dto.bouq_detail}
 
-<div class="jumbotron">
-	<p>
-	업체명 : ${bdto.be_name }<br>
-	사업자등록번호 : ${bdto.be_license}<br>
-	대표번호 : ${bdto.be_rep_tell}<br>
-	소재지 : ${bdto.be_loc}<br>
-	주차시설 : ${bdto.be_park}<br>
-	</p>
 </div>
+
+<br><br><br>
 </body>
 </html>

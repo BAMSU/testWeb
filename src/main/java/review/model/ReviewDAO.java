@@ -17,7 +17,7 @@ public interface ReviewDAO {
 	public int getNameTotelCont(String name);
 	public ReviewDTO reviewContent(int idx);
 	public double getReviewAge(String name);
-	public int getTotelContByHall(String hallName);
-	public List hallReviewList(int cp,int ls,String hallName);
+	public int getTotelContByHall(int idx);
+	public List hallReviewList(int cp,int ls,int idx);
  
 }

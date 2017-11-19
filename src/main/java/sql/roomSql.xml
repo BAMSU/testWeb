@@ -31,7 +31,7 @@
 	</update>
 	
 	<delete id="deleteR" parameterType="int">
-		delete from room where idx=#{idx}
+		delete from room where hallidx = #{idx}
 	</delete>
 	
 	<delete id="deleteH" parameterType="int">

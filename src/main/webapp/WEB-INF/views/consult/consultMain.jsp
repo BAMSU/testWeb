@@ -53,7 +53,11 @@ input{
 </style>
 </head>
 <body>
+	
 <%@include file="/header.jsp"%>
+<br>
+<br>
+<div style=" width:70%; margin:auto; border:3px solid  #D8D8D8; padding:10px; align-content: center; border-radius: 10px;">
 
 <h2 align="center">문의 / 상담하기</h2>
 <form name="consult" action="consultSubmit.we" >
@@ -66,7 +70,8 @@ input{
 
 <table align="center" >
 	<tr>
-	<td colspan="1" >이름</td><td colspan="3" ><input type="text"    name="name" value="${sname }"readonly="readonly" style="width: 430px;"></td> 
+	<td colspan="1" >이름</td>
+	<td colspan="3" ><input type="text" name="name" value="${sname }"readonly="readonly" style="width: 430px; "></td> 
 	<td>
 		 <input type="radio" value="1" name="gender" >남자
 		 <input type="radio" value="2" name="gender" >여자
@@ -123,22 +128,26 @@ input{
 			<td colspan="5">
 			<textarea rows="15" cols="45" name="context" style="width: 600px;" >
 			
-			</textarea>
+			</textarea> 
 			</td>
 			<td>
 			<input type="hidden" name="gubun"  value="${gubun}" > 
 			<input type="hidden" name="gubun2" value="${idx}" >
 			</td>
 		</tr>
-		<tr><td colspan="5">
-		<input type="submit"value="문의하기" style="size: 150px; " >
-		<input type="reset" value="다시작성">
+		<tr><td colspan="5" align="right">
+		<input type="reset" value="다시작성"  class="btn btn-secondary">
+		<input type="submit"value="문의하기" class="btn btn-primary"  style="size: 150px; " >
+		
 		</td>
 		</tr>
 	
 	
 </table>	
 </form>
+</div>
+<br>
+<br>
 <%@include file="/footer.jsp"%>
 </body>
 </html>

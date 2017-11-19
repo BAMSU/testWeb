@@ -11,53 +11,49 @@
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript">
-	
+$(document).ready(function(){
+	$('.ctd:eq(0)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(0)').val();
+	});
+	$('.ctd:eq(1)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(1)').val();
+	});
+	$('.ctd:eq(2)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(2)').val();
+	});
+	$('.ctd:eq(3)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(3)').val();
+	});
+	$('.ctd:eq(4)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(4)').val();
+	});
+	$('.ctd:eq(5)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(5)').val();
+	});
+	$('.ctd:eq(6)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(6)').val();
+	});
+	$('.ctd:eq(7)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(7)').val();
+	});
+	$('.ctd:eq(8)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(8)').val();
+	});
+	$('.ctd:eq(9)').click(function(){
+		location.href='hallInfo.we?idx='+$('.hallidx:eq(9)').val();
+	});
+	});
+
 </script>
 </head>
 <style>
-#search {
+#ranking {
 	text-align: center;
 	display: inline-block;
-	margin-left: 150px;
-	margin-right: 230px;
-	border: 5px solid red;
-	padding: 100px;
-	width: 1000px;
-	height: 1240px;
+	width: 100%;
+	height: 100%;
 }
-
-li {
-	display: inline-block;
-	margin-right: 5px;
-}
-
-#menu_box {
-	float: left;
-	display: block;
-	border: 5px solid red;
-	width: 150px;
-	height: 100px;
-	padding-top: 300px;
-}
-
-.menu_br {
-	display: inline-block;
-	border: 5px solid red;
-	margin: 0 auto;
-}
-
-#menu {
-	float: left;
-	margin-right: 5px;
-	word-break: break-all;
-}
-
-.rank {
-	width:100px;
-	height: 30px;
-	border: 10px solid yellows;
-} 
-span{
+span {
 	float: left;
 	width: 94px;
 	font-size: 15px;
@@ -65,66 +61,61 @@ span{
 	cursor: pointer;
 	height: 26px;
 }
-#tr{
-	width: 400px;
+#tr {
+	width: 100%;
+	height: 100%;
+}
+.btn btn-secondary{
+
+    color: #fff;
+    border: 2px solid transparent !important;
+    margin-top: 15px;
+    text-align: center; 
+    width: 15px;
+    height: 15px;   
 }
 </style>
 <body>
 	<%@include file="/header.jsp"%>
-	<h3>홀 랭킹 리스트</h3>
-	<div id="search">
-		<div id="#menu_box">
-			<div class="menu_br">
-				<ul id="menu">
-					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
-					<li><a href="hallranking.we">홀 랭킹</a></li>
-					<li><a>홀vs홀</a></li>
-					<li><a href="hallsearchlist.we">불러오기확인</a></li>
-					<li><a href="hallestimate.we">홀 견적내기</a></li>
-					<li><a href="hallmode.we">견적 작성</a></li>
-					<li><a href="hallranking.we">랭킹</a></li>
+	<p style="background-color: gray; height: 20px;margin: 0px; "></p>
+	<h3 style="text-align: center;">홀 랭킹</h3>
+	<div id="ranking">
 
-				</ul>
-			</div>
-		</div>
 
 		<div class="rank">
-			<form name="frm">
-				<c:set var="cnt" value="0" />
-				<table id="tr">
-				<c:forEach var="dto" items="${hallrank}">
+	
+<c:set var="cnt" value="0"/>
+				<table id="tr" border="1px outset #ECE0F8;">
 				
+					<c:forEach var="dto" items="${hallrank}">
 				
-					<c:if test="${cnt%3==0}">
-					<tr>
-					</c:if>
-					
+				<c:if test="${cnt%3==0 }">
+				   <tr> 
+		
+				   </c:if>
+				   <td class="ctd"><a href="rank_img"> <img
+								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
+								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
+						</a><br>
+				  <span style="text-align: center;width: 200px;"> ${dto.name}</span>
+				   <br>
+				  <p class="but" border="1">
+						<input type="button"  class="btn btn-secondary"style="background: #F5A9E1;" value="홀 설명" onclick="location.href='hallInfo.we?idx=${dto.idx}'"/>
+						<br>
+						<br>
+						<input type="button" class="btn btn-secondary"style="background: #F69D9D;" value="홀 통계보기" onclick="location.href='hallStats.we?idx=${dto.idx}&name=${dto.name}'"/>
+						</p>
+						</td>
+				    
+				
+				    <c:set var="cnt" value="${cnt+1 }" />
+				    <c:if test="${cnt%3==0 }">
+</tr> 
+</c:if>
+				    </c:forEach>
+				     </table>
 
-						<td>
-							<c:set var="cnt" value="${cnt+1}" />
-							</td>
-								<td>
-										<a href="rank_img"> <img
-												src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
-												style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
-										</a>
-									</td>
-							<td>
-										${dto.name}
-</td>
-										<td><span
-											style="border: 2px solid transparent !important; background: #F69D9D; color: #fff; border-radius: 6px;"
-											onclick="window.alert('hallInfo${dto.idx }.we')">상세보기</span></td>
-										<td><span
-											style="border: 1px solid #BCA9F5; border-radius: 6px;"
-											onclick="window.alert('hallCompare.we')">홀 통계보기</span></td>
-								
-								<c:if test="${cnt%3==0}">
-									</tr>
-								</c:if>
-				</c:forEach>
-				</table>
-			</form>
+
 		</div>
 	</div>
 	<%@include file="/footer.jsp"%>

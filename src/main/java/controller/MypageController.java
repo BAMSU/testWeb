@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import consult.model.ConsultDAO;
+import consult.model.ConsultDTO;
 import mypageAsk.model.MypageAskDAO;
 import mypageLike.model.MypageLikeDAO;
 import mypageReview.model.MypageReviewDAO;
+import review.model.ReviewDAO;
+import yong.card.model.PageModule;
 
 import java.util.List;
 
@@ -24,49 +28,53 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MypageController {
 
-	
-	@Autowired
-	private MypageReviewDAO mypageReviewDao;
-	
 	@Autowired
 	private MypageLikeDAO mypageLikeDao;
-	
+
 	@Autowired
-	private MypageAskDAO mypageAskDao;
-	
-	
-	@RequestMapping("mypage.we")
-	public String myPage(){
-		
-		return "myPage/Mypage";
-	}
-	
-	
-	@RequestMapping("myPage_Like.we")
-	public ModelAndView myPageLike(String name){
-		
+	private ConsultDAO consultDao;
+
+	@Autowired
+	private ReviewDAO reviewDao;
+
+	@RequestMapping("/mypage.we")
+	public ModelAndView myPage(HttpSession session, @RequestParam(value = "cp1", defaultValue = "1") int cp1,
+			@RequestParam(value = "cp2", defaultValue = "1") int cp2,
+			@RequestParam(value = "cp3", defaultValue = "1") int cp3) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", mypageLikeDao.mypage_Like(name));
-		mav.setViewName("myPage/myPage_Like");
+
+		String name = (String) session.getAttribute("sname");
+
+		mav.addObject("list1", mypageLikeDao.mypage_Like(name));
+
+		mav.addObject("list3", reviewDao.ReviewList(cp3, 5, name));
+
+		// String pageStr1 = PageModule.makePage("mypage.we", totalCnt, 5, 5,
+		// cp1);
+		String pageStr2 = PageModule.makePage("mypage.we", consultDao.getTotelCont(name), 5, 5, cp2);
+		String pageStr3 = PageModule.makePage("mypage.we", reviewDao.getNameTotelCont(name), 5, 5, cp3);
+
+		int totalCnt = consultDao.getTotelCont(name);
+		int listSize = 10;
+		int pageSize = 5;
+		String pageStr = yong.page.PageModule.makePage("consultList.we", totalCnt, listSize, pageSize, cp2);
+
+		List<ConsultDTO> list = consultDao.consultList(cp2, listSize, name);
+
+		mav.addObject("list", list);
+		mav.addObject("pageStr", pageStr);
+		mav.setViewName("myPage/Mypage");
+		System.out.println(name);
 		return mav;
 	}
-	
-	
-	@RequestMapping("myPage_Review.we")
-	public ModelAndView myPageReview(String writer){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("list" , mypageReviewDao.mypage_Review(writer));
-		mav.setViewName("myPage/myPage_Review");
-		return mav;
-	}
-	
-	
-	@RequestMapping("/myPage_Ask.we")
-	public ModelAndView myPageAsk(@RequestParam("name")String name){
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("list" , mypageAskDao.mypage_Ask(name));
-		mav.setViewName("myPage/myPage_Ask");
-		return mav;
-	}
-	
+
+	/*
+	 * @RequestMapping("myPage_Like.we") public ModelAndView myPageLike(String
+	 * name){
+	 * 
+	 * ModelAndView mav = new ModelAndView(); mav.addObject("list",
+	 * mypageLikeDao.mypage_Like(name)); mav.setViewName("myPage/myPage_Like");
+	 * return mav; }
+	 */
+
 }

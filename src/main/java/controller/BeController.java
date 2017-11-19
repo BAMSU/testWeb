@@ -466,7 +466,8 @@ public class BeController {
 			) {
 		
 		BouqDTO dto =beDao.itemDetailBouq(bouq_idx); 
-				
+		dto.setBouq_detail(dto.getBouq_detail().replaceAll("\r", "<br>"));
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("dto", dto);
 		

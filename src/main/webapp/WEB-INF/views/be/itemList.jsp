@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
-<title>Insert title here</title>
+<title>Love is staying</title>
 <style type="text/css">
 .img_div{
 	width: 150px;
@@ -53,6 +53,7 @@
 <br><br><br><br>
 <div style=" width:70%; align-self: center;margin:auto;">
 	<div style="width:100%; align-self: center; margin:auto;">
+		
 	</div>
 
 <c:set var="i" value="0"></c:set>
@@ -150,9 +151,13 @@
 		</c:forEach>
 	</c:when>
 	<c:otherwise>
-		
-		
 	
+	<div>	
+	<img alt="studio_banner" src="upload/banner/studio_banner.jpg"
+	style="width:100%;">
+	<br><br><br>
+	</div>
+	<br>
 	<table id="table" class="table table-striped ">
 	
 		<c:forEach var="dto" items="${sdmyList}">
@@ -160,15 +165,25 @@
 				<tr>
 			</c:if>
 			<td id="td_sdmy">
-			<c:url var="detailSDMYURL" value="showItemSDMY.we">
-				<c:param name="sdmy_be" value="${dto.sdmy_be}"></c:param>
-			</c:url>
-				<a href="${detailSDMYURL}">
-				<img alt="img" src="${dto.sdmy_thumbnail}" width="150px">
-				<br>
-				${dto.sdmy_be}
-				</a>
-			
+			<div id="div_td" style=" width:160px; vertical-align:center; margin:auto; text-align: center;">
+				<c:url var="detailSDMYURL" value="showItemSDMY.we">
+					<c:param name="sdmy_be" value="${dto.sdmy_be}"></c:param>
+				</c:url>
+				
+				<div style=" position:relative; width:150px; height:200px;">
+					<a href="${detailSDMYURL}">
+						<img alt="img" src="${dto.sdmy_thumbnail}"
+							style="
+							position:absolute;
+				            max-width:100%; max-height:100%;
+				            width:auto; height:auto;
+				            margin:auto;
+				            top:0; bottom:0; left:0; right:0;">
+					<br>
+					</a>
+				</div>
+				<span style="font-size: large;">${dto.sdmy_be}</span>
+			</div>
 			</td>
 		<c:set var="i" value="${i+1}"></c:set>
 			<c:if test="${i%3==0}">

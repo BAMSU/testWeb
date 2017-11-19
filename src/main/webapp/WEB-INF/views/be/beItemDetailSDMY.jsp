@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet" type="text/css" href="css/beCss.css">
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <script type="text/javascript" src="becss/slider/jquery-1.12.3.min.js"></script>

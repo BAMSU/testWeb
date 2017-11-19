@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="bootstrap/css/style2.css" media="screen"
    title="no title" charset="utf-8">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script type="text/javascript"
    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fa5970f9e39f19d9b4f5c706aac8d7f9&libraries=services"></script>
@@ -162,23 +162,15 @@
       }
    }
 </script>
-<style>
-label btn btn-danger:hover{
-color:#F69D9D;
-background-color: #F69D9D;
-border-color: #F69D9D;
-}
-</style>
 </head>
 <body>
    <%@include file="/adminheader.jsp"%>
+   <div class="song">
    <article class="container">
 
       <div class="col-md-12">
          <div class="page-header">
-            <h1>
-               홀 등록하기 <small>끄앗 폼!</small>
-            </h1>
+            <h3 align="center">홀 등록하기</h3>
          </div>
 
 
@@ -311,7 +303,6 @@ border-color: #F69D9D;
             
             
          </form>
-         <hr>
       </div>
 
    </article>
@@ -319,6 +310,6 @@ border-color: #F69D9D;
    <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <!-- Include all compiled plugins (below), or include individual files as needed -->
-   <script src="bootstrap/js/bootstrap2.min.js"></script>
+   <script src="bootstrap/js/bootstrap2.min.js"></script></div><%@include file="/footer.jsp"%>
 </body>
 </html>

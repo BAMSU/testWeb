@@ -89,12 +89,12 @@
  	<select id="hallReviewList" parameterType="Map" resultType="review.model.ReviewDTO">
        select * from
       (select rownum as rnum,a.* from
-      (select * from hallreview where name=#{hallName} order by review_idx desc)a)b
+      (select * from hallreview where room_idx=#{idx} order by review_idx desc)a)b
       where rnum<![CDATA[>=]]>#{startnum}
       and rnum<![CDATA[<=]]>#{endnum}
     </select>
     
-    <select id="reviewTotelCntByHall" parameterType="String" resultType="int">
-       select count(*) from hallreview where name=#{hallName}
+    <select id="reviewTotelCntByHall" parameterType="int" resultType="int">
+       select count(*) from hallreview where room_idx=#{idx}
     </select>
  </mapper>

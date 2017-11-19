@@ -5,20 +5,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
+<style type="text/css">
+img{
+border:1px solid gray;
+}
+</style>
 </head>
-<body>
+
+<body style="background-image: url('upload/beBackGround.jpg'); opacity: 0.8; background-size: cover;">
 <%@include file="beHeader.jsp" %>
 
 <br><br>
-<div style="border:1px solid red; width:100%; margin:auto;">
+
+<div style=" width:60%; margin:auto; background:white; padding:10px; align-content: center; border-radius: 10px;">
 <c:set var="i" value="0"></c:set>
 
-<div style=" width:70%; align-self: center;margin:auto;">
+<div style=" width:80%; align-self: center;margin:auto;">
 	<div style="width:100%; align-self: center; margin:auto;">
 	</div>
+<br><br>
+<h2 align="center">현재 등록되어있는 상품 목록</h2>
+<br>
+	<h6 align="right" style="font-size: x-small; color:gray;">
+	* 아이템 세부페이지에서 수정 삭제가 가능합니다.
+	</h6>
+<div id="table_div" style="width:100%; margin:auto; background: beige;">
+<table style=" width:90%; margin:auto;  opacity:0.8; padding: 20px;" align="center">
 
-<table>
 <c:choose>
 	<c:when test="${sessionScope.besort == '스튜디오'}"> <br>
 		 <c:if test="${empty list}">
@@ -118,7 +132,7 @@
 			<c:if test="${i%3==0}">
 				<tr>
 			</c:if>
-				<td id="td_csb" style="width: 200px;" class="table table-hover">
+				<td id="td_csb" style=" width: 200px;" class="table table-hover">
 				<c:url var="carUrl" value="item_detail_car.we">
 		 			<c:param name="car_idx" value="${dto.car_idx}" />
 		 		</c:url>
@@ -148,20 +162,30 @@
 		 	</tr>
 		 </c:if>
 		 <c:forEach var="dto" items="${list}">
-		 	<tr>
-		 		<td align="center">
-		 		<c:url var="shoesUrl" value="item_detail_shoes.we">
+			<c:if test="${i%3==0}">
+				<tr>
+			</c:if>
+				<td id="td_csb" style="width: 200px;" class="table table-hover">
+				<c:url var="shoesUrl" value="item_detail_shoes.we">
 		 			<c:param name="shoes_idx" value="${dto.shoes_idx}" />
 		 		</c:url>
-		 			<a href="${shoesUrl}">
-		 			<img alt="썸네일" src="${dto.shoes_thumbnail}" width="300px">
-		 			<br>${dto.shoes_be}<br>
-		 			${dto.shoes_name}</a>
-		 			<br><br><br><br>
-		 		</td>
-		 	</tr>
-		 	
-		 </c:forEach>
+				<div class="gallery_content">
+				<div class="img_content" style="border: 1px thin gray; width:150px; height:150px;
+				 align-self: center; text-align: center; margin:auto; margin-bottom: 15px;">
+					<a href="${shoesUrl}">
+					<img alt="shoes" src="${dto.shoes_thumbnail}" width="150px" style="vertical-align: middle;"> 
+					<p>${dto.shoes_name}</p>
+					</a>
+					</div>
+				</div>
+				
+				</td>
+				<c:set var="i" value="${i+1}"></c:set>
+				
+			<c:if test="${i%3==0}">
+				</tr>
+			</c:if>
+		</c:forEach>
 	</c:when>
 	
 	<c:when test="${sessionScope.besort == '부케' }">
@@ -170,26 +194,38 @@
 		 		<td>아무것도 등록되지 않았습니다.</td>
 		 	</tr>
 		 </c:if>
+		 
 		 <c:forEach var="dto" items="${list}">
-		 	<tr>
-		 		<td align="center">
-		 		<c:url var="bouqUrl" value="item_detail_bouq.we">
-		 			<c:param name="bouq_idx" value="${dto.bouq_idx}" />
-		 		</c:url>
-		 			<a href="${bouqUrl}">
-		 			<img alt="썸네일" src="${dto.bouq_thumbnail}" width="300px">
-		 			<br>${dto.bouq_be}<br>
-		 			${dto.bouq_name}</a>
-		 			<br><br><br><br>
-		 		</td>
-		 	</tr>
-		 	
-		 </c:forEach>
+			<c:if test="${i%3==0}">
+				<tr>
+			</c:if>
+				<td id="td_csb" style="width: 200px; height:250px;" class="table table-hover">
+					<c:url var="bouqUrl" value="item_detail_bouq.we">
+			 			<c:param name="bouq_idx" value="${dto.bouq_idx}" />
+			 		</c:url>
+					<div class="gallery_content">
+						<div class="img_content" style="border: 1px thin gray; width:130px; height:110px;
+						 align-self: center; text-align: center; margin:auto; margin-bottom: 10px;">
+							<a href="${bouqUrl}">
+								<img alt="shoes" src="${dto.bouq_thumbnail}" width="100%" height="110px;"
+								 style="vertical-align: middle;"> 
+								${dto.bouq_name} <br>
+							</a>
+						</div>
+					</div>
+				</td>
+				<c:set var="i" value="${i+1}"></c:set>
+				
+			<c:if test="${i%3==0}">
+				</tr>
+			</c:if>
+		</c:forEach>
 	</c:when>
-
 </c:choose>
 </table>
 </div>
+<br><br>
 </div>
+</div><br><br><br>
 </body>
 </html>

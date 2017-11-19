@@ -11,40 +11,20 @@
 	display: inline-block;
 	margin-left: 200px;
 	margin-right: 200px;
-	border: 5px solid red;
-	padding: 100px;
-}
-li {
-	display: inline-block;
-	margin-right: 5px;
-}
-#menu_box {
-	float: left;
-	display: block;
-	border: 5px solid red;
-	width: 150px;
-	height: 100px;
-	padding-top: 300px;
-}
-.menu_br {
-	display: inline-block;
-	border: 5px solid red;
-	margin: 0 auto;
-}
-#menu {
-	float: left;
-	margin-right: 5px;
-	word-break: break-all;
 }
 #sear{
 	float: left;
 	margin: 15px 0 15px 10px;
-	width:605px;
+	width:300px;
 	height: 60px;
 	border-right: 1px solid #EBEBEB;
+	padding-left: 50px;
 }
 .wedding1{
-	float: left;
+	margin-left: 200px;
+	text-align: center;
+	width: 300px;
+	padding-right: 
 }
 a:link{
 	text-decoration: none;
@@ -52,28 +32,35 @@ a:link{
 	padding: 0;
 	border:0;
 }
-.wedding_name{
-	font-family: dotum;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 16px;
-	margin: 0 auto;
-}
-.wedding_info{
-	width: 455px;
-	font-family: dotum;
-	font-size: 12px;
-	letter-spacing: -0.3px;
-	line-height: 15px;
-	margin: 0 auto;
-}
+
 .halsear{
-	border: 5px solid yellow;
+	border: 3px dashed #FFEBFE;
+	
 }
 .title{
 	border: 2px dotted #FFD9EC;
 	border-bottom: 2px dotted #FFD9EC;
 	width: 500px;
+	margin: 0 atuo;
+	text-align: center;
+	background: #F8ECE0;
+}
+.hallview{
+	padding-left: 15px;
+	padding-right: 10px;
+}
+#seh{
+	margin: 0 auto;
+	text-align: center;
+}
+th{
+	font-size: 16px;
+}
+td{
+	font-size: 15px;
+}
+.ctd{
+	cursor: pointer;
 }
 </style>
 <title>Insert title here</title>
@@ -122,33 +109,46 @@ function search(){
 		
 	}); 
 }
-function linestation(){
-	location.href="hallsearch.we?lineType="+$('#box').val();
-}
+$(document).ready(function(){
+$('.ctd:eq(0)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(0)').val();
+});
+$('.ctd:eq(1)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(1)').val();
+});
+$('.ctd:eq(2)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(2)').val();
+});
+$('.ctd:eq(3)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(3)').val();
+});
+$('.ctd:eq(4)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(4)').val();
+});
+$('.ctd:eq(5)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(5)').val();
+});
+$('.ctd:eq(6)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(6)').val();
+});
+$('.ctd:eq(7)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(7)').val();
+});
+$('.ctd:eq(8)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(8)').val();
+});
+$('.ctd:eq(9)').click(function(){
+	location.href='hallInfo.we?idx='+$('.hallidx:eq(9)').val();
+});
+});
+
 
 </script>
 </head>
 <body>
 <%@include file="/header.jsp" %>
 	<div id="search">
-	
-	
-	
-		<div id="menum_box">
-			<div class="menu_br">
-				<ul id="menu">
-					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
-					<li><a href="hallranking.we">홀 랭킹</a></li>
-					<li><a href="hallestimate.we">홀 견적내기</a></li>
-					<li><a href="hallmode.we">견적 작성</a></li>
-					<li><a href="hallranking.we">랭킹</a></li>
-
-				</ul>
-			</div>
-		</div>
-
-
-		<h2 style="text-align: center; font-size: 30px;">웨딩홀 검색</h2>
+		<h2 style="text-align: center; font-size: 30px; margin-top: 10px;padding-top: 10px;color: #A4A4A4;">웨딩홀 검색</h2>
 		
 
 
@@ -156,77 +156,90 @@ function linestation(){
 		<div class="halsear">
 
 
-<div id="hallview" style="">
+<div class="hallview">
 			<form id="seh" action="hallsearch.we" method="post">
 				
-					<div class="chk1">
-						<ul>
-						<li>
-						<br>
-							<div class="title" style="float: left; width: 100px; margin-right: 40px;">
+					<table class="chk1" style="text-align: center;margin: 0 auto;">
+						<tr>
+						
+						
+							<th class="title" style="width: 400px;">
 							홀 타입
-							</div>
-							<input type="radio" name="hallType" value="일반형"checked="checked">일반형 <input
+							</th>
+							
+							</tr>
+							<tr>
+						<td>	<input type="radio" name="hallType" value="일반형"checked="checked">일반형 <input
 								type="radio" name="hallType" value="하우스"> 하우스 <input
 								type="radio" name="hallType" value="호텔"> 호텔
-								</li>
-						</ul>
-					</div>
+								</td>
+						</tr>
+					</table>
 					
 					
 					
 					
-					<div class="chk2">
-						<ul>
-						<li>
-							<div class="title"style="float: left; width: 100px; margin-right: 40px;">식사메뉴</div>
-							<input type="radio" name="menuType" value="뷔페"checked="checked"> 뷔페 <input
+					<table class="chk2" style="text-align: center;margin: 0 auto;">
+						<tr>
+						
+							<th class="title"style="width: 400px; margin-right: 40px;">식사메뉴</th>
+							</tr>
+							<tr>
+							<td><input type="radio" name="menuType" value="뷔페"checked="checked"> 뷔페 <input
 								type="radio" name="menuType" value="한식"> 한식 <input
 								type="radio" name="menuType" value="양식"> 양식 <input
 								type="radio" name="menuType" value="퓨전코스"> 기타
-								</li>
-						</ul>
-					</div>
+								</td>
+						</tr>
+					</table>
 					
 					
 					
 					
-					<div class="chk3">
-						<ul>
-						<li>
-							<div class="title"style="text-align:center; width: 100px; margin: 0 auto;">식대가격</div>
-							<input type="radio" name="mealCost" value="0"checked="checked"> 30,000원
+					<table class="chk3" style="text-align:center; width: 520px; margin: 0 auto;">
+						<tr>
+						
+							<th class="title">식대가격</th>
+							</tr>
+							<tr>
+							<td><input type="radio" name="mealCost" value="0"checked="checked"> 30,000원
 							<input type="radio" name="mealCost" value="30000">
 							30,000~40,000원 <input type="radio" name="mealCost" value="40000">
 							40,000원~50,000원 <input type="radio" name="mealCost" value="50000">
 							50,000원~60,000원 <input type="radio" name="mealCost" value="60000">
 							60,000원이상
-							</li>
-						</ul>
-					</div>
+							</td>
+						</tr>
+					</table>
 					
 					
-					<div class="chk4">
-						<ul>
-						<li>
-							<div class="title">하객수</div>
-
-							<input type="radio" name="guest" value="0"checked="checked"> 100명 미만<input
+					<table class="chk4"style="text-align: center;margin: 0 auto;">
+						<tr>
+						
+							<th class="title" style="width: 400px;">하객수</th>
+							</tr>
+							<tr>
+							<td><input type="radio" name="guest" value="0"checked="checked"> 100명 미만<input
 								type="radio" name="guest" value="100"> 100명~200명 <input
 								type="radio" name="guest" value="200"> 200명~300명 <input
 								type="radio" name="guest" value="300"> 300명 이상
-								</li>
-						</ul>
-					</div>
+								</td>
+						</tr>
+					</table>
+					<br>
 					<input type="submit" value="검색">
 					</form>
+					
+					<br>
 
 						<form id="seh2" action ="hallsearch2.we">
-					<div class="chk5">
-					<ul>
-					<li>
-						<div class="title">지하철</div>
-							<select id="box" name="lineType" onchange="linestation()">
+					<table class="chk5" style="text-align: center;margin: 0 auto;">
+					<tr>
+					
+						<th class="title" style="width: 300px;">지하철</th>
+						</tr>
+						<tr>
+						<td>	<select id="box" name="lineType" onchange="linestation()">
 								<option value="">--선택--</option>
 								<option value="1호선">1호선</option>
 								<option value="2호선">2호선</option>
@@ -248,16 +261,16 @@ function linestation(){
 								</c:forEach>
 								</c:if>
 							</select>
-							</li>
-						</ul>
-					</div>
-					<input type="submit" value="검색">
+							<input type="submit" value="검색">
+							</td>
+						</tr>
+					</table>
 					</form>
-					
+					<br>
 					<form name="seh3" action="hallsearch3.we">
 					<div id="table_search">
 						<div>
-							웨딩홀 업체명: <input id="search_text" name="name" >
+							웨딩홀 업체명 <input id="search_text" name="name" >
 
 							<input type="submit" value="검색">
 							<div id="listDiv"></div>
@@ -265,51 +278,46 @@ function linestation(){
 					</div>
 					</form>
 				</div>
-			
+			 <label id="la1" style="font-size: 20px;text-align: center;float: center;">추천 웨딩홀</label>
 		<c:if test="${empty hallview}">
 				<h2>검색 결과가 없습니다.</h2>
 				</c:if>
-			<br> <label id="la1">추천 웨딩홀</label>
+			<br>
 			<c:forEach var="v" items="${hallview}" >
-			<div id="sear"></div>
-			<div>
 			
-
-				<ul>
+			<table id="sear" style="border-bottom: 2px Double #F8E0EC; text-align: center;width: 100%;">
+			<tr>
+				<th class="ctd" rowspan="2" style="width: 200px; height: 100px;">
 				
+				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 200px; height: 100px;float: left;"/>
 				
-				<li>
-				<div class="wedding1">
+				<input type="hidden" value="${v.idx }" class="hallidx"/>
+		
 				
-				<div class="wedding_img">
-				<a href="">
-				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 90px; height: 60px;float: left;	"/>
-				</a>
-				</div>
+				</th>
 				
-				
-			<div class="wedding_name">
-			<a href="">
+		
+			<td class="ctd" style="margin-top: 10px;box-shadow: none;
+    background: #F69D9D;">
+			<a href="" style="color: white;">
 				${v.name }
 				</a>
-				</div>
-				<div class="wedding_info">
+			<input type="hidden" value="${v.idx }" class="hallidx"/>
+			</td>
+			</tr>
+			
+				<tr>
+				<td class="ctd">
 				${v.hallType }
 				${v.menuType}
 				${v.mealCost }
 				${v.guest }
-			</div>
-				</div>
-				</ul>
-		
-			</div>
+				<input type="hidden" value="${v.idx }" class="hallidx"/>
+				</td>
+				</tr>
+				</table>
+
 			</c:forEach>
-			
-						
-					
-			
-				
-		
 
 		</div>
 
