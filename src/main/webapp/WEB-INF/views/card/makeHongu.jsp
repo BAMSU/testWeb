@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset=UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 </head>
 <body>
   <img src="card_img/hungju.jpg" width="100%">

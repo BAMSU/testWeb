@@ -13,7 +13,6 @@
 <%@include file="/header.jsp" %>
 <script>
     function capture() {
-    alert("ㅎㅇ");
         html2canvas($("#canv"), {
               onrendered: function(canvas) {
                 $("#imgSrc").val(canvas.toDataURL("image/png"));
@@ -26,7 +25,6 @@
                     }, 
                     success: function (data) {
                         try{
-                        	alert("성공~><ㅎ");
                         	location.href="cardOrder.we?idx="+${idx }+"&filename="+data.filename;
                         	
                         }catch(e){                
@@ -101,7 +99,7 @@
 [type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
-body{
+section{
 	margin-left:100px;
 	margin-right:100px;
 }
@@ -124,6 +122,7 @@ body{
 </head>
 <body>
 <form>
+<section>
 <br>
 <div class='left-box'>
 	<div>
@@ -249,6 +248,7 @@ body{
 	<input type="button" class="btn btn-primary" value="Next" onclick ="capture()">
 
 </div>
+</section>
 </body>
 <%@include file="/footer.jsp" %>
 </html>

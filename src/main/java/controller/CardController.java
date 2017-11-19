@@ -118,7 +118,8 @@ public class CardController {
 	
 	/*모바일 페이지 제작 후 QR코드 생성*/
 	 @RequestMapping(value = "/imgsave.we",method = {RequestMethod.GET, RequestMethod.POST})
-	 public ModelAndView createImage1(HttpServletRequest request) 
+	 public ModelAndView createImage1(HttpServletRequest request,
+			 @RequestParam(value="name")String name) 
 			 throws Exception {
 	 String binaryData = request.getParameter("imgSrc");
 	 FileOutputStream stream = null;
@@ -134,8 +135,8 @@ public class CardController {
 		 binaryData = binaryData.replaceAll("data:image/png;base64,", "");
 		 byte[] file2 = Base64.decodeBase64(binaryData);
 		 //String fileName = UUID.randomUUID().toString();
-		 String fileName="37";
-		 stream = new FileOutputStream("C:/Users/HWANG/git/src/main/webapp/mobile_img/" + fileName + ".png");
+		 String fileName=name;
+		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/mobile_img/" + fileName + ".png");
 		 stream.write(file2);
 		 stream.close();
 		 mav.addObject("filename", fileName);
@@ -143,7 +144,7 @@ public class CardController {
 	            File file = null;
 	            
 	            // 큐알이미지를 저장할 디렉토리 지정
-	            file = new File("C:/Users/HWANG/git/testWebsrc/main/webapp/qr_img/");
+	            file = new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/");
 	            if(!file.exists()) {
 	                file.mkdirs();
 	            }
@@ -161,7 +162,7 @@ public class CardController {
 	            MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
 	            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
 	            // ImageIO를 사용한 바코드 파일쓰기
-	            ImageIO.write(bufferedImage, "png", new File("C:/Users/HWANG/git/src/main/webapp/qr_img/"+fileName + ".png"));
+	            ImageIO.write(bufferedImage, "png", new File("C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/"+fileName + ".png"));
 	        	
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -191,7 +192,7 @@ public class CardController {
 		 binaryData = binaryData.replaceAll("data:image/png;base64,", "");
 		 byte[] file = Base64.decodeBase64(binaryData);
 		 String fileName = UUID.randomUUID().toString();
-		 stream = new FileOutputStream("C:/Users/HWANG/git/src/main/webapp/order_img/" + fileName + ".png");
+		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/order_img/" + fileName + ".png");
 		 stream.write(file);
 		 stream.close();
 		 mav.addObject("filename", fileName);

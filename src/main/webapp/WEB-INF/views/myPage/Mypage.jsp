@@ -66,7 +66,7 @@ table tfoot td {
 		style="margin: auto auto; position: relative; top: 20%; width: 60%; background-color: white;">
 		<div id="like">
 			<table class="table table-striped table-hover table-bordered">
-				<h1 style="text-align: center">My page Like !</h1>
+				<h2 style="text-align: center">My page Like !</h2>
 				<thead>
 					<tr class="thd">
 						<th>홀 이름</th>
@@ -105,7 +105,7 @@ table tfoot td {
 
 			<table class="table table-striped table-hover table-bordered">
 				<thead>
-				<h1 style="text-align: center">My page consult !</h1>
+				<h2 style="text-align: center">My page consult !</h2>
 					<tr class="thd">
 						<td>번호</td>
 						<td>이름</td>
@@ -175,7 +175,7 @@ table tfoot td {
 		<div id="review">
 
 			<table class="table table-striped table-hover table-bordered">
-			<h1 style="text-align: center;">My page Review !</h1>
+			<h2 style="text-align: center;">My page Review !</h2>
 			<thead>
 				<tr class="thd">
 					<td>번호</td>
@@ -209,7 +209,36 @@ table tfoot td {
 
 
 		</div>
-		
+		<table class="table table-striped table-hover table-bordered">
+			<h2 style="text-align: center;">청첩장</h2>
+			<thead>
+				<tr class="thd">
+					<td>이미지</td>
+					<th>상품 이름</th>
+					<th>봉투</th>
+					<th>옵션</th>
+					<th>금액</th>
+					<th>모바일 청첩장</th>
+				</tr>
+				</thead>
+				<c:if test="${empty list4}">
+					<tr>
+						<td colspan="6">구매하신 청첩장이 없습니다.</td>
+					</tr>
+				</c:if>
+
+				<c:forEach var="dto" items="${list3}">
+					<tr>
+						<td>${dto.review_idx }</td>
+						<td>${dto.subject}</td>
+						<td>${dto.content}</td>
+						<td>${dto.writer }</td>
+						<td>${dto.writedate }</td>
+						<td>${dto.name}</td>
+					</tr>
+				</c:forEach>
+
+			</table>
 			<%-- </div>
 		<c:url var="contentUrl" value="myPage_Like.we">
 			<c:param name="name">${sname}</c:param>
