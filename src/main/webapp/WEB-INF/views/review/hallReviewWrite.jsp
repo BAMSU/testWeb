@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <script src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <style>
@@ -71,7 +71,7 @@ img{
 	<article>	
 <h2 align="center" style="color: #D8D8D8; ">홀 (REVIEW) 등록</h2> 
 	
-	<form name="review_upload" action="hallReviewWrite.we" method="post" >
+	<form name="review_upload" action="hallRevieSubmit.we" >
 
 
 

@@ -10,6 +10,10 @@
 img{
 border:1px solid gray;
 }
+a:hover{
+	opacity: 2.5;
+	
+}
 </style>
 </head>
 

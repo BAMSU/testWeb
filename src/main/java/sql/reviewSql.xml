@@ -15,12 +15,18 @@
  				#{writer},
  				sysdate,
  				'이미지',
- 				0,
+ 				1,
  				#{sum},
  				#{name},
  				#{avg1},#{avg2},#{avg3},#{avg4},#{avg5})
  
  	</insert>
+ 	
+ 	<update id="review_ok" parameterType="int">
+	
+			update consult set review_ok=1 where gubun2=#{gubun2}
+
+	</update>
  	
  	<update id="review_accrue_Update" parameterType="Map">
 	
