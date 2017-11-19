@@ -23,6 +23,11 @@
 		var top = (screen.availHeight-590)/2;
 		window.open('memberLogin.we', 'login', 'left='+left+',top='+top+', width=1000px,height=590px');
 	}
+	
+
+function openWin(){
+    window.open('chatting.we', "catting", "width=400, height=550, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );
+}
 </script>
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
@@ -73,7 +78,7 @@ a:hover{
                      <li><a href="itemList.we?category=shoes">웨딩슈즈</a></li>
                      <li><a href="itemList.we?category=bouq">부케</a></li>
                   </ul></li>
-               <li><a href="chatting.we">상담하기</a></li>
+               <li><a onclick="javascript:openWin();" >상담하기</a></li>
                <c:if test="${empty sessionScope.sname}">
                   <li><a href="javascript:openLogin()">LOGIN</a></li>
                   <li><a href="memberJoin.we">SIGN UP</a></li>
