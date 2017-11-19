@@ -12,25 +12,6 @@
 	margin-left: 200px;
 	margin-right: 200px;
 }
-
-#menu_box {
-	float: left;
-	display: block;
-	border: 5px solid red;
-	width: 150px;
-	height: 100px;
-	padding-top: 300px;
-}
-.menu_br {
-	display: inline-block;
-	border: 5px solid red;
-	margin: 0 auto;
-}
-#menu {
-	float: left;
-	margin-right: 5px;
-	word-break: break-all;
-}
 #sear{
 	float: left;
 	margin: 15px 0 15px 10px;
@@ -40,7 +21,10 @@
 	padding-left: 50px;
 }
 .wedding1{
-	margin-bottom: 60px;
+	margin-left: 200px;
+	text-align: center;
+	width: 300px;
+	padding-right: 
 }
 a:link{
 	text-decoration: none;
@@ -48,13 +32,7 @@ a:link{
 	padding: 0;
 	border:0;
 }
-.wedding_name{
-	font-family: dotum;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 16px;
-	margin: 0 auto;
-}
+
 .halsear{
 	border: 3px dashed #FFEBFE;
 	
@@ -130,9 +108,7 @@ function search(){
 	}); 
 }
 
-function gohall(i){
-	location.href='hallInfo.we?idx='+i;
-}
+
 
 
 </script>
@@ -270,35 +246,38 @@ function gohall(i){
 					</div>
 					</form>
 				</div>
-			
+			 <label id="la1" style="font-size: 20px;text-align: center;float: center;">추천 웨딩홀</label>
 		<c:if test="${empty hallview}">
 				<h2>검색 결과가 없습니다.</h2>
 				</c:if>
-			<br> <label id="la1" style="font-size: 20px;text-align: center;float: center;">추천 웨딩홀</label>
+			<br>
 			<c:forEach var="v" items="${hallview}" >
 			
-			<table id="sear" style="border-bottom: 2px Double #F8E0EC; ">
+			<table id="sear" style="border-bottom: 2px Double #F8E0EC; text-align: center;">
 			<tr>
-				<td style="text-align: center;margin: 0 auto;">
+				<td  class="wedding_img">
 				
 				
-				<div class="wedding1">
+			
 				
-				<div class="wedding_img">
+			
 				<a onclick="gohall()">
 				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 100px; height: 80px;float: left;"/>
 				</a>
 				<input type="hidden" value="${v.idx }" class="hallidx">
-				</div>
+		
 				
-				
-			<div class="wedding_name">
+				</td>
+				<tr>
+		
+			<td class="wedding_name" style="margin-top: 10px;">
 			<a href="">
 				${v.name }
 				</a>
-				</div>
 			
-				<table style="text-align: center;margin: 0 auto;">
+			</td>
+			</tr>
+			
 				<tr>
 				<td >
 				${v.hallType }
@@ -308,19 +287,8 @@ function gohall(i){
 				</td>
 				</tr>
 				</table>
-			
-				</div>
-				
-		</td>
-			</tr>
-			</table>
+
 			</c:forEach>
-			
-						
-					
-			
-				
-		
 
 		</div>
 

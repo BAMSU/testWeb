@@ -72,7 +72,6 @@
 th{
 	width: 100px;
 }
-
 </style>
 </head>
 <style>
@@ -80,16 +79,6 @@ th{
 <body> 	
 <%@include file="/header.jsp" %>
 <div id="est">
-<div class="menu_br">
-				<ul id="menu">
-					<li><a href="hallsearch.we">웨딩홀 검색</a></li>
-					<li><a href="hallranking.we">홀 랭킹</a></li>
-					<li><a>홀vs홀</a></li>
-					<li><a href="hallsearchlist.we">불러오기확인</a></li>
-					<li><a href="hallestimate.we">홀 견적내기</a></li>
-					<li><a href="hallranking.we">랭킹</a></li>
-				</ul>
-			</div>
 
 	
 	<c:set var="em" value="${hallview}"/>
@@ -105,9 +94,11 @@ th{
 			<ul>
 			<li>
 			<div class="hall_img">
+			<a href="">
 			<img src="/finalproject/img/hall/${em.idx}/r1.jpg" alt="홀대표사진" style=" width: 300px; height: 270px;float: left;
 			margin-right: 20px;"/>
-			
+			<input type="hidden" value="${em.idx}" class="hallview"/>
+			</a>
 			</div>
 		</li>
 	</ul>

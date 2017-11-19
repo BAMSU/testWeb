@@ -49,47 +49,14 @@ span {
 				<table id="tr">
 					<c:forEach var="dto" items="${hallrank}">
 
-<<<<<<< HEAD
-						<td>
-							<c:set var="cnt" value="${cnt+1}" />
-							</td>
-								<td>
-										<a href="rank_img"> <img
-												src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
-												style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
-										</a>
-									</td>
-							<td>
-										${dto.name}
-										
-										
-</td>
-										<td><span
-											style="border: 2px solid transparent !important; background: #F69D9D; color: #fff; border-radius: 6px;"
-											onclick="window.alert('hallInfo${dto.idx }.we')">상세보기</span></td>
-										<td><span
-											style="border: 1px solid #BCA9F5; border-radius: 6px;"
-											onclick="window.alert('hallCompare.we')">홀 통계보기</span></td>
-								
-								<c:if test="${cnt%3==0}">
-									</tr>
-								</c:if>
-				</c:forEach>
-=======
-
-						<c:if test="${cnt%3==0}">
-							<tr>
-						</c:if>
-
-
 						<td><c:set var="cnt" value="${cnt+1}" /></td>
 						<td><a href="rank_img"> <img
 								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
 								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
 						</a></td>
-						<td style="padding-top: 20px;">${dto.name}</td>
+						<td>${dto.name}</td>
 						<td><span
-							style="border: 2px solid transparent !important; background: #F69D9D;  #fff; border-radius: 6px;"
+							style="border: 2px solid transparent !important; background: #F69D9D; color: #fff; border-radius: 6px;"
 							onclick="window.alert('hallInfo${dto.idx }.we')">상세보기</span></td>
 						<td><span
 							style="border: 1px solid #BCA9F5; border-radius: 6px;"
@@ -99,7 +66,11 @@ span {
 							</tr>
 						</c:if>
 					</c:forEach>
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
+					<c:if test="${cnt%3==0}">
+						<tr>
+					</c:if>
+
+
 				</table>
 			</form>
 		</div>
