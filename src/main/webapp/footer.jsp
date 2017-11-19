@@ -20,15 +20,11 @@
             <img alt="BusinessEnterprise" src="upload/handshake.png" style="vertical-align: middle; opacity:0.5;">
           제휴업체 관련 사이트</a>
          </p>
-<<<<<<< HEAD
          <p>Copyright 2017 Go To Hall <a href="javascript:window.open('adminLogin.we', 'login', 'width=1200,height=600')">GTH . Inc </a>
           All Rights Reserved. <br>Made with <i class="icon-heart3"></i> <a href="http://www.iei.or.kr" target="_blank">KH정보교육원</a>
           </p>
          </div>
          
-=======
-         <p>Copyright 2017 Go To Hall <a href="admin.we">GTH . Inc </a> All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">KH정보교육원</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
       </div>
    </div>
 </div>         
