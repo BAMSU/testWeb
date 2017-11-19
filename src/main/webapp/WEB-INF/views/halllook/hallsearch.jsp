@@ -15,7 +15,7 @@
 #sear{
 	float: left;
 	margin: 15px 0 15px 10px;
-	width:605px;
+	width:300px;
 	height: 60px;
 	border-right: 1px solid #EBEBEB;
 	padding-left: 50px;
@@ -255,12 +255,7 @@ function search(){
 			
 			<table id="sear" style="border-bottom: 2px Double #F8E0EC; text-align: center;">
 			<tr>
-				<td  class="wedding_img">
-				
-				
-			
-				
-			
+				<td>
 				<a onclick="gohall()">
 				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 100px; height: 80px;float: left;"/>
 				</a>
