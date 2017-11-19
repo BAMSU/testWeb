@@ -9,10 +9,10 @@
 #search {
 	text-align: center;
 	display: inline-block;
-	margin-left: 200px;
-	margin-right: 200px;
 	height: 100%;
 	width: 100%;
+	padding-left: 250px;
+	padding-right: 450px;
 }
 #sear{
 	float: left;
@@ -278,8 +278,9 @@ $('.ctd:eq(9)').click(function(){
 						</div>
 					</div>
 					</form>
+					
 				</div>
-			 <label id="la1" style="font-size: 20px;text-align: center;float: center;">추천 웨딩홀</label>
+			
 		<c:if test="${empty hallview}">
 				<h2>검색 결과가 없습니다.</h2>
 				</c:if>

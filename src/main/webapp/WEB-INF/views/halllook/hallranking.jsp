@@ -52,6 +52,8 @@ $(document).ready(function(){
 	display: inline-block;
 	width: 100%;
 	height: 100%;
+	padding-left: 300px;
+	padding-right: 300px;
 }
 span {
 	float: left;
