@@ -100,11 +100,14 @@ function show() {
 	
 	
 }
+
+
+
 </script>
 </head>
 <body>
 <%@include file="/adminheader.jsp"%>
-
+<div class="song">
 <article class="container">
 
       <div class="col-md-12">
@@ -115,6 +118,7 @@ function show() {
          </div>
          <form class="form-horizontal" name="fm" action="updateRoom.we" method="POST">
          <c:forEach var="dto" items="${list}">
+         
          <div class="form-group">
                <label class="col-sm-3 control-label">룸 이름 </label>
 
@@ -205,8 +209,8 @@ function show() {
       </div>
 
    </article>
-
-
+</div>
+<%@include file="/footer.jsp"%>
 
 </body>
 </html>

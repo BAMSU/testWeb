@@ -36,6 +36,9 @@ a{
 a:hover{
 	text-decoration: none;
 }
+.song {
+	height: 770px;
+}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <header id="fh5co-header-section" class="sticky-banner" style="border-bottom: 5px solid pink;">
@@ -48,7 +51,7 @@ a:hover{
          <!-- START #fh5co-menu-wrap -->
          <nav id="fh5co-menu-wrap" role="navigation">
             <ul class="sf-menu" id="fh5co-primary-menu">
-               <li><a href="index.we">Home</a></li>
+               <li><a href="admin.we">Home</a></li>
                <li><a href="wdList.we">웨딩홀관리</a></li>
                <li><a href="acon.we?type=0">문의게시판</a></li>
                <li><a href="abelist.we?type=0">가입업체정보</a></li>

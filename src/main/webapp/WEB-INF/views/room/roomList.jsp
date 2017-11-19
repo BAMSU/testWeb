@@ -46,10 +46,10 @@ table tfoot td{
 </head>
 <body>
 <%@include file="/adminheader.jsp"%>
+<div class="song">
 
 
-
-<div style="margin: 0px auto; width: 40%; background-color: white;">
+<div style="margin: 0px auto; position:relative; top:20%; width: 40%; background-color: white;">
 		<div>
 			<h3 align="center">웨딩홀 룸 리스트 / 룸은 최대 2개</h3>
 			<input type="hidden" name="hallidx" value="${idx}">
@@ -88,6 +88,6 @@ table tfoot td{
 			  	</table>
 			  </div>
 	
-	</div>
+	</div></div><%@include file="/footer.jsp"%>
 </body>
 </html>

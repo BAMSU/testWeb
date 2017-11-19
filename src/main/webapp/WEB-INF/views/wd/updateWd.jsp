@@ -124,12 +124,39 @@ function info() {
 	document.getElementById('sample4_roadAddress').value = si + " " + gu + " " + roadAddr;
 	document.getElementById('sample4_jibunAddress').value = si + " " + gu + " " + dong + " "+ addr;
 	
+	var apple ='${list.hallType}';
+	var pen = apple.split(',');
+	
+	for(var i = 0; i < pen.length; i++) {
+		
+		for (var j = 0; j < document.fm.hallType2.length; j++) {
+	         if (document.fm.hallType2[j].value==pen[i]) {
+	        	 document.fm.hallType2[j].checked=true;
+	         }
+	      }
+	}
+	
+	
+	var apple2 ='${list.menuType}';
+	var pen2 = apple2.split(',');
+	
+	for(var i = 0; i < pen2.length; i++) {
+		
+		for (var j = 0; j < document.fm.menu1.length; j++) {
+	         if (document.fm.menu1[j].value==pen2[i]) {
+	        	 document.fm.menu1[j].checked=true;
+	         }
+	      }
+	}
+	
+	
+	
 }
 </script>
 </head>
 <body onload = "info()">
 <%@include file="/adminheader.jsp"%>
-
+<div class="song">
    <article class="container">
 
       <div class="col-md-12">
@@ -154,7 +181,7 @@ function info() {
                
                <div class="col-sm-6">
                 <input type="checkbox" name="hallType2" value="하우스">하우스
-                <input type="checkbox" name="hallType2" value="웨딩홀">웨딩홀 
+                <input type="checkbox" name="hallType2" value="일반홀">일반홀 
                 <input type="checkbox" name="hallType2" value="호텔">호텔 
                </div>
             </div>
@@ -268,6 +295,6 @@ function info() {
          
          </form>
       </div>
-   </article>
+   </article></div><%@include file="/footer.jsp"%>
 </body>
 </html>
