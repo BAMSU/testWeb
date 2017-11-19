@@ -19,7 +19,9 @@
 </body>
     <script type="text/javascript">
         var textarea = document.getElementById("messageWindow");
-        var webSocket = new WebSocket('ws://192.168.20.175:9090/finalproject/broadcasting');
+        var webSocket = new WebSocket('ws://192.168.0.10:9090/finalproject/broadcasting');
+        
+        
         var inputMessage = document.getElementById('inputMessage');
     webSocket.onerror = function(event) {
       onError(event)
@@ -35,7 +37,7 @@
  
     
     function onMessage(event) {
-        textarea.value +=${sname} + event.data + "\n";  
+        textarea.value += "${snames} :" + event.data + "\n";  
         test();
     }
     function onOpen(event) {
@@ -45,7 +47,7 @@
       alert(event.data);
     }
     function send() {
-        textarea.value += ${sname} + inputMessage.value + "\n";
+        textarea.value += "${snames} :" +inputMessage.value + "\n";
         webSocket.send(inputMessage.value);
         inputMessage.value = "";
         test();

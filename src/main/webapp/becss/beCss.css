@@ -7,3 +7,11 @@ margin-left: 60%;
 margin-top: 30%;
 margin-right: auto;
 }
+a{
+	text-decoration: none;
+	
+}
+body{
+	background-image: url('upload/beBackGround.jpg'); opacity: 0.7; background-size: cover;
+	
+}

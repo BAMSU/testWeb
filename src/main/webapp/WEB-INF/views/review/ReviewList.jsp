@@ -80,8 +80,8 @@ body{
 		  
 		 	
 	 
-				   <div id="left_main" style="height:300px; width:100px;
-					margin-right:50px; float:left;">
+				   <div id="left_main" style="height:200px; width:100px;
+					margin-right:50px; float:left; ">
 	   
 					<img src="/myweb/hall/${dtoa.room_idx}/r1.jpg" style="width: 180px;;height: 180px" />
 				   </div>
@@ -137,7 +137,7 @@ body{
 				 <tr>
 				 <td><hr></td>
 				 </tr>
-			 </td>
+			 
 				
  			
  		  </c:forEach>

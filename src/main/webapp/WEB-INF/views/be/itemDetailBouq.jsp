@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <title>Insert title here</title>
 </head>
 <body>
 <%@include file="/header.jsp" %>
-<h2>itemDetailBouq</h2>
 <c:if test="${empty dto}">
 	<script type="text/javascript">
 		window.alert('잘못된 접근입니다.');
@@ -22,6 +22,7 @@
 	<c:param name="idx" value="${dto.bouq_idx}"></c:param>
 </c:url>
 
+<div class="jumbotron">
 <img src="${dto.bouq_thumbnail}" width="400" height="300" />
 <ul>
 	<li>상품명 : ${dto.bouq_name}</li>
@@ -35,7 +36,7 @@
 
 <br>
 ${dto.bouq_detail }
-
+</div>
 <div class="jumbotron">
 	<p>
 	업체명 : ${bdto.be_name }<br>

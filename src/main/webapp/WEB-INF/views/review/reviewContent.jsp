@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>\
+<title>Insert title here</title>
 
 
 <script src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/> 
 <script>
 /*
 		rolling page by hong..
@@ -59,7 +60,7 @@ var leftCt = 0;
 /*
 	이미지 사이즈 맞춰서 수정해주세요... (#viewArea)
 */
-#viewArea {position:relative; width:250px; height:200px;overflow:hidden;}
+#viewArea {position:relative; width:300px; height:200px;overflow:hidden;}
 #imgList {position:absolute; width:2000px; left:0px; top:0px;}
 #imgList div {float:left; margin:0px; padding:0px;}
 body {
@@ -72,10 +73,13 @@ body {
 </head>
 <body align="center">
 <%@include file="/header.jsp" %>
-<input  type="text" value="${hallInfo.name}" readonly="readonly"  style="width: 600px; height: 50px; text-align: center;">
-	
+<hr style="width: 600px;">
+<h4 style="text-align: center;">${hallInfo.name}</h4>
+<hr style="width: 600px;">
 			
 		  <div id="wrap"  style="width:600px; margin:auto; height: 1000px;"  >
+		  	<div id="header_main" style="float:  ">
+		  	</div>
 		  
 				   <div id="left_main" style="height:180px; width:100px;
 					margin-right:50px; float:left; text-align: left;">
@@ -84,8 +88,8 @@ body {
 				   </div>
 				   <div id="right_main"  style="height:200px; width:400px;  float:left; margin-left: 50px; text-align: left;">
 						
-						<div>홀 이름: ${hallInfo.name}</div>
-						<div>메뉴 : ${hallInfo.menuType}</div>
+						<div>홀   이름 : ${hallInfo.name}</div>
+						<div>메     뉴 : ${hallInfo.menuType}</div>
 						<div>보증인원 : ${hallInfo.guest} </div>
 						<div>식사비용 : ${hallInfo.mealCost}</div>
 						<hr>
@@ -102,34 +106,55 @@ body {
 					 		<td><img src="/myweb/hall/icon.jpg" style="width: 80px; height: 80px;"></td>
 					 		<td>  <input type="text" value="${dto.content}" readonly="readonly" style="width: 500px; height: 100px; text-align: justify;"></td>
 					 	</tr>
-					 	
-					 
+					 	<tr>
+					 	<td colspan="2"><hr></td>
+					 	</tr>
 					 </table>
 					 <br><br>
-					 <table align="center" >
-					 <tr><td>
-					 	<div id="viewArea" style="text-align: center;">
-					 	<span onClick="imgStart('L')"><img src="/myweb/hall/arrow_red.png" style="width: 50px;height: 50px;"></span>
-							<div id="imgList" style="text-align: center;">
-								<div><img src="/myweb/hall/${dto.room_idx}/r1.jpg" style="width: 250px;height: 200px; "></div>
-								<div><img src="/myweb/hall/${dto.room_idx}/r2.jpg" style="width: 250px;height: 200px; "></div>
-								<div><img src="/myweb/hall/${dto.room_idx}/r3.jpg" style="width: 250px;height: 200px; "></div>
-								<div><img src="/myweb/hall/${dto.room_idx}/r4.jpg" style="width: 250px;height: 200px; "></div>
-								<div><img src="/myweb/hall/${dto.room_idx}/r5.jpg" style="width: 250px;height: 200px; "></div>
+					 <table  align="center" >
+					 <tr><td style="width:15%">
+					 
+					   	<span onClick="imgStart('L')"><img src="/myweb/hall/arrow_red.png" style="width: 50px;height: 30px;"></span>
+						</td>
+						<td style="width:70%">
+					 	<div id="viewArea"  >
+									
+							<div id="imgList" >
+								<div><img src="/myweb/hall/${dto.room_idx}/r1.jpg" style="width: 300px;height: 200px; "></div>
+								<div><img src="/myweb/hall/${dto.room_idx}/r2.jpg" style="width: 300px;height: 200px; "></div>
+								<div><img src="/myweb/hall/${dto.room_idx}/r3.jpg" style="width: 300px;height: 200px; "></div>
+								<div><img src="/myweb/hall/${dto.room_idx}/r4.jpg" style="width: 300px;height: 200px; "></div>
+								<div><img src="/myweb/hall/${dto.room_idx}/r5.jpg" style="width: 300px;height: 200px; "></div>
 							</div>
 						</div>
-							<span onClick="imgStart('R')" ><img src="/myweb/hall/arrow_red - r.png"  style="width: 50px;height: 50px;"></span> 
-						<div>
-
-						</div>
 						</td>
+						<td style="width:15%;">	
+					
+							<span onClick="imgStart('R')" ><img src="/myweb/hall/arrow_red - r.png"  style="width: 50px;height: 30px;"></span> 
+						
+
+						</td>
+						</tr>
+						</table>
+						<br>
+						<table align="center">
+						<tr>
+						 	<td><a href="AllhallList.we"><input class="btn btn-secondary" type="button" value="목록으로"></a>
+						 		<c:url var="consultMainUrl" value="consult.we">
+									<c:param name="idx" >${dto.room_idx}</c:param>
+									<c:param name="gubun" >1</c:param>
+								</c:url>
+						 		<a href="${consultMainUrl }"><input class="btn btn-primary" type="button" value="상담신청"></a>
+						 	</td>
+						</tr> 
+						<tr>
+							<hr>
 						</tr>
 					 	</table>
 					 	
 					</div>
 				</div>
 			
-				
 			
 				
  			

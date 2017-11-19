@@ -90,11 +90,14 @@ public class LoginController {
 	public ModelAndView naverLoginOkite(@RequestParam("name")String name,@RequestParam("id")String id,HttpSession session){
 		
 	
-		session.setAttribute("sname", name);
-		session.setAttribute("sid", id);
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("index");
+		mav.addObject("msg", "로그인 성공");
+		session.setAttribute("sname", name);
+		session.setAttribute("sid", id);
+		mav.addObject("gourl", "index.we");
+		mav.setViewName("member/memberMsg"); 
+	
 		return mav;	
 	}
 	

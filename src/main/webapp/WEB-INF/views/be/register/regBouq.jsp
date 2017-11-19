@@ -5,12 +5,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.button{
+	width:90px;
+	height:50px;
+	text-align: center;
+	vertical-align: center;
+	background: white;
+	opacity:0.4;
+	border:2px solid gray;
+	border-radius: 5px;
+}
+.button:hover{
+	background: transparent;
+}
+
+</style>
 </head>
 <body>
 <!--부케 입력폼  -->
-	<h2>${sessionScope.besort} 상품 등록 신청</h2>
+<h2	align="center">${sessionScope.besname} 상품 등록 신청</h2>
+<br><br>
 <form action="regBouq.we" name="bouqIn" method="post" enctype="multipart/form-data">
-<table>
+<table align="center" style="width:90%;margin:auto;">
 
 	<tr>
 		<td>업체명</td> <td><input type="text" name="bouq_be" value="${sessionScope.besname}" readonly style="border-style: none;" required></td>
@@ -34,7 +51,7 @@
 	
 	<tr>
 		<td>업체 간략소개</td>
-		<td><input type="text" name="bouq_simple" required></td>
+		<td><input type="text" name="bouq_simple" size="38" maxlength="100" placeholder="40자 내외" required></td>
 	</tr>
 	
 	<tr>
@@ -44,9 +61,9 @@
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2" align="center">
 			<input type="hidden" name="be_sort" value="${sessionScope.besort}">
-			<input type="submit" value="등록 신청하기">
+			<input type="submit" class="button" value="등록 신청">
 		</td>
 	</tr>
 </table>
