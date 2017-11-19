@@ -162,7 +162,13 @@ table tfoot td {
 								</c:url> <script>
                if(${dto.gubun}>=2){
                     document.getElementById('hallReview').style.display = 'none';}
-               </script> <a href="${hallreview} "><input id="hallReview"
+               </script> 
+               			<c:if test="${dto.gubun>=2||dto.review_ok==1}">
+               			   document.getElementById('hallReview').style.display = 'none';
+               			</c:if>
+               
+               
+               <a href="${hallreview} "><input id="hallReview"
 									type="button" value="홀후기 작성"></a></td>
 						</tr>
 					</c:forEach>

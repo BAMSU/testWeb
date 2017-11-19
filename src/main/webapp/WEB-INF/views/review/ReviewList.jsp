@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 </head>
 <link href="https://fonts.googleapis.com/css?family=Montez"
 	rel="stylesheet">
