@@ -11,6 +11,21 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <!-- Magnific Popup -->
 <link rel="stylesheet" href="css/magnific-popup.css">
+<script type="text/javascript"
+      src="http://bpmaker.giffy.me/userdata/user/54/54797/2/parts.js"></script>
+   <!-- 하트내리는 효과  -->
+
+   <script type="text/javascript"
+      src="http://bpmaker.giffy.me/userdata/user/3/3575/8/parts.js"></script>
+   <p style="text-align: center; margin: 0px;">
+      <a href="http://bpmaker.giffy.me/"></a>
+   </p>
+   <p
+      style="text-align: center; margin: 2px 0px 0px 0px; font-size: 10px; padding: 0;">
+      <a style="text-decoration: none; margin: 0; padding: 0;"
+         href="http://bpmaker.giffy.me/parts/userPartsId/17340/"></a>
+   </p>
+   <!-- 마우스 위에 하트 내려지는 효과  -->
 <script>
 	function openLogin() {
 		var maskHeight = $(document).height(); 

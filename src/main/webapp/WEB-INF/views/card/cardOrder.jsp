@@ -8,7 +8,7 @@
 <title>Love is staying</title>
 <%@include file="/header.jsp" %>
 <style>
-	body{
+	section{
 		margin-left:100px;
 		margin-right:100px;
 	}
@@ -60,52 +60,12 @@
 <script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.2.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<script>
-function ok(){
-	var total =  parseInt(document.getElementById("totalprice").value);
-	if (confirm("모든 항목을 정확히 작성하셨습니까?") == true){    //확인
-		var IMP = window.IMP; // 생략가능   
-		   IMP.init('imp55802002');  // 가맹점 식별 코드
 
-		   IMP.request_pay({
-		    pg : 'html5_inicis',
-		    pay_method : 'card',
-		    merchant_uid : 'merchant_' + new Date().getTime(),
-		    name : '청첩장 결재',
-		    amount : total,
-		    buyer_email : 'iamport@siot.we',
-		    buyer_name : '구매자이름',
-		    buyer_tel : '010-9800-5375',
-		    buyer_addr : '서울특별시 강남구',
-		    buyer_postcode : '123-456'
-		}, function(rsp) {
-		    if ( rsp.success ) {
-		/*            msg += '고유ID : ' + rsp.imp_uid;
-		           msg += '상점 거래ID : ' + rsp.merchant_uid;
-		           msg += '결제 금액 : ' + rsp.paid_amount;
-		           msg += '카드 승인번호 : ' + rsp.apply_num; */
-		           
-		    } else {
-		       var msg = '결제에 실패하였습니다.';
-		        msg += '에러내용 : ' + rsp.error_msg;
-		    }
-
-		    alert(msg);
-		});
-	}else{
-	   return;
-	}
-
-}
-
-</script>
 
 </head>
 <body onload="show()">
 <script>
-function ordernext(){
-	
-}
+
 function gita(){
 	var gita = document.getElementById("gita").checked;
 	var tgita = document.getElementById("tgita");
@@ -199,8 +159,53 @@ function show(){
 	document.getElementById("o_option").value=opti;
 	document.getElementById("totalprice").value = ttprice; //o_price 
 }
+function ok(){
+	var total =  parseInt(document.getElementById("totalprice").value);
+	if (confirm("모든 항목을 정확히 작성하셨습니까?") == true){    //확인
+		var IMP = window.IMP; // 생략가능   
+		   IMP.init('imp55802002');  // 가맹점 식별 코드
+
+		   IMP.request_pay({
+		    pg : 'html5_inicis',
+		    pay_method : 'card',
+		    merchant_uid : 'merchant_' + new Date().getTime(),
+		    name : '청첩장 결재',
+		    amount : total,
+		    buyer_email : 'iamport@siot.we',
+		    buyer_name : '구매자이름',
+		    buyer_tel : '010-9800-5375',
+		    buyer_addr : '서울특별시 강남구',
+		    buyer_postcode : '123-456'
+		}, function(rsp) {
+		    if ( rsp.success ) {
+		/*            msg += '고유ID : ' + rsp.imp_uid;
+		           msg += '상점 거래ID : ' + rsp.merchant_uid;
+		           msg += '결제 금액 : ' + rsp.paid_amount;
+		           msg += '카드 승인번호 : ' + rsp.apply_num; */
+		           
+		    } else {
+		       var msg = '결제에 실패하였습니다.';
+		        msg += '에러내용 : ' + rsp.error_msg;
+		    }
+
+		    alert(msg);
+		});
+	}else{
+	   return;
+	}
+function myp(){
+	if (confirm("주문이 완료되었습니다. 모바일용 QR코드를 만드시겠습니까?") == true){  
+		location.href="mycard.we?filename=${filename}.png";
+		
+} else{
+	location.href="index.we";
+	}
+}
+}
+
 </script>
 <br><br>
+<section>
 <h4><font style="color: red;"><strong>기본주문</strong></font> 정보</h4>
 <hr>
 <div id="top" style="text-align:center; height: 200px; vertical-align: center;">
@@ -356,7 +361,7 @@ function show(){
 		<input type="hidden" id="o_plus" name="o_plus">
 		<input type="hidden" id="o_price" name="o_price">
 		<input type="hidden" id="o_img" name="o_img">
-		<input type="button" class="btn btn-primary" value="결재" onclick="ok()"> &nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-primary" value="다음" onclick="show()">
+		<input type="button" class="btn btn-primary" value="결재" onclick="ok()"> &nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" class="btn btn-primary" value="다음">
 	</form>
 <br>
 <p id="total"></p></td>
@@ -401,6 +406,7 @@ function show(){
         }).open();
     }
 </script>
+</section>
 </body>
 <%@include file="/footer.jsp" %>
 </html>

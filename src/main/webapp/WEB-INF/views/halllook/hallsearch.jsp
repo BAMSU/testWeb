@@ -79,7 +79,7 @@ $(document).ready(function(){
 		location.href='hallsearch.we?lineType='+line;
 	});
 });
-function search(){
+/* function search(){
 	
  	
 	var hallType = $(':radio[name="hallType"]:checked').val(); 
@@ -112,7 +112,7 @@ function search(){
 	}
 		
 	}); 
-}
+} */
 $(document).ready(function(){
 $('.ctd:eq(0)').click(function(){
 	location.href='hallInfo.we?idx='+$('.hallidx:eq(0)').val();
