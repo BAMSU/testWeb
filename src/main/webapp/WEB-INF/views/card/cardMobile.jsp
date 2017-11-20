@@ -41,13 +41,12 @@ function capture() {
                 $.ajax({ 
 	                type : "post",
 	                data : $("form").serialize(),
-                    url:   "imgsave.we?name=${sname}",
+                    url:   "imgsave.we?idx="+${idx},
                     error: function(a, b, c){ 
                         alert("fail");
                     }, 
                     success: function (data) {
                         try{
-                        	alert(",,");
                         }catch(e){                
                             alert('server Error!');
                         }
@@ -181,7 +180,7 @@ $("#imgInp").change(function(){
 		    <div id="canv" style="float:right; height: 500px; width: 250px; margin-right: 22px; margin-top: 30px;">
 		    <img style="left:890px; top:660px;" src="mobile_img/123.png" width="250"  height="500" class="imgda" border="0">
 				
-	    		<img style="left:890px; top:912px;" src="order_img/${filename }" width="250" class="imgda" onmousedown="startDrag(event, this)" border="0">
+	    		<img style="left:890px; top:912px;" src="order_img/${filename}.png" width="250" class="imgda" onmousedown="startDrag(event, this)" border="0">
 				<img style="left:220px; top:1034px;" src="mobile_img/KUBA04.jpg" width="250" class="imgda" onmousedown="startDrag(event, this)" border="0">
 				<img style="left:152px; top:976px;" src="mobile_img/31399058_IBHaG9w5_01.jpg" width="250" class="imgda" onmousedown="startDrag(event, this)" border="0">
 				<img style="left:112px; top:930px;"src="mobile_img/31399058_k39re2vx_14.jpg" width="250" class="imgda" onmousedown="startDrag(event, this)" border="0">

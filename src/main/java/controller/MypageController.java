@@ -17,6 +17,7 @@ import mypageLike.model.MypageLikeDAO;
 import mypageReview.model.MypageReviewDAO;
 import review.model.ReviewDAO;
 import yong.card.model.PageModule;
+import yong.cardOrder.model.CardOrderDAO;
 
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class MypageController {
 	@Autowired
 	private ReviewDAO reviewDao;
 
+	@Autowired
+	private CardOrderDAO cardorderDao;
+	
 	@RequestMapping("/mypage.we")
 	public ModelAndView myPage(HttpSession session, @RequestParam(value = "cp1", defaultValue = "1") int cp1,
 			@RequestParam(value = "cp2", defaultValue = "1") int cp2,
@@ -46,9 +50,9 @@ public class MypageController {
 		String name = (String) session.getAttribute("sname");
 
 		mav.addObject("list1", mypageLikeDao.mypage_Like(name));
-
+		System.out.println(name);
 		mav.addObject("list3", reviewDao.ReviewList(cp3, 5, name));
-
+		mav.addObject("list4", cardorderDao.cardoder(name));
 		// String pageStr1 = PageModule.makePage("mypage.we", totalCnt, 5, 5,
 		// cp1);
 		String pageStr2 = PageModule.makePage("mypage.we", consultDao.getTotelCont(name), 5, 5, cp2);
