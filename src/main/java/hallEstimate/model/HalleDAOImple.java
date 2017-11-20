@@ -14,6 +14,9 @@ import room.model.RoomDTO;
 public class HalleDAOImple implements HalleDAO {
 
 	private SqlSessionTemplate sqlMap;
+	private String water;
+	private String beer;
+	
 	
 	public HalleDAOImple(SqlSessionTemplate sqlMap){
 		super();
@@ -91,7 +94,6 @@ public class HalleDAOImple implements HalleDAO {
 		List<HallDTO> list = sqlMap.selectList("hallnamelist",name);
 		return list;
 	}
-	
 	
 
 }

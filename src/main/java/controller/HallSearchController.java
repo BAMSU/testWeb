@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.collections.keyvalue.DefaultKeyValue;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.beust.jcommander.Parameter;
 
 import hall.model.HallDAO;
 import hall.model.HallDTO;
@@ -125,5 +128,18 @@ public class HallSearchController {
 		mav.setViewName("card/pSearch");
 		return mav;
 	}
-
+	
+	@RequestMapping("/hallestimate2.we")
+	public ModelAndView hallnum(@RequestParam(value="water")int water,@RequestParam(value="beer")int beer,@RequestParam(value="checked")int checked,@RequestParam(value="hall_idx")int hall_idx){		
+		int sum_value=(water*400)+(beer*2000);
+		ModelAndView mav = new ModelAndView();
+		List<HalleDTO> hales=halleDao.hallestList();
+		mav.addObject("water", water);
+		mav.addObject("beer",beer);
+		mav.addObject("checked", checked);
+		mav.addObject("sum_value", sum_value);
+		mav.addObject("hales",hales);
+		mav.setViewName("halllook/hllestimate");
+		return mav;
+	}
 }

@@ -10,7 +10,7 @@
 	text-align: center;
 	display: inline-block;
 	width: 950px;
-	margin-left: 150px;
+	margin-left: 500px;
 }
 #sear{
 	margin: 15px 0 15px 10px;
@@ -298,7 +298,7 @@ $('.ctd:eq(9)').click(function(){
 		
 			<td class="ctd" style="margin-top: 10px;box-shadow: none;
     background: #F69D9D;">
-			<a href="" style="color: white;">
+			<a href="'hallInfo.we?idx=${v.idx}'" style="color: white;">
 				${v.name }
 				</a>
 			<input type="hidden" value="${v.idx }" class="hallidx"/>
