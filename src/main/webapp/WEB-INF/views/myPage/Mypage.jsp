@@ -216,7 +216,7 @@ table tfoot td {
 			<thead>
 				<tr class="thd">
 					<td>이미지</td>
-					<th>상품 이름</th>
+					<th>상품코드</th>
 					<th>봉투</th>
 					<th>옵션</th>
 					<th>금액</th>
@@ -229,16 +229,25 @@ table tfoot td {
 					</tr>
 				</c:if>
 
-				<c:forEach var="dto" items="${list4}">
+				<c:set var="dto" value="${list4}"/>
 					<tr>
-						<td>${dto.review_idx }</td>
-						<td>${dto.subject}</td>
-						<td>${dto.content}</td>
-						<td>${dto.writer }</td>
-						<td>${dto.writedate }</td>
-						<td>${dto.name}</td>
+						<td></td>
+						<td>${dto.o_code}</td>
+						<td>${dto.o_env}</td>
+						<td>${dto.o_option}</td>
+						<td>
+						${dto.o_sale}
+						${dto.o_plus}
+						${dto.o_price}</td>
+						<td>
+						<c:if test="${dto.ect==0}">
+						 	<a href="mycard.we?filename=${dto.o_img}&idx=${dto.o_idx}&name=${dto.o_name}">청첩장 만들기</a>
+						</c:if>
+						<c:if test="${dto.ect!=0}">
+							<img src="qr_img/${dto.ect }" width="50px" height="50px">
+						</c:if>
+						</td>
 					</tr>
-				</c:forEach>
 
 			</table>
 			<%-- </div>

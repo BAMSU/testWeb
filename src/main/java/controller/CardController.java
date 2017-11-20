@@ -42,9 +42,13 @@ public class CardController {
 	private CardOrderDAO cardOrderDao;
 	
 	@RequestMapping("/mycard.we")
-	public ModelAndView mycard(){
+	public ModelAndView mycard(@RequestParam(value="filename")String filename, 
+			@RequestParam(value="idx")String idx,
+			@RequestParam(value="name")String name){
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("filename", "1fa4da92-6d64-4e29-ab3f-e2df455fba2e.png");
+		mav.addObject("filename", filename);
+		mav.addObject("idx", idx);
+		mav.addObject("name", name);
 		mav.setViewName("card/cardMobile");
 		return mav;
 	}
@@ -119,7 +123,7 @@ public class CardController {
 	/*모바일 페이지 제작 후 QR코드 생성*/
 	 @RequestMapping(value = "/imgsave.we",method = {RequestMethod.GET, RequestMethod.POST})
 	 public ModelAndView createImage1(HttpServletRequest request,
-			 @RequestParam(value="name")String name) 
+			 @RequestParam(value="idx")String idx) 
 			 throws Exception {
 		 System.out.println(name+"????????");
 	 String binaryData = request.getParameter("imgSrc");
@@ -136,8 +140,14 @@ public class CardController {
 		 binaryData = binaryData.replaceAll("data:image/png;base64,", "");
 		 byte[] file2 = Base64.decodeBase64(binaryData);
 		 //String fileName = UUID.randomUUID().toString();
+<<<<<<< HEAD
+		 System.out.println(idx+"?????????");
+		 String fileName=idx;
+		 stream = new FileOutputStream("C:/Users/jj051/git/testWeb/src/main/webapp/mobile_img/" + fileName + ".png");
+=======
 		 String fileName=name;
 		 stream = new FileOutputStream("C:/Users/HWANG/git/testWeb/src/main/webapp/mobile_img/" + fileName + ".png");
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
 		 stream.write(file2);
 		 stream.close();
 		 mav.addObject("filename", fileName);
@@ -149,8 +159,14 @@ public class CardController {
 	            if(!file.exists()) {
 	                file.mkdirs();
 	            }
+	            String linkname="http://192.168.20.175:9090/finalproject/mobile_img/"+fileName + ".png";
+	            System.out.println(linkname);
 	            // 코드인식시 링크걸 URL주소
+<<<<<<< HEAD
+	            String codeurl = new String(linkname);
+=======
 	            String codeurl = new String("http://192.168.20.175:9090/finalproject/qr_img/"+name + ".png");
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
 	            // 큐알코드 바코드 생상값
 	            int qrcodeColor =   0xFF2e4e96;
 	            // 큐알코드 배경색상값
@@ -163,7 +179,12 @@ public class CardController {
 	            MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor,backgroundColor);
 	            BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix,matrixToImageConfig);
 	            // ImageIO를 사용한 바코드 파일쓰기
+<<<<<<< HEAD
+	            String Filename="C:/Users/jj051/git/testWeb/src/main/webapp/qr_img/"+fileName + ".png";
+	            ImageIO.write(bufferedImage, "png", new File(Filename));
+=======
 	            ImageIO.write(bufferedImage, "png", new File("http://192.168.20.175:9090/finalproject/qr_img/"+name+".png"));
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
 	        	
 	        } catch (Exception e) {
 	            e.printStackTrace();

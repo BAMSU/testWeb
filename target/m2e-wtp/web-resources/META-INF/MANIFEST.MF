@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: song
+=======
+Built-By: jj051
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
 Build-Jdk: 1.8.0_131
 Created-By: Maven Integration for Eclipse
 

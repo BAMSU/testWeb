@@ -40,4 +40,7 @@
 		#{o_addr},#{o_memo},#{o_env},#{o_option},#{o_count},
 		#{o_sale},#{o_plus},#{o_price},#{o_img},0)
 	</insert>
+	<select id="cardname" parameterType="Map" resultType="yong.cardOrder.model.CardOrderDTO">
+		select * from card_order where o_name=#{name}
+	</select>
  </mapper>
