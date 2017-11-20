@@ -6,22 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <style>
-
 #search {
 	text-align: center;
 	display: inline-block;
-	height: 100%;
-	width: 100%;
-	padding-left: 350px;
-	padding-right: 450px;
+	width: 1000px;
+	margin: 0 auto;
+	
 }
 #sear{
-	float: left;
 	margin: 15px 0 15px 10px;
 	width:500px;
-	height: 60px;
 	border-right: 1px solid #EBEBEB;
-	padding-left: 50px;
 }
 .wedding1{
 	text-align: center;
@@ -36,8 +31,6 @@ a:link{
 
 .halsear{
 	border: 3px dashed #FFEBFE;
-
-	
 }
 .title{
 	border: 2px dotted #FFD9EC;
@@ -110,9 +103,6 @@ $(document).ready(function(){
 		$('#tab td:eq(6)').html(seli.search_text);  */
 	
 	}
-		
-	}); 
-} */
 $(document).ready(function(){
 $('.ctd:eq(0)').click(function(){
 	location.href='hallInfo.we?idx='+$('.hallidx:eq(0)').val();
@@ -151,12 +141,14 @@ $('.ctd:eq(9)').click(function(){
 </head>
 <body>
 <%@include file="/header.jsp" %>
-	<div id="search">
+<section style="background: gray;">
+<article>
+	<div id="search" style="background: white;">
 	<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 		<h2 style="text-align: center; font-size: 30px; margin-top: 10px;padding-top: 10px;color: #A4A4A4;">웨딩홀 검색</h2>
-		<section>
+		
 
-<article>
+
 
 		<div class="halsear">
 
@@ -327,9 +319,10 @@ $('.ctd:eq(9)').click(function(){
 			</c:forEach>
 
 		</div>
+		</div>
 		</article>
 </section>
-	</div>
+	
 	<%@include file="/footer.jsp" %>
 </body>
 </html>
