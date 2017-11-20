@@ -39,5 +39,8 @@ public class aRoomDAOImple implements aRoomDAO {
 	public int deleteR(int idx) {
 		return sst.delete("deleteR", idx);
 	}
+	public int deleteRR(int idx) {
+		return sst.delete("deleteRR", idx);
+	}
 
 }

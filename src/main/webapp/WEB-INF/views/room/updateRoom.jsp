@@ -143,6 +143,8 @@ function show() {
             <input type="hidden" name="type" value="${dto.type}">
                <label class="col-sm-3 control-label" >예식타입</label>
                
+               
+               
                <div class="col-sm-6">
                 <input type="checkbox" name="hallType1" value="동시">동시  <input type="checkbox" name="hallType1" value="분리">분리
                 <br>
@@ -150,6 +152,38 @@ function show() {
 				<input type="checkbox" name="hallType2" value="호텔">호텔 
                </div>
             </div>
+            
+            
+            
+            <script>
+               var apple ='${dto.type}';
+               
+               var pen1 = apple.split('/');
+               var pen11 = pen1[0].split(',');
+            	   
+               var pen22 = pen1[1].split(',');
+               
+           		for(var i = 0; i < pen11.length; i++) {
+           		
+           		for (var j = 0; j < document.fm.hallType1.length; j++) {
+           			
+           	         if (document.fm.hallType1[j].value==pen11[i]) {
+           	        	document.fm.hallType1[j].checked=true;
+           	         }
+           	      }
+           	}
+           		
+           		
+           		
+           		 for(var i = 0; i < pen22.length; i++) {
+               		
+               		for (var j = 0; j < document.fm.hallType2.length; j++) {
+               	         if (document.fm.hallType2[j].value==pen22[i]) {
+               	        	 document.fm.hallType2[j].checked=true;
+               	         }
+               	      }
+               	}
+               </script>
             
             
             
@@ -181,6 +215,25 @@ function show() {
 <input type="checkbox" name="menu1" value="뷔페">뷔페  <input type="checkbox" name="menu1" value="퓨전코스">퓨전코스
                </div>
             </div>
+            
+            
+            <script>
+               var aapple ='${dto.menu}';
+               
+               var apen1 = aapple.split(',');
+              
+               
+           		for(var i = 0; i < apen1.length; i++) {
+           		
+           		for (var j = 0; j < document.fm.menu1.length; j++) {
+           			
+           	         if (document.fm.menu1[j].value==apen1[i]) {
+           	        	document.fm.menu1[j].checked=true;
+           	         }
+           	      }
+           	}
+               </script>
+            
             
             
             
