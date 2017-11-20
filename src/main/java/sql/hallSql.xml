@@ -43,4 +43,8 @@
 		update hallStats set typeNum=typeNum+1 
 		where hallIdx=#{hallIdx} and type=#{type} and month=#{month}
 	</update>
+	<select id="hallnameSer" parameterType="String" resultType="hall.model.HallDTO">
+		select * from hall where name=#{hallname}
+	</select>
+	
 </mapper>

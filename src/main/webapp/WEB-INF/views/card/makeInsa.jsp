@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-
+<title>Love is staying</title>
 <style>
 	p{
 	 font-size: 10px;
@@ -20,14 +19,22 @@
 	  width: 80%;
 	}
 	.right{
-	  float: right;
+	  float: center;
 	  width: 10%;
 	  font-size: 10px;
 	  
 	}
+	.rounded {border-radius:100em!important;}
+.darkGrey {
+  background:#595770;
+  color:#fff;
+  border:none;
+  font-size:15px;
+  width: 80px;
+}
 </style>
 <script>
-var insa={insa:['¼­·Î°¡ ¸¶ÁÖº¸¸ç ´ÙÁ®¿Â »ç¶ûÀ»\r\nÀÌÁ¦ ÇÔ²² ÇÑ°÷À» ¹Ù¶óº¸¸ç °É¾î°¥ ¼ö ÀÖ´Â\r\nÅ« »ç¶ûÀ¸·Î Å°¿ì°íÀÚ ÇÕ´Ï´Ù. \r\nÀúÈñ µÎ »ç¶÷ÀÌ »ç¶ûÀÇ ÀÌ¸§À¸·Î ÁöÄÑ³ª°¥ ¼ö ÀÖ°Ô\r\n¾Õ³¯À» Ãàº¹ÇØ ÁÖ½Ã¸é °¨»çÇÏ°Ú½À´Ï´Ù.' , 'ÇÔ²² ÇÏ´Â »ç¶ûÀÇ ±× ÀÇ¹Ì´Â \r\nÀÌ ¼¼»óÀÇ ¾î¶² ¸»·Îµµ Ç¥ÇöÇÒ ¼ö ¾ø´Â \r\n¾Æ¸§´Ù¿î °ÍÀÔ´Ï´Ù. \r\nÀúÈñÀÇ »ç¶ûÀ» ÇÔ²² Ãàº¹ÇÏ¿© ÁÖ½Ã¸é \r\nÅ« ÈûÀ¸·Î »ï°Ú½À´Ï´Ù.' , 'Èçµé¸² ¾ø´Â ¹ÏÀ½ÀÇ ÃÐºÒÀ» \r\n»ç¶ûÀ¸·Î ¹àÈ÷¸ç ÀÌÁ¦ ÀúÈñ µÎ »ç¶÷Àº \r\n»ç¶ûÀÇ °á½ÇÀ» ÀÌ·ç·Á ÇÕ´Ï´Ù. \r\n´Ã Çª¸£¸¥ ¸¶À½°ú ±íÀº Á¤¼ºÀ¸·Î \r\nÇàº¹ÀÇ ¹®À» µé¾î¼­´Â ÀúÈñµé °¡±îÀÌ \r\n¿À¼Å¼­ Ãàº¹ÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.', '¾Æ¸§´Ù¿î ²É¿¡´Â °¡²Ù¾î ¿Â \r\n»ç¶÷ÀÇ ³ë°í°¡ ±êµé¾î ÀÖµíÀÌ \r\nÀÎ»ýÀÇ ±â»Û ¼ø°£¿¡ ÀÖ¾î \r\nµµ¿ÍÁÖ½Å ºÐµé¿¡ ´ëÇÑ °í¸¶¿òÀ» ´À³§´Ï´Ù. \r\n¼ÒÁßÇÑ ¸Í¼¼ÀÇ ½Ã°£À» °®°íÀÚ ÇÕ´Ï´Ù. \r\n»õ·ÎÀÌ ÇÔ²²ÇÏ´Â ÀúÈñ µÎ »ç¶÷ÀÇ ¸ð½ÀÀ» \r\nºÎµð ¿À¼Å¼­ ÁöÄÑºÁ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.', 'ÀúÈñµéÀÇ ¿À´ÃÀÌ ÀÖ±â±îÁö \r\nº¸³»ÁÖ½Å µû¶æÇÑ »ç¶û°ú ±íÀº °ü½É¿¡ Áø½ÉÀ¸·Î °¨»çÇÏ¿À¸ç, \r\nÀúÈñ µÎ »ç¶÷Àº ¿©·¯ºÐÀÇ Ãàº¹À» ¹ÞÀ¸¸ç \r\nÁø½ÇÇÑ °¡¾àÀ» ¸Î°íÀÚ ÇÕ´Ï´Ù. \r\nºÎµð Âü¼®ÇÏ½Ã¾î ±â»ÝÀÇ ÀÚ¸®¸¦ Ãàº¹À¸·Î \r\n´õ¿í ºû³» ÁÖ½Ã±æ ¹Ù¶ó¿É´Ï´Ù.', '³Ê¹« ÇèÇÏ°Ô Å°¿ì¸é °ÅÄ¥±îºÁ \r\n³ë½ÉÃÊ»ç ÇÏ·çµµ ÆíÇÒ ³¯ ¾øÀÌ Á¤¼ºµé¿´½À´Ï´Ù. \r\nÇÏÁö¸¸ ¸·»ó È¥ÀÎ¿¡ ¿¹¸¦ °®Ãç \r\n¾î¸¥µé ¼¼»ó¿¡ ³»º¸³»·Á´Ï »õ»ï µÎ·Á¿òÀÌ ¾Õ¼·´Ï´Ù. \r\n»ìÆìÁÖ½Ã°í °¡¸£ÃÄ ÁÖ½Ã°í \r\n°¡¾ß ÇÒ ¸Õ±æ ÈÍÈ÷ ¹àÇô ÁÖ¿É¼Ò¼­.', 'Æò¼Ò º£Ç®¾î ÁÖ½Å ÀºÇý¿¡ °¨»ç µå¸®¿À¸ç, \r\nÀÌ ÁÁÀº °èÀý¿¡ ´ì³» Æò¾ÈÇÏ½ÉÀ» ±â¿øÇÕ´Ï´Ù. \r\n¾Æ·Ú¿Ã ¸»¾¸Àº ´Ù¸§ÀÌ ¾Æ´Ï¿É°í \r\n¿©·¯ ¾î¸£½Åµé°ú Ä£ÁöµéÀ» ¸ð½Ã°í \r\n°áÈ¥½ÄÀ» ¿Ã¸®°Ô µÇ¾ú½À´Ï´Ù. \r\n¹Ù»Ú½Ã´õ¶óµµ ºÎµð Âü¼®ÇÏ½Ã¾î \r\nÀþÀº µÎ »ç¶÷À» °Ý·ÁÇÏ¿© ÁÖ½Ã°í \r\nÃàº¹ÇÏ¿© ÁÖ½Ã±â¸¦ ¾Ó¸ÁÇÏ¿É´Ï´Ù.', '»õ·ÎÀÌ ½ÃÀÛÇÏ´Â \r\nÀÛÀº »ç¶ûÀÌ º¸´Ù ±í°í Çâ Â£°Ô ²ÉÇÇ·Á ÇÕ´Ï´Ù. \r\nÀúÈñÀÇ ¶æ±íÀº ¹é³âÀÇ ¾à¼ÓÀÇ ³¯ \r\nÇÔ²² ÇÏ¼Å¼­ Ãàº¹ÇØ ÁÖ½Ê½Ã¿À. \r\n»ç¶ûÀ¸·Î °¡µæ Ã¤¿ö Áñ°Å¿òÀº ³ª´©°í ¾î·Á¿òÀº ÀÌ°Ü³»´Â \r\nÇÔ²² ³ª¾Æ°¡´Â »îÀ» ²Ù¸®°Ú½À´Ï´Ù.', '¾ðÁ¦³ª Æ÷±ÙÇÏ°í µû»ç·Î¿î Á¤À¸·Î \r\n°¨½ÎÁÖ½Ã´Â ¿©·¯ ¾î¸¥½ÅµéÀÇ ÀºÇý¿¡ °¨»çµå¸³´Ï´Ù. \r\nÀÌµé µÎ »ç¶÷ÀÌ »õ »ýÈ°À» ¸¸µé°íÀÚ \r\n¿©±â °áÈ¥½ÄÀ» ¿Ã¸®°Ô µÇ¾úÀ½À» \r\n»ï°¡ ¾Æ·Ú¿À´Ï Ãàº¹ÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.', '¾îÁ¦ÀÇ ³Ê¿Í ³»°¡ ¿À´Ã ¿ì¸®°¡ µÇ¾î \r\nÀúÈñ µÎ »ç¶÷ ÀÌÁ¦ ÇÑ±æÀ» °°ÀÌ °È°íÀÚ ÇÕ´Ï´Ù. \r\nÀúÈñ Ã¹ µðµõ¿¡ ºÎµð ¿À½Ã¾î \r\nµû¶æÇÑ »ç¶ûÀ¸·Î Ãàº¹ÇØ ÁÖ½Ê½Ã¿À. \r\nº¸´Ù ÈûÂù ³»µðµõÀÌ µÉ °ÍÀÔ´Ï´Ù.', 'Áö±Ý±îÁö ¼­·Î ¸¶ÁÖº¸¸ç ½×¾Æ¿Â »ç¶ûÀ»  \r\nÇÔ²² ÇÑ°÷À» º¸¸ç °É¾î°¡´Â  \r\n´õ¿í Å« »ç¶ûÀ¸·Î Å°¿ì°íÀÚ ÇÕ´Ï´Ù. \r\n±ÍÇÑ °ÉÀ½ ÇÏ½Ã¾î  \r\n»õ Ãâ¹ßÀ» ÇÏ´Â ÀúÈñ µÎ»ç¶÷ÀÇ  \r\n¾Õ³¯À» Ãàº¹ÇØÁÖ½Ã¸é ´õ¿í °¨»çÇÏ°Ú½À´Ï´Ù. ', '±â»Ý°ú Çàº¹ÀÌ °¡µæÇÑ ³¯  \r\nÇÏ³ªÀÇ ±æÀÌ µÇ¾î \r\nÇÏ³ªÀÇ º¸±ÝÀÚ¸®¸¦ ÀÌ·ç·Á°í ÇÕ´Ï´Ù. \r\nÁö±Ý±îÁö º¸³»ÁÖ½Å µû¶æÇÑ »ç¶û°ú ¹ÏÀ½À¸·Î \r\nÃàº¹ÇØÁÖ½Ê½Ã¿À', 'ÀþÀº ³²³à°¡ ¸¸³ª \r\n½Ó¹ÚÇÑ °áÈ¥ ÀÌ¾ß±â¸¦  \r\n¸¸µé¾î ³ª°¡º¸·Á°í ÇÕ´Ï´Ù. \r\n±× ÀÌ¾ß±â¸¦ ½ÃÀÛÇÏ´Â Á¦ 1È­ \r\n¿©·¯ºÐµé ²À ºÁÁÖ½Ã±æ ¹Ù·¡¿ä! \r\nÀúÈñ µÎ»ç¶÷ÀÇ ¼­¾àÀÇ ³¯ ! ', '¼ÒÁßÇÑ ºÐµéÀ» ¸ð½Ã°í \r\nÃ¹¹ßÀ» ³»µó¾îº¸·Á ÇÕ´Ï´Ù. \r\n¼­·Î ÀÌÇØÇÏ°í ¹è·ÁÇÏ°í ÁöÇý·Ó°Ô »ì°Ú½À´Ï´Ù. \r\nºÎµð °ÉÀ½ÇÏ½Ã¾î ÀúÈñÀÇ Ã¹°ÉÀ½  \r\nÃàº¹ÇØÁÖ½Ã°í ÁöÄÑº¸¾Æ ÁÖ½Ã¸é  \r\n´õ¾øÀÌ ±â»ÝÀ¸·Î ¼ÒÁßÈ÷ °£Á÷ÇÏ°Ú½À´Ï´Ù.']};
+var insa={insa:['ì„œë¡œê°€ ë§ˆì£¼ë³´ë©° ë‹¤ì ¸ì˜¨ ì‚¬ëž‘ì„\r\nì´ì œ í•¨ê»˜ í•œê³³ì„ ë°”ë¼ë³´ë©° ê±¸ì–´ê°ˆ ìˆ˜ ìžˆëŠ”\r\ní° ì‚¬ëž‘ìœ¼ë¡œ í‚¤ìš°ê³ ìž í•©ë‹ˆë‹¤. \r\nì €í¬ ë‘ ì‚¬ëžŒì´ ì‚¬ëž‘ì˜ ì´ë¦„ìœ¼ë¡œ ì§€ì¼œë‚˜ê°ˆ ìˆ˜ ìžˆê²Œ\r\nì•žë‚ ì„ ì¶•ë³µí•´ ì£¼ì‹œë©´ ê°ì‚¬í•˜ê² ìŠµë‹ˆë‹¤.' , 'í•¨ê»˜ í•˜ëŠ” ì‚¬ëž‘ì˜ ê·¸ ì˜ë¯¸ëŠ” \r\nì´ ì„¸ìƒì˜ ì–´ë–¤ ë§ë¡œë„ í‘œí˜„í•  ìˆ˜ ì—†ëŠ” \r\nì•„ë¦„ë‹¤ìš´ ê²ƒìž…ë‹ˆë‹¤. \r\nì €í¬ì˜ ì‚¬ëž‘ì„ í•¨ê»˜ ì¶•ë³µí•˜ì—¬ ì£¼ì‹œë©´ \r\ní° íž˜ìœ¼ë¡œ ì‚¼ê² ìŠµë‹ˆë‹¤.' , 'í”ë“¤ë¦¼ ì—†ëŠ” ë¯¿ìŒì˜ ì´›ë¶ˆì„ \r\nì‚¬ëž‘ìœ¼ë¡œ ë°ížˆë©° ì´ì œ ì €í¬ ë‘ ì‚¬ëžŒì€ \r\nì‚¬ëž‘ì˜ ê²°ì‹¤ì„ ì´ë£¨ë ¤ í•©ë‹ˆë‹¤. \r\nëŠ˜ í‘¸ë¥´ë¥¸ ë§ˆìŒê³¼ ê¹Šì€ ì •ì„±ìœ¼ë¡œ \r\ní–‰ë³µì˜ ë¬¸ì„ ë“¤ì–´ì„œëŠ” ì €í¬ë“¤ ê°€ê¹Œì´ \r\nì˜¤ì…”ì„œ ì¶•ë³µí•´ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.', 'ì•„ë¦„ë‹¤ìš´ ê½ƒì—ëŠ” ê°€ê¾¸ì–´ ì˜¨ \r\nì‚¬ëžŒì˜ ë…¸ê³ ê°€ ê¹ƒë“¤ì–´ ìžˆë“¯ì´ \r\nì¸ìƒì˜ ê¸°ìœ ìˆœê°„ì— ìžˆì–´ \r\në„ì™€ì£¼ì‹  ë¶„ë“¤ì— ëŒ€í•œ ê³ ë§ˆì›€ì„ ëŠë‚ë‹ˆë‹¤. \r\nì†Œì¤‘í•œ ë§¹ì„¸ì˜ ì‹œê°„ì„ ê°–ê³ ìž í•©ë‹ˆë‹¤. \r\nìƒˆë¡œì´ í•¨ê»˜í•˜ëŠ” ì €í¬ ë‘ ì‚¬ëžŒì˜ ëª¨ìŠµì„ \r\në¶€ë”” ì˜¤ì…”ì„œ ì§€ì¼œë´ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.', 'ì €í¬ë“¤ì˜ ì˜¤ëŠ˜ì´ ìžˆê¸°ê¹Œì§€ \r\në³´ë‚´ì£¼ì‹  ë”°ëœ»í•œ ì‚¬ëž‘ê³¼ ê¹Šì€ ê´€ì‹¬ì— ì§„ì‹¬ìœ¼ë¡œ ê°ì‚¬í•˜ì˜¤ë©°, \r\nì €í¬ ë‘ ì‚¬ëžŒì€ ì—¬ëŸ¬ë¶„ì˜ ì¶•ë³µì„ ë°›ìœ¼ë©° \r\nì§„ì‹¤í•œ ê°€ì•½ì„ ë§ºê³ ìž í•©ë‹ˆë‹¤. \r\në¶€ë”” ì°¸ì„í•˜ì‹œì–´ ê¸°ì¨ì˜ ìžë¦¬ë¥¼ ì¶•ë³µìœ¼ë¡œ \r\në”ìš± ë¹›ë‚´ ì£¼ì‹œê¸¸ ë°”ë¼ì˜µë‹ˆë‹¤.', 'ë„ˆë¬´ í—˜í•˜ê²Œ í‚¤ìš°ë©´ ê±°ì¹ ê¹Œë´ \r\në…¸ì‹¬ì´ˆì‚¬ í•˜ë£¨ë„ íŽ¸í•  ë‚  ì—†ì´ ì •ì„±ë“¤ì˜€ìŠµë‹ˆë‹¤. \r\ní•˜ì§€ë§Œ ë§‰ìƒ í˜¼ì¸ì— ì˜ˆë¥¼ ê°–ì¶° \r\nì–´ë¥¸ë“¤ ì„¸ìƒì— ë‚´ë³´ë‚´ë ¤ë‹ˆ ìƒˆì‚¼ ë‘ë ¤ì›€ì´ ì•žì„­ë‹ˆë‹¤. \r\nì‚´íŽ´ì£¼ì‹œê³  ê°€ë¥´ì³ ì£¼ì‹œê³  \r\nê°€ì•¼ í•  ë¨¼ê¸¸ í›¤ížˆ ë°í˜€ ì£¼ì˜µì†Œì„œ.', 'í‰ì†Œ ë² í’€ì–´ ì£¼ì‹  ì€í˜œì— ê°ì‚¬ ë“œë¦¬ì˜¤ë©°, \r\nì´ ì¢‹ì€ ê³„ì ˆì— ëŒë‚´ í‰ì•ˆí•˜ì‹¬ì„ ê¸°ì›í•©ë‹ˆë‹¤. \r\nì•„ë¢°ì˜¬ ë§ì”€ì€ ë‹¤ë¦„ì´ ì•„ë‹ˆì˜µê³  \r\nì—¬ëŸ¬ ì–´ë¥´ì‹ ë“¤ê³¼ ì¹œì§€ë“¤ì„ ëª¨ì‹œê³  \r\nê²°í˜¼ì‹ì„ ì˜¬ë¦¬ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤. \r\në°”ì˜ì‹œë”ë¼ë„ ë¶€ë”” ì°¸ì„í•˜ì‹œì–´ \r\nì Šì€ ë‘ ì‚¬ëžŒì„ ê²©ë ¤í•˜ì—¬ ì£¼ì‹œê³  \r\nì¶•ë³µí•˜ì—¬ ì£¼ì‹œê¸°ë¥¼ ì•™ë§í•˜ì˜µë‹ˆë‹¤.', 'ìƒˆë¡œì´ ì‹œìž‘í•˜ëŠ” \r\nìž‘ì€ ì‚¬ëž‘ì´ ë³´ë‹¤ ê¹Šê³  í–¥ ì§™ê²Œ ê½ƒí”¼ë ¤ í•©ë‹ˆë‹¤. \r\nì €í¬ì˜ ëœ»ê¹Šì€ ë°±ë…„ì˜ ì•½ì†ì˜ ë‚  \r\ní•¨ê»˜ í•˜ì…”ì„œ ì¶•ë³µí•´ ì£¼ì‹­ì‹œì˜¤. \r\nì‚¬ëž‘ìœ¼ë¡œ ê°€ë“ ì±„ì›Œ ì¦ê±°ì›€ì€ ë‚˜ëˆ„ê³  ì–´ë ¤ì›€ì€ ì´ê²¨ë‚´ëŠ” \r\ní•¨ê»˜ ë‚˜ì•„ê°€ëŠ” ì‚¶ì„ ê¾¸ë¦¬ê² ìŠµë‹ˆë‹¤.', 'ì–¸ì œë‚˜ í¬ê·¼í•˜ê³  ë”°ì‚¬ë¡œìš´ ì •ìœ¼ë¡œ \r\nê°ì‹¸ì£¼ì‹œëŠ” ì—¬ëŸ¬ ì–´ë¥¸ì‹ ë“¤ì˜ ì€í˜œì— ê°ì‚¬ë“œë¦½ë‹ˆë‹¤. \r\nì´ë“¤ ë‘ ì‚¬ëžŒì´ ìƒˆ ìƒí™œì„ ë§Œë“¤ê³ ìž \r\nì—¬ê¸° ê²°í˜¼ì‹ì„ ì˜¬ë¦¬ê²Œ ë˜ì—ˆìŒì„ \r\nì‚¼ê°€ ì•„ë¢°ì˜¤ë‹ˆ ì¶•ë³µí•´ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.', 'ì–´ì œì˜ ë„ˆì™€ ë‚´ê°€ ì˜¤ëŠ˜ ìš°ë¦¬ê°€ ë˜ì–´ \r\nì €í¬ ë‘ ì‚¬ëžŒ ì´ì œ í•œê¸¸ì„ ê°™ì´ ê±·ê³ ìž í•©ë‹ˆë‹¤. \r\nì €í¬ ì²« ë””ë”¤ì— ë¶€ë”” ì˜¤ì‹œì–´ \r\në”°ëœ»í•œ ì‚¬ëž‘ìœ¼ë¡œ ì¶•ë³µí•´ ì£¼ì‹­ì‹œì˜¤. \r\në³´ë‹¤ íž˜ì°¬ ë‚´ë””ë”¤ì´ ë  ê²ƒìž…ë‹ˆë‹¤.', 'ì§€ê¸ˆê¹Œì§€ ì„œë¡œ ë§ˆì£¼ë³´ë©° ìŒ“ì•„ì˜¨ ì‚¬ëž‘ì„  \r\ní•¨ê»˜ í•œê³³ì„ ë³´ë©° ê±¸ì–´ê°€ëŠ”  \r\në”ìš± í° ì‚¬ëž‘ìœ¼ë¡œ í‚¤ìš°ê³ ìž í•©ë‹ˆë‹¤. \r\nê·€í•œ ê±¸ìŒ í•˜ì‹œì–´  \r\nìƒˆ ì¶œë°œì„ í•˜ëŠ” ì €í¬ ë‘ì‚¬ëžŒì˜  \r\nì•žë‚ ì„ ì¶•ë³µí•´ì£¼ì‹œë©´ ë”ìš± ê°ì‚¬í•˜ê² ìŠµë‹ˆë‹¤. ', 'ê¸°ì¨ê³¼ í–‰ë³µì´ ê°€ë“í•œ ë‚   \r\ní•˜ë‚˜ì˜ ê¸¸ì´ ë˜ì–´ \r\ní•˜ë‚˜ì˜ ë³´ê¸ˆìžë¦¬ë¥¼ ì´ë£¨ë ¤ê³  í•©ë‹ˆë‹¤. \r\nì§€ê¸ˆê¹Œì§€ ë³´ë‚´ì£¼ì‹  ë”°ëœ»í•œ ì‚¬ëž‘ê³¼ ë¯¿ìŒìœ¼ë¡œ \r\nì¶•ë³µí•´ì£¼ì‹­ì‹œì˜¤', 'ì Šì€ ë‚¨ë…€ê°€ ë§Œë‚˜ \r\nìŒˆë°•í•œ ê²°í˜¼ ì´ì•¼ê¸°ë¥¼  \r\në§Œë“¤ì–´ ë‚˜ê°€ë³´ë ¤ê³  í•©ë‹ˆë‹¤. \r\nê·¸ ì´ì•¼ê¸°ë¥¼ ì‹œìž‘í•˜ëŠ” ì œ 1í™” \r\nì—¬ëŸ¬ë¶„ë“¤ ê¼­ ë´ì£¼ì‹œê¸¸ ë°”ëž˜ìš”! \r\nì €í¬ ë‘ì‚¬ëžŒì˜ ì„œì•½ì˜ ë‚  ! ', 'ì†Œì¤‘í•œ ë¶„ë“¤ì„ ëª¨ì‹œê³  \r\nì²«ë°œì„ ë‚´ë”›ì–´ë³´ë ¤ í•©ë‹ˆë‹¤. \r\nì„œë¡œ ì´í•´í•˜ê³  ë°°ë ¤í•˜ê³  ì§€í˜œë¡­ê²Œ ì‚´ê² ìŠµë‹ˆë‹¤. \r\në¶€ë”” ê±¸ìŒí•˜ì‹œì–´ ì €í¬ì˜ ì²«ê±¸ìŒ  \r\nì¶•ë³µí•´ì£¼ì‹œê³  ì§€ì¼œë³´ì•„ ì£¼ì‹œë©´  \r\në”ì—†ì´ ê¸°ì¨ìœ¼ë¡œ ì†Œì¤‘ížˆ ê°„ì§í•˜ê² ìŠµë‹ˆë‹¤.']};
 
 
 function sel(i){
@@ -44,15 +51,15 @@ function sel(i){
 	</div>
 	
 	<div class="center">
-	<p>¼­·Î°¡ ¸¶ÁÖº¸¸ç ´ÙÁ®¿Â »ç¶ûÀ» <br>
-	ÀÌÁ¦ ÇÔ²² ÇÑ°÷À» ¹Ù¶óº¸¸ç °É¾î°¥ ¼ö ÀÖ´Â <br>
-	Å« »ç¶ûÀ¸·Î Å°¿ì°íÀÚ ÇÕ´Ï´Ù. <br>
-	ÀúÈñ µÎ »ç¶÷ÀÌ »ç¶ûÀÇ ÀÌ¸§À¸·Î ÁöÄÑ³ª°¥ ¼ö ÀÖ°Ô <br>
-	¾Õ³¯À» Ãàº¹ÇØ ÁÖ½Ã¸é °¨»çÇÏ°Ú½À´Ï´Ù.<p>
+	<p>ì„œë¡œê°€ ë§ˆì£¼ë³´ë©° ë‹¤ì ¸ì˜¨ ì‚¬ëž‘ì„ <br>
+	ì´ì œ í•¨ê»˜ í•œê³³ì„ ë°”ë¼ë³´ë©° ê±¸ì–´ê°ˆ ìˆ˜ ìžˆëŠ” <br>
+	í° ì‚¬ëž‘ìœ¼ë¡œ í‚¤ìš°ê³ ìž í•©ë‹ˆë‹¤. <br>
+	ì €í¬ ë‘ ì‚¬ëžŒì´ ì‚¬ëž‘ì˜ ì´ë¦„ìœ¼ë¡œ ì§€ì¼œë‚˜ê°ˆ ìˆ˜ ìžˆê²Œ <br>
+	ì•žë‚ ì„ ì¶•ë³µí•´ ì£¼ì‹œë©´ ê°ì‚¬í•˜ê² ìŠµë‹ˆë‹¤.<p>
 	</div>
 	
 	<div = class="right">
-		<input type="button" value="¼±ÅÃ" onclick="sel(0)">
+		<input type="button" class="darkGrey rounded" value="ì„ íƒ" onclick="sel(0)">
 	</div>
 </div>
 <br><hr>
@@ -63,17 +70,17 @@ function sel(i){
 	
 	<div class="center">
 	<p>
-	ÇÔ²² ÇÏ´Â »ç¶ûÀÇ ±× ÀÇ¹Ì´Â <br>
-	ÀÌ ¼¼»óÀÇ ¾î¶² ¸»·Îµµ Ç¥ÇöÇÒ ¼ö ¾ø´Â <br>
-	¾Æ¸§´Ù¿î °ÍÀÔ´Ï´Ù. <br>
-	ÀúÈñÀÇ »ç¶ûÀ» ÇÔ²² Ãàº¹ÇÏ¿© ÁÖ½Ã¸é <br>
-	Å« ÈûÀ¸·Î »ï°Ú½À´Ï´Ù.
+	í•¨ê»˜ í•˜ëŠ” ì‚¬ëž‘ì˜ ê·¸ ì˜ë¯¸ëŠ” <br>
+	ì´ ì„¸ìƒì˜ ì–´ë–¤ ë§ë¡œë„ í‘œí˜„í•  ìˆ˜ ì—†ëŠ” <br>
+	ì•„ë¦„ë‹¤ìš´ ê²ƒìž…ë‹ˆë‹¤. <br>
+	ì €í¬ì˜ ì‚¬ëž‘ì„ í•¨ê»˜ ì¶•ë³µí•˜ì—¬ ì£¼ì‹œë©´ <br>
+	í° íž˜ìœ¼ë¡œ ì‚¼ê² ìŠµë‹ˆë‹¤.
 	</p>
 
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=1 onclick="sel(1)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=1 onclick="sel(1)">
 	</div>
 </div>
 <br><hr>
@@ -84,17 +91,17 @@ function sel(i){
 	
 	<div class="center">
 	<p>
-Èçµé¸² ¾ø´Â ¹ÏÀ½ÀÇ ÃÐºÒÀ» <br>
-»ç¶ûÀ¸·Î ¹àÈ÷¸ç ÀÌÁ¦ ÀúÈñ µÎ »ç¶÷Àº <br>
-»ç¶ûÀÇ °á½ÇÀ» ÀÌ·ç·Á ÇÕ´Ï´Ù. <br>
-´Ã Çª¸£¸¥ ¸¶À½°ú ±íÀº Á¤¼ºÀ¸·Î <br>
-Çàº¹ÀÇ ¹®À» µé¾î¼­´Â ÀúÈñµé °¡±îÀÌ <br>
-¿À¼Å¼­ Ãàº¹ÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+í”ë“¤ë¦¼ ì—†ëŠ” ë¯¿ìŒì˜ ì´›ë¶ˆì„ <br>
+ì‚¬ëž‘ìœ¼ë¡œ ë°ížˆë©° ì´ì œ ì €í¬ ë‘ ì‚¬ëžŒì€ <br>
+ì‚¬ëž‘ì˜ ê²°ì‹¤ì„ ì´ë£¨ë ¤ í•©ë‹ˆë‹¤. <br>
+ëŠ˜ í‘¸ë¥´ë¥¸ ë§ˆìŒê³¼ ê¹Šì€ ì •ì„±ìœ¼ë¡œ <br>
+í–‰ë³µì˜ ë¬¸ì„ ë“¤ì–´ì„œëŠ” ì €í¬ë“¤ ê°€ê¹Œì´ <br>
+ì˜¤ì…”ì„œ ì¶•ë³µí•´ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
 </p>
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=2 onclick="sel(2)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=2 onclick="sel(2)">
 	</div>
 </div>
 <br><hr>
@@ -106,19 +113,19 @@ function sel(i){
 	
 	<div class="center">
 	<p>
-¾Æ¸§´Ù¿î ²É¿¡´Â °¡²Ù¾î ¿Â <br>
-»ç¶÷ÀÇ ³ë°í°¡ ±êµé¾î ÀÖµíÀÌ <br>
-ÀÎ»ýÀÇ ±â»Û ¼ø°£¿¡ ÀÖ¾î <br>
-µµ¿ÍÁÖ½Å ºÐµé¿¡ ´ëÇÑ °í¸¶¿òÀ» ´À³§´Ï´Ù. <br>
-¼ÒÁßÇÑ ¸Í¼¼ÀÇ ½Ã°£À» °®°íÀÚ ÇÕ´Ï´Ù. <br>
-»õ·ÎÀÌ ÇÔ²²ÇÏ´Â ÀúÈñ µÎ »ç¶÷ÀÇ ¸ð½ÀÀ» <br>
-ºÎµð ¿À¼Å¼­ ÁöÄÑºÁ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+ì•„ë¦„ë‹¤ìš´ ê½ƒì—ëŠ” ê°€ê¾¸ì–´ ì˜¨ <br>
+ì‚¬ëžŒì˜ ë…¸ê³ ê°€ ê¹ƒë“¤ì–´ ìžˆë“¯ì´ <br>
+ì¸ìƒì˜ ê¸°ìœ ìˆœê°„ì— ìžˆì–´ <br>
+ë„ì™€ì£¼ì‹  ë¶„ë“¤ì— ëŒ€í•œ ê³ ë§ˆì›€ì„ ëŠë‚ë‹ˆë‹¤. <br>
+ì†Œì¤‘í•œ ë§¹ì„¸ì˜ ì‹œê°„ì„ ê°–ê³ ìž í•©ë‹ˆë‹¤. <br>
+ìƒˆë¡œì´ í•¨ê»˜í•˜ëŠ” ì €í¬ ë‘ ì‚¬ëžŒì˜ ëª¨ìŠµì„ <br>
+ë¶€ë”” ì˜¤ì…”ì„œ ì§€ì¼œë´ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
 </p>
 
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=3 onclick="sel(3)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=3 onclick="sel(3)">
 	</div>
 </div>
 <br><hr>
@@ -130,17 +137,17 @@ function sel(i){
 	
 	<div class="center">
 	<p>
-ÀúÈñµéÀÇ ¿À´ÃÀÌ ÀÖ±â±îÁö <br>
-º¸³»ÁÖ½Å µû¶æÇÑ »ç¶û°ú ±íÀº °ü½É¿¡ Áø½ÉÀ¸·Î °¨»çÇÏ¿À¸ç, <br>
-ÀúÈñ µÎ »ç¶÷Àº ¿©·¯ºÐÀÇ Ãàº¹À» ¹ÞÀ¸¸ç <br>
-Áø½ÇÇÑ °¡¾àÀ» ¸Î°íÀÚ ÇÕ´Ï´Ù. <br>
-ºÎµð Âü¼®ÇÏ½Ã¾î ±â»ÝÀÇ ÀÚ¸®¸¦ Ãàº¹À¸·Î <br>
-´õ¿í ºû³» ÁÖ½Ã±æ ¹Ù¶ó¿É´Ï´Ù.
+ì €í¬ë“¤ì˜ ì˜¤ëŠ˜ì´ ìžˆê¸°ê¹Œì§€ <br>
+ë³´ë‚´ì£¼ì‹  ë”°ëœ»í•œ ì‚¬ëž‘ê³¼ ê¹Šì€ ê´€ì‹¬ì— ì§„ì‹¬ìœ¼ë¡œ ê°ì‚¬í•˜ì˜¤ë©°, <br>
+ì €í¬ ë‘ ì‚¬ëžŒì€ ì—¬ëŸ¬ë¶„ì˜ ì¶•ë³µì„ ë°›ìœ¼ë©° <br>
+ì§„ì‹¤í•œ ê°€ì•½ì„ ë§ºê³ ìž í•©ë‹ˆë‹¤. <br>
+ë¶€ë”” ì°¸ì„í•˜ì‹œì–´ ê¸°ì¨ì˜ ìžë¦¬ë¥¼ ì¶•ë³µìœ¼ë¡œ <br>
+ë”ìš± ë¹›ë‚´ ì£¼ì‹œê¸¸ ë°”ë¼ì˜µë‹ˆë‹¤.
 </p>
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=4 onclick="sel(4)">
+	<input type="button"  class="darkGrey rounded" value="ì„ íƒ" name=4 onclick="sel(4)">
 	</div>
 </div>
 <br><hr>
@@ -153,18 +160,18 @@ function sel(i){
 	<div class="center">
 	<p>
 
-³Ê¹« ÇèÇÏ°Ô Å°¿ì¸é °ÅÄ¥±îºÁ <br>
-³ë½ÉÃÊ»ç ÇÏ·çµµ ÆíÇÒ ³¯ ¾øÀÌ Á¤¼ºµé¿´½À´Ï´Ù. <br>
-ÇÏÁö¸¸ ¸·»ó È¥ÀÎ¿¡ ¿¹¸¦ °®Ãç <br>
-¾î¸¥µé ¼¼»ó¿¡ ³»º¸³»·Á´Ï »õ»ï µÎ·Á¿òÀÌ ¾Õ¼·´Ï´Ù. <br>
-»ìÆìÁÖ½Ã°í °¡¸£ÃÄ ÁÖ½Ã°í °¡¾ß ÇÒ ¸Õ±æ 
-ÈÍÈ÷ ¹àÇô ÁÖ¿É¼Ò¼­.
+ë„ˆë¬´ í—˜í•˜ê²Œ í‚¤ìš°ë©´ ê±°ì¹ ê¹Œë´ <br>
+ë…¸ì‹¬ì´ˆì‚¬ í•˜ë£¨ë„ íŽ¸í•  ë‚  ì—†ì´ ì •ì„±ë“¤ì˜€ìŠµë‹ˆë‹¤. <br>
+í•˜ì§€ë§Œ ë§‰ìƒ í˜¼ì¸ì— ì˜ˆë¥¼ ê°–ì¶° <br>
+ì–´ë¥¸ë“¤ ì„¸ìƒì— ë‚´ë³´ë‚´ë ¤ë‹ˆ ìƒˆì‚¼ ë‘ë ¤ì›€ì´ ì•žì„­ë‹ˆë‹¤. <br>
+ì‚´íŽ´ì£¼ì‹œê³  ê°€ë¥´ì³ ì£¼ì‹œê³  ê°€ì•¼ í•  ë¨¼ê¸¸ 
+í›¤ížˆ ë°í˜€ ì£¼ì˜µì†Œì„œ.
 </p>
 
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=5 onclick="sel(5)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=5 onclick="sel(5)">
 	</div>
 </div>
 <br><hr>
@@ -176,20 +183,20 @@ function sel(i){
 	
 	<div class="center">
 	<p>
-	Æò¼Ò º£Ç®¾î ÁÖ½Å ÀºÇý¿¡ °¨»ç µå¸®¿À¸ç, <br>
-	ÀÌ ÁÁÀº °èÀý¿¡ ´ì³» Æò¾ÈÇÏ½ÉÀ» ±â¿øÇÕ´Ï´Ù. <br>
-	¾Æ·Ú¿Ã ¸»¾¸Àº ´Ù¸§ÀÌ ¾Æ´Ï¿É°í <br>
-	¿©·¯ ¾î¸£½Åµé°ú Ä£ÁöµéÀ» ¸ð½Ã°í <br>
-	°áÈ¥½ÄÀ» ¿Ã¸®°Ô µÇ¾ú½À´Ï´Ù. <br>
-	¹Ù»Ú½Ã´õ¶óµµ ºÎµð Âü¼®ÇÏ½Ã¾î <br>
-	ÀþÀº µÎ »ç¶÷À» °Ý·ÁÇÏ¿© ÁÖ½Ã°í <br>
-	Ãàº¹ÇÏ¿© ÁÖ½Ã±â¸¦ ¾Ó¸ÁÇÏ¿É´Ï´Ù.
+	í‰ì†Œ ë² í’€ì–´ ì£¼ì‹  ì€í˜œì— ê°ì‚¬ ë“œë¦¬ì˜¤ë©°, <br>
+	ì´ ì¢‹ì€ ê³„ì ˆì— ëŒë‚´ í‰ì•ˆí•˜ì‹¬ì„ ê¸°ì›í•©ë‹ˆë‹¤. <br>
+	ì•„ë¢°ì˜¬ ë§ì”€ì€ ë‹¤ë¦„ì´ ì•„ë‹ˆì˜µê³  <br>
+	ì—¬ëŸ¬ ì–´ë¥´ì‹ ë“¤ê³¼ ì¹œì§€ë“¤ì„ ëª¨ì‹œê³  <br>
+	ê²°í˜¼ì‹ì„ ì˜¬ë¦¬ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤. <br>
+	ë°”ì˜ì‹œë”ë¼ë„ ë¶€ë”” ì°¸ì„í•˜ì‹œì–´ <br>
+	ì Šì€ ë‘ ì‚¬ëžŒì„ ê²©ë ¤í•˜ì—¬ ì£¼ì‹œê³  <br>
+	ì¶•ë³µí•˜ì—¬ ì£¼ì‹œê¸°ë¥¼ ì•™ë§í•˜ì˜µë‹ˆë‹¤.
 	</p>
 
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=6 onclick="sel(6)">
+	<input type="button"  class="darkGrey rounded"value="ì„ íƒ" name=6 onclick="sel(6)">
 	</div>
 </div>
 <br><hr>
@@ -202,12 +209,12 @@ function sel(i){
 	<div class="center">
 	<p>
 	<p>
-»õ·ÎÀÌ ½ÃÀÛÇÏ´Â <br>
-ÀÛÀº »ç¶ûÀÌ º¸´Ù ±í°í Çâ Â£°Ô ²ÉÇÇ·Á ÇÕ´Ï´Ù. <br>
-ÀúÈñÀÇ ¶æ±íÀº ¹é³âÀÇ ¾à¼ÓÀÇ ³¯ <br>
-ÇÔ²² ÇÏ¼Å¼­ Ãàº¹ÇØ ÁÖ½Ê½Ã¿À. <br>
-»ç¶ûÀ¸·Î °¡µæ Ã¤¿ö Áñ°Å¿òÀº ³ª´©°í ¾î·Á¿òÀº ÀÌ°Ü³»´Â <br>
-ÇÔ²² ³ª¾Æ°¡´Â »îÀ» ²Ù¸®°Ú½À´Ï´Ù.
+ìƒˆë¡œì´ ì‹œìž‘í•˜ëŠ” <br>
+ìž‘ì€ ì‚¬ëž‘ì´ ë³´ë‹¤ ê¹Šê³  í–¥ ì§™ê²Œ ê½ƒí”¼ë ¤ í•©ë‹ˆë‹¤. <br>
+ì €í¬ì˜ ëœ»ê¹Šì€ ë°±ë…„ì˜ ì•½ì†ì˜ ë‚  <br>
+í•¨ê»˜ í•˜ì…”ì„œ ì¶•ë³µí•´ ì£¼ì‹­ì‹œì˜¤. <br>
+ì‚¬ëž‘ìœ¼ë¡œ ê°€ë“ ì±„ì›Œ ì¦ê±°ì›€ì€ ë‚˜ëˆ„ê³  ì–´ë ¤ì›€ì€ ì´ê²¨ë‚´ëŠ” <br>
+í•¨ê»˜ ë‚˜ì•„ê°€ëŠ” ì‚¶ì„ ê¾¸ë¦¬ê² ìŠµë‹ˆë‹¤.
 </p>
 
 	</p>
@@ -215,7 +222,7 @@ function sel(i){
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=7 onclick="sel(7)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=7 onclick="sel(7)">
 	</div>
 </div>
 <br><hr>
@@ -228,17 +235,17 @@ function sel(i){
 	
 	<div class="center">
 	<p>
-¾ðÁ¦³ª Æ÷±ÙÇÏ°í µû»ç·Î¿î Á¤À¸·Î <br>
-°¨½ÎÁÖ½Ã´Â ¿©·¯ ¾î¸¥½ÅµéÀÇ ÀºÇý¿¡ °¨»çµå¸³´Ï´Ù. <br>
-ÀÌµé µÎ »ç¶÷ÀÌ »õ »ýÈ°À» ¸¸µé°íÀÚ <br>
-¿©±â °áÈ¥½ÄÀ» ¿Ã¸®°Ô µÇ¾úÀ½À» <br>
-»ï°¡ ¾Æ·Ú¿À´Ï Ãàº¹ÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+ì–¸ì œë‚˜ í¬ê·¼í•˜ê³  ë”°ì‚¬ë¡œìš´ ì •ìœ¼ë¡œ <br>
+ê°ì‹¸ì£¼ì‹œëŠ” ì—¬ëŸ¬ ì–´ë¥¸ì‹ ë“¤ì˜ ì€í˜œì— ê°ì‚¬ë“œë¦½ë‹ˆë‹¤. <br>
+ì´ë“¤ ë‘ ì‚¬ëžŒì´ ìƒˆ ìƒí™œì„ ë§Œë“¤ê³ ìž <br>
+ì—¬ê¸° ê²°í˜¼ì‹ì„ ì˜¬ë¦¬ê²Œ ë˜ì—ˆìŒì„ <br>
+ì‚¼ê°€ ì•„ë¢°ì˜¤ë‹ˆ ì¶•ë³µí•´ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
 </p>
 
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=8 onclick="sel(8)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=8 onclick="sel(8)">
 	</div>
 </div>
 <br><hr>
@@ -251,17 +258,17 @@ function sel(i){
 	
 	<div class="center">
 	<p>
-¾îÁ¦ÀÇ ³Ê¿Í ³»°¡ ¿À´Ã ¿ì¸®°¡ µÇ¾î <br>
-ÀúÈñ µÎ »ç¶÷ ÀÌÁ¦ ÇÑ±æÀ» °°ÀÌ °È°íÀÚ ÇÕ´Ï´Ù. <br>
-ÀúÈñ Ã¹ µðµõ¿¡ ºÎµð ¿À½Ã¾î <br>
-µû¶æÇÑ »ç¶ûÀ¸·Î Ãàº¹ÇØ ÁÖ½Ê½Ã¿À. <br>
-º¸´Ù ÈûÂù ³»µðµõÀÌ µÉ °ÍÀÔ´Ï´Ù.
+ì–´ì œì˜ ë„ˆì™€ ë‚´ê°€ ì˜¤ëŠ˜ ìš°ë¦¬ê°€ ë˜ì–´ <br>
+ì €í¬ ë‘ ì‚¬ëžŒ ì´ì œ í•œê¸¸ì„ ê°™ì´ ê±·ê³ ìž í•©ë‹ˆë‹¤. <br>
+ì €í¬ ì²« ë””ë”¤ì— ë¶€ë”” ì˜¤ì‹œì–´ <br>
+ë”°ëœ»í•œ ì‚¬ëž‘ìœ¼ë¡œ ì¶•ë³µí•´ ì£¼ì‹­ì‹œì˜¤. <br>
+ë³´ë‹¤ íž˜ì°¬ ë‚´ë””ë”¤ì´ ë  ê²ƒìž…ë‹ˆë‹¤.
 </p>
 
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=9 onclick="sel(9)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=9 onclick="sel(9)">
 	</div>
 </div>
 <br><hr>
@@ -276,17 +283,17 @@ function sel(i){
 	<div class="center">
 	
 <p>
-Áö±Ý±îÁö ¼­·Î ¸¶ÁÖº¸¸ç ½×¾Æ¿Â »ç¶ûÀ»  <br>
-ÇÔ²² ÇÑ°÷À» º¸¸ç °É¾î°¡´Â  <br>
-´õ¿í Å« »ç¶ûÀ¸·Î Å°¿ì°íÀÚ ÇÕ´Ï´Ù. <br>
-±ÍÇÑ °ÉÀ½ ÇÏ½Ã¾î  <br>
-»õ Ãâ¹ßÀ» ÇÏ´Â ÀúÈñ µÎ»ç¶÷ÀÇ  <br>
-¾Õ³¯À» Ãàº¹ÇØÁÖ½Ã¸é ´õ¿í °¨»çÇÏ°Ú½À´Ï´Ù. 
+ì§€ê¸ˆê¹Œì§€ ì„œë¡œ ë§ˆì£¼ë³´ë©° ìŒ“ì•„ì˜¨ ì‚¬ëž‘ì„  <br>
+í•¨ê»˜ í•œê³³ì„ ë³´ë©° ê±¸ì–´ê°€ëŠ”  <br>
+ë”ìš± í° ì‚¬ëž‘ìœ¼ë¡œ í‚¤ìš°ê³ ìž í•©ë‹ˆë‹¤. <br>
+ê·€í•œ ê±¸ìŒ í•˜ì‹œì–´  <br>
+ìƒˆ ì¶œë°œì„ í•˜ëŠ” ì €í¬ ë‘ì‚¬ëžŒì˜  <br>
+ì•žë‚ ì„ ì¶•ë³µí•´ì£¼ì‹œë©´ ë”ìš± ê°ì‚¬í•˜ê² ìŠµë‹ˆë‹¤. 
 </p>
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=10 onclick="sel(10)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=10 onclick="sel(10)">
 	</div>
 </div>
 <br><hr>
@@ -299,17 +306,17 @@ function sel(i){
 	
 	<div class="center">
 	<p>
-±â»Ý°ú Çàº¹ÀÌ °¡µæÇÑ ³¯  <br>
-ÇÏ³ªÀÇ ±æÀÌ µÇ¾î  <br>
-ÇÏ³ªÀÇ º¸±ÝÀÚ¸®¸¦ ÀÌ·ç·Á°í ÇÕ´Ï´Ù. <br>
-Áö±Ý±îÁö º¸³»ÁÖ½Å µû¶æÇÑ »ç¶û°ú ¹ÏÀ½À¸·Î  <br>
-Ãàº¹ÇØÁÖ½Ê½Ã¿À
+ê¸°ì¨ê³¼ í–‰ë³µì´ ê°€ë“í•œ ë‚   <br>
+í•˜ë‚˜ì˜ ê¸¸ì´ ë˜ì–´  <br>
+í•˜ë‚˜ì˜ ë³´ê¸ˆìžë¦¬ë¥¼ ì´ë£¨ë ¤ê³  í•©ë‹ˆë‹¤. <br>
+ì§€ê¸ˆê¹Œì§€ ë³´ë‚´ì£¼ì‹  ë”°ëœ»í•œ ì‚¬ëž‘ê³¼ ë¯¿ìŒìœ¼ë¡œ  <br>
+ì¶•ë³µí•´ì£¼ì‹­ì‹œì˜¤
 </p>
 
 	</div>
 	
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=11 onclick="sel(11)">
+	<input type="button"  class="darkGrey rounded" value="ì„ íƒ" name=11 onclick="sel(11)">
 	</div>
 </div>
 <br><hr>
@@ -320,16 +327,16 @@ function sel(i){
 	</div>
 	<div class="center">
 	<p>
-ÀþÀº ³²³à°¡ ¸¸³ª  <br>
-½Ó¹ÚÇÑ °áÈ¥ ÀÌ¾ß±â¸¦  <br>
-¸¸µé¾î ³ª°¡º¸·Á°í ÇÕ´Ï´Ù. <br>
-±× ÀÌ¾ß±â¸¦ ½ÃÀÛÇÏ´Â Á¦ 1È­ <br>
-¿©·¯ºÐµé ²À ºÁÁÖ½Ã±æ ¹Ù·¡¿ä! <br>
-ÀúÈñ µÎ»ç¶÷ÀÇ ¼­¾àÀÇ ³¯ ! 
+ì Šì€ ë‚¨ë…€ê°€ ë§Œë‚˜  <br>
+ìŒˆë°•í•œ ê²°í˜¼ ì´ì•¼ê¸°ë¥¼  <br>
+ë§Œë“¤ì–´ ë‚˜ê°€ë³´ë ¤ê³  í•©ë‹ˆë‹¤. <br>
+ê·¸ ì´ì•¼ê¸°ë¥¼ ì‹œìž‘í•˜ëŠ” ì œ 1í™” <br>
+ì—¬ëŸ¬ë¶„ë“¤ ê¼­ ë´ì£¼ì‹œê¸¸ ë°”ëž˜ìš”! <br>
+ì €í¬ ë‘ì‚¬ëžŒì˜ ì„œì•½ì˜ ë‚  ! 
 </p>
 	</div>
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=12 onclick="sel(12)">
+	<input type="button" class="darkGrey rounded" value="ì„ íƒ" name=12 onclick="sel(12)">
 	</div>
 </div>
 <br><hr>
@@ -339,16 +346,16 @@ function sel(i){
 	</div>
 	<div class="center">
 <p>
-¼ÒÁßÇÑ ºÐµéÀ» ¸ð½Ã°í  <br>
-Ã¹¹ßÀ» ³»µó¾îº¸·Á ÇÕ´Ï´Ù. <br>
-¼­·Î ÀÌÇØÇÏ°í ¹è·ÁÇÏ°í ÁöÇý·Ó°Ô »ì°Ú½À´Ï´Ù. <br>
-ºÎµð °ÉÀ½ÇÏ½Ã¾î ÀúÈñÀÇ Ã¹°ÉÀ½  <br>
-Ãàº¹ÇØÁÖ½Ã°í ÁöÄÑº¸¾Æ ÁÖ½Ã¸é  <br>
-´õ¾øÀÌ ±â»ÝÀ¸·Î ¼ÒÁßÈ÷ °£Á÷ÇÏ°Ú½À´Ï´Ù. 
+ì†Œì¤‘í•œ ë¶„ë“¤ì„ ëª¨ì‹œê³   <br>
+ì²«ë°œì„ ë‚´ë”›ì–´ë³´ë ¤ í•©ë‹ˆë‹¤. <br>
+ì„œë¡œ ì´í•´í•˜ê³  ë°°ë ¤í•˜ê³  ì§€í˜œë¡­ê²Œ ì‚´ê² ìŠµë‹ˆë‹¤. <br>
+ë¶€ë”” ê±¸ìŒí•˜ì‹œì–´ ì €í¬ì˜ ì²«ê±¸ìŒ  <br>
+ì¶•ë³µí•´ì£¼ì‹œê³  ì§€ì¼œë³´ì•„ ì£¼ì‹œë©´  <br>
+ë”ì—†ì´ ê¸°ì¨ìœ¼ë¡œ ì†Œì¤‘ížˆ ê°„ì§í•˜ê² ìŠµë‹ˆë‹¤. 
 </p>
 	</div>
 	<div = class="right">
-	<input type="button" value="¼±ÅÃ" name=13 onclick="sel(13)">
+	<input type="button"  value="ì„ íƒ" class="darkGrey rounded" name=13 onclick="sel(13)">
 	</div>
 </div>
 <br><hr>

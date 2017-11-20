@@ -16,89 +16,89 @@
 <title>Love is staying</title>
 <script>
 function show() {
-	
-	var chk1 = 0;
-	var chk2 = 0;
-	
-	
-	for(i=0;i<document.fm.hallType1.length;i++){
-		if(document.fm.hallType1[i].checked) {
-			chk1 = chk1 + 1;
-		}
-	}
-	for(i=0;i<document.fm.hallType2.length;i++){
-		if(document.fm.hallType2[i].checked) {
-			chk2 = chk2 + 1;
-		}
-	}
-	
-	if(chk1==0||chk2==0) {
-		window.alert('웨딩홀 타입을 선택해주세요.');
-	} else {
-		
-		var flag1 = 0;
-		var flag2 = 0;
-		var msg1 = '';
-		
-		for(i=0;i<document.fm.hallType1.length;i++){
-			if(document.fm.hallType1[i].checked) {
-				if(flag1>0) {
-					msg1=msg1+',';
-				}
-				msg1= msg1+document.fm.hallType1[i].value;
-				flag1 = flag1 + 1;
-			}
-		}
-		msg1 = msg1 + '/';
-		
-		for(i=0;i<document.fm.hallType2.length;i++){
-			if(document.fm.hallType2[i].checked) {
-				if(flag2>0) {
-					msg1=msg1+',';
-				}
-				
-				msg1= msg1+document.fm.hallType2[i].value;
-				flag2 = flag2 + 1;
-			}
-		}
-		document.fm.type.value=msg1;
-		
-		var chk3 = 0;
-		
-		
-		for(i=0;i<document.fm.menu1.length;i++){
-			if(document.fm.menu1[i].checked) {
-				chk3 = chk3 + 1;
-			}
-		}
-		
-		if(chk3==0) {
-			window.alert('메뉴를 선택해주세요.');
-		} else {
-			
-			var flag3 = 0;
-			var msg2 = '';
-			
-			for(i=0;i<document.fm.menu1.length;i++){
-				if(document.fm.menu1[i].checked) {
-					if(flag3>0) {
-						msg2=msg2+',';
-					}
-					msg2= msg2+document.fm.menu1[i].value;
-					flag3 = flag3 + 1;
-				}
-			}
-			
-			document.fm.menu.value=msg2;
-			
-			fm.submit();
-		}
-	}
-	
-	
-	
-	
-	
+   
+   var chk1 = 0;
+   var chk2 = 0;
+   
+   
+   for(i=0;i<document.fm.hallType1.length;i++){
+      if(document.fm.hallType1[i].checked) {
+         chk1 = chk1 + 1;
+      }
+   }
+   for(i=0;i<document.fm.hallType2.length;i++){
+      if(document.fm.hallType2[i].checked) {
+         chk2 = chk2 + 1;
+      }
+   }
+   
+   if(chk1==0||chk2==0) {
+      window.alert('웨딩홀 타입을 선택해주세요.');
+   } else {
+      
+      var flag1 = 0;
+      var flag2 = 0;
+      var msg1 = '';
+      
+      for(i=0;i<document.fm.hallType1.length;i++){
+         if(document.fm.hallType1[i].checked) {
+            if(flag1>0) {
+               msg1=msg1+',';
+            }
+            msg1= msg1+document.fm.hallType1[i].value;
+            flag1 = flag1 + 1;
+         }
+      }
+      msg1 = msg1 + '/';
+      
+      for(i=0;i<document.fm.hallType2.length;i++){
+         if(document.fm.hallType2[i].checked) {
+            if(flag2>0) {
+               msg1=msg1+',';
+            }
+            
+            msg1= msg1+document.fm.hallType2[i].value;
+            flag2 = flag2 + 1;
+         }
+      }
+      document.fm.type.value=msg1;
+      
+      var chk3 = 0;
+      
+      
+      for(i=0;i<document.fm.menu1.length;i++){
+         if(document.fm.menu1[i].checked) {
+            chk3 = chk3 + 1;
+         }
+      }
+      
+      if(chk3==0) {
+         window.alert('메뉴를 선택해주세요.');
+      } else {
+         
+         var flag3 = 0;
+         var msg2 = '';
+         
+         for(i=0;i<document.fm.menu1.length;i++){
+            if(document.fm.menu1[i].checked) {
+               if(flag3>0) {
+                  msg2=msg2+',';
+               }
+               msg2= msg2+document.fm.menu1[i].value;
+               flag3 = flag3 + 1;
+            }
+         }
+         
+         document.fm.menu.value=msg2;
+         
+         fm.submit();
+      }
+   }
+   
+   
+   
+   
+   
 }
 
 
@@ -149,7 +149,7 @@ function show() {
                 <input type="checkbox" name="hallType1" value="동시">동시  <input type="checkbox" name="hallType1" value="분리">분리
                 <br>
                 <input type="checkbox" name="hallType2" value="하우스">하우스  <input type="checkbox" name="hallType2" value="웨딩홀">웨딩홀  
-				<input type="checkbox" name="hallType2" value="호텔">호텔 
+            <input type="checkbox" name="hallType2" value="호텔">호텔 
                </div>
             </div>
             
@@ -159,8 +159,7 @@ function show() {
                var apple ='${dto.type}';
                
                var pen1 = apple.split('/');
-               var pen11 = pen1[0].split(',');
-            	   
+               var pen11 = pen1[0].split(',');\
                var pen22 = pen1[1].split(',');
                
            		for(var i = 0; i < pen11.length; i++) {
@@ -223,6 +222,7 @@ function show() {
                var apen1 = aapple.split(',');
               
                
+<<<<<<< HEAD
            		for(var i = 0; i < apen1.length; i++) {
            		
            		for (var j = 0; j < document.fm.menu1.length; j++) {
@@ -232,6 +232,17 @@ function show() {
            	         }
            	      }
            	}
+=======
+                 for(var i = 0; i < apen1.length; i++) {
+                 
+                 for (var j = 0; j < document.fm.menu1.length; j++) {
+                    
+                       if (document.fm.menu1[j].value==apen1[i]) {
+                         document.fm.menu1[j].checked=true;
+                       }
+                    }
+              }
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb.git
                </script>
             
             
@@ -239,7 +250,7 @@ function show() {
             
             <div class="form-group">
             <input type="hidden" name="idx" value="${idx}">
-			<input type="hidden" name="hallIdx" value="${dto.hallIdx}">
+         <input type="hidden" name="hallIdx" value="${dto.hallIdx}">
                <label class="col-sm-3 control-label" >음식가격</label>
                
                <div class="col-sm-6">
@@ -250,8 +261,8 @@ function show() {
             
             <div class="form-group">
           <div class="col-sm-12 text-center">
-			<input class="btn btn-primary" type="button" value="수정하기" onclick="show()">
-				<input class="btn btn-primary" type="button" onclick="javascript:location.href='roomList.we?idx=${dto.hallIdx}'" value="뒤로가기">
+         <input class="btn btn-primary" type="button" value="수정하기" onclick="show()">
+            <input class="btn btn-primary" type="button" onclick="javascript:location.href='roomList.we?idx=${dto.hallIdx}'" value="뒤로가기">
           </div>
         </div>
          </c:forEach>

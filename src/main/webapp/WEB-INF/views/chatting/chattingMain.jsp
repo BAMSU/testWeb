@@ -19,7 +19,7 @@
 </body>
     <script type="text/javascript">
         var textarea = document.getElementById("messageWindow");
-        var webSocket = new WebSocket('ws://192.168.0.10:9090/finalproject/broadcasting');
+        var webSocket = new WebSocket('ws://192.168.20.175:9090/finalproject/broadcasting');
         
         
         var inputMessage = document.getElementById('inputMessage');
@@ -37,7 +37,7 @@
  
     
     function onMessage(event) {
-        textarea.value += "${snames} :" + event.data + "\n";  
+        textarea.value += "나 :" + event.data + "\n";  
         test();
     }
     function onOpen(event) {

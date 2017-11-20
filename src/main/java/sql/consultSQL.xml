@@ -13,7 +13,7 @@
  				#{reservation},
  				#{context},
  				'1',
- 				#{gubun},#{gubun2})
+ 				#{gubun},#{gubun2},0)
  
  	</insert>
  	

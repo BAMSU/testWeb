@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/> 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
@@ -13,7 +13,6 @@
 <%@include file="/header.jsp" %>
 <script>
     function capture() {
-    alert("ㅎㅇ");
         html2canvas($("#canv"), {
               onrendered: function(canvas) {
                 $("#imgSrc").val(canvas.toDataURL("image/png"));
@@ -26,7 +25,6 @@
                     }, 
                     success: function (data) {
                         try{
-                        	alert("성공~><ㅎ");
                         	location.href="cardOrder.we?idx="+${idx }+"&filename="+data.filename;
                         	
                         }catch(e){                
@@ -55,7 +53,7 @@
     	  window.open('insa.we','인사말',"width=300,height=500");
       }
       function hongu(){
-    	  window.open('hongu.we','혼주',"width=300,height=400");
+    	  window.open('hongu.we','혼주',"width=500,height=400");
       }
       function place(){
     	  window.open('place.we','식장위치',"width=500,height=400");
@@ -101,7 +99,7 @@
 [type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
-body{
+section{
 	margin-left:100px;
 	margin-right:100px;
 }
@@ -124,6 +122,7 @@ body{
 </head>
 <body>
 <form>
+<section>
 <br>
 <div class='left-box'>
 	<div>
@@ -134,7 +133,7 @@ body{
 	<Br>
 	<input type="hidden" name="imgSrc" id="imgSrc" />
     
-    <div id="canv" style="text-align:center; color: black; background: white; margin-left: 30px; margin-right: 30px;">
+    <div id="canv" style="text-align:center; color: black; background: white; margin-left: 30px; margin-right: 30px; height: 650px;">
     	<br><br>
         <textarea id="tinsamal" class="valu" style="height: 120px;" readonly></textarea><br>
 		<input type="text" id="tnam" value="○○○ · ○○○ 의  - ○○ " class="valu" readonly><br>
@@ -246,9 +245,10 @@ body{
 	</div>
 	층/홀 : <input type="text" id="hall" onchange="inpu()" required placeholder="층과 홀" >
 	<br><Br><br>
-	<input type="button" value="Next" onclick ="capture()" class="btn btn-outline-primary">
+	<input type="button" class="btn btn-primary" value="Next" onclick ="capture()">
 
 </div>
+</section>
 </body>
 <%@include file="/footer.jsp" %>
 </html>

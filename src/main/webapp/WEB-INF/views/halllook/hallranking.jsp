@@ -47,14 +47,20 @@ $(document).ready(function(){
 </script>
 </head>
 <style>
+section{
+		background-color: gray;
+	
+	}
 #ranking {
 	text-align: center;
 	display: inline-block;
-	border: 5px solid red;
-	width: 100%;
-	height: 600px;
+	background-color: white;
+	padding-left:50px;
+	padding-right:100px;
+	margin: 0 auto;
+		width: 100%;
+	  height: 100%;
 }
-
 span {
 	float: left;
 	width: 94px;
@@ -63,26 +69,42 @@ span {
 	cursor: pointer;
 	height: 26px;
 }
-
 #tr {
 	width: 100%;
+	height: 100%;
 }
-.but{
-text-align: center; 
-margin-top: 15px; 
-	color: #fff;
+.btn btn-secondary{
+
+    color: #fff;
+    border: 2px solid transparent !important;
+    margin-top: 15px;
+    text-align: center; 
+    width: 15px;
+    height: 15px;   
+}
+.tag{
+	background-position:  100px;
+	width: 40px;
+	height: 22px;
+	position: absolute;
+	background-color: #F78181;
+	color: black;
 }
 </style>
 <body>
 	<%@include file="/header.jsp"%>
-	<h3 style="text-align: center;">홀 랭킹</h3>
-	<div id="ranking">
-
+<div id="ran"></div>
+	
+		<p style="background-color: gray; height: 20px;margin: 0px; "></p>
+		<section>
+		<article>
+		<div id="ranking">
+<h3 style="text-align: center;">홀 랭킹</h3>
 
 		<div class="rank">
 	
 <c:set var="cnt" value="0"/>
-				<table id="tr" border="1">
+				<table id="tr" border="1px outset #ECE0F8;">
 				
 					<c:forEach var="dto" items="${hallrank}">
 				
@@ -90,16 +112,19 @@ margin-top: 15px;
 				   <tr> 
 		
 				   </c:if>
-				   <td class="ctd"><a href="rank_img"> <img
+				   <td class="ctd">
+				   
+				   <a href="rank_img"> <img
 								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
 								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
-						</a><br>
+						</a><p class="tag">${cnt+1 }위</p>
 				  <span style="text-align: center;width: 200px;"> ${dto.name}</span>
 				   <br>
 				  <p class="but" border="1">
-						<input type="button" style="background: #F5A9E1;" class="btn btn-secondary" value="홀 설명" onclick="location.href='hallInfo.we?idx=${dto.idx}'"/>
+						<input type="button"  class="btn btn-secondary"style="background: #F5A9E1;" value="홀 설명" onclick="location.href='hallInfo.we?idx=${dto.idx}'"/>
 						<br>
-						<input type="button" style="background: #F5A9E1;"class="btn btn-secondary" value="홀 통계보기" onclick="location.href='hallStats.we?idx=${dto.idx}&name=${dto.name}'"/>
+						<br>
+						<input type="button" class="btn btn-secondary"style="background: #F69D9D;" value="홀 통계보기" onclick="location.href='hallStats.we?idx=${dto.idx}&name=${dto.name}'"/>
 						</p>
 						</td>
 				    
@@ -113,7 +138,10 @@ margin-top: 15px;
 
 
 		</div>
-	</div>
+			</div>
+			</article>
+		</section>
+
 	<%@include file="/footer.jsp"%>
 </body>
 </html>
