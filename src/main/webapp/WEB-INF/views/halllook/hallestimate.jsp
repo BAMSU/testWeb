@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -18,10 +18,15 @@
 	}
 </script>
 <style>
+section{
+	background: gray;
+	width: 100%;
+}
 #est{
 	text-align:center;
 	margin: 0 auto;
-	width: 100%;
+	background: white;
+	width: 1000px;
 	height: 100%;
 }
 
@@ -30,17 +35,13 @@
 	margin: 0 auto;
 }
 .des1{
-	float: left;
 	margin: 0 auto;
-	width: 400px;
 	
 }
 .ta1{
-    width: 100%;
     border-bottom: 1px solid #f0f0f0;
 }
 .estlist{
-	float: right;
 	width:690px;
 	height:500px;
     border: 1px solid #dadcdd;
@@ -63,8 +64,11 @@ th{
 </head>
 <body> 	
 <%@include file="/header.jsp" %>
-<div id="est">
+<section>
+<article>
 <p style="background-color: gray; height: 20px;margin: 0px; "></p>
+<div id="est">
+
 	
 	<c:set var="em" value="${hallview}"/>
 	<br>
@@ -87,9 +91,9 @@ th{
 			</th>
 		</tr>
 	</table>
-		
+		<div class="tabl1" style="border:1px solid red; width: 600px; height: 200px;margin-right: 500px;text-align: center">
 		<br>
-		<table class="ta1" style="padding-top: 40px; padding-left: 50px;">
+		<table class="ta1">
 		<tr>
 			<th style="background: #FFD9EC;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;text-align: center;">식사비용 </th>
 			<td>${em.mealCost }</td>
@@ -103,22 +107,8 @@ th{
 			<td>${em.guest }</td>
 			
 			</tr>
-			<tr>
-			<td colspan="2" style="text-align: center;"><button type="button" class="btn btn-primary">상담신청</button></td>
-			</tr>
 			</table>
-				
-		</div>
-	
-	
-
-	<br>
-	<br>
-	
-		<p>본 견적은 웨딩홀에서 제공한 가격 정보를 단순 계산한 견적으로 실제 견적과의 차이가 있을 수 있습니다.</p>
-		
-		<table border="2" style="width: 300px;">
-
+			<table class="ta2" style="margin-top: 10px;float: right;">
 					<tr>
 						<th style="text-align: center;border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">웨딩홀명</th>
 						<td>${em.name }</td>
@@ -133,12 +123,18 @@ th{
 						<th style="text-align: center;border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">하객수</th>
 						<td>${em.guest }</td>
 					</tr>
-
+<tr>
+			
+			</tr>
 				</table>
+				<button type="button" class="btn btn-primary">상담신청</button>
+				</div>
+					</div>
+				<p>본 견적은 웨딩홀에서 제공한 가격 정보를 단순 계산한 견적으로 실제 견적과의 차이가 있을 수 있습니다.</p>
 				<br>
 <form name="estmode" action="hallmode.we">
 <c:set var="es" value="${hallestList }"/>
-				<table border="2" style="padding-left: 100px;">
+				<table border="2" style="margin: 0 auto;">
 				<tr>
 					<td colspan="3"style="border:1px dotted #EAEAEA;background: #FFD9FA;border-bottom: 1px solid #4c545b;border-top: 1px solid #4c545b;">${es.hall_name }</td>
 					<td colspan="3">${es.hall_idx }홀
@@ -243,7 +239,7 @@ th{
 
 			<div clas="button">
 			<br>
-				<ul style="text-align: center; margin-left: 350px;">
+				<ul style="text-align: center;">
 					<c:if test="${empty sessionScope.hallmode}">
 							<input type="hidden" name="a" value="bss">
 							<input type="hidden" name="hall_idx" value="${es.hall_idx }">
@@ -257,7 +253,8 @@ th{
 		
 	</form>
 	</div>
-	
+	</article>
+	</section>
 	<%@include file="/footer.jsp" %>
 </body>
 </html>

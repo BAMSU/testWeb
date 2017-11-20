@@ -9,13 +9,12 @@
 #search {
 	text-align: center;
 	display: inline-block;
-	width: 1000px;
-	margin: 0 auto;
-	
+	width: 950px;
+	margin-left: 150px;
 }
 #sear{
 	margin: 15px 0 15px 10px;
-	width:500px;
+	width:90%;
 	border-right: 1px solid #EBEBEB;
 }
 .wedding1{
@@ -58,7 +57,7 @@ td{
 	cursor: pointer;
 }
 </style>
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.css"/>
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -100,9 +99,9 @@ $(document).ready(function(){
 		$('#tab td:eq(3)').html(seli.mealCost);
 		$('#tab td:eq(4)').html(seli.guest);
 		$('#tab td:eq(5)').html(seli.lineType);
-		$('#tab td:eq(6)').html(seli.search_text);  */
+		$('#tab td:eq(6)').html(seli.search_text);  
 	
-	}
+	}*/
 $(document).ready(function(){
 $('.ctd:eq(0)').click(function(){
 	location.href='hallInfo.we?idx='+$('.hallidx:eq(0)').val();
@@ -143,8 +142,9 @@ $('.ctd:eq(9)').click(function(){
 <%@include file="/header.jsp" %>
 <section style="background: gray;">
 <article>
+<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 	<div id="search" style="background: white;">
-	<p style="background-color: gray; height: 20px;margin: 0px; "></p>
+	
 		<h2 style="text-align: center; font-size: 30px; margin-top: 10px;padding-top: 10px;color: #A4A4A4;">웨딩홀 검색</h2>
 		
 
@@ -284,13 +284,13 @@ $('.ctd:eq(9)').click(function(){
 			<br>
 			<c:forEach var="v" items="${hallview}" >
 			
-			<table id="sear" style="border-bottom: 2px Double #F8E0EC; text-align: center;width: 100%;">
+			<table id="sear" style="border: 2px solid black; text-align: center;margin: 0 auto;">
 			<tr>
 				<th class="ctd" rowspan="2" style="width: 200px; height: 100px;">
 				
 				<img src="/finalproject/img/hall/${v.idx}/r1.jpg" alt="홀대표사진" style=" width: 200px; height: 100px;float: left;"/>
 				
-				<input type="hidden" value="${v.idx }" class="hallidx"/>
+				<input type="hidden" value="${v.idx}" class="hallidx"/>
 		
 				
 				</th>
@@ -320,6 +320,7 @@ $('.ctd:eq(9)').click(function(){
 
 		</div>
 		</div>
+		<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 		</article>
 </section>
 	

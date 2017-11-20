@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/4/journal/bootstrap.css" />
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
@@ -47,19 +47,13 @@ $(document).ready(function(){
 </script>
 </head>
 <style>
-section{
-		background-color: gray;
-	
-	}
+
 #ranking {
 	text-align: center;
 	display: inline-block;
 	background-color: white;
-	padding-left:50px;
-	padding-right:100px;
-	margin: 0 auto;
-		width: 100%;
-	  height: 100%;
+	margin-left:450px;
+		width: 950px;
 }
 span {
 	float: left;
@@ -78,7 +72,7 @@ span {
     color: #fff;
     border: 2px solid transparent !important;
     margin-top: 15px;
-    text-align: center; 
+    
     width: 15px;
     height: 15px;   
 }
@@ -93,11 +87,11 @@ span {
 </style>
 <body>
 	<%@include file="/header.jsp"%>
-<div id="ran"></div>
+	<section style="background-color: gray;">
+		<article>
 	
 		<p style="background-color: gray; height: 20px;margin: 0px; "></p>
-		<section>
-		<article>
+		
 		<div id="ranking">
 <h3 style="text-align: center;">홀 랭킹</h3>
 
@@ -114,18 +108,19 @@ span {
 				   </c:if>
 				   <td class="ctd">
 				   
-				   <a href="rank_img"> <img
+				   <img
 								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
-								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
-						</a><p class="tag">${cnt+1 }위</p>
-				  <span style="text-align: center;width: 200px;"> ${dto.name}</span>
-				   <br>
-				  <p class="but" border="1">
-						<input type="button"  class="btn btn-secondary"style="background: #F5A9E1;" value="홀 설명" onclick="location.href='hallInfo.we?idx=${dto.idx}'"/>
-						<br>
-						<br>
+								style="width: 300px; height: 188px; margin-right: 10px;" />
+					
+						<div style="margin-top: 10px;"><p class="tag">${cnt+1 }위</p>
+				  <span style="text-align: center;width:300px; font-size:20px;"> ${dto.name}</span></div>
+				   <hr>
+				  
+				  <div style="text-align: center;">
+						<input type="button" class="btn btn-secondary"style="background: #F5A9E1;margin-right: 10px;" value="홀 설명" onclick="location.href='hallInfo.we?idx=${dto.idx}'"/>
+						
 						<input type="button" class="btn btn-secondary"style="background: #F69D9D;" value="홀 통계보기" onclick="location.href='hallStats.we?idx=${dto.idx}&name=${dto.name}'"/>
-						</p>
+						</div>
 						</td>
 				    
 				
@@ -139,6 +134,7 @@ span {
 
 		</div>
 			</div>
+			<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 			</article>
 		</section>
 
