@@ -26,12 +26,8 @@ public class HalleDAOImple implements HalleDAO {
 		return list;
 	}
 	
-	public List<HalleDTO> hallList2(int est_guest,int meal_price,int meal_price2){
-		Map map = new HashMap();
-		map.put("est_guest", est_guest);
-		map.put("price1", meal_price);
-		map.put("price2", meal_price2);
-		List<HalleDTO> list = sqlMap.selectList("hall_searchview1",map);
+	public List<HallDTO> hallList2(Map map){
+		List<HallDTO> list = sqlMap.selectList("hall_searchview1",map);
 		return list;
 	}
 	

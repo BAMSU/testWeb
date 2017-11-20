@@ -35,8 +35,13 @@ a:hover{
 </c:if>
 
 <c:if test="${!empty sessionScope.besid }">
+<<<<<<< HEAD
    ${sessionScope.besname} 업체(${sessionScope.besort}) 로그인 중  |  
    <a href="logout.we" style="color: black;">로그아웃  | </a>
+=======
+	${sessionScope.besname} 업체(${sessionScope.besort}) 로그인 중  |  
+	<a href="logout.we" style="color: black;">로그아웃  | </a>
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
 </c:if>
 <a href="beIndex.we" style="color: black;">업체메인   |  </a>
 <a href="index.we" style="color: black;"> 사랑이 머물다</a>
