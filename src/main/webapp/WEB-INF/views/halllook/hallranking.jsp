@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 <link rel="stylesheet"
 	href="https://bootswatch.com/4/journal/bootstrap.css" />
 <link rel="stylesheet" href="http://www.w3ii.com/lib/w3.css">
@@ -104,10 +104,10 @@ span {
 				   </c:if>
 				   <td class="ctd">
 				   
-				   <a href="rank_img"> <img
+				   				<img
 								src="/finalproject/img/hall/${dto.idx}/r1.jpg" alt="홀대표사진"
 								style="width: 188px; height: 188px; float: left; margin-right: 10px;" />
-						</a><p class="tag">${cnt+1 }위</p>
+						<p class="tag">${cnt+1 }위</p>
 				  <span style="text-align: center;width: 200px;"> ${dto.name}</span>
 				   <br>
 				  <p class="but" border="1">

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 </head>
 <body>
 <p>찾으시는 아이디는 ${result}입니다.</p>

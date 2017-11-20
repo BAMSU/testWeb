@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Love is staying</title>
 
 <link rel="stylesheet" href="./css/normalize.css">
 <link rel="stylesheet" href="./css/sidebar.css">
@@ -156,16 +156,18 @@ table tfoot td {
 							</c:url>
 							<td><a href="${consult_Update_Url}"><input type="button"
 									value="수정"></a> <a href="${contentUrl2}"><input
-									type="button" value="삭제"></a> <c:url var="hallreview"
-									value="hallReviewWrite.we">
+									type="button" value="삭제"></a>
+									 <c:url var="hallreview" value="hallRevieForm.we">
 									<c:param name="gubun">${dto.gubun2}</c:param>
 								</c:url> 
              				<c:if test="${dto.gubun>=2||dto.review_ok==1}">
+             				<script>
                			   document.getElementById('hallReview').style.display = 'none';
+               			   </script>
                			</c:if>
                
                
-               <a href="${hallreview} "><input id="hallReview"
+               			<a href="${hallreview} "><input id="hallReview"
 									type="button" value="홀후기 작성"></a></td>
 						</tr>
 					</c:forEach>

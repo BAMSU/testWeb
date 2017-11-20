@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Insert title here</title>
+<title>Love is staying</title>
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="favicon.ico">
@@ -317,7 +317,7 @@ margin: 0px auto;
 				<div class="container">
 					<div class="row animate-box">
 						<div class="col-md-8 col-md-offset-2 text-center heading-section">
-							<h2>Are You Attending?</h2>
+							<h2>Are You getting married?</h2>
 							<p>Please Fill-up the form to notify you that you're
 								attending. Thanks.
 						</div>
