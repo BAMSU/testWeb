@@ -201,8 +201,8 @@ th{
 					<tr>
 						<td colspan="8" align="center" height="40px;" style="font-size: 25px; background: #FFB4FF;">
 						
-						<c:set var="total" value="0"/>
-						<c:if test="${empty hales }">
+						<c:set var="total" value=0/>
+						<c:if test="${empty sum_value}">
 						총 견적비용  :  ${es.meal_price+es.ourfit_price+sum_value}
 				</c:if>
 						</td>
