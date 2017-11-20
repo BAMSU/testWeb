@@ -15,4 +15,8 @@
 	<select id="mypage_ask" parameterType="String" resultType="consult.model.ConsultDTO">
 	select * from consult where name=#{name}
 	</select>
+	
+	<update id="mobileup" parameterType="HashMap">
+		update card_order set ect=#{idx} where o_name=#{o_name}
+	</update>
 </mapper>

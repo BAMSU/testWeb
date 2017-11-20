@@ -225,6 +225,4 @@ public class CardController {
       mav.setViewName("index");
       return mav;
     }
-    
 }
-    

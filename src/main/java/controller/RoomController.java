@@ -93,7 +93,7 @@ public class RoomController {
 	public ModelAndView deleteR(int idx) {
 		ModelAndView mav = new ModelAndView();
 		String add = "roomList.we?idx=" + dao.whatHall(idx);
-		int result = dao.deleteR(idx);
+		int result = dao.deleteRR(idx);
 		
 		if(result>0) {
 			mav.addObject("msg", "삭제 성공!");
