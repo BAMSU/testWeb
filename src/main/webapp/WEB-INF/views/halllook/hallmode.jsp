@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Love is staying</title>
+<<<<<<< HEAD
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet"
    href="https://bootswatch.com/4/journal/bootstrap.css">
@@ -25,6 +26,8 @@
 <script type="text/javascript">
 
 </script>
+=======
+>>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
 <style>
 #est{
 	background: white;

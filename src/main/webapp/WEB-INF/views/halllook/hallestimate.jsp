@@ -108,7 +108,7 @@ th{
 			</tr>
 			</table>
 			
-				<button type="button" class="btn btn-primary">상담신청</button>
+				<a href="chatting/chattingMain.we"><button type="button" class="btn btn-primary">상담신청</button></a>
 				</div>
 					</div>
 				<p>본 견적은 웨딩홀에서 제공한 가격 정보를 단순 계산한 견적으로 실제 견적과의 차이가 있을 수 있습니다.</p>
@@ -201,25 +201,18 @@ th{
 					<tr>
 						<td colspan="8" align="center" height="40px;" style="font-size: 25px; background: #FFB4FF;">
 						
-						총 견적비용  :
-						
-						<c:set var="sum" value=""/> 
-			
-			 <c:if test="${checked ==es.meal_price}">
-         ${es.hall_price+es.ourfit_price+sum_value}
-    </c:if>
-
-
-
-
-							</td>
+						<c:set var="total" value="0"/>
+						<c:if test="${empty hales }">
+						총 견적비용  :  ${es.meal_price+es.ourfit_price+sum_value}
+				</c:if>
+						</td>
 					</tr>
 		
 			
 			</table>
 			
 	<div>
-			<c:if test="${empty hallestList }a">
+			<c:if test="${empty hallestList }">
 					
 						<span>견적서가 안보입니다.ㅠ_ㅠ</span>
 						
@@ -234,7 +227,7 @@ th{
 							<input type="hidden" name="a" value="bss">
 							<input type="hidden" name="hall_idx" value="${es.hall_idx }">
 							<input type="submit" value="견적 확인">
-						<input type="button" value="문의하기" onclick="inquiry()">
+						<a href="consult/consultContent.we"><input type="button" value="문의하기"></a>
 						</c:if> 
 						
 				</ul>

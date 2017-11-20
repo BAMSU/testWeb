@@ -130,8 +130,13 @@ public class HallSearchController {
 	}
 	
 	@RequestMapping("/hallestimate2.we")
-	public ModelAndView hallnum(@RequestParam(value="water")int water,@RequestParam(value="beer")int beer,@RequestParam(value="checked")int checked,@RequestParam(value="hall_idx")int hall_idx){		
+	public ModelAndView hallnum(@RequestParam(value="water")int water,
+			@RequestParam(value="beer")int beer,
+			@RequestParam(value="checked")int checked,
+			HalleDTO dto,@RequestParam(value="hall_idx")int hall_idx){		
 		int sum_value=(water*400)+(beer*2000);
+		dto = halleDao.halles(hall_idx);
+		HallDTO dto2= halleDao.halle(hall_idx);
 		ModelAndView mav = new ModelAndView();
 		List<HalleDTO> hales=halleDao.hallestList();
 		mav.addObject("water", water);

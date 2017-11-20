@@ -9,5 +9,6 @@ public interface aRoomDAO {
 	public int insertR(aRoomDTO dto);
 	public int updateR(aRoomDTO dto);
 	public int deleteR(int idx);
+	public int deleteRR(int idx);
 	public int whatHall(int idx);
 }

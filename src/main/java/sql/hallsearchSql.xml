@@ -87,9 +87,5 @@
 	</select>
 	
 
- 	  <select id="hall_rankSQL" resultType="review.model.ReviewDTO">
- 	  select * from hallreview order by idx desc
- 	  </select>
-
  
 </mapper>

@@ -34,6 +34,10 @@
 		delete from room where hallidx = #{idx}
 	</delete>
 	
+	<delete id="deleteRR" parameterType="int">
+		delete from room where idx = #{idx}
+	</delete>
+	
 	<delete id="deleteH" parameterType="int">
 		delete from hallstats where hallidx = #{idx}
 	</delete>
