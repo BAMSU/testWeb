@@ -149,7 +149,7 @@ public class CardController {
 	                file.mkdirs();
 	            }
 	            // 코드인식시 링크걸 URL주소
-	            String codeurl = new String("http://192.168.43.205:9090/finalproject/mobile_img/"+fileName + ".png");
+	            String codeurl = new String("http://192.168.20.175:9090/finalproject/mobile_img/"+fileName + ".png");
 	            // 큐알코드 바코드 생상값
 	            int qrcodeColor =   0xFF2e4e96;
 	            // 큐알코드 배경색상값

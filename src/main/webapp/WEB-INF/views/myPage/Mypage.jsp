@@ -210,7 +210,6 @@ table tfoot td {
 
 			</table>
 
-
 		</div>
 		<table class="table table-striped table-hover table-bordered">
 			<h2 style="text-align: center;">청첩장</h2>
@@ -230,7 +229,7 @@ table tfoot td {
 					</tr>
 				</c:if>
 
-				<c:forEach var="dto" items="${list3}">
+				<c:forEach var="dto" items="${list4}">
 					<tr>
 						<td>${dto.review_idx }</td>
 						<td>${dto.subject}</td>

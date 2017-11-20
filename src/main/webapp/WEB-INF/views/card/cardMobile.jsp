@@ -222,12 +222,6 @@ $("#imgInp").change(function(){
 </div>
 		
 <br>
-
-
-
-
-
-<input type="button" value="텍스트 추가">
 </section>
 </body>
 <%@include file="/footer.jsp" %>
