@@ -24,7 +24,7 @@ public class FileManagerController {
 	@RequestMapping("/fileUpload1.we")
 	public ModelAndView fileUpload1(
 			@RequestParam("upload")MultipartFile upload, int idx, String what){
-		File f = new File("C:/Users/song/git/testWeb/src/main/webapp/img/hall/"+idx);
+		File f = new File("C:/Users/HWANG/git/testWeb/src/main/webapp/img/hall/"+idx);
 		if(!f.exists()) {
 			f.mkdir();
 		}
@@ -42,7 +42,7 @@ public class FileManagerController {
 		//<img src="/finalproject/img/hall/${dto.idx}/r1.jpg">
 		try {
 			byte[] bytes = upload.getBytes();
-			File newfile = new File("C:/Users/song/git/testWeb/src/main/webapp/img/hall/"+idx+what);
+			File newfile = new File("C:/Users/HWANG/git/testWeb/src/main/webapp/img/hall/"+idx+what);
 			FileOutputStream fos = new FileOutputStream(newfile);
 			fos.write(bytes);
 			fos.close();
