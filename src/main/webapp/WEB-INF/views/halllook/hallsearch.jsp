@@ -12,20 +12,20 @@
 	display: inline-block;
 	height: 100%;
 	width: 100%;
-	padding-left: 250px;
+	padding-left: 350px;
 	padding-right: 450px;
 }
 #sear{
 	float: left;
 	margin: 15px 0 15px 10px;
-	width:150px;
+	width:500px;
 	height: 60px;
 	border-right: 1px solid #EBEBEB;
 	padding-left: 50px;
 }
 .wedding1{
 	text-align: center;
-	width: 300px;
+	width: 100%;
 }
 a:link{
 	text-decoration: none;
@@ -36,12 +36,12 @@ a:link{
 
 .halsear{
 	border: 3px dashed #FFEBFE;
+
 	
 }
 .title{
 	border: 2px dotted #FFD9EC;
 	border-bottom: 2px dotted #FFD9EC;
-	width: 500px;
 	margin: 0 atuo;
 	text-align: center;
 	background: #F8ECE0;
@@ -49,6 +49,7 @@ a:link{
 .hallview{
 	padding-left: 15px;
 	padding-right: 10px;
+	width: 100%;
 }
 #seh{
 	margin: 0 auto;
@@ -73,6 +74,10 @@ td{
 <script>
 $(document).ready(function(){
 	$('#box').val('${hallline}').prop('selected',true);
+	$('#box').change(function(){
+		var line = $(this).val();
+		location.href='hallsearch.we?lineType='+line;
+	});
 });
 function search(){
 	
@@ -86,17 +91,15 @@ function search(){
  
  	
 	$.ajax({
-		url:'hallsearch.do',
-		type:'post',
+		url:'hallsearch.we',
+		type:'get',
 		data:{
 			hallType:hallType,
 			menuType:menuType,
 			mealCost:mealCost,
-			guest:guest,
-			lineType:lineType,
-			search_text:search_text
+			guest:guest
 		},
-	success: function(data){
+	success: function(data){/* 
 		 var seli=data.hallList;
 		$('#tab td:eq(0)').html(seli.name);
 		$('#tab td:eq(1)').html(seli.hallType);
@@ -104,7 +107,7 @@ function search(){
 		$('#tab td:eq(3)').html(seli.mealCost);
 		$('#tab td:eq(4)').html(seli.guest);
 		$('#tab td:eq(5)').html(seli.lineType);
-		$('#tab td:eq(6)').html(seli.search_text); 
+		$('#tab td:eq(6)').html(seli.search_text);  */
 	
 	}
 		
@@ -159,7 +162,7 @@ $('.ctd:eq(9)').click(function(){
 
 
 <div class="hallview">
-			<form id="seh" action="hallsearch.we" method="post">
+			<form id="seh" action="hallsearch1.we">
 				
 					<table class="chk1" style="text-align: center;margin: 0 auto;">
 						<tr>
@@ -198,10 +201,10 @@ $('.ctd:eq(9)').click(function(){
 					
 					
 					
-					<table class="chk3" style="text-align:center; width: 520px; margin: 0 auto;">
+					<table class="chk3" style="text-align:center; margin: 0 auto;">
 						<tr>
 						
-							<th class="title">식대가격</th>
+							<th class="title" style="width: 100px;">식대가격</th>
 							</tr>
 							<tr>
 							<td><input type="radio" name="mealCost" value="0"checked="checked"> 30,000원
@@ -229,7 +232,8 @@ $('.ctd:eq(9)').click(function(){
 						</tr>
 					</table>
 					<br>
-					<input type="submit" value="검색">
+				 	<input type="submit" value="검색"/>
+					<!-- <input type="button" value="검색" onclick="search()"> -->
 					</form>
 					
 					<br>
