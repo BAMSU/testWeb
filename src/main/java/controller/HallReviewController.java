@@ -2,6 +2,8 @@ package controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class HallReviewController {
 	@Autowired
 	private HallDAO hallDao;
 	
-	@RequestMapping(value="hallReviewWrite.we",method=RequestMethod.GET)
+	@RequestMapping("/hallRevieForm.we")
 	public ModelAndView  hallReviewForm(@RequestParam(value="gubun",defaultValue="1")int hall_idx){
 
 		
@@ -45,10 +47,11 @@ public class HallReviewController {
 		return mav;
 	}
 	
-	@RequestMapping(value="hallReviewWrite.we", method=RequestMethod.POST)
+	@RequestMapping("/hallRevieSubmit.we")
 	public ModelAndView hallReviewWrite(ReviewDTO dto){
+
+	
 		
-		 
 		int review_sum = dto.getAvg1()+dto.getAvg2()+dto.getAvg3()+dto.getAvg4()+dto.getAvg5();
 		
 	
@@ -57,12 +60,14 @@ public class HallReviewController {
 	//	System.out.println(result2);
 	     int result2 = reviewDao.review_accrue_Update(review_sum, dto.getName());
 		
+		int result3 = reviewDao.review_ok(dto.getRoom_idx());
 		
-		
-		String msg = result>0&&result2>0?"리뷰 등록 및 랭킹정보 수정  완료 되었습니다.":"리뷰 등록 및 랭킹정보 수정  실패 되었습니다.";
+		String msg = result>0&&result2>0&&result3>0?"리뷰 등록 및 랭킹정보 수정  완료 되었습니다.":"리뷰 등록 및 랭킹정보 수정  실패 되었습니다.";
 		ModelAndView mav = new ModelAndView();
-	
+	   
 		mav.addObject("msg", msg);
+	
+		
 		mav.setViewName("review/reviewMsg");
 		
 		return mav;
@@ -72,13 +77,15 @@ public class HallReviewController {
 	
 	@RequestMapping("/AllhallList.we")
 	public ModelAndView AllhallList(@RequestParam(value="cp",defaultValue="1")int cp,
-			@RequestParam(value="idx",defaultValue="0")int idx){
+			@RequestParam(value="idx",defaultValue="0")int idx,ReviewDTO dto){
 		int totalCnt = reviewDao.getTotelContByHall(idx);
 		int listSize = 5;
 		int pageSize = 5;
 		String pageStr = PageModule.makePage("AllhallList.we", totalCnt, listSize, pageSize, cp);
 		
 		List<ReviewDTO> list=reviewDao.hallReviewList(cp, listSize, idx);
+
+		
 		
 		if(idx==0){
 			totalCnt = reviewDao.getTotelCont();

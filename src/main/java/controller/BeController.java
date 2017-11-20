@@ -30,7 +30,8 @@ import be.model.ShoesDTO;
 @Controller
 public class BeController {
 	
-	private String fileroot = "C:/Users/LG/git/testWeb/src/main/webapp/upload";
+	private String fileroot = "C:/Users/HWANG/git/testWeb/src/main/webapp/upload";
+			
 	
 	@Autowired
 	private BeDAO beDao;
