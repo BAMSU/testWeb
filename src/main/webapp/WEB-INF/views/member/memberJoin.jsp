@@ -269,7 +269,7 @@ font-size: 1.1em;
 				<tr>
 					<th>자동 가입방지</th>
 					<td class="g-recaptcha"
-						data-sitekey="6LfaSTcUAAAAAEJRszvg9YzQ8HYAg22mny4DONka"></td>
+						data-sitekey="6LcJijkUAAAAACc2bs-Q5CzMM0cCWmgeJ8gCxcjX"></td>
 
 				</tr>
 

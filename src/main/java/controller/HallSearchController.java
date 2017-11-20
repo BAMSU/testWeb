@@ -48,24 +48,19 @@ public class HallSearchController {
 	}
 	
 	
-	@RequestMapping(value="/hallsearch.we", method = RequestMethod.POST)
+	@RequestMapping(value="/hallsearch1.we")
 	public ModelAndView test(
 			@RequestParam(value="hallType")String hallType,
 			@RequestParam("menuType")String menuType,
 	         @RequestParam("guest")int est_guest,
 	         @RequestParam("mealCost")int meal_price){
 		ModelAndView mav = new ModelAndView();
-		System.out.println(hallType);
-		System.out.println(menuType);
-		System.out.println(est_guest);
-		System.out.println(meal_price);
 		Map map = new HashMap();
 		map.put("hallType", hallType);
 		map.put("menuType", menuType);
 		map.put("est_guest", est_guest);
 		map.put("meal_price", meal_price);
-		
-		List<HallDTO>hallList = halleDao.hallList(map);
+		List<HallDTO>hallList = halleDao.hallList2(map);
 		mav.addObject("hallview",hallList);
 		mav.setViewName("halllook/hallsearch");
 		return mav;
