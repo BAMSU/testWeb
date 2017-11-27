@@ -58,7 +58,7 @@ th{
 <body> 	
 <%@include file="/header.jsp" %>
 <section>
-<article>
+<article style="margin:auto; width:fit-content;">
 <p style="background-color: gray; height: 20px;margin: 0px; "></p>
 <div id="est">
 

@@ -10,7 +10,7 @@
 	text-align: center;
 	display: inline-block;
 	width: 950px;
-	margin-left: 500px;
+	margin:auto;
 }
 #sear{
 	margin: 15px 0 15px 10px;
@@ -140,8 +140,8 @@ $('.ctd:eq(9)').click(function(){
 </head>
 <body>
 <%@include file="/header.jsp" %>
-<section style="background: gray;">
-<article>
+<section style="background: gray; ">
+<article style="margin:auto; width:fit-content;">
 <p style="background-color: gray; height: 20px;margin: 0px; "></p>
 	<div id="search" style="background: white;">
 	

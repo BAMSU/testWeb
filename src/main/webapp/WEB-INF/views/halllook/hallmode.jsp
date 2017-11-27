@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Love is staying</title>
-<<<<<<< HEAD
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet"
    href="https://bootswatch.com/4/journal/bootstrap.css">
@@ -26,12 +25,11 @@
 <script type="text/javascript">
 
 </script>
-=======
->>>>>>> branch 'master' of https://github.com/BAMSU/testWeb
+
 <style>
 #est{
 	background: white;
-	width: 500px;
+	width: 750px;
 	margin: 0 auto;
 }
 
@@ -52,15 +50,17 @@
 }
 #tr5{
 	text-align: center;
-	margin-left: 30px;
+
 }
 #tr6{
 margin: 0 auto;
+width: fit-content;
+text-align: center;
 }
 #tr7{
 margin: 0 auto;
 text-align: center;
-width: 300px;
+width: 500px;
 }
 #tr8{
 margin: 0 auto;
@@ -68,21 +68,25 @@ width: 300px;
 }
 .td1{
 	width: 500px;
+	text-align: center;
+	margin: auto;	
 }
 td{
+	text-align: center;
+}
+th{
 	text-align: center;
 }
 
 </style>
 
-<script>
+<script language="javascript" src="calendar.js"></script>
 
-</script>
 </head>
 <body>
 <%@include file="/header.jsp" %>
 <section style="background: gray;">
-<article>
+<article style="margin:auto; width:fit-content;">
 <p style="background-color: gray; height: 20px;margin: 0px; "></p>
 <div id="est">
 
@@ -100,7 +104,7 @@ td{
 				</table>
 			<br>
 				
-				<table class="tr3" border="1" style="margin-left: 15px;width: 300px;">
+				<table class="tr3" border="1" style="width: 300px;text-align: center;">
 					<tr>
 					<th style="font-size: 15px;background: #FFD9EC;">하객수</th>
 						<td style="font-size: 15px;">${es.est_guest }명</td>
@@ -109,12 +113,12 @@ td{
 <br>
 
 				
-				<table class="tr4" border="1"style="margin-left: 15px;width: 350px;">
+				<table class="tr4" border="1"style="width: 350px;text-align: center;">
 					
 						<tr>
 						<th style="background: #FFD9EC;">결혼 예정일</th>
-							<td><input type="text" id="datepicker1"> <select
-								name="be">
+							<td><input type=text name=rdate size=12 onclick=Calendar_D(this);>
+							<select	name="be">
 									<option value="미정">미정</option>
 									<option value="예정">예정</option>
 									<option value="확정">확정</option>
@@ -125,7 +129,7 @@ td{
 
 				
 				<br>
-				<table class="tr5" border="1" style="margin-left: 15px;width: 400px;">
+				<table class="tr5" border="1" style="width: 300px;">
 					<tbody>
 						<tr>
 						<td colspan="2" style="background: #FFD9EC;">홀 선택</td>
@@ -239,15 +243,15 @@ td{
 			
 			<br>
 				
-				<table id="tr7" border="1">
+				<table id="tr7" border="1" style="text-align: center;">
 				<tr>
 				<th colspan="4" style="background: #FFD9EC;text-align: center;">식사 메뉴</th>
 				</tr>
 					<tr>
-						<th style="background: #FFD9EC;">선택</th>
-						<th style="background: #FFD9EC;">메뉴</th>
-						<th style="background: #FFD9EC;">단가</th>
-						<th style="background: #FFD9EC;">내용</th>
+						<th style="background: #FFD9EC;text-align: center;width: 30px;">선택</th>
+						<th style="background: #FFD9EC;text-align: center;width: 30px;">메뉴</th>
+						<th style="background: #FFD9EC;text-align: center;width: 30px;">단가</th>
+						<th style="background: #FFD9EC;text-align: center;">내용</th>
 					</tr>
 
 					<tr>

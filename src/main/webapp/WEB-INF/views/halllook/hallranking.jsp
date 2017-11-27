@@ -52,7 +52,6 @@ $(document).ready(function(){
 	text-align: center;
 	display: inline-block;
 	background-color: white;
-	margin-left:450px;
 		width: 950px;
 }
 span {
@@ -88,7 +87,7 @@ span {
 <body>
 	<%@include file="/header.jsp"%>
 	<section style="background-color: gray;">
-		<article>
+	<article style="margin:auto; width:fit-content;">
 	
 		<p style="background-color: gray; height: 20px;margin: 0px; "></p>
 		
